@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Facebook,
-  Twitter,
+
   Linkedin,
   Instagram,
   MapPin,
@@ -90,9 +90,9 @@ const Footer = () => {
                 <button className="w-10 h-10 bg-[#2a2a2a] rounded flex items-center justify-center hover:bg-[#1894a4] transition-colors">
                   <Facebook className="w-5 h-5 text-white" />
                 </button>
-                <button className="w-10 h-10 bg-[#2a2a2a] rounded flex items-center justify-center hover:bg-[#1894a4] transition-colors">
+                {/* <button className="w-10 h-10 bg-[#2a2a2a] rounded flex items-center justify-center hover:bg-[#1894a4] transition-colors">
                   <Twitter className="w-5 h-5 text-white" />
-                </button>
+                </button> */}
                 <button className="w-10 h-10 bg-[#2a2a2a] rounded flex items-center justify-center hover:bg-[#1894a4] transition-colors">
                   <Linkedin className="w-5 h-5 text-white" />
                 </button>
