@@ -1,11 +1,4 @@
-import {
-  ArrowRight,
-  Phone,
-  CheckCircle,
-  Zap,
-  Clock,
-  DollarSign,
-} from "lucide-react";
+import { ArrowRight, Phone, CheckCircle } from "lucide-react";
 
 const InsuranceDetailsSection = () => {
   const sidebarItems = [
@@ -37,7 +30,7 @@ const InsuranceDetailsSection = () => {
 
   const processFeatures = [
     {
-      icon: Zap,
+      icon: "/insurancedetailssectionvector1.png",
       title: "Fast & Easy Process",
       description:
         "There are many not of age of quis available the simply free text available in the market today you can use them maority.",
@@ -45,7 +38,7 @@ const InsuranceDetailsSection = () => {
       iconColor: "text-[#1894a4]",
     },
     {
-      icon: Clock,
+      icon: "/insurancedetailssectionvextor2.png",
       title: "Quick Claim Handle",
       description:
         "There are many not of age of quis available the simply free text available in the market today you can use them maority.",
@@ -53,7 +46,7 @@ const InsuranceDetailsSection = () => {
       iconColor: "text-[#1894a4]",
     },
     {
-      icon: DollarSign,
+      icon: "/insurancedetailssectiomvector3.png",
       title: "Save Your Money",
       description:
         "There are many not of age of quis available the simply free text available in the market today you can use them maority.",
@@ -89,53 +82,7 @@ const InsuranceDetailsSection = () => {
             </div>
 
             {/* Download Resources */}
-            <div className="bg-[#f3f5f9] rounded-lg p-6 mb-6">
-              <h3 className="text-lg font-bold text-gray-800 mb-2">
-                Download resources
-              </h3>
-
-              <div className="space-y-3">
-                {/* Travel Plan Card */}
-                <div className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-[65px] h-[65px] bg-gradient-to-br from-[#1894a4] to-[#0d7a87] rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
-                    <svg
-                      className="w-7 h-7 text-white drop-shadow-sm"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414A2 2 0 0016.414 5L14 2.586A2 2 0 0012.586 2H9z" />
-                      <path d="M3 8a2 2 0 012-2v10h8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" />
-                    </svg>
-                  </div>
-                  <p className="text-sm font-semibold text-gray-800 mb-3">
-                    Travel plan & policy
-                  </p>
-                  <button className="bg-[#1A3970] text-white px-4 py-2 rounded text-sm font-semibold hover:bg-[#2A4D8F] transition-colors">
-                    Download
-                  </button>
-                </div>
-
-                {/* Travel Term Card */}
-                <div className="bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-[65px] h-[65px] bg-gradient-to-br from-[#1894a4] to-[#0d7a87] rounded-full flex items-center justify-center mx-auto mb-3 shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
-                    <svg
-                      className="w-7 h-7 text-white drop-shadow-sm"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414A2 2 0 0016.414 5L14 2.586A2 2 0 0012.586 2H9z" />
-                      <path d="M3 8a2 2 0 012-2v10h8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" />
-                    </svg>
-                  </div>
-                  <p className="text-sm font-semibold text-gray-800 mb-3">
-                    Travel term & policy
-                  </p>
-                  <button className="bg-[#1A3970] text-white px-4 py-2 rounded text-sm font-semibold hover:bg-[#2A4D8F] transition-colors">
-                    Download
-                  </button>
-                </div>
-              </div>
-            </div>
+           
 
             {/* Talk to Insurance Agent */}
             <div className="bg-[#1A3970] rounded-lg overflow-hidden relative">
@@ -274,9 +221,13 @@ const InsuranceDetailsSection = () => {
                   className="bg-white border border-gray-200 rounded-lg p-4"
                 >
                   <div
-                    className={`w-12 h-12 ${feature.bgColor} rounded-lg flex items-center justify-center mb-3`}
+                    className={`w-12 h-12  rounded-lg flex items-center justify-center mb-3`}
                   >
-                    <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
+                    <img
+                      src={feature.icon}
+                      alt={feature.title}
+                      className={`w-6 h-6 ${feature.iconColor}`}
+                    />
                   </div>
                   <h4 className="text-base font-bold text-gray-900 mb-2">
                     {feature.title}

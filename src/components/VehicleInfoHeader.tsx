@@ -1,4 +1,5 @@
 import { type ReactNode } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface VehicleInfoProps {
   vehicleType: "car" | "bike" | "health" | "travel";
@@ -13,6 +14,27 @@ const VehicleInfoSection1 = ({
   subtitle,
   vehicleImage,
 }: VehicleInfoProps) => {
+  // determine which category button should be active
+  const isButtonActive = (button: string) => {
+    switch (button) {
+      case "VEHICLES":
+        return vehicleType === "car" || vehicleType === "bike";
+      case "HEALTH":
+        return vehicleType === "health";
+      case "TRAVEL":
+        return vehicleType === "travel";
+      case "RENT":
+        return (vehicleType as string) === "rent";
+      default:
+        return false;
+    }
+  };
+
+  const btnBase =
+    "text-white px-6 py-2 rounded font-semibold transition-colors";
+  const activeClass = "bg-[#015fc9]";
+  const inactiveClass = "bg-[#1A3970] hover:bg-[#2A4D8F]";
+  const navigate = useNavigate();
   return (
     <section className="w-full bg-white py-8 md:py-12 pb-2 md:pb-4">
       <div className="max-w-7xl mx-auto px-4">
@@ -47,16 +69,42 @@ const VehicleInfoSection1 = ({
 
                 {/* Category Buttons - centered under the image */}
                 <div className="flex flex-wrap gap-3 justify-center">
-                  <button className="bg-[#1A3970] text-white px-6 py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
+                  <button
+                    className={`${btnBase} ${
+                      isButtonActive("RENT") ? activeClass : inactiveClass
+                    }`}
+                    onClick={() => navigate("/rent")}
+                    aria-current={isButtonActive("RENT") ? "page" : undefined}
+                  >
                     RENT
                   </button>
-                  <button className="bg-[#1A3970] text-white px-6 py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
+                  <button
+                    className={`${btnBase} ${
+                      isButtonActive("VEHICLES") ? activeClass : inactiveClass
+                    }`}
+                    onClick={() => navigate("/car")}
+                    aria-current={
+                      isButtonActive("VEHICLES") ? "page" : undefined
+                    }
+                  >
                     VEHICLES
                   </button>
-                  <button className="bg-[#1A3970] text-white px-6 py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
+                  <button
+                    className={`${btnBase} ${
+                      isButtonActive("HEALTH") ? activeClass : inactiveClass
+                    }`}
+                    onClick={() => navigate("/health")}
+                    aria-current={isButtonActive("HEALTH") ? "page" : undefined}
+                  >
                     HEALTH
                   </button>
-                  <button className="bg-[#1A3970] text-white px-6 py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
+                  <button
+                    className={`${btnBase} ${
+                      isButtonActive("TRAVEL") ? activeClass : inactiveClass
+                    }`}
+                    onClick={() => navigate("/travel")}
+                    aria-current={isButtonActive("TRAVEL") ? "page" : undefined}
+                  >
                     TRAVEL
                   </button>
                 </div>
@@ -75,16 +123,42 @@ const VehicleInfoSection1 = ({
 
                 {/* Category Buttons - below image on small screens, next to image on larger screens */}
                 <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                  <button className="bg-[#1A3970] text-white px-6 py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
+                  <button
+                    className={`${btnBase} ${
+                      isButtonActive("RENT") ? activeClass : inactiveClass
+                    }`}
+                    onClick={() => navigate("/rent")}
+                    aria-current={isButtonActive("RENT") ? "page" : undefined}
+                  >
                     RENT
                   </button>
-                  <button className="bg-[#1A3970] text-white px-6 py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
+                  <button
+                    className={`${btnBase} ${
+                      isButtonActive("VEHICLES") ? activeClass : inactiveClass
+                    }`}
+                    onClick={() => navigate("/car")}
+                    aria-current={
+                      isButtonActive("VEHICLES") ? "page" : undefined
+                    }
+                  >
                     VEHICLES
                   </button>
-                  <button className="bg-[#1A3970] text-white px-6 py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
+                  <button
+                    className={`${btnBase} ${
+                      isButtonActive("HEALTH") ? activeClass : inactiveClass
+                    }`}
+                    onClick={() => navigate("/health")}
+                    aria-current={isButtonActive("HEALTH") ? "page" : undefined}
+                  >
                     HEALTH
                   </button>
-                  <button className="bg-[#1A3970] text-white px-6 py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
+                  <button
+                    className={`${btnBase} ${
+                      isButtonActive("TRAVEL") ? activeClass : inactiveClass
+                    }`}
+                    onClick={() => navigate("/travel")}
+                    aria-current={isButtonActive("TRAVEL") ? "page" : undefined}
+                  >
                     TRAVEL
                   </button>
                 </div>

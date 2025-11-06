@@ -21,8 +21,10 @@ const Navbar = () => {
     { name: "Bike", hasDropdown: false, route: "/bike" },
     { name: "Health", hasDropdown: false, route: "/health" },
     { name: "Travel", hasDropdown: false, route: "/travel" },
-    { name: "Rent", hasDropdown: false, route: "/rent" },
+    // { name: "Rent", hasDropdown: false, route: "/rent" },
     { name: "Kafala", hasDropdown: false, route: "/kafala" },
+    { name: "About Us", hasDropdown: false, route: "/aboutus" },
+    // { name: "Contact Us", hasDropdown: false, route: "/contactus" },
   ];
 
   return (
@@ -115,6 +117,7 @@ const Navbar = () => {
             </div>
 
             {/* Right Side - Contact & Menu */}
+            <Link to="/contactus">
             <div className="flex items-center gap-4">
               {/* Urgent Call */}
               <div className="hidden md:flex items-center gap-3 border-l border-r border-gray-300 px-4">
@@ -125,7 +128,9 @@ const Navbar = () => {
                     +296 358 700 88
                   </span>
                 </div>
+               
               </div>
+           
 
               {/* Grid Menu Icon */}
               <button className="hidden md:block p-2 hover:bg-gray-100 rounded">
@@ -151,6 +156,7 @@ const Navbar = () => {
                 )}
               </button>
             </div>
+            </Link>
           </div>
 
           {/* Mobile Menu */}
