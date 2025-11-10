@@ -6,8 +6,7 @@ import {
   Menu,
   X,
   Facebook,
-  Twitter,
-  Youtube,
+  Linkedin,
   Instagram,
   Mail,
   Clock,
@@ -37,20 +36,37 @@ const Navbar = () => {
               <span className="text-xs">
                 <Mail className="w-5 h-5" />
               </span>
-              <span>Email Us: support@example.com</span>
+              <span>Email Us: contact@securepathsolution.com</span>
             </div>
             <div className="hidden md:flex items-center gap-2">
               <span className="text-xs">
                 <Clock className="w-5 h-5" />
               </span>
-              <span>Working Hours: Monday - Friday, 08 am - 06 pm</span>
+              <span>Working Hours: Monday - Satursday, 09 am - 06 pm</span>
             </div>
           </div>
           <div className="flex gap-3 ">
-            <Facebook className="w-4 h-4 cursor-pointer hover:opacity-80 " />
-            <Twitter className="w-4 h-4 cursor-pointer hover:opacity-80" />
-            <Youtube className="w-4 h-4 cursor-pointer hover:opacity-80" />
-            <Instagram className="w-4 h-4 cursor-pointer hover:opacity-80" />
+            <a
+              href="https://www.facebook.com/share/1MDgfmAxRX/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Facebook className="w-4 h-4 cursor-pointer hover:opacity-80" />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/secure-path-solutions"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Linkedin className="h-4 w-4 cursor-pointer hover:opacity-80" />
+            </a>
+            <a
+              href="https://www.instagram.com/securepathsolutions.official/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Instagram className="w-4 h-4 cursor-pointer hover:opacity-80" />
+            </a>
           </div>
         </div>
       </div>
@@ -61,14 +77,18 @@ const Navbar = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link to="/">
-            <div className="flex items-center lg:mx-8  w-[118.7px] h-[70px] xl:mx-0">
-              <img
-                src="/splogo.png"
-                alt="Logo"
-                className="w-[118.7px] h-[70px]"
-              />
-              <img src="/securpathsolution.png" alt="Logo Text" className="" />
-            </div>
+              <div className="flex items-center lg:mx-8  w-[118.7px] h-[70px] xl:mx-0">
+                <img
+                  src="/splogo.png"
+                  alt="Logo"
+                  className="w-[118.7px] h-[70px]"
+                />
+                <img
+                  src="/securpathsolution.png"
+                  alt="Logo Text"
+                  className=""
+                />
+              </div>
             </Link>
 
             {/* Desktop Navigation */}
@@ -118,44 +138,42 @@ const Navbar = () => {
 
             {/* Right Side - Contact & Menu */}
             <Link to="/contactus">
-            <div className="flex items-center gap-4">
-              {/* Urgent Call */}
-              <div className="hidden md:flex items-center gap-3 border-l border-r border-gray-300 px-4">
-                <Phone className="w-5 h-5 text-teal-600" />
-                <div className="flex flex-col">
-                  <span className="text-xs text-gray-600">Urgent Call</span>
-                  <span className="text-sm font-semibold text-gray-800">
-                    +296 358 700 88
-                  </span>
+              <div className="flex items-center gap-4">
+                {/* Urgent Call */}
+                <div className="hidden md:flex items-center gap-3 border-l border-r border-gray-300 px-4">
+                  <Phone className="w-5 h-5 text-teal-600" />
+                  <div className="flex flex-col">
+                    <span className="text-xs text-gray-600">Urgent Call</span>
+                    <span className="text-sm font-semibold text-gray-800">
+                      03317495785
+                    </span>
+                  </div>
                 </div>
-               
+
+                {/* Grid Menu Icon */}
+                <button className="hidden md:block p-2 hover:bg-gray-100 rounded">
+                  <div className="grid grid-cols-3 gap-1">
+                    {[...Array(9)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="w-1.5 h-1.5 bg-gray-700 rounded-sm"
+                      ></div>
+                    ))}
+                  </div>
+                </button>
+
+                {/* Mobile Menu Toggle */}
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="md:hidden p-2 hover:bg-gray-100 rounded"
+                >
+                  {mobileMenuOpen ? (
+                    <X className="w-6 h-6" />
+                  ) : (
+                    <Menu className="w-6 h-6" />
+                  )}
+                </button>
               </div>
-           
-
-              {/* Grid Menu Icon */}
-              <button className="hidden md:block p-2 hover:bg-gray-100 rounded">
-                <div className="grid grid-cols-3 gap-1">
-                  {[...Array(9)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="w-1.5 h-1.5 bg-gray-700 rounded-sm"
-                    ></div>
-                  ))}
-                </div>
-              </button>
-
-              {/* Mobile Menu Toggle */}
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 hover:bg-gray-100 rounded"
-              >
-                {mobileMenuOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
-                  <Menu className="w-6 h-6" />
-                )}
-              </button>
-            </div>
             </Link>
           </div>
 

@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Facebook,
-  Twitter,
   Linkedin,
   Instagram,
   MapPin,
@@ -90,9 +89,9 @@ const Footer = () => {
                 <button className="w-10 h-10 bg-[#2a2a2a] rounded flex items-center justify-center hover:bg-[#1894a4] transition-colors">
                   <Facebook className="w-5 h-5 text-white" />
                 </button>
-                <button className="w-10 h-10 bg-[#2a2a2a] rounded flex items-center justify-center hover:bg-[#1894a4] transition-colors">
+                {/* <button className="w-10 h-10 bg-[#2a2a2a] rounded flex items-center justify-center hover:bg-[#1894a4] transition-colors">
                   <Twitter className="w-5 h-5 text-white" />
-                </button>
+                </button> */}
                 <button className="w-10 h-10 bg-[#2a2a2a] rounded flex items-center justify-center hover:bg-[#1894a4] transition-colors">
                   <Linkedin className="w-5 h-5 text-white" />
                 </button>
@@ -126,7 +125,7 @@ const Footer = () => {
               <div className="flex gap-3 mb-6">
                 <MapPin className="w-5 h-5 text-[#1894a4] flex-shrink-0 mt-1" />
                 <p className="text-gray-400 text-sm">
-                  55 Main Street, 2nd Block 3rd Floor, New York
+                  Office#2, 2nd Floor 12-A Muslim Town Morr, Wahdat Road Lahore.
                 </p>
               </div>
 
@@ -136,7 +135,7 @@ const Footer = () => {
               <div className="flex gap-3">
                 <MapPin className="w-5 h-5 text-[#1894a4] flex-shrink-0 mt-1" />
                 <p className="text-gray-400 text-sm">
-                  55 Main Street, 2nd Block 3rd Floor, New York
+                  Office#2, 2nd Floor 12-A Muslim Town Morr, Wahdat Road Lahore.
                 </p>
               </div>
             </div>
@@ -144,18 +143,18 @@ const Footer = () => {
             {/* Logo and Contact Column */}
             <div>
               <Link to="/">
-              <div className="flex items-center lg:mx-8  w-[118.7px] h-[70px] xl:mx-0">
-                <img
-                  src="/splogo.png"
-                  alt="Logo"
-                  className="w-[118.7px] h-[70px] filter brightness-0 invert"
-                />
-                <img
-                  src="/securpathsolution.png"
-                  alt="Logo Text"
-                  className="filter brightness-0 invert"
-                />
-              </div>
+                <div className="flex items-center lg:mx-8  w-[118.7px] h-[70px] xl:mx-0">
+                  <img
+                    src="/splogo.png"
+                    alt="Logo"
+                    className="w-[118.7px] h-[70px] filter brightness-0 invert"
+                  />
+                  <img
+                    src="/securpathsolution.png"
+                    alt="Logo Text"
+                    className="filter brightness-0 invert"
+                  />
+                </div>
               </Link>
 
               <div className="mb-6">
@@ -164,7 +163,7 @@ const Footer = () => {
                   href="mailto:office@example.com"
                   className="text-gray-400 text-sm hover:text-[#1894a4] transition-colors"
                 >
-                  office@example.com
+                  contact@securepathsolution.com
                 </a>
               </div>
 
