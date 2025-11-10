@@ -1,10 +1,10 @@
-import Navbar from "../components/Navbar";
-import HeroSection from "../components/Hero";
-import VehicleInfoHeader from "../components/VehicleInfoHeader";
-import TravelInfoSection from "../components/TravelInfoSection";
-import InsuranceDetailsSection from "../components/Insurancedetailssection";
-import FAQSection from "../components/FAQsection";
-import  Footer from "../components/Footer";
+import Navbar from "../components/common/Navbar";
+import HeroSection from "../components/common/Hero";
+import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
+import TravelInfoSection from "../components/travel/TravelInfoSection";
+import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
+import FAQSection from "../components/common/FAQsection";
+import Footer from "../components/common/Footer";
 
 const Travel = () => {
   return (

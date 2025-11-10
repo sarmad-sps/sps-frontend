@@ -22,7 +22,7 @@ const Navbar = () => {
     { name: "Health", hasDropdown: false, route: "/health" },
     { name: "Travel", hasDropdown: false, route: "/travel" },
     // { name: "Rent", hasDropdown: false, route: "/rent" },
-    { name: "Kafala", hasDropdown: false, route: "/kafala" },
+    { name: "Takaful", hasDropdown: false, route: "/takaful" },
     { name: "About Us", hasDropdown: false, route: "/aboutus" },
     // { name: "Contact Us", hasDropdown: false, route: "/contactus" },
   ];

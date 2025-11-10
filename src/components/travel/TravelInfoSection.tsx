@@ -1,4 +1,4 @@
-import InsuranceSection from "./InsuranceSection";
+import InsuranceSection from "../common/InsuranceSection";
 import TravelFormCard from "./TravelFormCard";
 
 const TravelInfoSection = () => {
@@ -11,7 +11,6 @@ const TravelInfoSection = () => {
       title="Find Best Travel Insurance in Pakistan"
       description="Compare & find coverage for your travel from top insurance providers in Pakistan."
     />
-    
   );
 };
 

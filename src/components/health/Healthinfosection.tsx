@@ -1,4 +1,4 @@
-import InsuranceSection from "./InsuranceSection";
+import InsuranceSection from "../common/InsuranceSection";
 import HealthFormCard from "./HealthFormCard";
 
 const HealthInfoSection = () => {

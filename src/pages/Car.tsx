@@ -1,10 +1,10 @@
-import FAQSection from "../components/FAQsection";
-import Footer from "../components/Footer";
-import HeroSection from "../components/Hero";
-import InsuranceDetailsSection from "../components/Insurancedetailssection";
-import Navbar from "../components/Navbar";
-import VehicleInfoHeader from "../components/VehicleInfoHeader";
-import VehicleInsuranceForm from "../components/VehicleInsuranceForm";
+import FAQSection from "../components/common/FAQsection";
+import Footer from "../components/common/Footer";
+import HeroSection from "../components/common/Hero";
+import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
+import Navbar from "../components/common/Navbar";
+import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
+import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
 import { carFormFields } from "../config/formFields";
 
 const Car = () => {

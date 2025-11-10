@@ -1,50 +1,50 @@
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
-import HealthInfoSection from "../components/health/Healthinfosection";
 import HeroSection from "../components/common/Hero";
 import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
 import Navbar from "../components/common/Navbar";
-import TestimonialsSection from "../components/common/Testinomialsection";
+import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
+import { carFormFields } from "../config/formFields";
 import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
-
-const Health = () => {
+const Takaful = () => {
   return (
     <>
       <Navbar />
       <HeroSection
-        backgroundImage="/Healthinsuarnceimage.jpg"
+        backgroundImage="/Kafalaheroimage.png"
         title={
           <>
-            Health Insurance
+            Takaful Insurance
             <br />
-            Policy
+            Form
           </>
         }
-        isCarPage={true}
+        isKafalaPage={true}
         height="h-[400px] md:h-[450px] lg:h-[500px]"
         titleSize="text-4xl md:text-5xl"
       />
-
-      <VehicleInfoHeader
-        vehicleType="health"
+         <VehicleInfoHeader
+        vehicleType="car"
         title={
           <>
-            Up to 50% Off* on
+            Motor Takaful  from Pakistan's
             <br />
-            Health Insurance
+            Top Takaful Providers
           </>
         }
-        subtitle="We are a professional and creative company and we offer you a trusty insurance on
-        your vehicle."
-        vehicleImage="/Healthicon.png"
+        subtitle="Compare & find coverage for your car from top insurance providers in Pakistan."
+        vehicleImage="/Vehicleinfosection1image1.png"
       />
-      <HealthInfoSection />
+    <VehicleInsuranceForm
+        vehicleType="car"
+        formFields={carFormFields}
+        apiEndpoint="/api/car-insurance-quotes"
+      />
       <InsuranceDetailsSection />
       <FAQSection />
-      <TestimonialsSection />
       <Footer />
     </>
   );
 };
 
-export default Health;
+export default Takaful;
