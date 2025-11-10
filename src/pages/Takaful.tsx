@@ -6,6 +6,7 @@ import Navbar from "../components/common/Navbar";
 import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
 import { carFormFields } from "../config/formFields";
 import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
+import InsuranceCard from "../components/Takaful/InsuranceCard";
 const Takaful = () => {
   return (
     <>
@@ -23,23 +24,9 @@ const Takaful = () => {
         height="h-[400px] md:h-[450px] lg:h-[500px]"
         titleSize="text-4xl md:text-5xl"
       />
-         <VehicleInfoHeader
-        vehicleType="car"
-        title={
-          <>
-            Motor Takaful  from Pakistan's
-            <br />
-            Top Takaful Providers
-          </>
-        }
-        subtitle="Compare & find coverage for your car from top insurance providers in Pakistan."
-        vehicleImage="/Vehicleinfosection1image1.png"
-      />
-    <VehicleInsuranceForm
-        vehicleType="car"
-        formFields={carFormFields}
-        apiEndpoint="/api/car-insurance-quotes"
-      />
+    
+
+      <InsuranceCard/>
       <InsuranceDetailsSection />
       <FAQSection />
       <Footer />

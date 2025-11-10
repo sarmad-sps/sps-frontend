@@ -41,6 +41,7 @@ const VehicleInsuranceForm = ({
     return initialData;
   });
 
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [insuranceQuotes, setInsuranceQuotes] = useState<InsuranceQuote[]>([]);
   const [showFreeQuote, setShowFreeQuote] = useState(false);
   const [showCalendar, setShowCalendar] = useState<string | null>(null);
@@ -54,6 +55,7 @@ const VehicleInsuranceForm = ({
       ...prev,
       [name]: value,
     }));
+    setErrors((prev) => ({ ...prev, [name]: "" })); // clear error when typing
   };
 
   const handleDateSelect = (date: Date, fieldName: string) => {
@@ -62,6 +64,7 @@ const VehicleInsuranceForm = ({
       ...prev,
       [fieldName]: formattedDate,
     }));
+    setErrors((prev) => ({ ...prev, [fieldName]: "" })); // clear error when date picked
     setShowCalendar(null);
   };
 
@@ -87,7 +90,23 @@ const VehicleInsuranceForm = ({
     return date.toLocaleDateString("en-GB");
   };
 
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    formFields.forEach((field) => {
+      if (field.required && !formData[field.name].trim()) {
+        newErrors[field.name] = `${field.label} is required`;
+      }
+    });
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleCheckInfo = async () => {
+    if (!validateForm()) {
+      window.scrollTo({ top: 200, behavior: "smooth" });
+      return;
+    }
+
     try {
       console.log(`Calling ${apiEndpoint} for ${vehicleType} insurance`);
     } catch (error) {
@@ -152,7 +171,11 @@ const VehicleInsuranceForm = ({
                 name={field.name}
                 value={formData[field.name]}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded bg-white focus:outline-none focus:border-[#1894a4] appearance-none"
+                className={`w-full px-4 py-3 border rounded bg-white focus:outline-none appearance-none ${
+                  errors[field.name]
+                    ? "border-red-500"
+                    : "border-gray-300 focus:border-[#1894a4]"
+                }`}
               >
                 <option value="">
                   {field.placeholder || "--- Select ---"}
@@ -165,6 +188,9 @@ const VehicleInsuranceForm = ({
               </select>
               <ChevronDown className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
             </div>
+            {errors[field.name] && (
+              <p className="text-red-500 text-sm mt-1">{errors[field.name]}</p>
+            )}
           </div>
         );
 
@@ -183,17 +209,19 @@ const VehicleInsuranceForm = ({
                 onClick={() => setShowCalendar(field.name)}
                 readOnly
                 placeholder={field.placeholder || "DD/MM/YYYY"}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:border-[#1894a4] hover:border-[#1894a4] transition-colors cursor-pointer"
+                className={`w-full px-4 py-3 border rounded-lg bg-white focus:outline-none cursor-pointer ${
+                  errors[field.name]
+                    ? "border-red-500"
+                    : "border-gray-300 focus:border-[#1894a4]"
+                }`}
               />
               <Calendar
                 className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"
                 onClick={() => setShowCalendar(field.name)}
               />
 
-              {/* Custom Calendar Dropdown */}
               {showCalendar === field.name && (
                 <div className="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-10 p-4 w-80">
-                  {/* Calendar Header */}
                   <div className="flex items-center justify-between mb-4">
                     <button
                       type="button"
@@ -233,7 +261,6 @@ const VehicleInsuranceForm = ({
                     </button>
                   </div>
 
-                  {/* Days of Week */}
                   <div className="grid grid-cols-7 gap-1 mb-2">
                     {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map((day) => (
                       <div
@@ -245,7 +272,6 @@ const VehicleInsuranceForm = ({
                     ))}
                   </div>
 
-                  {/* Calendar Days */}
                   <div className="grid grid-cols-7 gap-1">
                     {getDaysInMonth(currentMonth).map((date, index) => {
                       const isCurrentMonth =
@@ -261,21 +287,15 @@ const VehicleInsuranceForm = ({
                           key={index}
                           type="button"
                           onClick={() => handleDateSelect(date, field.name)}
-                          className={`
-                            h-8 w-8 text-sm rounded-lg transition-colors
-                            ${
-                              !isCurrentMonth
-                                ? "text-gray-300"
-                                : "text-gray-700"
-                            }
-                            ${isToday ? "bg-blue-100 text-blue-600" : ""}
-                            ${isSelected ? "bg-[#1894a4] text-white" : ""}
-                            ${
-                              isCurrentMonth && !isSelected && !isToday
-                                ? "hover:bg-[#1894a4] hover:text-white"
-                                : ""
-                            }
-                          `}
+                          className={`h-8 w-8 text-sm rounded-lg transition-colors ${
+                            !isCurrentMonth ? "text-gray-300" : "text-gray-700"
+                          } ${isToday ? "bg-blue-100 text-blue-600" : ""} ${
+                            isSelected ? "bg-[#1894a4] text-white" : ""
+                          } ${
+                            isCurrentMonth && !isSelected && !isToday
+                              ? "hover:bg-[#1894a4] hover:text-white"
+                              : ""
+                          }`}
                         >
                           {date.getDate()}
                         </button>
@@ -283,7 +303,6 @@ const VehicleInsuranceForm = ({
                     })}
                   </div>
 
-                  {/* Footer Buttons */}
                   <div className="flex justify-between mt-4">
                     <button
                       type="button"
@@ -294,9 +313,7 @@ const VehicleInsuranceForm = ({
                     </button>
                     <button
                       type="button"
-                      onClick={() => {
-                        handleDateSelect(new Date(), field.name);
-                      }}
+                      onClick={() => handleDateSelect(new Date(), field.name)}
                       className="text-[#1894a4] text-sm hover:underline"
                     >
                       Today
@@ -305,7 +322,6 @@ const VehicleInsuranceForm = ({
                 </div>
               )}
 
-              {/* Overlay to close calendar */}
               {showCalendar === field.name && (
                 <div
                   className="fixed inset-0 z-5"
@@ -313,6 +329,9 @@ const VehicleInsuranceForm = ({
                 />
               )}
             </div>
+            {errors[field.name] && (
+              <p className="text-red-500 text-sm mt-1">{errors[field.name]}</p>
+            )}
           </div>
         );
 
@@ -330,8 +349,15 @@ const VehicleInsuranceForm = ({
               value={formData[field.name]}
               onChange={handleInputChange}
               placeholder={field.placeholder || "Enter Value"}
-              className="w-full px-4 py-3 border border-gray-300 rounded bg-white focus:outline-none focus:border-[#1894a4]"
+              className={`w-full px-4 py-3 border rounded bg-white focus:outline-none ${
+                errors[field.name]
+                  ? "border-red-500"
+                  : "border-gray-300 focus:border-[#1894a4]"
+              }`}
             />
+            {errors[field.name] && (
+              <p className="text-red-500 text-sm mt-1">{errors[field.name]}</p>
+            )}
           </div>
         );
     }
@@ -369,7 +395,7 @@ const VehicleInsuranceForm = ({
           </div>
         </div>
 
-        {/* Form Section - Only show when not on free quote step */}
+        {/* Form Section */}
         {!showFreeQuote && (
           <div className="bg-[#F4F9FE] rounded-lg p-6 md:p-8">
             <h3 className="text-xl font-bold text-[#1A3970] mb-6">
@@ -380,7 +406,6 @@ const VehicleInsuranceForm = ({
               {formFields.map(renderFormField)}
             </div>
 
-            {/* Check Info Button - Only shown when cards are hidden */}
             {!showInsuranceCards && (
               <div className="flex justify-center mt-8">
                 <button
@@ -392,7 +417,6 @@ const VehicleInsuranceForm = ({
               </div>
             )}
 
-            {/* Insurance Cards Section - Hidden by default */}
             {showInsuranceCards &&
               insuranceQuotes.length > 0 &&
               !showFreeQuote && (
@@ -403,7 +427,6 @@ const VehicleInsuranceForm = ({
                         key={quote.id}
                         className="bg-white rounded-lg shadow-lg overflow-hidden"
                       >
-                        {/* Company Logo */}
                         <div className="bg-white p-4 flex items-center justify-center border-b">
                           <img
                             src={quote.logo}
@@ -412,7 +435,6 @@ const VehicleInsuranceForm = ({
                           />
                         </div>
 
-                        {/* Card Content */}
                         <div className="bg-[#1894a4] text-white p-4">
                           <div className="mb-4">
                             <p className="text-sm mb-1">
@@ -453,7 +475,6 @@ const VehicleInsuranceForm = ({
                     ))}
                   </div>
 
-                  {/* Confirm Button */}
                   <div className="flex justify-center">
                     <button
                       onClick={() => setShowFreeQuote(true)}
@@ -467,7 +488,6 @@ const VehicleInsuranceForm = ({
           </div>
         )}
 
-        {/* Free Quote / Second Step - shown after Confirm */}
         {showFreeQuote && (
           <div className="bg-[#F4F9FE] rounded-lg p-6 md:p-8">
             <Freeqouteinsurance

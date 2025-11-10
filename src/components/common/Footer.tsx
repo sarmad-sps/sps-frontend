@@ -86,18 +86,31 @@ const Footer = () => {
               </p>
               {/* Social Icons */}
               <div className="flex gap-3">
-                <button className="w-10 h-10 bg-[#2a2a2a] rounded flex items-center justify-center hover:bg-[#1894a4] transition-colors">
+                <a
+                  href="https://www.facebook.com/share/1MDgfmAxRX/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-[#2a2a2a] rounded flex items-center justify-center hover:bg-[#1894a4] transition-colors"
+                >
                   <Facebook className="w-5 h-5 text-white" />
-                </button>
-                {/* <button className="w-10 h-10 bg-[#2a2a2a] rounded flex items-center justify-center hover:bg-[#1894a4] transition-colors">
-                  <Twitter className="w-5 h-5 text-white" />
-                </button> */}
-                <button className="w-10 h-10 bg-[#2a2a2a] rounded flex items-center justify-center hover:bg-[#1894a4] transition-colors">
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/company/secure-path-solutions"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-[#2a2a2a] rounded flex items-center justify-center hover:bg-[#1894a4] transition-colors"
+                >
                   <Linkedin className="w-5 h-5 text-white" />
-                </button>
-                <button className="w-10 h-10 bg-[#2a2a2a] rounded flex items-center justify-center hover:bg-[#1894a4] transition-colors">
+                </a>
+                <a
+                  href="https://www.instagram.com/securepathsolutions.official/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-[#2a2a2a] rounded flex items-center justify-center hover:bg-[#1894a4] transition-colors"
+                >
                   <Instagram className="w-5 h-5 text-white" />
-                </button>
+                </a>
               </div>
             </div>
 
