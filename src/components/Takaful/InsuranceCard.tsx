@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import card1 from "../../../public/card1.png";
 import card2 from "../../../public/card2.png";
 import card3 from "../../../public/card3.png";
@@ -6,6 +7,7 @@ import card5 from "../../../public/card5.png";
 import Takaful from "../../../public/takaful.png";
 
 const InsuranceCard = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col md:flex-row justify-between bg-[aliceblue] shadow-md rounded-lg p-6 md:p-8 gap-8 max-w-5xl mx-auto border border-gray-100 my-8">
       {/* Left Section */}
@@ -84,15 +86,13 @@ const InsuranceCard = () => {
           </div>
 
           {/* Box 3 */}
-          <div className="flex flex-col items-center justify-center bg-yellow-100 rounded-lg p-4 cursor-pointer hover:shadow-md transition">
-            <img
-              src={card3}
-              alt="Motor Car Takaful"
-              className="w-10 h-10 mb-2"
-            />
-            <p className="text-gray-700 text-sm font-medium">
-              Motor Car Takaful
-            </p>
+         {/* Motor Car Takaful */}
+          <div
+            className="flex flex-col items-center justify-center bg-yellow-100 rounded-lg p-4 cursor-pointer hover:shadow-md transition"
+            onClick={() => navigate("/car-takaful")}
+          >
+            <img src={card3} alt="Motor Car Takaful" className="w-10 h-10 mb-2" />
+            <p className="text-gray-700 text-sm font-medium">Motor Car Takaful</p>
           </div>
 
           {/* Box 4 */}
@@ -101,8 +101,8 @@ const InsuranceCard = () => {
             <p className="text-gray-700 text-sm font-medium">Bike Takaful</p>
           </div>
 
-          {/* 🔥 New Box 5 - Fire Takaful */}
-       {/* 🔥 New Box 5 - Fire Takaful (image & text side by side) */}
+          {/*  New Box 5 */}
+      
 <div className="col-span-2 flex items-center justify-center bg-[#FFCDCE] rounded-lg p-4 cursor-pointer hover:shadow-md transition gap-3">
   <img
     src={card5}

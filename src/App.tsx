@@ -9,6 +9,8 @@ import Takaful from "./pages/Takaful";
 import Aboutus from "./pages/Aboutus";
 import Contactus from "./pages/Contactus";
 import Pricingplan from "./pages/Pricingplan";
+import CarTakaful from "./pages/CarTakaful";
+
 export default function App() {
   return (
     <div className="overflow-x-hidden">
@@ -22,6 +24,8 @@ export default function App() {
         <Route path="/aboutus" element={<Aboutus />} />
         <Route path="/contactus" element={<Contactus />} />
         <Route path="/pricingplan" element={<Pricingplan />} />
+        <Route path="/car-takaful" element={<CarTakaful />} />
+
       </Routes>
     </div>
   );
