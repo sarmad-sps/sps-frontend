@@ -2,7 +2,7 @@
 // import card2 from "../../../public/card2.png";
 // import card3 from "../../../public/card3.png";
 // import card4 from "../../../public/card4.png";
-// import card5 from "../../../public/card5.png"; 
+// import card5 from "../../../public/card5.png";
 // import Takaful from "../../../public/takaful.png";
 
 // const InsuranceCard = () => {
@@ -120,7 +120,6 @@
 
 // export default InsuranceCard;
 
-import { useNavigate } from "react-router-dom"; // 👈 Add this line
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
@@ -129,11 +128,7 @@ import card2 from "../../../public/card2.png";
 import card3 from "../../../public/card3.png";
 import card4 from "../../../public/card4.png";
 import card5 from "../../../public/card5.png";
-import card5 from "../../../public/card5.png";
 import Takaful from "../../../public/takaful.png";
-
-const InsuranceCard = () => {
-  const navigate = useNavigate(); // 👈 Hook for navigation
 
 import { healthTakafulFormFields } from "../../config/formFields";
 
@@ -153,6 +148,10 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
     navigate("/car-takaful");
   };
 
+  const handleTravelTakafulClick = () => {
+    navigate("/travel-takaful");
+  };
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -168,6 +167,7 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
     console.log("Health Takaful Form Data:", formData);
     alert("Health Takaful form submitted successfully!");
   };
+
   return (
     <div className="w-full max-w-5xl mx-auto px-4">
       <div className="flex flex-col md:flex-row justify-between bg-[aliceblue] shadow-md rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 my-8 overflow-hidden">
@@ -231,18 +231,12 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
                 Takaful
               </h3>
 
-        <div className="grid grid-cols-2 gap-4">
-          {/* Box 1 - Travel Takaful */}
-          <div
-            onClick={() => navigate("/travel-takaful")} // 👈 Navigate on click
-            className="flex flex-col items-center justify-center bg-blue-100 rounded-lg p-4 cursor-pointer hover:shadow-md transition hover:bg-blue-200"
-          >
-            <img src={card1} alt="Travel Takaful" className="w-10 h-10 mb-2" />
-            <p className="text-gray-700 text-sm font-medium">Travel Takaful</p>
-          </div>
               <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4">
                 {/* Box 1 */}
-                <div className="flex flex-col items-center justify-center bg-blue-100 rounded-lg p-2 sm:p-3 md:p-4 cursor-pointer hover:shadow-md transition">
+                <div
+                  onClick={handleTravelTakafulClick}
+                  className="flex flex-col items-center justify-center bg-blue-100 rounded-lg p-2 sm:p-3 md:p-4 cursor-pointer hover:shadow-md transition"
+                >
                   <img
                     src={card1}
                     alt="Travel Takaful"
@@ -295,17 +289,17 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
                   </p>
                 </div>
 
-          {/* 🔥 Box 5 - Fire Takaful */}
-          <div className="col-span-2 flex items-center justify-center bg-[#FFCDCE] rounded-lg p-4 cursor-pointer hover:shadow-md transition gap-3">
-            <img
-              src={card5}
-              alt="Fire Takaful"
-              className="w-12 h-12 object-contain"
-            />
-            <p className="text-gray-700 text-base font-semibold">
-              Fire Takaful
-            </p>
-          </div>
+                {/* 🔥 Box 5 - Fire Takaful */}
+                <div className="col-span-2 flex items-center justify-center bg-[#FFCDCE] rounded-lg p-4 cursor-pointer hover:shadow-md transition gap-3">
+                  <img
+                    src={card5}
+                    alt="Fire Takaful"
+                    className="w-12 h-12 object-contain"
+                  />
+                  <p className="text-gray-700 text-base font-semibold">
+                    Fire Takaful
+                  </p>
+                </div>
                 {/* 🔥 New Box 5 - Fire Takaful */}
                 {/* 🔥 New Box 5 - Fire Takaful (image & text side by side) */}
                 <div className="col-span-2 flex items-center justify-center bg-[#FFCDCE] rounded-lg p-2 sm:p-3 md:p-4 cursor-pointer hover:shadow-md transition gap-2 sm:gap-3">
@@ -430,4 +424,3 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
 };
 
 export default InsuranceCard;
-
