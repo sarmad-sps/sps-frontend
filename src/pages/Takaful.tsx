@@ -3,9 +3,7 @@ import Footer from "../components/common/Footer";
 import HeroSection from "../components/common/Hero";
 import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
 import Navbar from "../components/common/Navbar";
-import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
-import { carFormFields } from "../config/formFields";
-import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
+
 import InsuranceCard from "../components/Takaful/InsuranceCard";
 const Takaful = () => {
   return (
