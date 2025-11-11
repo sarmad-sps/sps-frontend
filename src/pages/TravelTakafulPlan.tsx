@@ -1,9 +1,5 @@
-import React from 'react'
-
 const TravelTakafulPlan = () => {
-  return (
-    <div>TravelTakafulPlan</div>
-  )
-}
+  return <div>TravelTakafulPlan</div>;
+};
 
-export default TravelTakafulPlan
+export default TravelTakafulPlan;

@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "../components/common/Navbar";
 import HeroSection from "../components/common/Hero";
 import TravelForm from "../components/common/TravelForm";
@@ -9,7 +8,7 @@ function TravelTakaful() {
   return (
     <div>
       <Navbar />
-          <HeroSection
+      <HeroSection
         backgroundImage="/Kafalaheroimage.png"
         title={
           <>
@@ -22,11 +21,9 @@ function TravelTakaful() {
         height="h-[400px] md:h-[450px] lg:h-[500px]"
         titleSize="text-4xl md:text-5xl"
       />
-      <TravelForm/>
-      <InsuranceDetailsSection/>
-      <Footer/>
-
-      
+      <TravelForm />
+      <InsuranceDetailsSection />
+      <Footer />
     </div>
   );
 }
