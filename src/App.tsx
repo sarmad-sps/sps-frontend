@@ -9,6 +9,7 @@ import Takaful from "./pages/Takaful";
 import Aboutus from "./pages/Aboutus";
 import Contactus from "./pages/Contactus";
 import Pricingplan from "./pages/Pricingplan";
+import TravelTakaful from "./pages/TravelTakaful";
 export default function App() {
   return (
     <div className="overflow-x-hidden">
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/aboutus" element={<Aboutus />} />
         <Route path="/contactus" element={<Contactus />} />
         <Route path="/pricingplan" element={<Pricingplan />} />
+        <Route path="/travel-takaful" element={<TravelTakaful/>}/>
       </Routes>
     </div>
   );
