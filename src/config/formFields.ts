@@ -182,3 +182,58 @@ export const healthTakafulFormFields = [
     ],
   },
 ];
+// Fire Takaful form field configuration
+export const fireTakafulFormFields = [
+  {
+    name: "yourName",
+    type: "input" as const,
+    placeholder: "Your Name",
+    required: true,
+  },
+  {
+    name: "companyName",
+    type: "input" as const,
+    placeholder: "Company Name",
+    required: true,
+  },
+  {
+    name: "workEmail",
+    type: "input" as const,
+    placeholder: "Work email",
+    required: true,
+  },
+  {
+    name: "city",
+    type: "select" as const,
+    placeholder: "City",
+    required: true,
+    options: [
+      { value: "karachi", label: "Karachi" },
+      { value: "lahore", label: "Lahore" },
+      { value: "islamabad", label: "Islamabad" },
+      { value: "rawalpindi", label: "Rawalpindi" },
+    ],
+  },
+  {
+    name: "employeeCount",
+    type: "select" as const,
+    placeholder: "Number of employees",
+    required: true,
+    options: [
+      { value: "1-10", label: "1-10" },
+      { value: "11-50", label: "11-50" },
+      { value: "51-100", label: "51-100" },
+      { value: "100+", label: "100+" },
+    ],
+  },
+  {
+    name: "insured",
+    type: "select" as const,
+    placeholder: "Are you insured",
+    required: true,
+    options: [
+      { value: "yes", label: "Yes" },
+      { value: "no", label: "No" },
+    ],
+  },
+];
