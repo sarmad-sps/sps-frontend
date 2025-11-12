@@ -1,7 +1,7 @@
-// File: CarTakafulForm.tsx
+// File: BikeTakafulForm.tsx
 import React, { useState } from "react";
 import { Calendar, ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
-import CarTakafulQuote from "./CarTakafulQuote";
+import BikeTakafulQuote from "./BikeTakafulQuote";
 
 // Types
 interface InsuranceQuote {
@@ -14,16 +14,15 @@ interface InsuranceQuote {
   total: string;
 }
 
-interface FormData {
+interface BikeFormData {
   brand: string;
   cc: string;
   model: string;
-  fuel: string;
   purchaseDate: string;
   currentValue: string;
 }
 
-// Reusable Input with Right Icon
+// Reusable Input with Icon
 const InputWithIcon: React.FC<{
   children: React.ReactNode;
   icon: React.ReactNode;
@@ -36,20 +35,19 @@ const InputWithIcon: React.FC<{
   </div>
 );
 
-const CarTakafulForm: React.FC = () => {
+const BikeTakafulForm: React.FC = () => {
   const [showPlans, setShowPlans] = useState(false);
   const [showQuote, setShowQuote] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<BikeFormData>({
     brand: "",
     cc: "",
     model: "",
-    fuel: "",
     purchaseDate: "",
     currentValue: "",
   });
-  const [errors, setErrors] = useState<Partial<FormData>>({});
+  const [errors, setErrors] = useState<Partial<BikeFormData>>({});
   const [selectedCard, setSelectedCard] = useState<InsuranceQuote | null>(null);
 
   // Calendar Logic
@@ -84,11 +82,10 @@ const CarTakafulForm: React.FC = () => {
 
   // Validation
   const validateForm = () => {
-    const newErrors: Partial<FormData> = {};
-    if (!formData.brand.trim()) newErrors.brand = "Vehicle brand is required";
-    if (!formData.cc) newErrors.cc = "Please select car CC";
-    if (!formData.model) newErrors.model = "Please select car model";
-    if (!formData.fuel) newErrors.fuel = "Please select fuel type";
+    const newErrors: Partial<BikeFormData> = {};
+    if (!formData.brand.trim()) newErrors.brand = "Bike brand is required";
+    if (!formData.cc) newErrors.cc = "Please select bike CC";
+    if (!formData.model) newErrors.model = "Please select bike model";
     if (!formData.purchaseDate) newErrors.purchaseDate = "Select purchase date";
     if (!formData.currentValue.trim()) newErrors.currentValue = "Enter current value";
     setErrors(newErrors);
@@ -117,50 +114,50 @@ const CarTakafulForm: React.FC = () => {
     setShowPlans(false);
   };
 
-  // Car-specific quotes
+  // Bike-specific quotes
   const insuranceQuotes: InsuranceQuote[] = [
     {
       id: 1,
       company: "Jubilee Takaful",
       logo: "/Jubileeinsurance.png",
-      rate: "1.25%",
-      insurancePlan: "Installment Plan",
-      installmentAmount: "Rs 938 / month",
-      total: "Rs 5,625",
+      rate: "0.95%",
+      insurancePlan: "Easy Installment",
+      installmentAmount: "Rs 280 / month",
+      total: "Rs 1,680",
     },
     {
       id: 2,
       company: "EFU Takaful",
       logo: "/Jubileeinsurance.png",
-      rate: "1.30%",
-      insurancePlan: "Easy Plan",
-      installmentAmount: "Rs 955 / month",
-      total: "Rs 5,720",
+      rate: "1.00%",
+      insurancePlan: "Smart Cover",
+      installmentAmount: "Rs 295 / month",
+      total: "Rs 1,770",
     },
     {
       id: 3,
       company: "Pak Qatar Takaful",
       logo: "/Jubileeinsurance.png",
-      rate: "1.15%",
-      insurancePlan: "Smart Plan",
-      installmentAmount: "Rs 910 / month",
-      total: "Rs 5,460",
+      rate: "0.85%",
+      insurancePlan: "Budget Plan",
+      installmentAmount: "Rs 260 / month",
+      total: "Rs 1,560",
     },
     {
       id: 4,
       company: "Takaful Pakistan",
       logo: "/Jubileeinsurance.png",
-      rate: "1.20%",
+      rate: "0.90%",
       insurancePlan: "Saver Plan",
-      installmentAmount: "Rs 925 / month",
-      total: "Rs 5,550",
+      installmentAmount: "Rs 275 / month",
+      total: "Rs 1,650",
     },
   ];
 
   // Show Quote Screen
   if (showQuote && selectedCard) {
     return (
-      <CarTakafulQuote
+      <BikeTakafulQuote
         formData={formData}
         selectedQuote={selectedCard}
         onBack={handleBack}
@@ -183,18 +180,18 @@ const CarTakafulForm: React.FC = () => {
         </div>
       </div>
 
-      <h2 className="text-xl font-semibold text-gray-800 mb-6">Vehicle Info</h2>
+      <h2 className="text-xl font-semibold text-gray-800 mb-6">Bike Info</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Brand */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Vehicle Brand *</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Bike Brand *</label>
           <input
             type="text"
             name="brand"
             value={formData.brand}
             onChange={handleChange}
-            placeholder="Your vehicle brand"
+            placeholder="e.g., Honda, Yamaha, Suzuki"
             className={`w-full border ${errors.brand ? "border-red-500" : "border-gray-300"} rounded-md px-4 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
           />
           {errors.brand && <p className="text-red-500 text-sm mt-1">{errors.brand}</p>}
@@ -202,7 +199,7 @@ const CarTakafulForm: React.FC = () => {
 
         {/* CC - With Dropdown Icon */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Car CC *</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Bike CC *</label>
           <InputWithIcon icon={<ChevronDown className="w-5 h-5" />}>
             <select
               name="cc"
@@ -211,9 +208,11 @@ const CarTakafulForm: React.FC = () => {
               className={`w-full border ${errors.cc ? "border-red-500" : "border-gray-300"} rounded-md px-4 py-3 pr-12 appearance-none bg-white focus:ring-2 focus:ring-[#1A3970] outline-none cursor-pointer`}
             >
               <option value="">Select CC</option>
-              <option>800</option>
-              <option>1000</option>
-              <option>1300</option>
+              <option>70</option>
+              <option>100</option>
+              <option>125</option>
+              <option>150</option>
+              <option>200</option>
             </select>
           </InputWithIcon>
           {errors.cc && <p className="text-red-500 text-sm mt-1">{errors.cc}</p>}
@@ -221,7 +220,7 @@ const CarTakafulForm: React.FC = () => {
 
         {/* Model - With Dropdown Icon */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Car Model *</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Bike Model *</label>
           <InputWithIcon icon={<ChevronDown className="w-5 h-5" />}>
             <select
               name="model"
@@ -229,37 +228,22 @@ const CarTakafulForm: React.FC = () => {
               onChange={handleChange}
               className={`w-full border ${errors.model ? "border-red-500" : "border-gray-300"} rounded-md px-4 py-3 pr-12 appearance-none bg-white focus:ring-2 focus:ring-[#1A3970] outline-none cursor-pointer`}
             >
-              <option value="">Select Model</option>
+              <option value="">Select Model Year</option>
+              <option>2018</option>
+              <option>2019</option>
               <option>2020</option>
               <option>2021</option>
               <option>2022</option>
+              <option>2023</option>
+              <option>2024</option>
             </select>
           </InputWithIcon>
           {errors.model && <p className="text-red-500 text-sm mt-1">{errors.model}</p>}
         </div>
 
-        {/* Fuel - With Dropdown Icon */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Fuel Type *</label>
-          <InputWithIcon icon={<ChevronDown className="w-5 h-5" />}>
-            <select
-              name="fuel"
-              value={formData.fuel}
-              onChange={handleChange}
-              className={`w-full border ${errors.fuel ? "border-red-500" : "border-gray-300"} rounded-md px-4 py-3 pr-12 appearance-none bg-white focus:ring-2 focus:ring-[#1A3970] outline-none cursor-pointer`}
-            >
-              <option value="">Select Fuel Type</option>
-              <option>Petrol</option>
-              <option>Diesel</option>
-              <option>Hybrid</option>
-            </select>
-          </InputWithIcon>
-          {errors.fuel && <p className="text-red-500 text-sm mt-1">{errors.fuel}</p>}
-        </div>
-
         {/* Purchase Date - With Calendar Icon */}
         <div className="relative">
-          <label className="block text-sm font-medium text-gray-700 mb-1">Purchase Date & Year *</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Purchase Date *</label>
           <InputWithIcon icon={<Calendar className="w-5 h-5" />}>
             <input
               type="text"
@@ -364,13 +348,13 @@ const CarTakafulForm: React.FC = () => {
 
         {/* Current Value */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Car Current Value *</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Bike Current Value *</label>
           <input
             type="text"
             name="currentValue"
             value={formData.currentValue}
             onChange={handleChange}
-            placeholder="Enter Current Value"
+            placeholder="e.g., 150000"
             className={`w-full border ${errors.currentValue ? "border-red-500" : "border-gray-300"} rounded-md px-4 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
           />
           {errors.currentValue && <p className="text-red-500 text-sm mt-1">{errors.currentValue}</p>}
@@ -390,7 +374,7 @@ const CarTakafulForm: React.FC = () => {
       {/* Plans Section */}
       {showPlans && (
         <div className="mt-12">
-          <h2 className="text-xl font-semibold text-gray-800 mb-6 text-center">Select Plan</h2>
+          <h2 className="text-xl font-semibold text-gray-800 mb-6 text-center">Select Takaful Plan</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {insuranceQuotes.map((quote) => (
               <div
@@ -405,7 +389,7 @@ const CarTakafulForm: React.FC = () => {
                 </div>
                 <div className="bg-[#1894a4] text-white p-4">
                   <div className="mb-4">
-                    <p className="text-sm mb-1">3T - Old Car Takaful</p>
+                    <p className="text-sm mb-1">Bike Takaful</p>
                     <p className="text-3xl font-bold">{quote.rate}</p>
                   </div>
                   <div className="space-y-2 text-sm mb-4">
@@ -455,4 +439,4 @@ const CarTakafulForm: React.FC = () => {
   );
 };
 
-export default CarTakafulForm;
+export default BikeTakafulForm;

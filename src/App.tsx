@@ -11,8 +11,9 @@ import Contactus from "./pages/Contactus";
 import Pricingplan from "./pages/Pricingplan";
 import TravelTakaful from "./pages/TravelTakaful";
 import CarTakaful from "./pages/CarTakaful";
-
+import FireTakaful from "./pages/FireTakaful";
 import Healthtakaful from "./pages/Healthtakaful";
+import BikeTakaful from "./pages/BikeTakaful";
 export default function App() {
   return (
     <div className="overflow-x-hidden">
@@ -28,7 +29,8 @@ export default function App() {
         <Route path="/pricingplan" element={<Pricingplan />} />
         <Route path="/travel-takaful" element={<TravelTakaful/>}/>
         <Route path="/car-takaful" element={<CarTakaful />} />
-
+        <Route path="/bike-takaful" element={<BikeTakaful />} />
+         <Route path="/fire-takaful" element={<FireTakaful />} />
         <Route path="/healthtakaful" element={<Healthtakaful />} />
       </Routes>
     </div>
