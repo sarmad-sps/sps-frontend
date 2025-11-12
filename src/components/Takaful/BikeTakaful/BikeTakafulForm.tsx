@@ -380,9 +380,9 @@ const BikeTakafulForm: React.FC = () => {
               <div
                 key={quote.id}
                 onClick={() => setSelectedCard(quote)}
-                className={`cursor-pointer bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition ${
-                  selectedCard?.id === quote.id ? "ring-2 ring-[#1894a4]" : ""
-                }`}
+                className={`cursor-pointer bg-white rounded-lg overflow-hidden transition 
+    shadow-[0_0_15px_rgba(0,0,0,0.1)] hover:shadow-[0_0_25px_rgba(0,0,0,0.15)]
+    ${selectedCard?.id === quote.id ? "ring-2 ring-[#1894a4]" : ""}`}
               >
                 <div className="bg-white p-4 flex items-center justify-center border-b">
                   <img src={quote.logo} alt={quote.company} className="h-12 object-contain" />
