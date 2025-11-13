@@ -6,7 +6,6 @@ import {
   MapPin,
   ChevronRight,
 } from "lucide-react";
-
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -33,14 +32,14 @@ const Footer = () => {
     <footer className="w-full">
       {/* Top CTA Section */}
       <div className="bg-[#1894a4] py-10">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-12"> 
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <h3 className="text-2xl md:text-4xl font-bold text-white">
               Get Free Consultations! We're
               <span className="block">Ready to Work Together</span>
             </h3>
             <button className="bg-white text-[#1894a4] px-6 py-3 rounded font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
-              Get Free Consultations ≫
+               Get Free Consultations ≫
             </button>
           </div>
         </div>
@@ -48,7 +47,7 @@ const Footer = () => {
 
       {/* Newsletter Section */}
       <div className="bg-[#1a1a1a] py-8">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h4 className="text-xl font-bold text-white mb-2">
@@ -72,7 +71,7 @@ const Footer = () => {
 
       {/* Main Footer Content */}
       <div className="bg-[#0f0f0f] py-12">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-12"> 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* About Company Column */}
             <div>
@@ -156,7 +155,7 @@ const Footer = () => {
             {/* Logo and Contact Column */}
             <div>
               <Link to="/">
-                <div className="flex items-center lg:mx-8  w-[118.7px] h-[70px] xl:mx-0">
+                <div className="flex items-center lg:mx-8 w-[118.7px] h-[70px] xl:mx-0">
                   <img
                     src="/splogo.png"
                     alt="Logo"
@@ -190,7 +189,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="bg-[#0f0f0f] py-4">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-12"> 
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Footer Links */}
             <div className="flex flex-wrap items-center gap-4 text-gray-500 text-sm">

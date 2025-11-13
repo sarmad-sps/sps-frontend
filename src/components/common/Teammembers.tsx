@@ -1,30 +1,28 @@
-
-
 export default function TeamSection() {
   const teamMembers = [
     {
       id: 1,
       name: 'Mark D.Brock',
       position: 'CEO & Founder',
-      image: '/Member1.jpg', // Replace with your actual image path
+      image: '/Member1.jpg',
     },
     {
       id: 2,
       name: 'Mark D.Brock',
       position: 'CEO & Founder',
-      image: '/Member2.jpg', // Replace with your actual image path
+      image: '/Member2.jpg',
     },
     {
       id: 3,
       name: 'Mark D.Brock',
       position: 'CEO & Founder',
-      image: '/Member2.jpg', // Replace with your actual image path
+      image: '/Member2.jpg',
     },
     {
       id: 4,
       name: 'Mark D.Brock',
       position: 'CEO & Founder',
-      image: '/Member2.jpg', // Replace with your actual image path
+      image: '/Member2.jpg',
     },
   ];
 
@@ -33,7 +31,7 @@ export default function TeamSection() {
       {/* Background */}
       <div className="absolute inset-0 bg-gray-100"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4">
+      <div className="relative z-10 max-w-7xl mx-auto px-12"> 
         {/* Section Header */}
         <div className="text-center mb-12">
           <p className="text-gray-700 text-sm md:text-base font-semibold mb-2">

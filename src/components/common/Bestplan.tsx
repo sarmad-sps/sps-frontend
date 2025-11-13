@@ -48,7 +48,7 @@ export default function PricingPlans() {
       {/* Background with gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-gray-100"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4">
+      <div className="relative z-10 max-w-7xl mx-auto px-12"> 
         {/* Section Header */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-4">
@@ -100,7 +100,7 @@ export default function PricingPlans() {
               <div className="p-8">
                 <div className="flex items-center justify-between mb-6">
                   {/* Icon on Left */}
-                  <div className="w-24 h-24  rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-24 h-24 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     {plan.icon.startsWith("/") ? (
                       <img
                         src={plan.icon}

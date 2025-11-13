@@ -171,7 +171,7 @@ const VehicleInsuranceForm = ({
                 name={field.name}
                 value={formData[field.name]}
                 onChange={handleInputChange}
-                className={`w-full px-4 py-3 border rounded bg-white focus:outline-none appearance-none ${
+                className={`w-full px-12 py-3 border rounded bg-white focus:outline-none appearance-none ${
                   errors[field.name]
                     ? "border-red-500"
                     : "border-gray-300 focus:border-[#1894a4]"
@@ -209,7 +209,7 @@ const VehicleInsuranceForm = ({
                 onClick={() => setShowCalendar(field.name)}
                 readOnly
                 placeholder={field.placeholder || "DD/MM/YYYY"}
-                className={`w-full px-4 py-3 border rounded-lg bg-white focus:outline-none cursor-pointer ${
+                className={`w-full px-12 py-3 border rounded-lg bg-white focus:outline-none cursor-pointer ${
                   errors[field.name]
                     ? "border-red-500"
                     : "border-gray-300 focus:border-[#1894a4]"
@@ -349,7 +349,7 @@ const VehicleInsuranceForm = ({
               value={formData[field.name]}
               onChange={handleInputChange}
               placeholder={field.placeholder || "Enter Value"}
-              className={`w-full px-4 py-3 border rounded bg-white focus:outline-none ${
+              className={`w-full px-12 py-3 border rounded bg-white focus:outline-none ${
                 errors[field.name]
                   ? "border-red-500"
                   : "border-gray-300 focus:border-[#1894a4]"
@@ -365,7 +365,7 @@ const VehicleInsuranceForm = ({
 
   return (
     <section className="w-full bg-white pt-2 md:pt-4 pb-8 md:pb-12">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-12">
         {/* Step Indicator */}
         <div className="flex items-center justify-center mb-8">
           <div className="flex items-center gap-4">

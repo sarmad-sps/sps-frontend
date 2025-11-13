@@ -1,3 +1,4 @@
+
 interface HeroProps {
   backgroundImage?: string;
   title?: React.ReactNode;
@@ -20,9 +21,8 @@ const HeroSection = ({
   return (
     <section className={`relative w-full ${height} overflow-hidden`}>
       {isKafalaPage ? (
-        // Kafala Insurance Layout - Blue gradient left, image right
+        // Kafala Insurance Layout
         <div className="relative w-full h-full">
-          {/* Background Image on the right */}
           <div className="absolute inset-0">
             <img
               src={backgroundImage}
@@ -32,21 +32,16 @@ const HeroSection = ({
             />
           </div>
 
-          {/* Blue gradient overlay from left */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#1A3970] via-[#1A3970]/95 to-transparent w-3/5 xl:w-1/2"></div>
 
-          {/* Text content on the left */}
           <div className="relative z-10 h-full flex items-center">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full">
+            <div className="max-w-7xl mx-auto px-12 w-full"> 
               <div className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
-                <h1
-                  className={`text-white ${titleSize} font-bold leading-tight`}
-                >
+                <h1 className={`text-white ${titleSize} font-bold leading-tight`}>
                   {title}
                 </h1>
                 <p className="text-white/90 text-lg md:text-xl mt-4 leading-relaxed">
-                  Comprehensive protection for your employees and domestic
-                  workers
+                  Comprehensive protection for your employees and domestic workers
                 </p>
               </div>
             </div>
@@ -55,7 +50,6 @@ const HeroSection = ({
       ) : isCarPage ? (
         // Car Insurance Split Layout
         <div className="relative w-full h-full">
-          {/* Background Image positioned to show both text and family */}
           <div className="absolute inset-0">
             <img
               src={backgroundImage}
@@ -65,16 +59,12 @@ const HeroSection = ({
             />
           </div>
 
-          {/* White gradient overlay from left */}
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent w-2/5 xl:w-1/2.5"></div>
 
-          {/* Text content on the left */}
           <div className="relative z-10 h-full flex items-center">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full">
+            <div className="max-w-7xl mx-auto px-12 w-full">
               <div className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
-                <h1
-                  className={`text-[#002244] ${titleSize} md:leading-tight font-bold`}
-                >
+                <h1 className={`text-[#002244] ${titleSize} md:leading-tight font-bold`}>
                   {title}
                 </h1>
               </div>
@@ -84,7 +74,6 @@ const HeroSection = ({
       ) : isBikePage ? (
         // Bike Insurance Split Layout
         <div className="relative w-full h-full">
-          {/* Background Image positioned more to the right for bike */}
           <div className="absolute inset-0">
             <img
               src={backgroundImage}
@@ -94,16 +83,12 @@ const HeroSection = ({
             />
           </div>
 
-          {/* White gradient overlay from left - same as car */}
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent w-2/5 xl:w-1/2.5"></div>
 
-          {/* Text content on the left */}
           <div className="relative z-10 h-full flex items-center">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full">
+            <div className="max-w-7xl mx-auto px-12 w-full"> 
               <div className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
-                <h1
-                  className={`text-[#002244] ${titleSize} md:leading-tight font-bold`}
-                >
+                <h1 className={`text-[#002244] ${titleSize} md:leading-tight font-bold`}>
                   {title}
                 </h1>
               </div>
@@ -111,28 +96,23 @@ const HeroSection = ({
           </div>
         </div>
       ) : (
-        // Original Home Page Layout
+        // Home Page Layout
         <>
-          {/* Background Image */}
           <div className="absolute inset-0">
             <img
               src={backgroundImage}
               alt="Business consultation"
               className="w-full h-full object-cover"
             />
-            {/* Dark overlay */}
             <div className="absolute inset-0 bg-black/50"></div>
           </div>
 
-          {/* Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 h-full flex items-center">
+          <div className="relative z-10 max-w-7xl mx-auto px-12 h-full flex items-center"> 
             <div className="max-w-2xl">
-              {/* Main Heading */}
               <h1 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-tight mb-4">
                 {title}
               </h1>
 
-              {/* Subheading */}
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-1 h-8 bg-white"></div>
                 <p className="text-white text-lg md:text-xl font-medium">
@@ -140,46 +120,26 @@ const HeroSection = ({
                 </p>
               </div>
 
-              {/* CTA Button */}
               <button className="bg-[#1A3970] text-white px-8 py-3 rounded font-semibold hover:bg-[#132B55] transition-colors mb-8">
-                Free Consulting &gt;&gt;
+                Free Consulting
               </button>
 
-              {/* Testimonials Section */}
               <div className="flex items-center gap-4">
-                {/* Avatar Group */}
                 <div className="flex -space-x-3">
                   <div className="w-12 h-12 rounded-full bg-blue-500 border-2 border-white overflow-hidden">
-                    <img
-                      src="/HeroImage1.png"
-                      alt="Client"
-                      className="w-full h-full object-cover"
-                    />
+                    <img src="/HeroImage1.png" alt="Client" className="w-full h-full object-cover" />
                   </div>
                   <div className="w-12 h-12 rounded-full bg-purple-500 border-2 border-white overflow-hidden">
-                    <img
-                      src="/HeroImage1.png"
-                      alt="Client"
-                      className="w-full h-full object-cover"
-                    />
+                    <img src="/HeroImage1.png" alt="Client" className="w-full h-full object-cover" />
                   </div>
                   <div className="w-12 h-12 rounded-full bg-pink-500 border-2 border-white overflow-hidden">
-                    <img
-                      src="/HeroImage1.png"
-                      alt="Client"
-                      className="w-full h-full object-cover"
-                    />
+                    <img src="/HeroImage1.png" alt="Client" className="w-full h-full object-cover" />
                   </div>
                   <div className="w-12 h-12 rounded-full bg-teal-500 border-2 border-white overflow-hidden">
-                    <img
-                      src="/HeroImage1.png"
-                      alt="Client"
-                      className="w-full h-full object-cover"
-                    />
+                    <img src="/HeroImage1.png" alt="Client" className="w-full h-full object-cover" />
                   </div>
                 </div>
 
-                {/* Testimonial Text */}
                 <div className="text-white">
                   <p className="font-bold text-lg">+12k Testimonials</p>
                   <p className="text-sm text-gray-300">Client feedback</p>

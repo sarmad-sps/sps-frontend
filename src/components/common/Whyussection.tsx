@@ -1,18 +1,102 @@
 import { Handshake } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+
+interface CircularProgressProps {
+  percentage: number;
+  size?: number; // diameter in px
+  strokeWidth?: number;
+  color?: string;
+  bgColor?: string;
+  triggerAnimation?: boolean;
+}
+
+const CircularProgress: React.FC<CircularProgressProps> = ({
+  percentage,
+  size = 128,
+  strokeWidth = 12,
+  color = "#1894a4",
+  bgColor = "#e5e7eb",
+  triggerAnimation = true,
+}) => {
+  const radius = (size - strokeWidth) / 2;
+  const circumference = 2 * Math.PI * radius;
+
+  const [offset, setOffset] = useState(circumference);
+
+  useEffect(() => {
+    if (triggerAnimation) {
+      const timeout = setTimeout(() => {
+        setOffset(circumference * (1 - percentage / 100));
+      }, 100);
+      return () => clearTimeout(timeout);
+    } else {
+      setOffset(circumference);
+    }
+  }, [circumference, percentage, triggerAnimation]);
+
+  return (
+    <div className="relative" style={{ width: size, height: size }}>
+      <svg width={size} height={size} className="transform -rotate-90">
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          stroke={bgColor}
+          strokeWidth={strokeWidth}
+          fill="none"
+        />
+        <circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius}
+          stroke={color}
+          strokeWidth={strokeWidth}
+          fill="none"
+          strokeDasharray={circumference}
+          strokeDashoffset={offset}
+          strokeLinecap="round"
+          className="transition-all duration-[2500ms] ease-out"
+        />
+      </svg>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <span className="text-xl md:text-2xl lg:text-3xl font-bold text-[#1A3970]">
+          {percentage}%
+        </span>
+      </div>
+    </div>
+  );
+};
 
 const WhyUsSection = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setInView(entry.isIntersecting); // animate every time section comes into view
+        });
+      },
+      { threshold: 0.3 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
+
   return (
-    <section className="w-full bg-[#E3EFF0] py-16 md:py-20">
-      <div className="max-w-7xl mx-auto px-4">
+    <section ref={sectionRef} className="w-full bg-[#E3EFF0] py-16 md:py-20">
+      <div className="max-w-7xl mx-auto px-12">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-center">
           {/* Left Side - Content */}
           <div>
-            {/* Section Tag */}
             <p className="text-gray-700 text-sm md:text-base font-semibold mb-2">
               Get Know Why Us
             </p>
 
-            {/* Main Heading */}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               <span className="text-black">Strategic Edge Advisors</span>
               <br />
@@ -21,7 +105,6 @@ const WhyUsSection = () => {
               <span className="text-[#1A3970]">Business Landscape</span>
             </h2>
 
-            {/* Description */}
             <p className="text-gray-600 leading-relaxed mb-8">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem
               accusantium doloremque laudantium totam rem aperiam eaque abillo
@@ -32,79 +115,33 @@ const WhyUsSection = () => {
             {/* Progress Circles */}
             <div className="grid grid-cols-2 gap-8 mb-8">
               {/* Business Strategy */}
-              <div>
-                <div className="relative w-32 h-32 mb-4">
-                  {/* Circular progress */}
-                  <svg className="w-full h-full transform -rotate-90">
-                    <circle
-                      cx="64"
-                      cy="64"
-                      r="56"
-                      stroke="#e5e7eb"
-                      strokeWidth="12"
-                      fill="none"
-                    />
-                    <circle
-                      cx="64"
-                      cy="64"
-                      r="56"
-                      stroke="#1894a4"
-                      strokeWidth="12"
-                      fill="none"
-                      strokeDasharray="351.68"
-                      strokeDashoffset="116"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-3xl font-bold text-[#1A3970]">
-                      65%
-                    </span>
-                  </div>
-                </div>
-                <h3 className="text-lg font-bold text-black mb-2">
+              <div className="flex flex-col items-center">
+                <CircularProgress
+                  percentage={56}
+                  size={128}
+                  strokeWidth={12}
+                  triggerAnimation={inView}
+                />
+                <h3 className="text-lg font-bold text-black mt-4 mb-2">
                   Business Strategy
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-600 text-sm text-center">
                   Sed ut perspiciatis unde omnis iste natus error sit volupta
                 </p>
               </div>
 
               {/* Financial Planning */}
-              <div>
-                <div className="relative w-32 h-32 mb-4">
-                  {/* Circular progress */}
-                  <svg className="w-full h-full transform -rotate-90">
-                    <circle
-                      cx="64"
-                      cy="64"
-                      r="56"
-                      stroke="#e5e7eb"
-                      strokeWidth="12"
-                      fill="none"
-                    />
-                    <circle
-                      cx="64"
-                      cy="64"
-                      r="56"
-                      stroke="#1894a4"
-                      strokeWidth="12"
-                      fill="none"
-                      strokeDasharray="351.68"
-                      strokeDashoffset="77"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-3xl font-bold text-[#1A3970]">
-                      78%
-                    </span>
-                  </div>
-                </div>
-                <h3 className="text-lg font-bold text-black mb-2">
+              <div className="flex flex-col items-center">
+                <CircularProgress
+                  percentage={78}
+                  size={128}
+                  strokeWidth={12}
+                  triggerAnimation={inView}
+                />
+                <h3 className="text-lg font-bold text-black mt-4 mb-2">
                   Financial Planning
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-600 text-sm text-center">
                   Sed ut perspiciatis unde omnis iste natus error sit volupta
                 </p>
               </div>
@@ -116,27 +153,35 @@ const WhyUsSection = () => {
             </button>
           </div>
 
-          {/* Right Side - Image with Decorative Elements */}
+          {/* Right Side - Image with Large Animated Ring */}
           <div className="relative flex flex-col sm:flex-row items-center justify-center xl:justify-start xl:-ml-10 gap-4 sm:gap-1">
-            {/* Decorative Circle - Large Teal Ring (Green circle - separate from image) */}
-            <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 border-[30px] sm:border-[40px] md:border-[50px] lg:border-[70px] border-[#1894a4] rounded-full flex-shrink-0"></div>
+            {/* Animated Large Teal Ring */}
+            <div className="relative flex-shrink-0">
+              <CircularProgress
+                percentage={90}   // main ring percentage
+                size={180}        // bigger size
+                strokeWidth={22}  // thick border
+                color="#1894a4"
+                bgColor="#E3EFF0"
+                triggerAnimation={inView}
+              />
+            </div>
 
             {/* Image Container */}
-            <div className="relative flex-shrink-0">
-              {/* Main Image */}
-              <img
-                src="/Whyusimage.png"
-                alt="Team collaboration"
-                className="w-[240px] h-[380px] sm:w-[280px] sm:h-[450px] md:w-[320px] md:h-[520px] lg:w-[375px] lg:h-[600px] object-cover rounded-2xl transform scale-x-[-1]"
-              />
+            {/* Image Container */}
+<div className="relative flex-shrink-0 ml-6 sm:ml-8 md:ml-10 lg:ml-12">
+  <img
+    src="/Whyusimage.png"
+    alt="Team collaboration"
+    className="w-[240px] h-[380px] sm:w-[280px] sm:h-[450px] md:w-[320px] md:h-[520px] lg:w-[375px] lg:h-[600px] object-cover rounded-2xl transform scale-x-[-1]"
+  />
 
-              {/* Decorative Circle - Top Left (Blue circle on top-left of image) */}
-              <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 md:-top-8 md:-left-8 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 bg-[#1A3970] rounded-full flex items-center justify-center z-20">
-                <Handshake className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 text-white" />
-              </div>
+  {/* Decorative Handshake Circle */}
+  <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 md:-top-8 md:-left-8 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 bg-[#1A3970] rounded-full flex items-center justify-center z-20">
+    <Handshake className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 text-white" />
+  </div>
+</div>
 
-              {/* Decorative Element - Bottom Right Orange */}
-            </div>
           </div>
         </div>
       </div>

@@ -57,7 +57,7 @@ const InsuranceDetailsSection = () => {
 
   return (
     <section className="w-full bg-white py-16 md:py-20">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-12"> 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left Sidebar */}
           <div className="lg:col-span-3">
@@ -80,9 +80,6 @@ const InsuranceDetailsSection = () => {
                 ))}
               </ul>
             </div>
-
-            {/* Download Resources */}
-           
 
             {/* Talk to Insurance Agent */}
             <div className="bg-[#1A3970] rounded-lg overflow-hidden relative">
@@ -220,9 +217,7 @@ const InsuranceDetailsSection = () => {
                   key={index}
                   className="bg-white border border-gray-200 rounded-lg p-4"
                 >
-                  <div
-                    className={`w-12 h-12  rounded-lg flex items-center justify-center mb-3`}
-                  >
+                  <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-3">
                     <img
                       src={feature.icon}
                       alt={feature.title}

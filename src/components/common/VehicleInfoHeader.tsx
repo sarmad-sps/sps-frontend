@@ -15,16 +15,16 @@ const VehicleInfoSection1 = ({
 }: VehicleInfoProps) => {
   return (
     <section className="w-full bg-white py-8 md:py-12 pb-2 md:pb-4">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-12"> 
         {/* Header */}
         <div className="flex flex-col lg:flex-row items-start justify-between mb-4 gap-8">
           {/* Left Side - Text Content */}
           <div className="flex-1">
-            <p className="text-gray-600 text-sm mb-2">≫≫ FREE QUOTE ≪≪</p>
+            <p className="text-gray-600 text-sm mb-2">FREE QUOTE</p>
             <h2 className="text-3xl md:text-4xl font-bold text-[#1A3970] mb-2 leading-tight">
               {title}
             </h2>
-            <p className="text-gray-600 ">{subtitle}</p>
+            <p className="text-gray-600">{subtitle}</p>
           </div>
 
           {/* Right Side - Image and Buttons */}
@@ -47,10 +47,10 @@ const VehicleInfoSection1 = ({
                     }
                     className={`h-auto ${
                       vehicleType === "health"
-                        ? "w-20 filter brightness-0" // Much smaller and black & white for health
+                        ? "w-20 filter brightness-0"
                         : vehicleType === "travel"
-                        ? "w-32" // Medium size for travel
-                        : "w-40" // Normal size for car
+                        ? "w-32"
+                        : "w-40"
                     }`}
                   />
                 </div>

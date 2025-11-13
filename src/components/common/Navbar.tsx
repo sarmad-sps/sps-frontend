@@ -20,10 +20,8 @@ const Navbar = () => {
     { name: "Bike", hasDropdown: false, route: "/bike" },
     { name: "Health", hasDropdown: false, route: "/health" },
     { name: "Travel", hasDropdown: false, route: "/travel" },
-    // { name: "Rent", hasDropdown: false, route: "/rent" },
     { name: "Takaful", hasDropdown: false, route: "/takaful" },
     { name: "About Us", hasDropdown: false, route: "/aboutus" },
-    // { name: "Contact Us", hasDropdown: false, route: "/contactus" },
   ];
 
   return (
@@ -71,13 +69,13 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Main Navbar */}
-      <div className="bg-white shadow-md  ">
-        <div className="max-w-7xl mx-auto px-4">
+      {/* Main Navbar - Sirf Left-Right Padding */}
+      <div className="bg-white shadow-md">
+        <div className="max-w-7xl mx-auto px-12 py-0">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link to="/">
-              <div className="flex items-center lg:mx-8  w-[118.7px] h-[70px] xl:mx-0">
+              <div className="flex items-center lg:mx-8 w-[118.7px] h-[70px] xl:mx-0">
                 <img
                   src="/splogo.png"
                   alt="Logo"
@@ -139,7 +137,6 @@ const Navbar = () => {
             {/* Right Side - Contact & Menu */}
             <div className="flex items-center gap-2 sm:gap-4">
               <Link to="/contactus" className="hidden lg:block">
-                {/* Urgent Call */}
                 <div className="flex items-center gap-3 border-l border-r border-gray-300 px-4">
                   <Phone className="w-4 h-4 lg:w-5 lg:h-5 text-teal-600" />
                   <div className="flex flex-col">
@@ -151,7 +148,6 @@ const Navbar = () => {
                 </div>
               </Link>
 
-              {/* Grid Menu Icon - Desktop only */}
               <Link to="/contactus">
                 <button className="hidden lg:block p-2 hover:bg-gray-100 rounded">
                   <div className="grid grid-cols-3 gap-1">
@@ -179,10 +175,10 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu - Sirf Left-Right Padding (thoda vertical space rakha UX ke liye) */}
           {mobileMenuOpen && (
             <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg absolute left-0 right-0 z-50 max-h-screen overflow-y-auto">
-              <div className="max-w-7xl mx-auto px-4 py-4">
+              <div className="max-w-7xl mx-auto px-4 py-3">
                 {navItems.map((item) => (
                   <div
                     key={item.name}
@@ -206,9 +202,7 @@ const Navbar = () => {
                     <div className="flex items-center gap-3 px-2 py-3 hover:bg-gray-50 rounded">
                       <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-teal-600" />
                       <div className="flex flex-col">
-                        <span className="text-xs text-gray-600">
-                          Urgent Call
-                        </span>
+                        <span className="text-xs text-gray-600">Urgent Call</span>
                         <span className="text-sm font-semibold text-gray-800">
                           03317495785
                         </span>

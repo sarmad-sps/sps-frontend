@@ -36,7 +36,7 @@ export default function WhyUsSection2() {
         <div className="absolute top-0 right-0 w-1/2 h-full bg-white"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4">
+      <div className="relative z-10 max-w-7xl mx-auto px-12"> 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Side - Image */}
           <div className="relative lg:bg-transparent bg-[#E3EFF0] rounded-2xl lg:rounded-none p-4 lg:p-0">
