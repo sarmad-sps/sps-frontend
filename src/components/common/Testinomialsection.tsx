@@ -3,7 +3,7 @@ import { Star } from 'lucide-react';
 const TestimonialsSection = () => {
   return (
     <section className="w-full bg-white py-16 md:py-20">
-      <div className="max-w-7xl mx-auto px-8"> 
+      <div className="w-full px-4 sm:px-6 lg:px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18"> 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
           {/* Left Side - Testimonial Card */}

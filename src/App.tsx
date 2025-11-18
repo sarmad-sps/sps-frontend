@@ -15,10 +15,12 @@ import BikeTakaful from "./pages/BikeTakaful";
 import Healthtakaful from "./pages/Healthtakaful";
 import ItConsulting from "./pages/ItConsulting";
 import ScrollToTop from "./components/scrollToTop";
+import WhatsAppButton from "./components/common/WhatsappButton";
 export default function App() {
   return (
     <div className="overflow-x-hidden">
        <ScrollToTop />
+      <WhatsAppButton/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/car" element={<Car />} />

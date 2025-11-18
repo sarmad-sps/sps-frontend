@@ -172,7 +172,7 @@ const CarTakafulForm: React.FC = () => {
 
   return (
     // UPDATED: px-12 + max-w-7xl mx-auto (Navbar jaisa)
-    <div className="max-w-7xl mx-auto px-8 py-8">
+    <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-8">
       <div className="bg-[#F9FBFF] p-10 rounded-lg shadow-md">
         {/* Step Indicator */}
         <div className="flex justify-center mb-10">
@@ -385,7 +385,7 @@ const CarTakafulForm: React.FC = () => {
         <div className="mt-8 flex justify-center">
           <button
             onClick={handleCheckInfo}
-            className="bg-[#1A3970] text-white px-10 py-3 rounded-md hover:bg-[#2A4D8F] transition"
+            className="bg-[#1A3970] text-white px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-3 rounded-md hover:bg-[#2A4D8F] transition"
           >
             Check Info
           </button>
@@ -444,7 +444,7 @@ const CarTakafulForm: React.FC = () => {
               <button
                 disabled={!selectedCard}
                 onClick={handleConfirm}
-                className={`px-10 py-3 rounded-md font-semibold transition ${
+                className={`px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-3 rounded-md font-semibold transition ${
                   selectedCard
                     ? "bg-[#1A3970] text-white hover:bg-[#2A4D8F]"
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"

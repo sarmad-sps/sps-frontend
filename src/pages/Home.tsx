@@ -30,9 +30,9 @@ const Home = () => {
         <AboutUsSection1 />
       </FadeUp>
 
-      <FadeUp >
+      {/* <FadeUp >
         <ServicesSection2 />
-      </FadeUp>
+      </FadeUp> */}
 
       <FadeUp >
         <WhyUsSection />

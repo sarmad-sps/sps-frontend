@@ -56,7 +56,7 @@ const CarTakafulQuote: React.FC<CarTakafulQuoteProps> = ({
   return (
     // UPDATED: px-12 + max-w-7xl mx-auto (Navbar jaisa)
     <div className="min-h-screen bg-[#F9FBFF] flex items-center justify-center px-8 py-12">
-      <div className="max-w-7xl mx-auto w-full">
+      <div className=" w-full px-8">
         <div className="bg-white rounded-xl shadow-md w-full p-10 flex flex-col md:flex-row gap-10">
           {/* LEFT: FORM */}
           <div className="md:w-1/2">

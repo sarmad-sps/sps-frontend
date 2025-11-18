@@ -15,7 +15,7 @@ const VehicleInfoSection1 = ({
 }: VehicleInfoProps) => {
   return (
     <section className="w-full bg-white py-8 md:py-12 pb-2 md:pb-4">
-      <div className="max-w-7xl mx-auto px-8"> 
+      <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18"> 
         {/* Header */}
         <div className="flex flex-col lg:flex-row items-start justify-between mb-4 gap-8">
           {/* Left Side - Text Content */}
@@ -32,7 +32,6 @@ const VehicleInfoSection1 = ({
             {vehicleType === "car" ||
             vehicleType === "health" ||
             vehicleType === "travel" ? (
-              /* Car/Health/Travel Layout - Image above buttons (vertical) */
               <div className="flex flex-col items-center gap-4">
                 {/* Vehicle Image */}
                 <div className="flex justify-center w-full">
@@ -72,7 +71,6 @@ const VehicleInfoSection1 = ({
                 </div>
               </div>
             ) : (
-              /* Bike Layout - Image and buttons in same row (horizontal) */
               <div className="flex items-center gap-6">
                 {/* Vehicle Image */}
                 <div className="flex justify-center">

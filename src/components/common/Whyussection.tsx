@@ -89,7 +89,7 @@ const WhyUsSection = () => {
 
   return (
     <section ref={sectionRef} className="w-full bg-[#E3EFF0] py-16 md:py-20">
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="relative w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-center">
           {/* Left Side - Content */}
           <div>
@@ -148,7 +148,7 @@ const WhyUsSection = () => {
             </div>
 
             {/* CTA Button */}
-            <button className="bg-[#1A3970] text-white px-8 py-4 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
+            <button className="bg-[#1A3970] text-white px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-4 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
               Learn More
             </button>
           </div>
@@ -158,9 +158,9 @@ const WhyUsSection = () => {
             {/* Animated Large Teal Ring */}
             <div className="relative flex-shrink-0">
               <CircularProgress
-                percentage={90}   // main ring percentage
-                size={180}        // bigger size
-                strokeWidth={22}  // thick border
+                percentage={90} // main ring percentage
+                size={180} // bigger size
+                strokeWidth={22} // thick border
                 color="#1894a4"
                 bgColor="#E3EFF0"
                 triggerAnimation={inView}
@@ -168,20 +168,18 @@ const WhyUsSection = () => {
             </div>
 
             {/* Image Container */}
-            {/* Image Container */}
-<div className="relative flex-shrink-0 ml-6 sm:ml-8 md:ml-10 lg:ml-12">
-  <img
-    src="/Whyusimage.png"
-    alt="Team collaboration"
-    className="w-[240px] h-[380px] sm:w-[280px] sm:h-[450px] md:w-[320px] md:h-[520px] lg:w-[375px] lg:h-[600px] object-cover rounded-2xl transform scale-x-[-1]"
-  />
+            <div className="relative flex-shrink-0 ml-6 sm:ml-8 md:ml-10 lg:ml-12">
+              <img
+                src="/Whyusimage.png"
+                alt="Team collaboration"
+                className="w-[240px] h-[380px] sm:w-[280px] sm:h-[450px] md:w-[320px] md:h-[520px] lg:w-[375px] lg:h-[600px] object-cover rounded-2xl transform scale-x-[-1]"
+              />
 
-  {/* Decorative Handshake Circle */}
-  <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 md:-top-8 md:-left-8 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 bg-[#1A3970] rounded-full flex items-center justify-center z-20">
-    <Handshake className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 text-white" />
-  </div>
-</div>
-
+              {/* Decorative Handshake Circle */}
+              <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 md:-top-8 md:-left-8 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 bg-[#1A3970] rounded-full flex items-center justify-center z-20">
+                <Handshake className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 text-white" />
+              </div>
+            </div>
           </div>
         </div>
       </div>

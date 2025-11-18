@@ -55,7 +55,7 @@ const TravelTakafulQuote: React.FC<Props> = ({
 
   return (
     // NEW: Container with px-12 to match Navbar
-    <div className="max-w-7xl mx-auto px-8 py-12">
+    <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-12">
       <div className="min-h-screen bg-[#F9FBFF] flex items-center justify-center">
         <div className="bg-white rounded-xl shadow-md w-full max-w-6xl p-10 flex flex-col md:flex-row gap-10">
           {/* LEFT: Contact Form */}

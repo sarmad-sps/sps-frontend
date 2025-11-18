@@ -36,20 +36,17 @@ const Freeqouteinsurance: React.FC<FreeQuoteProps> = ({
   };
 
   const handlePreviousStep = () => {
-    if (onBack) {
-      onBack();
-    }
+    if (onBack) onBack();
   };
 
   const handleConfirm = () => {
-    // Handle form submission
     console.log("Form Data:", formData);
     console.log("Vehicle Info:", initialVehicleInfo);
     alert("Quote request submitted successfully!");
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18">
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         {/* Left Side - Get Free Quotes Form */}

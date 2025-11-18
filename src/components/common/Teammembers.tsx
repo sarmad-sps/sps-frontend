@@ -2,27 +2,27 @@ export default function TeamSection() {
   const teamMembers = [
     {
       id: 1,
-      name: 'Mark D.Brock',
-      position: 'CEO & Founder',
-      image: '/Member1.jpg',
+      name: "Mark D.Brock",
+      position: "CEO & Founder",
+      image: "/Member1.jpg",
     },
     {
       id: 2,
-      name: 'Mark D.Brock',
-      position: 'CEO & Founder',
-      image: '/Member2.jpg',
+      name: "Mark D.Brock",
+      position: "CEO & Founder",
+      image: "/Member2.jpg",
     },
     {
       id: 3,
-      name: 'Mark D.Brock',
-      position: 'CEO & Founder',
-      image: '/Member2.jpg',
+      name: "Mark D.Brock",
+      position: "CEO & Founder",
+      image: "/Member2.jpg",
     },
     {
       id: 4,
-      name: 'Mark D.Brock',
-      position: 'CEO & Founder',
-      image: '/Member2.jpg',
+      name: "Mark D.Brock",
+      position: "CEO & Founder",
+      image: "/Member2.jpg",
     },
   ];
 
@@ -31,7 +31,8 @@ export default function TeamSection() {
       {/* Background */}
       <div className="absolute inset-0 bg-gray-100"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8"> 
+      {/* Removed max-w-7xl */}
+      <div className="relative z-10 w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18">
         {/* Section Header */}
         <div className="text-center mb-12">
           <p className="text-gray-700 text-sm md:text-base font-semibold mb-2">

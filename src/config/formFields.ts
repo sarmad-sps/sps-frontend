@@ -8,19 +8,6 @@ export const carFormFields = [
     required: true,
   },
   {
-    name: "fuelType",
-    label: "What is your car fuel type?",
-    type: "select" as const,
-    placeholder: "Select Fuel Type",
-    required: true,
-    options: [
-      { value: "petrol", label: "Petrol" },
-      { value: "diesel", label: "Diesel" },
-      { value: "hybrid", label: "Hybrid" },
-      { value: "electric", label: "Electric" },
-    ],
-  },
-  {
     name: "city",
     label: "What is your city?",
     type: "select" as const,
@@ -71,17 +58,6 @@ export const bikeFormFields = [
     type: "input" as const,
     placeholder: "Enter Brand",
     required: true,
-  },
-  {
-    name: "fuelType",
-    label: "What is your bike fuel type?",
-    type: "select" as const,
-    placeholder: "Select Fuel Type",
-    required: true,
-    options: [
-      { value: "petrol", label: "Petrol" },
-      { value: "diesel", label: "Diesel" },
-    ],
   },
   {
     name: "bikeCC",

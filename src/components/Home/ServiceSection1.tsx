@@ -21,34 +21,46 @@ const services: Service[] = [
 
 const ServicesSection: React.FC = () => {
   const [page, setPage] = useState<number>(0);
-  const [cardsPerPage, setCardsPerPage] = useState<number>(3); // Default to 3 for laptops
+  const [cardsPerPage, setCardsPerPage] = useState<number>(4);
+  const [slides, setSlides] = useState<Service[][]>([]);
 
-  // Determine cards per page based on window width
   const updateCardsPerPage = () => {
-    if (window.innerWidth < 640) {
-      setCardsPerPage(1); // Mobile
-    } else if (window.innerWidth < 1024) {
-      setCardsPerPage(2); // Tablet
-    } else {
-      setCardsPerPage(3); // Laptop
-    }
+    if (window.innerWidth < 640) setCardsPerPage(1); // Mobile
+    else if (window.innerWidth < 1024) setCardsPerPage(2); // Tablet
+    else setCardsPerPage(4); // Laptop/Desktop
   };
 
-  // Update cards per page on mount and resize
   useEffect(() => {
     updateCardsPerPage();
     window.addEventListener("resize", updateCardsPerPage);
     return () => window.removeEventListener("resize", updateCardsPerPage);
   }, []);
 
-  const totalPages = Math.ceil(services.length / cardsPerPage);
+  useEffect(() => {
+  let newSlides: Service[][] = [];
 
-  // Group services into pages
-  const paginatedServices = Array.from({ length: totalPages }, (_, index) =>
-    services.slice(index * cardsPerPage, (index + 1) * cardsPerPage)
-  );
+  if (cardsPerPage === 4) {
+    // Laptop: Custom 3 slides with overlapping cards
+    newSlides = [
+      [services[0], services[1], services[2], services[3]],
+      [services[4], services[5], services[0], services[1]],
+      [services[2], services[3], services[4], services[5]],
+    ];
+  } else if (cardsPerPage === 2) {
+    // Tablet: consecutive pairs, non-overlapping
+    for (let i = 0; i < services.length; i += 2) {
+      newSlides.push(services.slice(i, i + 2));
+    }
+  } else {
+    // Mobile: 1 card per slide
+    newSlides = services.map((s) => [s]);
+  }
 
-  const handleDotClick = (index: number) => setPage(index);
+  setSlides(newSlides);
+  setPage(0); // reset page when cardsPerPage changes
+}, [cardsPerPage]);
+
+  const totalPages = slides.length;
 
   // Auto Slide
   useEffect(() => {
@@ -58,14 +70,9 @@ const ServicesSection: React.FC = () => {
     return () => clearInterval(interval);
   }, [totalPages]);
 
-  // Reset page if cardsPerPage changes to avoid out-of-bounds
-  useEffect(() => {
-    setPage(0);
-  }, [cardsPerPage]);
-
   return (
     <section className="w-full bg-[#F5F8Fc] py-16 md:py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 sm:px-6">
         {/* Section Header */}
         <div className="text-center mb-12">
           <p className="text-[#1A3970] text-sm md:text-base font-semibold mb-2">Our Services</p>
@@ -78,9 +85,9 @@ const ServicesSection: React.FC = () => {
             className="flex transition-transform duration-700 ease-in-out"
             style={{ transform: `translateX(-${page * 100}%)` }}
           >
-            {paginatedServices.map((pageServices, pageIndex) => (
-              <div key={pageIndex} className="w-full flex-shrink-0 flex">
-                {pageServices.map((service: Service) => (
+            {slides.map((slideServices, slideIndex) => (
+              <div key={slideIndex} className="w-full flex-shrink-0 flex">
+                {slideServices.map((service: Service) => (
                   <div
                     key={service.id}
                     className={`flex-shrink-0 p-3 ${
@@ -88,26 +95,27 @@ const ServicesSection: React.FC = () => {
                         ? "w-full"
                         : cardsPerPage === 2
                         ? "w-1/2"
-                        : "w-1/3"
+                        : "w-1/4"
                     }`}
                   >
                     <div
                       className="group bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center
                         transition-all duration-500 hover:bg-[#1894A4] hover:text-white h-full"
                     >
-                      {/* Icon */}
-                      <img
-                        src={service.iconSrc}
-                        alt={service.title}
-                        className={`w-16 h-16 mb-4 transition-all duration-500
-                          ${service.id === "02" ? "filter brightness-0" : ""}
-                          group-hover:filter group-hover:brightness-0 group-hover:invert`}
-                      />
-                      {/* Title */}
+                     <img
+  src={service.iconSrc}
+  alt={service.title}
+  className={`${
+    service.id === "01" || service.id === "03" || service.id === "04" ? "w-18 h-16" : "w-16 h-16"
+  } mb-4 transition-all duration-500
+  ${service.id === "02" ? "filter brightness-0" : ""} 
+  group-hover:filter group-hover:brightness-0 group-hover:invert`}
+/>
+
+
                       <h3 className="text-xl font-bold mb-1 transition-colors duration-500 group-hover:text-white">
                         {service.title}
                       </h3>
-                      {/* Features */}
                       <ul className="text-gray-600 mb-4 text-sm space-y-1 transition-colors duration-500 group-hover:text-white flex-grow">
                         {service.features.map((f: string, i: number) => (
                           <li key={i} className="flex items-center gap-2">
@@ -116,7 +124,6 @@ const ServicesSection: React.FC = () => {
                           </li>
                         ))}
                       </ul>
-                      {/* Button */}
                       <Link
                         to={service.route}
                         className="border border-[#1894A4] text-[#1894A4] px-4 py-2 rounded
@@ -137,7 +144,7 @@ const ServicesSection: React.FC = () => {
           {Array.from({ length: totalPages }).map((_, i) => (
             <span
               key={i}
-              onClick={() => handleDotClick(i)}
+              onClick={() => setPage(i)}
               className={`cursor-pointer transition-all duration-300 ${
                 page === i
                   ? "bg-[#1894A4] w-10 h-3 rounded-full"

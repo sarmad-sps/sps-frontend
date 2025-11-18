@@ -36,8 +36,10 @@ export default function WhyUsSection2() {
         <div className="absolute top-0 right-0 w-1/2 h-full bg-white"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8"> 
+      {/* Removed max-w-7xl */}
+      <div className="relative z-10 w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-1810">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          
           {/* Left Side - Image */}
           <div className="relative lg:bg-transparent bg-[#E3EFF0] rounded-2xl lg:rounded-none p-4 lg:p-0">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
@@ -92,6 +94,7 @@ export default function WhyUsSection2() {
                 </div>
               ))}
             </div>
+
           </div>
         </div>
       </div>

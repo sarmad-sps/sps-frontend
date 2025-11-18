@@ -37,7 +37,7 @@ const TravelFormCard = () => {
 
   return (
     // UPDATED: px-12 + max-w-7xl mx-auto (Navbar jaisa)
-    <div className="max-w-7xl mx-auto px-8 py-8">
+    <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-8">
       <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8">
         {/* Travel Type Selection */}
         <div className="grid grid-cols-3 gap-3 mb-6">

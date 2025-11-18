@@ -32,23 +32,21 @@ const FAQSection = () => {
 
   return (
     <section className="w-full bg-[#0f1729] py-16 md:py-20">
-      <div className="max-w-7xl mx-auto px-8"> 
+      <div className="px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18"> 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
           {/* Left Side - Content */}
           <div>
-            {/* Section Tag */}
             <p className="text-[#1894a4] text-sm md:text-base font-semibold mb-2">
               ≫ Faqs
             </p>
 
-            {/* Main Heading */}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Have Any Questions ?
               <br />
               Question & Answer
             </h2>
 
-            {/* Description with teal line */}
             <div className="relative mb-8">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#1894a4] rounded-full"></div>
               <p className="text-gray-400 leading-relaxed pl-6">
@@ -57,7 +55,6 @@ const FAQSection = () => {
               </p>
             </div>
 
-            {/* Checkmark List */}
             <div className="space-y-3 mb-8">
               <div className="flex items-center gap-3">
                 <CheckCircle className="w-5 h-5 text-[#1894a4] flex-shrink-0" />
@@ -73,20 +70,15 @@ const FAQSection = () => {
               </div>
             </div>
 
-            {/* CTA Button */}
-            <button className="bg-white text-[#0f1729] px-8 py-4 rounded font-semibold hover:bg-gray-100 transition-colors">
+            <button className="bg-white text-[#0f1729] px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-4 rounded font-semibold hover:bg-gray-100 transition-colors">
               Explore More Us ≫
             </button>
           </div>
 
-          {/* Right Side - FAQ Accordion */}
+          {/* Right Side - Accordion */}
           <div className="space-y-4 lg:pt-8">
             {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg overflow-hidden shadow-lg"
-              >
-                {/* Question Header */}
+              <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg">
                 <button
                   onClick={() => toggleFAQ(index)}
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
@@ -104,9 +96,8 @@ const FAQSection = () => {
                   )}
                 </button>
 
-                {/* Answer Content */}
                 {openIndexes.includes(index) && (
-                  <div className="px-6 pb-6 pt-0">
+                  <div className="px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 pb-6 pt-0">
                     <div className="pl-8">
                       <p className="text-gray-600 leading-relaxed">
                         {faq.answer}
@@ -117,6 +108,7 @@ const FAQSection = () => {
               </div>
             ))}
           </div>
+
         </div>
       </div>
     </section>

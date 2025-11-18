@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 const AboutUsSection1 = () => {
   return (
     <section className="w-full bg-white py-16 md:py-20">
-      <div className="max-w-7xl mx-auto px-8"> 
+      <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18"> 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
           {/* Left Side - Image */}
@@ -18,7 +18,7 @@ const AboutUsSection1 = () => {
             </div>
 
             {/* Blue Card Overlay */}
-            <div className="absolute bottom-8 right-8 bg-[#1A3970] text-white p-8 rounded-2xl shadow-2xl max-w-sm">
+            <div className="absolute bottom-8 right-8 bg-[#1A3970] text-white p-8 rounded-2xl shadow-2xl w-full max-w-none lg:max-w-lg">
               <h3 className="text-xl font-bold mb-6 leading-relaxed">
                 We Have 25 Years Of Experience in Business Consulting Services
               </h3>
@@ -120,7 +120,7 @@ const AboutUsSection1 = () => {
             </div>
 
             {/* CTA Button */}
-            <button className="bg-[#1A3970] text-white px-8 py-4 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
+            <button className="bg-[#1A3970] text-white px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-4 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
               Learn More
             </button>
           </div>

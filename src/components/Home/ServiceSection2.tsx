@@ -33,7 +33,7 @@ const ServicesSection2 = () => {
       {/* Background with gradient transition */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-[#E3EFF0]"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8"> 
+      <div className="relative z-10 w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-1810"> 
         {/* Section Header */}
         <div className="text-center mb-12">
           <p className="text-gray-700 text-sm md:text-base font-semibold mb-2">

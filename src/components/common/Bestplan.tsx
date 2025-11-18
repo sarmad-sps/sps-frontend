@@ -48,7 +48,8 @@ export default function PricingPlans() {
       {/* Background with gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-gray-100"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8"> 
+      {/* Removed max-w-7xl and mx-auto */}
+      <div className="relative z-10 w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18">
         {/* Section Header */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-4">
@@ -58,17 +59,17 @@ export default function PricingPlans() {
             </p>
             <span className="text-[#1894a4] font-bold text-sm">««</span>
           </div>
+
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black">
             <span className="text-[#1894a4]">Choose the best plans</span>
-            <br />
-            for yourself
+            <br /> for yourself
           </h2>
 
           {/* Plan Toggle */}
           <div className="inline-flex bg-white rounded-lg shadow-lg p-1 mt-8">
             <button
               onClick={() => setPlanType("monthly")}
-              className={`px-8 py-3 rounded-md font-semibold transition-all duration-300 ${
+              className={`px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-3 rounded-md font-semibold transition-all duration-300 ${
                 planType === "monthly"
                   ? "bg-[#1894a4] text-white shadow-lg"
                   : "text-gray-600 hover:text-gray-800"
@@ -78,7 +79,7 @@ export default function PricingPlans() {
             </button>
             <button
               onClick={() => setPlanType("yearly")}
-              className={`px-8 py-3 rounded-md font-semibold transition-all duration-300 ${
+              className={`px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-3 rounded-md font-semibold transition-all duration-300 ${
                 planType === "yearly"
                   ? "bg-[#1894a4] text-white shadow-lg"
                   : "text-gray-600 hover:text-gray-800"
@@ -99,20 +100,14 @@ export default function PricingPlans() {
               {/* Icon and Price Row */}
               <div className="p-8">
                 <div className="flex items-center justify-between mb-6">
-                  {/* Icon on Left */}
                   <div className="w-24 h-24 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    {plan.icon.startsWith("/") ? (
-                      <img
-                        src={plan.icon}
-                        alt={plan.name}
-                        className="w-36 h-36 object-contain"
-                      />
-                    ) : (
-                      <span className="text-5xl">{plan.icon}</span>
-                    )}
+                    <img
+                      src={plan.icon}
+                      alt={plan.name}
+                      className="w-36 h-36 object-contain"
+                    />
                   </div>
 
-                  {/* Price on Right */}
                   <div className="text-right">
                     <div className="flex items-start justify-end gap-1">
                       <span className="text-5xl font-bold text-[#1A3970]">
@@ -130,16 +125,13 @@ export default function PricingPlans() {
               </div>
 
               {/* Content */}
-              <div className="px-8 pb-8">
-                {/* Plan Name */}
+              <div className="px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 pb-8">
                 <h3 className="text-xl font-bold text-[#1A3970] mb-4">
                   {plan.name}
                 </h3>
 
-                {/* Divider */}
                 <div className="w-full h-px bg-gray-200 mb-6"></div>
 
-                {/* Features */}
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3">
@@ -151,7 +143,6 @@ export default function PricingPlans() {
                   ))}
                 </ul>
 
-                {/* CTA Button */}
                 <button className="w-full bg-[#1A3970] hover:bg-[#2A4D8F] text-white font-semibold py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl">
                   Select Policy
                 </button>
@@ -162,9 +153,9 @@ export default function PricingPlans() {
 
         {/* Pagination Dots */}
         <div className="flex justify-center items-center gap-2 mt-12">
-          <button className="w-3 h-3 rounded-full bg-[#1894a4] hover:bg-[#1A3970] transition-colors"></button>
-          <button className="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors"></button>
-          <button className="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors"></button>
+          <button className="w-3 h-3 rounded-full bg-[#1894a4]"></button>
+          <button className="w-3 h-3 rounded-full bg-gray-300"></button>
+          <button className="w-3 h-3 rounded-full bg-gray-300"></button>
         </div>
       </div>
     </section>
