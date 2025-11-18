@@ -145,10 +145,10 @@ const ServicesSection: React.FC = () => {
             <span
               key={i}
               onClick={() => setPage(i)}
-              className={`cursor-pointer transition-all duration-300 ${
+              className={` cursor-pointer transition-all duration-300 ${
                 page === i
-                  ? "bg-[#1894A4] w-10 h-3 rounded-full"
-                  : "bg-gray-300 w-3 h-3 rounded-full hover:bg-gray-400"
+                  ? "bg-[#1894A4] w-5 h-2 rounded-full lg:w-10 lg:h-3"
+                  : "bg-gray-300 w-2 h-2 rounded-full hover:bg-gray-400 lg:w-3 lg:h-3"
               }`}
             ></span>
           ))}

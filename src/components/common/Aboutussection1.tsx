@@ -13,13 +13,13 @@ const AboutUsSection1 = () => {
               <img 
                 src="/Aboutusimage.png" 
                 alt="Business professionals" 
-                className="w-full h-[600px] md:h-[650px] lg:h-[700px] object-cover"
+                className="w-full h-[500px] md:h-[650px] lg:h-[700px] object-cover"
               />
             </div>
 
             {/* Blue Card Overlay */}
-            <div className="absolute bottom-8 right-8 bg-[#1A3970] text-white p-8 rounded-2xl shadow-2xl w-full max-w-none lg:max-w-lg">
-              <h3 className="text-xl font-bold mb-6 leading-relaxed">
+            <div className="absolute bottom-8 right-0  bg-[#1A3970] text-white p-8 rounded-2xl shadow-2xl w-full max-w-none lg:max-w-lg">
+              <h3 className="text-xl font-bold mb-6 leading-relaxed lg:right-8 ">
                 We Have 25 Years Of Experience in Business Consulting Services
               </h3>
               
@@ -120,9 +120,11 @@ const AboutUsSection1 = () => {
             </div>
 
             {/* CTA Button */}
+            <div className="flex justify-center lg:justify-start">
             <button className="bg-[#1A3970] text-white px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-4 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
               Learn More
             </button>
+            </div>
           </div>
 
         </div>

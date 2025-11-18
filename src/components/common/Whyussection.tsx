@@ -83,7 +83,7 @@ const WhyUsSection = () => {
     if (sectionRef.current) observer.observe(sectionRef.current);
 
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
+      // if (sectionRef.current) observer.unobserve(sectionRef.current);
     };
   }, []);
 
@@ -148,9 +148,11 @@ const WhyUsSection = () => {
             </div>
 
             {/* CTA Button */}
+            <div className="hidden xl:block lg:justify-start">
             <button className="bg-[#1A3970] text-white px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-4 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
               Learn More
             </button>
+            </div>
           </div>
 
           {/* Right Side - Image with Large Animated Ring */}
@@ -179,8 +181,16 @@ const WhyUsSection = () => {
               <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 md:-top-8 md:-left-8 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 bg-[#1A3970] rounded-full flex items-center justify-center z-20">
                 <Handshake className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 text-white" />
               </div>
+
+         
             </div>
+            
           </div>
+                 <div className="flex justify-center xl:hidden">
+            <button className="bg-[#1A3970] text-white px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-4 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
+              Learn More
+            </button>
+            </div>
         </div>
       </div>
     </section>

@@ -3,7 +3,7 @@ import HeroSection from "../components/common/Hero";
 import Navbar from "../components/common/Navbar";
 import ServicesSection1 from "../components/Home/ServiceSection1";
 import AboutUsSection1 from "../components/common/Aboutussection1";
-import ServicesSection2 from "../components/Home/ServiceSection2";
+
 import WhyUsSection from "../components/common/Whyussection";
 import Bestplan from "../components/common/Bestplan";
 import TeamSection from "../components/common/Teammembers";

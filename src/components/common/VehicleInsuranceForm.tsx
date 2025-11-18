@@ -30,7 +30,7 @@ interface VehicleInsuranceFormProps {
 const VehicleInsuranceForm = ({
   vehicleType,
   formFields,
-  apiEndpoint,
+  // apiEndpoint,
 }: VehicleInsuranceFormProps) => {
   const [showInsuranceCards, setShowInsuranceCards] = useState(false);
   const [formData, setFormData] = useState<Record<string, string>>(() => {
@@ -147,7 +147,7 @@ const VehicleInsuranceForm = ({
 
   
   const renderLabel = (field: FormFieldConfig) => (
-    <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center gap-1">
+    <label className=" text-sm font-semibold text-gray-700 mb-2 flex items-center gap-1">
       {field.required && <span className="text-red-500 text-lg leading-none">∗</span>}
       <span>{field.label}</span>
     </label>
