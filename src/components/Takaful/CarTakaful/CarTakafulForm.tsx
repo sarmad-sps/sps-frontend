@@ -1,5 +1,3 @@
-
-
 // File: CarTakafulForm.tsx
 import React, { useState } from "react";
 import { Calendar, ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
@@ -61,7 +59,6 @@ const CarTakafulForm: React.FC = () => {
     const firstDay = new Date(year, month, 1);
     const startDate = new Date(firstDay);
     startDate.setDate(startDate.getDate() - firstDay.getDay());
-
     const days = [];
     for (let i = 0; i < 42; i++) {
       const currentDay = new Date(startDate);
@@ -88,30 +85,48 @@ const CarTakafulForm: React.FC = () => {
   const validateForm = () => {
     const newErrors: Partial<FormData> = {};
     if (!formData.brand.trim()) newErrors.brand = "Vehicle brand is required";
+    else if (formData.brand.length < 3) newErrors.brand = "Brand must be at least 3 characters";
+    else if (formData.brand.length > 30) newErrors.brand = "Brand must be less than 30 characters";
+
     if (!formData.cc) newErrors.cc = "Please select car CC";
     if (!formData.model) newErrors.model = "Please select car model";
-    if (!formData.fuel) newErrors.fuel = "Please select fuel type";
     if (!formData.purchaseDate) newErrors.purchaseDate = "Select purchase date";
     if (!formData.currentValue.trim()) newErrors.currentValue = "Enter current value";
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
+  // Handle input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: "" });
+    const { name, value } = e.target;
+
+    if (name === "currentValue") {
+      // Only allow numbers
+      const numericValue = value.replace(/\D/g, "");
+      setFormData({ ...formData, [name]: numericValue });
+      setErrors({ ...errors, [name]: "" });
+      return;
+    }
+
+    if (name === "brand") {
+      // Only letters and spaces, max 30 chars
+      const textValue = value.replace(/[^a-zA-Z\s]/g, "").slice(0, 30);
+      setFormData({ ...formData, [name]: textValue });
+      setErrors({ ...errors, [name]: "" });
+      return;
+    }
+
+    setFormData({ ...formData, [name]: value });
+    setErrors({ ...errors, [name]: "" });
   };
 
   const handleCheckInfo = () => {
-    if (validateForm()) {
-      setShowPlans(true);
-    }
+    if (validateForm()) setShowPlans(true);
   };
 
   const handleConfirm = () => {
-    if (selectedCard) {
-      setShowQuote(true);
-    }
+    if (selectedCard) setShowQuote(true);
   };
 
   const handleBack = () => {
@@ -119,7 +134,6 @@ const CarTakafulForm: React.FC = () => {
     setShowPlans(false);
   };
 
-  // Car-specific quotes
   const insuranceQuotes: InsuranceQuote[] = [
     {
       id: 1,
@@ -171,7 +185,6 @@ const CarTakafulForm: React.FC = () => {
   }
 
   return (
-    // UPDATED: px-12 + max-w-7xl mx-auto (Navbar jaisa)
     <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-8">
       <div className="bg-[#F9FBFF] p-10 rounded-lg shadow-md">
         {/* Step Indicator */}
@@ -192,19 +205,23 @@ const CarTakafulForm: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Brand */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Vehicle Brand *</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Vehicle Brand *
+            </label>
             <input
               type="text"
               name="brand"
               value={formData.brand}
               onChange={handleChange}
               placeholder="Your vehicle brand"
-              className={`w-full border ${errors.brand ? "border-red-500" : "border-gray-300"} rounded-md px-4 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
+              className={`w-full border ${
+                errors.brand ? "border-red-500" : "border-gray-300"
+              } rounded-md px-4 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
             />
             {errors.brand && <p className="text-red-500 text-sm mt-1">{errors.brand}</p>}
           </div>
 
-          {/* CC - With Dropdown Icon */}
+          {/* CC */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Car CC *</label>
             <InputWithIcon icon={<ChevronDown className="w-5 h-5" />}>
@@ -223,7 +240,7 @@ const CarTakafulForm: React.FC = () => {
             {errors.cc && <p className="text-red-500 text-sm mt-1">{errors.cc}</p>}
           </div>
 
-          {/* Model - With Dropdown Icon */}
+          {/* Model */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Car Model *</label>
             <InputWithIcon icon={<ChevronDown className="w-5 h-5" />}>
@@ -242,28 +259,11 @@ const CarTakafulForm: React.FC = () => {
             {errors.model && <p className="text-red-500 text-sm mt-1">{errors.model}</p>}
           </div>
 
-          {/* Fuel - With Dropdown Icon */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Fuel Type *</label>
-            <InputWithIcon icon={<ChevronDown className="w-5 h-5" />}>
-              <select
-                name="fuel"
-                value={formData.fuel}
-                onChange={handleChange}
-                className={`w-full border ${errors.fuel ? "border-red-500" : "border-gray-300"} rounded-md px-4 py-3 pr-12 appearance-none bg-white focus:ring-2 focus:ring-[#1A3970] outline-none cursor-pointer`}
-              >
-                <option value="">Select Fuel Type</option>
-                <option>Petrol</option>
-                <option>Diesel</option>
-                <option>Hybrid</option>
-              </select>
-            </InputWithIcon>
-            {errors.fuel && <p className="text-red-500 text-sm mt-1">{errors.fuel}</p>}
-          </div>
-
-          {/* Purchase Date - With Calendar Icon */}
+          {/* Purchase Date */}
           <div className="relative">
-            <label className="block text-sm font-medium text-gray-700 mb-1">Purchase Date & Year *</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Purchase Date & Year *
+            </label>
             <InputWithIcon icon={<Calendar className="w-5 h-5" />}>
               <input
                 type="text"
@@ -276,27 +276,32 @@ const CarTakafulForm: React.FC = () => {
                 } rounded-md px-4 py-3 pr-12 cursor-pointer bg-white focus:ring-2 focus:ring-[#1A3970] outline-none`}
               />
             </InputWithIcon>
-
-            {/* Calendar Dropdown */}
             {showCalendar && (
               <div className="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-10 p-4 w-80">
                 <div className="flex items-center justify-between mb-4">
                   <button
                     type="button"
                     onClick={() =>
-                      setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1))
+                      setCurrentMonth(
+                        new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1)
+                      )
                     }
                     className="p-1 hover:bg-gray-100 rounded"
                   >
                     <ChevronLeft className="w-5 h-5" />
                   </button>
                   <h3 className="text-lg font-semibold">
-                    {currentMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" })}
+                    {currentMonth.toLocaleDateString("en-US", {
+                      month: "long",
+                      year: "numeric",
+                    })}
                   </h3>
                   <button
                     type="button"
                     onClick={() =>
-                      setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1))
+                      setCurrentMonth(
+                        new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1)
+                      )
                     }
                     className="p-1 hover:bg-gray-100 rounded"
                   >
@@ -363,21 +368,29 @@ const CarTakafulForm: React.FC = () => {
                 </div>
               </div>
             )}
-            {errors.purchaseDate && <p className="text-red-500 text-sm mt-1">{errors.purchaseDate}</p>}
+            {errors.purchaseDate && (
+              <p className="text-red-500 text-sm mt-1">{errors.purchaseDate}</p>
+            )}
           </div>
 
           {/* Current Value */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Car Current Value *</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Car Current Value *
+            </label>
             <input
               type="text"
               name="currentValue"
               value={formData.currentValue}
               onChange={handleChange}
               placeholder="Enter Current Value"
-              className={`w-full border ${errors.currentValue ? "border-red-500" : "border-gray-300"} rounded-md px-4 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
+              className={`w-full border ${
+                errors.currentValue ? "border-red-500" : "border-gray-300"
+              } rounded-md px-4 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
             />
-            {errors.currentValue && <p className="text-red-500 text-sm mt-1">{errors.currentValue}</p>}
+            {errors.currentValue && (
+              <p className="text-red-500 text-sm mt-1">{errors.currentValue}</p>
+            )}
           </div>
         </div>
 
@@ -394,7 +407,9 @@ const CarTakafulForm: React.FC = () => {
         {/* Plans Section */}
         {showPlans && (
           <div className="mt-12">
-            <h2 className="text-xl font-semibold text-gray-800 mb-6 text-center">Select Plan</h2>
+            <h2 className="text-xl font-semibold text-gray-800 mb-6 text-center">
+              Select Plan
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {insuranceQuotes.map((quote) => (
                 <div
@@ -442,13 +457,8 @@ const CarTakafulForm: React.FC = () => {
             {/* Confirm Button */}
             <div className="mt-6 flex justify-center">
               <button
-                disabled={!selectedCard}
                 onClick={handleConfirm}
-                className={`px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-3 rounded-md font-semibold transition ${
-                  selectedCard
-                    ? "bg-[#1A3970] text-white hover:bg-[#2A4D8F]"
-                    : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                }`}
+                className="bg-[#1A3970] text-white px-10 py-3 rounded-md hover:bg-[#2A4D8F] transition"
               >
                 Confirm
               </button>

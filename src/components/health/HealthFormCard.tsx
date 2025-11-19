@@ -81,6 +81,20 @@ const HealthFormCard = () => {
     });
 
     alert("Form submitted successfully!");
+
+    // ---------- Reset Form ----------
+    setSelectedPersonType("myself");
+    setSelectedTreatmentLimit("");
+    setFormData({
+      yourAge: "",
+      spouseAge: "",
+      children: "",
+    });
+    setFormErrors({
+      yourAge: "",
+      spouseAge: "",
+      treatmentLimit: "",
+    });
   };
 
   const getIconSize = (id: string) => {
