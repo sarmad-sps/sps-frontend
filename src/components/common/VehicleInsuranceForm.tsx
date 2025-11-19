@@ -16,9 +16,14 @@ interface FormFieldConfig {
   name: string;
   label: string;
   type: "select" | "input" | "date";
+  inputType?: "text" | "number";
   placeholder?: string;
   options?: { value: string; label: string }[];
   required?: boolean;
+  minLength?: number;
+  maxLength?: number;
+  minValue?: number;
+  maxValue?: number;
 }
 
 interface VehicleInsuranceFormProps {
@@ -30,7 +35,6 @@ interface VehicleInsuranceFormProps {
 const VehicleInsuranceForm = ({
   vehicleType,
   formFields,
-  // apiEndpoint,
 }: VehicleInsuranceFormProps) => {
   const [showInsuranceCards, setShowInsuranceCards] = useState(false);
   const [formData, setFormData] = useState<Record<string, string>>(() => {
@@ -46,12 +50,30 @@ const VehicleInsuranceForm = ({
   const [showFreeQuote, setShowFreeQuote] = useState(false);
   const [showCalendar, setShowCalendar] = useState<string | null>(null);
   const [currentMonth, setCurrentMonth] = useState(new Date());
+  const [selectedQuote, setSelectedQuote] = useState<InsuranceQuote | null>(null);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const field = formFields.find((f) => f.name === name);
+
+    if (!field || field.type !== "input") {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+      return;
+    }
+
+    if (field.inputType === "text" || !field.inputType) {
+      if (/^[A-Za-z\s-]*$/.test(value)) {
+        setFormData((prev) => ({ ...prev, [name]: value }));
+      }
+    } else if (field.inputType === "number") {
+      if (value === "" || /^\d*$/.test(value)) {
+        setFormData((prev) => ({ ...prev, [name]: value }));
+      }
+    }
+
     setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
@@ -84,13 +106,39 @@ const VehicleInsuranceForm = ({
     return date.toLocaleDateString("en-GB");
   };
 
-  const validateForm = () => {
+  const validateForm = (): boolean => {
     const newErrors: Record<string, string> = {};
+
     formFields.forEach((field) => {
-      if (field.required && !formData[field.name].trim()) {
+      const value = formData[field.name]?.trim() || "";
+
+      if (field.required && !value) {
         newErrors[field.name] = `${field.label} is required`;
       }
+      if (!value) return;
+
+      if ((field.inputType === "text" || !field.inputType) && field.minLength && value.length < field.minLength) {
+        newErrors[field.name] = `${field.label} must be at least ${field.minLength} characters`;
+      }
+      if ((field.inputType === "text" || !field.inputType) && field.maxLength && value.length > field.maxLength) {
+        newErrors[field.name] = `${field.label} must not exceed ${field.maxLength} characters`;
+      }
+
+      if (field.inputType === "number") {
+        const numValue = Number(value);
+        if (isNaN(numValue) || value === "" || !/^\d+$/.test(value)) {
+          newErrors[field.name] = "Please enter a valid number";
+        } else {
+          if (field.minValue !== undefined && numValue < field.minValue) {
+            newErrors[field.name] = `${field.label} must be at least ${field.minValue.toLocaleString()}`;
+          }
+          if (field.maxValue !== undefined && numValue > field.maxValue) {
+            newErrors[field.name] = `${field.label} must not exceed ${field.maxValue.toLocaleString()}`;
+          }
+        }
+      }
     });
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -101,54 +149,21 @@ const VehicleInsuranceForm = ({
       return;
     }
 
-    // Dummy quotes
-    const dummyQuotes = [
-      {
-        id: 1,
-        company: "Jubilee Insurance",
-        logo: "/Jubileeinsurance.png",
-        rate: "1.25%",
-        insurancePlan: "Installment Plan",
-        installmentAmount: "Rs 938 / month",
-        total: "RS 5,625",
-      },
-      {
-        id: 2,
-        company: "Jubilee Insurance",
-        logo: "/Jubileeinsurance.png",
-        rate: "1.25%",
-        insurancePlan: "Installment Plan",
-        installmentAmount: "Rs 938 / month",
-        total: "RS 5,625",
-      },
-      {
-        id: 3,
-        company: "Jubilee Insurance",
-        logo: "/Jubileeinsurance.png",
-        rate: "1.25%",
-        insurancePlan: "Installment Plan",
-        installmentAmount: "Rs 938 / month",
-        total: "RS 5,625",
-      },
-      {
-        id: 4,
-        company: "Jubilee Insurance",
-        logo: "/Jubileeinsurance.png",
-        rate: "1.25%",
-        insurancePlan: "Installment Plan",
-        installmentAmount: "Rs 938 / month",
-        total: "RS 5,625",
-      },
+    const dummyQuotes: InsuranceQuote[] = [
+      { id: 1, company: "Jubilee Insurance", logo: "/Jubileeinsurance.png", rate: "1.25%", insurancePlan: "Installment Plan", installmentAmount: "Rs 938 / month", total: "RS 5,625" },
+      { id: 2, company: "EFU Insurance", logo: "/Jubileeinsurance.png", rate: "1.30%", insurancePlan: "Full Payment", installmentAmount: "Rs 7,800 once", total: "RS 7,800" },
+      { id: 3, company: "Adamjee Insurance", logo: "/Jubileeinsurance.png", rate: "1.20%", insurancePlan: "Installment Plan", installmentAmount: "Rs 900 / month", total: "RS 5,400" },
+      { id: 4, company: "TPL Insurance", logo: "/Jubileeinsurance.png", rate: "1.35%", insurancePlan: "Installment Plan", installmentAmount: "Rs 1,012 / month", total: "RS 6,075" },
     ];
 
     setInsuranceQuotes(dummyQuotes);
     setShowInsuranceCards(true);
+    setSelectedQuote(null);
   };
 
-  
   const renderLabel = (field: FormFieldConfig) => (
-    <label className=" text-sm font-semibold text-gray-700 mb-2 flex items-center gap-1">
-      {field.required && <span className="text-red-500 text-lg leading-none">∗</span>}
+    <label className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-1">
+      {field.required && <span className="text-red-500 text-lg leading-none">*</span>}
       <span>{field.label}</span>
     </label>
   );
@@ -165,23 +180,19 @@ const VehicleInsuranceForm = ({
                 value={formData[field.name]}
                 onChange={handleInputChange}
                 className={`w-full px-8 py-3 border rounded bg-white focus:outline-none appearance-none ${
-                  errors[field.name]
-                    ? "border-red-500"
-                    : "border-gray-300 focus:border-[#1894a4]"
+                  errors[field.name] ? "border-red-500" : "border-gray-300 focus:border-[#1894a4]"
                 }`}
               >
                 <option value="">{field.placeholder || "--- Select ---"}</option>
-                {field.options?.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
+                {field.options?.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
                   </option>
                 ))}
               </select>
-              <ChevronDown className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+              <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
             </div>
-            {errors[field.name] && (
-              <p className="text-red-500 text-sm mt-1">{errors[field.name]}</p>
-            )}
+            {errors[field.name] && <p className="text-red-500 text-sm mt-1">{errors[field.name]}</p>}
           </div>
         );
 
@@ -196,58 +207,33 @@ const VehicleInsuranceForm = ({
                 onClick={() => setShowCalendar(field.name)}
                 readOnly
                 placeholder={field.placeholder || "DD/MM/YYYY"}
-                className={`w-full px-8 py-3 border rounded-lg bg-white focus:outline-none cursor-pointer ${
-                  errors[field.name]
-                    ? "border-red-500"
-                    : "border-gray-300 focus:border-[#1894a4]"
+                className={`w-full px-8 py-3 border rounded-lg bg-white cursor-pointer focus:outline-none ${
+                  errors[field.name] ? "border-red-500" : "border-gray-300 focus:border-[#1894a4]"
                 }`}
               />
               <Calendar
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"
                 onClick={() => setShowCalendar(field.name)}
               />
 
-              {/* Calendar Popup */}
               {showCalendar === field.name && (
                 <>
                   <div className="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 p-4 w-80">
-                    {/* Calendar code remains same */}
                     <div className="flex items-center justify-between mb-4">
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setCurrentMonth(
-                            new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1)
-                          )
-                        }
-                        className="p-1 hover:bg-gray-100 rounded"
-                      >
+                      <button type="button" onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1))} className="p-1 hover:bg-gray-100 rounded">
                         <ChevronLeft className="w-5 h-5" />
                       </button>
                       <h3 className="text-lg font-semibold">
-                        {currentMonth.toLocaleDateString("en-US", {
-                          month: "long",
-                          year: "numeric",
-                        })}
+                        {currentMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" })}
                       </h3>
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setCurrentMonth(
-                            new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1)
-                          )
-                        }
-                        className="p-1 hover:bg-gray-100 rounded"
-                      >
+                      <button type="button" onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1))} className="p-1 hover:bg-gray-100 rounded">
                         <ChevronRight className="w-5 h-5" />
                       </button>
                     </div>
 
                     <div className="grid grid-cols-7 gap-1 mb-2">
                       {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map((day) => (
-                        <div key={day} className="text-center text-sm font-medium text-gray-500 py-2">
-                          {day}
-                        </div>
+                        <div key={day} className="text-center text-sm font-medium text-gray-500 py-2">{day}</div>
                       ))}
                     </div>
 
@@ -276,34 +262,19 @@ const VehicleInsuranceForm = ({
                     </div>
 
                     <div className="flex justify-between mt-4">
-                      <button
-                        type="button"
-                        onClick={() => setShowCalendar(null)}
-                        className="text-[#1894a4] text-sm hover:underline"
-                      >
+                      <button type="button" onClick={() => setShowCalendar(null)} className="text-[#1894a4] text-sm hover:underline">
                         Clear
                       </button>
-                      <button
-                        type="button"
-                        onClick={() => handleDateSelect(new Date(), field.name)}
-                        className="text-[#1894a4] text-sm hover:underline"
-                      >
+                      <button type="button" onClick={() => handleDateSelect(new Date(), field.name)} className="text-[#1894a4] text-sm hover:underline">
                         Today
                       </button>
                     </div>
                   </div>
-
-                  {/* Backdrop */}
-                  <div
-                    className="fixed inset-0 z-40 bg-black/5"
-                    onClick={() => setShowCalendar(null)}
-                  />
+                  <div className="fixed inset-0 z-40 bg-black/5" onClick={() => setShowCalendar(null)} />
                 </>
               )}
             </div>
-            {errors[field.name] && (
-              <p className="text-red-500 text-sm mt-1">{errors[field.name]}</p>
-            )}
+            {errors[field.name] && <p className="text-red-500 text-sm mt-1">{errors[field.name]}</p>}
           </div>
         );
 
@@ -317,16 +288,14 @@ const VehicleInsuranceForm = ({
               name={field.name}
               value={formData[field.name]}
               onChange={handleInputChange}
-              placeholder={field.placeholder || "Enter Value"}
+              placeholder={field.placeholder || `Enter ${field.label}`}
+              inputMode={field.inputType === "number" ? "numeric" : "text"}
+              pattern={field.inputType === "number" ? "[0-9]*" : undefined}
               className={`w-full px-8 py-3 border rounded bg-white focus:outline-none ${
-                errors[field.name]
-                  ? "border-red-500"
-                  : "border-gray-300 focus:border-[#1894a4]"
+                errors[field.name] ? "border-red-500" : "border-gray-300 focus:border-[#1894a4]"
               }`}
             />
-            {errors[field.name] && (
-              <p className="text-red-500 text-sm mt-1">{errors[field.name]}</p>
-            )}
+            {errors[field.name] && <p className="text-red-500 text-sm mt-1">{errors[field.name]}</p>}
           </div>
         );
     }
@@ -338,25 +307,16 @@ const VehicleInsuranceForm = ({
         {/* Step Indicator */}
         <div className="flex items-center justify-center mb-8">
           <div className="flex items-center gap-4">
-            <div
-              className={`flex items-center justify-center w-10 h-10 rounded-full font-bold ${
-                !showFreeQuote ? "bg-[#1A3970] text-white" : "bg-gray-300 text-gray-600"
-              }`}
-            >
+            <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${!showFreeQuote ? "bg-[#1A3970] text-white" : "bg-gray-300 text-gray-600"}`}>
               1
             </div>
-            <div className={`w-16 h-1 ${showFreeQuote ? "bg-[#1A3970]" : "bg-gray-300"}`}></div>
-            <div
-              className={`flex items-center justify-center w-10 h-10 rounded-full font-bold ${
-                showFreeQuote ? "bg-[#1A3970] text-white" : "bg-gray-300 text-gray-600"
-              }`}
-            >
+            <div className={`w-16 h-1 ${showFreeQuote ? "bg-[#1A3970]" : "bg-gray-300"}`} />
+            <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${showFreeQuote ? "bg-[#1A3970] text-white" : "bg-gray-300 text-gray-600"}`}>
               2
             </div>
           </div>
         </div>
 
-        {/* Form */}
         {!showFreeQuote && (
           <div className="bg-[#F4F9FE] rounded-lg p-6 md:p-8">
             <h3 className="text-xl font-bold text-[#1A3970] mb-6">Vehicle Info</h3>
@@ -376,54 +336,74 @@ const VehicleInsuranceForm = ({
               </div>
             )}
 
-            {showInsuranceCards && insuranceQuotes.length > 0 && !showFreeQuote && (
+            {/* Updated Insurance Cards - Only Border on Select, No Scale, No Badge */}
+            {showInsuranceCards && insuranceQuotes.length > 0 && (
               <div className="mt-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                  {insuranceQuotes.map((quote) => (
-                    <div key={quote.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
-                      <div className="bg-white p-4 flex items-center justify-center border-b">
-                        <img src={quote.logo} alt={quote.company} className="h-12 object-contain" />
+                <p className="text-center text-gray-600 mb-6 text-lg font-medium">
+                  {selectedQuote ? `Selected: ${selectedQuote.company}` : "Please select a plan to continue"}
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                  {insuranceQuotes.map((quote) => {
+                    const isSelected = selectedQuote?.id === quote.id;
+
+                    return (
+                      <div
+                        key={quote.id}
+                        onClick={() => setSelectedQuote(quote)}
+                        className={`bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 cursor-pointer
+                          ${isSelected 
+                            ? "ring-4 ring-[#1894a4] ring-offset-4 shadow-2xl" 
+                            : "hover:shadow-xl border border-transparent"
+                          }`}
+                      >
+                        <div className="bg-white p-4 flex items-center justify-center border-b">
+                          <img src={quote.logo} alt={quote.company} className="h-12 object-contain" />
+                        </div>
+                        <div className="bg-[#1894a4] text-white p-4">
+                          <div className="mb-4">
+                            <p className="text-sm mb-1">3T-Old {vehicleType === "car" ? "Car" : "Bike"} Insurance Rate</p>
+                            <p className="text-3xl font-bold">{quote.rate}</p>
+                          </div>
+                          <div className="space-y-2 text-sm mb-4">
+                            <div className="flex items-center gap-2">
+                              <span className="w-1 h-1 bg-white rounded-full"></span>
+                              <span>{quote.insurancePlan}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="w-1 h-1 bg-white rounded-full"></span>
+                              <span>{quote.installmentAmount}</span>
+                            </div>
+                          </div>
+                          <div className="border-t border-white/30 pt-3 mb-4">
+                            <div className="flex justify-between items-center">
+                              <span className="font-semibold">Total:</span>
+                              <span className="text-xl font-bold">{quote.total}</span>
+                            </div>
+                          </div>
+                          <button className="w-full bg-[#1A3970] text-white py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors mb-2">
+                            INQUIRE NOW
+                          </button>
+                          <button className="w-full bg-gray-600 text-white py-2 rounded font-semibold hover:bg-gray-700 transition-colors">
+                            BUY NOW
+                          </button>
+                        </div>
                       </div>
-                      <div className="bg-[#1894a4] text-white p-4">
-                        <div className="mb-4">
-                          <p className="text-sm mb-1">
-                            3T-Old {vehicleType === "car" ? "Car" : "Bike"} Insurance Rate
-                          </p>
-                          <p className="text-3xl font-bold">{quote.rate}</p>
-                        </div>
-                        <div className="space-y-2 text-sm mb-4">
-                          <div className="flex items-center gap-2">
-                            <span className="w-1 h-1 bg-white rounded-full"></span>
-                            <span>{quote.insurancePlan}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="w-1 h-1 bg-white rounded-full"></span>
-                            <span>{quote.installmentAmount}</span>
-                          </div>
-                        </div>
-                        <div className="border-t border-white/30 pt-3 mb-4">
-                          <div className="flex justify-between items-center">
-                            <span className="font-semibold">Total:</span>
-                            <span className="text-xl font-bold">{quote.total}</span>
-                          </div>
-                        </div>
-                        <button className="w-full bg-[#1A3970] text-white py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors mb-2">
-                          INQUIRE NOW
-                        </button>
-                        <button className="w-full bg-gray-600 text-white py-2 rounded font-semibold hover:bg-gray-700 transition-colors">
-                          BUY NOW
-                        </button>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
 
                 <div className="flex justify-center">
                   <button
                     onClick={() => setShowFreeQuote(true)}
-                    className="bg-[#1A3970] text-white px-8 py-3 rounded font-semibold hover:bg-[#2A4D8F] transition-colors"
+                    disabled={!selectedQuote}
+                    className={`px-12 py-4 rounded font-bold text-lg transition-all duration-200
+                      ${selectedQuote
+                        ? "bg-[#1A3970] text-white hover:bg-[#2A4D8F] shadow-lg cursor-pointer"
+                        : "bg-gray-400 text-gray-200 cursor-not-allowed"
+                      }`}
                   >
-                    Confirm
+                    {selectedQuote ? "Confirm & Proceed" : "Please Select a Plan"}
                   </button>
                 </div>
               </div>

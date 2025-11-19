@@ -13,7 +13,7 @@ const Car = () => {
     <div>
       <Navbar />
       <FadeUp>
-      <HeroSection
+      {/* <HeroSection
         backgroundImage="/Heroimage2.png"
         title={
           <>
@@ -25,7 +25,7 @@ const Car = () => {
         isCarPage={true}
         height="h-[400px] md:h-[450px] lg:h-[500px]"
         titleSize="text-4xl md:text-5xl"
-      />
+      /> */}
       </FadeUp>
       <FadeUp>
       <VehicleInfoHeader

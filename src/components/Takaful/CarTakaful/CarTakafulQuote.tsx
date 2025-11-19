@@ -1,4 +1,3 @@
-
 // File: CarTakafulQuote.tsx
 import React, { useState } from "react";
 
@@ -33,30 +32,49 @@ const CarTakafulQuote: React.FC<CarTakafulQuoteProps> = ({
   onBack,
 }) => {
   const [contact, setContact] = useState({ name: "", phone: "", email: "" });
-  const [errors, setErrors] = useState({ name: "", phone: "", email: "" });
+  const [errors, setErrors] = useState<{ name: string; phone: string; email: string }>({
+    name: "",
+    phone: "",
+    email: "",
+  });
 
+  // Validation function
   const validate = () => {
-    const err: any = {};
+    const err = { name: "", phone: "", email: "" };
+
+    // Full Name Validation
     if (!contact.name.trim()) err.name = "Full name is required";
+    else if (contact.name.trim().length < 3) err.name = "Full name must be at least 3 characters";
+    else if (contact.name.trim().length > 50) err.name = "Full name cannot exceed 50 characters";
+
+    // Phone Validation
     if (!contact.phone.trim()) err.phone = "Phone number is required";
     else if (!/^\d{10,15}$/.test(contact.phone)) err.phone = "Invalid phone number";
+
+    // Email Validation
     if (!contact.email.trim()) err.email = "Email is required";
     else if (!/\S+@\S+\.\S+/.test(contact.email)) err.email = "Invalid email";
+
     setErrors(err);
-    return Object.keys(err).length === 0;
+
+    // Return true if no errors
+    return err.name === "" && err.phone === "" && err.email === "";
   };
 
   const handleSubmit = () => {
     if (validate()) {
-      alert("Quote request submitted!");
+      alert("Car Takaful Quote Request Sent!");
       console.log("Final Data:", { formData, selectedQuote, contact });
+
+      // Reset fields
+      setContact({ name: "", phone: "", email: "" });
+      setErrors({ name: "", phone: "", email: "" });
     }
   };
 
   return (
-    // UPDATED: px-12 + max-w-7xl mx-auto (Navbar jaisa)
     <div className="min-h-screen bg-[#F9FBFF] flex items-center justify-center px-8 py-12">
-      <div className=" w-full px-8">
+      <div className="w-full px-8">
         <div className="bg-white rounded-xl shadow-md w-full p-10 flex flex-col md:flex-row gap-10">
           {/* LEFT: FORM */}
           <div className="md:w-1/2">
@@ -75,38 +93,47 @@ const CarTakafulQuote: React.FC<CarTakafulQuoteProps> = ({
             <h2 className="text-lg font-semibold text-[#1A3970] mb-6">Get Free Quotes</h2>
 
             <div className="space-y-5">
+              {/* Full Name */}
               <div>
-                <label className="block text-sm font-medium mb-1 text-gray-700">Your Full Name *</label>
+                <label className="block text-sm font-medium mb-1 text-gray-700">
+                  Your Full Name *
+                </label>
                 <input
                   type="text"
                   placeholder="Enter your full name"
                   value={contact.name}
+                  maxLength={50}
                   onChange={(e) => setContact({ ...contact, name: e.target.value })}
-                  className={`w-full border ${errors.name ? "border-red-500" : "border-gray-300"} rounded-md px-12 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
+                  className={`w-full border ${errors.name ? "border-red-500" : "border-gray-300"} rounded-md px-4 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
                 />
                 {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+                <p className="text-gray-400 text-xs mt-1">{contact.name.length} / 50 characters</p>
               </div>
 
+              {/* Phone Number */}
               <div>
                 <label className="block text-sm font-medium mb-1 text-gray-700">Phone Number *</label>
                 <input
                   type="text"
                   placeholder="Enter your phone number"
                   value={contact.phone}
+                  maxLength={15}
                   onChange={(e) => setContact({ ...contact, phone: e.target.value })}
-                  className={`w-full border ${errors.phone ? "border-red-500" : "border-gray-300"} rounded-md px-12 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
+                  className={`w-full border ${errors.phone ? "border-red-500" : "border-gray-300"} rounded-md px-4 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
                 />
                 {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
               </div>
 
+              {/* Email */}
               <div>
                 <label className="block text-sm font-medium mb-1 text-gray-700">Email Address *</label>
                 <input
                   type="email"
                   placeholder="Enter your email"
                   value={contact.email}
+                  maxLength={50}
                   onChange={(e) => setContact({ ...contact, email: e.target.value })}
-                  className={`w-full border ${errors.email ? "border-red-500" : "border-gray-300"} rounded-md px-12 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
+                  className={`w-full border ${errors.email ? "border-red-500" : "border-gray-300"} rounded-md px-4 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
                 />
                 {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
               </div>
@@ -114,13 +141,13 @@ const CarTakafulQuote: React.FC<CarTakafulQuoteProps> = ({
               <div className="flex justify-between pt-6">
                 <button
                   onClick={onBack}
-                  className="border border-gray-300 rounded-md px-12 py-2 text-gray-700 hover:bg-gray-100"
+                  className="border border-gray-300 rounded-md px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >
                   Previous Step
                 </button>
                 <button
                   onClick={handleSubmit}
-                  className="bg-[#1A3970] text-white rounded-md px-12 py-2 hover:bg-[#2A4D8F]"
+                  className="bg-[#1A3970] text-white rounded-md px-4 py-2 hover:bg-[#2A4D8F]"
                 >
                   Confirm
                 </button>

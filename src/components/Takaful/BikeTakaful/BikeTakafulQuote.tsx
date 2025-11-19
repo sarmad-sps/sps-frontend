@@ -1,4 +1,3 @@
-
 // File: BikeTakafulQuote.tsx
 import React, { useState } from "react";
 
@@ -40,25 +39,46 @@ const BikeTakafulQuote: React.FC<Props> = ({
       phone: "",
       email: "",
     };
-    if (!contact.name.trim()) err.name = "Full name is required";
-    if (!contact.phone.trim()) err.phone = "Phone number is required";
-    else if (!/^\d{10,15}$/.test(contact.phone))
+
+    // Full Name Validation
+    if (!contact.name.trim()) {
+      err.name = "Full name is required";
+    } else if (contact.name.trim().length < 3) {
+      err.name = "Full name must be at least 3 characters";
+    } else if (contact.name.trim().length > 50) {
+      err.name = "Full name cannot exceed 50 characters";
+    }
+
+    // Phone Validation
+    if (!contact.phone.trim()) {
+      err.phone = "Phone number is required";
+    } else if (!/^\d{10,15}$/.test(contact.phone)) {
       err.phone = "Invalid phone number";
-    if (!contact.email.trim()) err.email = "Email is required";
-    else if (!/\S+@\S+\.\S+/.test(contact.email)) err.email = "Invalid email";
+    }
+
+    // Email Validation
+    if (!contact.email.trim()) {
+      err.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(contact.email)) {
+      err.email = "Invalid email";
+    }
+
     setErrors(err);
-    return Object.keys(err).length === 0;
+    return Object.values(err).every((e) => e === "");
   };
 
   const handleSubmit = () => {
     if (validate()) {
       alert("Bike Takaful Quote Request Sent!");
       console.log("Bike Data:", { formData, selectedQuote, contact });
+
+      // Reset fields
+      setContact({ name: "", phone: "", email: "" });
+      setErrors({ name: "", phone: "", email: "" });
     }
   };
 
   return (
-    // UPDATED: px-12 + max-w-7xl mx-auto (Navbar jaisa)
     <div className="min-h-screen bg-[#F9FBFF] flex items-center justify-center px-12 py-12">
       <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-12">
         <div className="bg-white rounded-xl shadow-md w-full p-10 flex flex-col md:flex-row gap-10">
@@ -81,6 +101,7 @@ const BikeTakafulQuote: React.FC<Props> = ({
             </h2>
 
             <div className="space-y-5">
+              {/* Full Name */}
               <div>
                 <label className="block text-sm font-medium mb-1 text-gray-700">
                   Your Full Name *
@@ -89,18 +110,23 @@ const BikeTakafulQuote: React.FC<Props> = ({
                   type="text"
                   placeholder="Enter your full name"
                   value={contact.name}
+                  maxLength={50}
                   onChange={(e) =>
                     setContact({ ...contact, name: e.target.value })
                   }
                   className={`w-full border ${
                     errors.name ? "border-red-500" : "border-gray-300"
-                  } rounded-md px-12 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
+                  } rounded-md px-4 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
                 />
                 {errors.name && (
                   <p className="text-red-500 text-sm mt-1">{errors.name}</p>
                 )}
+                <p className="text-gray-400 text-xs mt-1">
+                  {contact.name.length} / 50 characters
+                </p>
               </div>
 
+              {/* Phone Number */}
               <div>
                 <label className="block text-sm font-medium mb-1 text-gray-700">
                   Phone Number *
@@ -114,13 +140,14 @@ const BikeTakafulQuote: React.FC<Props> = ({
                   }
                   className={`w-full border ${
                     errors.phone ? "border-red-500" : "border-gray-300"
-                  } rounded-md px-12 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
+                  } rounded-md px-4 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
                 />
                 {errors.phone && (
                   <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
                 )}
               </div>
 
+              {/* Email */}
               <div>
                 <label className="block text-sm font-medium mb-1 text-gray-700">
                   Email Address *
@@ -134,7 +161,7 @@ const BikeTakafulQuote: React.FC<Props> = ({
                   }
                   className={`w-full border ${
                     errors.email ? "border-red-500" : "border-gray-300"
-                  } rounded-md px-12 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
+                  } rounded-md px-4 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
                 />
                 {errors.email && (
                   <p className="text-red-500 text-sm mt-1">{errors.email}</p>
@@ -144,13 +171,13 @@ const BikeTakafulQuote: React.FC<Props> = ({
               <div className="flex justify-between pt-6">
                 <button
                   onClick={onBack}
-                  className="border border-gray-300 rounded-md px-12 py-2 text-gray-700 hover:bg-gray-100"
+                  className="border border-gray-300 rounded-md px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >
                   Previous Step
                 </button>
                 <button
                   onClick={handleSubmit}
-                  className="bg-[#1A3970] text-white rounded-md px-12 py-2 hover:bg-[#2A4D8F]"
+                  className="bg-[#1A3970] text-white rounded-md px-4 py-2 hover:bg-[#2A4D8F]"
                 >
                   Confirm
                 </button>
@@ -184,9 +211,7 @@ const BikeTakafulQuote: React.FC<Props> = ({
                 <div className="border-t border-white/30 pt-3 mb-4">
                   <div className="flex justify-between items-center">
                     <span className="font-semibold">Total:</span>
-                    <span className="text-xl font-bold">
-                      {selectedQuote.total}
-                    </span>
+                    <span className="text-xl font-bold">{selectedQuote.total}</span>
                   </div>
                 </div>
                 <button className="w-full bg-[#1A3970] text-white py-2 rounded font-semibold hover:bg-[#2A4D8F] mb-2">
