@@ -1,4 +1,4 @@
-import FadeUp from "../components/common/FadeUp"; 
+import FadeUp from "../components/common/FadeUp";
 import HeroSection from "../components/common/Hero";
 import Navbar from "../components/common/Navbar";
 import ServicesSection1 from "../components/Home/ServiceSection1";
@@ -22,11 +22,13 @@ const Home = () => {
         <HeroSection />
       </FadeUp>
 
-      <FadeUp >
-        <ServicesSection1 />
+      <FadeUp>
+        <div id="services">
+          <ServicesSection1 />
+        </div>
       </FadeUp>
 
-      <FadeUp >
+      <FadeUp>
         <AboutUsSection1 />
       </FadeUp>
 
@@ -34,7 +36,7 @@ const Home = () => {
         <ServicesSection2 />
       </FadeUp> */}
 
-      <FadeUp >
+      <FadeUp>
         <WhyUsSection />
       </FadeUp>
 
@@ -42,23 +44,25 @@ const Home = () => {
         <Bestplan />
       </FadeUp>
 
-      <FadeUp >
-        <TeamSection />
+      <FadeUp>
+        <div id="team">
+          <TeamSection />
+        </div>
       </FadeUp>
 
-      <FadeUp >
+      <FadeUp>
         <WhyUsSection2 />
       </FadeUp>
 
-      <FadeUp >
+      <FadeUp>
         <BrandsSection />
       </FadeUp>
 
-      <FadeUp >
+      <FadeUp>
         <TestimonialsSection />
       </FadeUp>
 
-      <FadeUp >
+      <FadeUp>
         <FAQSection />
       </FadeUp>
 

@@ -2,7 +2,7 @@ import FadeUp from "../components/common/FadeUp";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
 import HealthInfoSection from "../components/health/Healthinfosection";
-import HeroSection from "../components/common/Hero";
+// import HeroSection from "../components/common/Hero";
 import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
 import Navbar from "../components/common/Navbar";
 import TestimonialsSection from "../components/common/Testinomialsection";
@@ -13,7 +13,7 @@ const Health = () => {
   return (
     <>
       <Navbar />
-      <FadeUp>
+      {/* <FadeUp>
       <HeroSection
         backgroundImage="/Healthinsuarnceimage.jpg"
         title={
@@ -27,7 +27,7 @@ const Health = () => {
         height="h-[400px] md:h-[450px] lg:h-[500px]"
         titleSize="text-4xl md:text-5xl"
       />
-      </FadeUp>
+      </FadeUp> */}
       <FadeUp>
       <VehicleInfoHeader
         vehicleType="health"

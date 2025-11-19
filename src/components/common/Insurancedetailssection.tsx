@@ -5,7 +5,7 @@ const InsuranceDetailsSection = () => {
     { name: "Car Insurance", active: false },
     { name: "Bike Insurance", active: false },
     { name: "Travel Insurance", active: false },
-    { name: "Home Insurance", active: false },
+    // { name: "Home Insurance", active: false },
     { name: "Health Insurance", active: false },
   ];
 
@@ -93,6 +93,7 @@ const InsuranceDetailsSection = () => {
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#1A3970] to-[#2A4D8F] opacity-95"></div>
 
+            <a href="tel:+130088090" className="relative z-10 p-8 text-center text-white">
               <div className="relative z-10 p-8 text-center text-white">
                 <div className="w-16 h-16 bg-[#1894a4] rounded-full flex items-center justify-center mx-auto mb-4">
                   <Phone className="w-8 h-8 text-white" />
@@ -103,6 +104,7 @@ const InsuranceDetailsSection = () => {
                 <p className="text-lg font-bold mb-1">+13 (00) 88-090</p>
                 <p className="text-sm text-white/80">Call Us Get Expert</p>
               </div>
+            </a>
             </div>
 
             {/* Bottom Image Card */}

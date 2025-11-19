@@ -36,9 +36,9 @@ export default function PricingPlans() {
   const [slides, setSlides] = useState<Plan[][]>([]);
 
   const updateCardsPerPage = () => {
-    if (window.innerWidth < 640) setCardsPerPage(1);        // Mobile
-    else if (window.innerWidth < 1024) setCardsPerPage(2);  // Tablet
-    else setCardsPerPage(3);                                // Desktop
+    if (window.innerWidth < 640) setCardsPerPage(1);
+    else if (window.innerWidth < 1024) setCardsPerPage(2);
+    else setCardsPerPage(3);
   };
 
   useEffect(() => {
@@ -49,14 +49,9 @@ export default function PricingPlans() {
 
   useEffect(() => {
     let newSlides: Plan[][] = [];
-
-    if (cardsPerPage === 3) {
-      newSlides = [plans];
-    } else if (cardsPerPage === 2) {
-      newSlides = [[plans[0], plans[1]], [plans[1], plans[2]]];
-    } else {
-      newSlides = plans.map((p) => [p]);
-    }
+    if (cardsPerPage === 3) newSlides = [plans];
+    else if (cardsPerPage === 2) newSlides = [[plans[0], plans[1]], [plans[1], plans[2]]];
+    else newSlides = plans.map((p) => [p]);
 
     setSlides(newSlides);
     setPage(0);
@@ -66,11 +61,9 @@ export default function PricingPlans() {
 
   useEffect(() => {
     if (totalPages <= 1) return;
-
     const interval = setInterval(() => {
       setPage((prev) => (prev + 1) % totalPages);
     }, 3500);
-
     return () => clearInterval(interval);
   }, [totalPages]);
 
@@ -114,7 +107,7 @@ export default function PricingPlans() {
           </div>
         </div>
 
-        {/* Desktop: Static Grid */}
+        {/* Desktop */}
         {cardsPerPage === 3 ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {plans.map((plan, i) => (
@@ -123,8 +116,8 @@ export default function PricingPlans() {
           </div>
         ) : (
           <>
-            {/* Mobile & Tablet: Slider with extra bottom padding */}
-            <div className="overflow-hidden w-full pb-8 md:pb-12"> {/* ← THIS GIVES BIG BOTTOM SPACE */}
+            {/* Mobile & Tablet Slider */}
+            <div className="overflow-hidden w-full pb-4 sm:pb-8 md:pb-12">
               <div
                 className="flex transition-transform duration-700 ease-in-out"
                 style={{ transform: `translateX(-${page * 100}%)` }}
@@ -134,7 +127,9 @@ export default function PricingPlans() {
                     {slide.map((plan, idx) => (
                       <div
                         key={idx}
-                        className={`flex-shrink-0 ${cardsPerPage === 1 ? "w-full px-4" : "w-1/2 px-6"}`}
+                        className={`flex-shrink-0 ${
+                          cardsPerPage === 1 ? "w-full px-2" : "w-1/2 px-6"
+                        }`}
                       >
                         <PricingCard
                           plan={plan}
@@ -148,7 +143,7 @@ export default function PricingPlans() {
               </div>
             </div>
 
-            {/* Dots - Perfectly spaced below cards */}
+            {/* Dots */}
             {totalPages > 1 && (
               <div className="flex justify-center gap-3 mt-8">
                 {Array.from({ length: totalPages }).map((_, i) => (
@@ -169,7 +164,7 @@ export default function PricingPlans() {
   );
 }
 
-// Responsive Pricing Card
+// FINAL MOBILE-FRIENDLY CARD → Narrower & Shorter on small screens
 function PricingCard({
   plan,
   planType,
@@ -180,23 +175,55 @@ function PricingCard({
   size?: "small" | "medium" | "large";
 }) {
   const sizes = {
-    small: { padding: "p-5", icon: "w-20 h-20", price: "text-4xl", title: "text-lg", feature: "text-xs", button: "py-3 text-sm" },
-    medium: { padding: "p-7", icon: "w-24 h-24", price: "text-5xl", title: "text-xl", feature: "text-sm", button: "py-4" },
-    large: { padding: "p-8", icon: "w-28 h-28", price: "text-6xl", title: "text-2xl", feature: "text-base", button: "py-4 text-base" },
+    small: {
+      container: "max-w-xs mx-auto",   // ← THIS IS THE KEY: forces narrow card on mobile
+      padding: "p-4",
+      icon: "w-14 h-14",
+      price: "text-3xl",
+      title: "text-lg",
+      feature: "text-xs",
+      button: "py-2.5 text-sm",
+      listSpacing: "space-y-2",
+      bottomMargin: "mb-4",
+    },
+    medium: {
+      container: "",
+      padding: "p-7",
+      icon: "w-24 h-24",
+      price: "text-5xl",
+      title: "text-xl",
+      feature: "text-sm",
+      button: "py-4",
+      listSpacing: "space-y-3",
+      bottomMargin: "mb-8",
+    },
+    large: {
+      container: "",
+      padding: "p-8",
+      icon: "w-28 h-28",
+      price: "text-6xl",
+      title: "text-2xl",
+      feature: "text-base",
+      button: "py-4 text-base",
+      listSpacing: "space-y-3",
+      bottomMargin: "mb-8",
+    },
   };
 
   const s = sizes[size];
 
   return (
-    <div className={`bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group h-full flex flex-col ${s.padding}`}>
-      <div className="flex items-start justify-between gap-4 mb-6">
+    <div
+      className={`bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group h-full flex flex-col ${s.padding} ${s.container}`}
+    >
+      <div className="flex items-start justify-between gap-3 mb-4">
         <div className={`${s.icon} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
           <img src={plan.icon} alt={plan.name} className="w-full h-full object-contain" />
         </div>
 
         <div className="text-right">
           <div className="flex items-start justify-end gap-1">
-            <span className={`${s.price} font-bold text-[#1A3970]`}>{plan.price}</span>
+            <span className={`${s.price} font-bold text-[#1A Night Mode]`}>{plan.price}</span>
             <span className="text-3xl font-bold text-[#1A3970]">$</span>
           </div>
           <p className="text-[#1894a4] font-semibold text-sm mt-1">
@@ -205,13 +232,13 @@ function PricingCard({
         </div>
       </div>
 
-      <h3 className={`${s.title} font-bold text-[#1A3970] mb-4`}>{plan.name}</h3>
-      <div className="w-full h-px bg-gray-200 mb-6"></div>
+      <h3 className={`${s.title} font-bold text-[#1A3970] mb-3`}>{plan.name}</h3>
+      <div className="w-full h-px bg-gray-200 mb-4"></div>
 
-      <ul className="space-y-3 mb-8 flex-grow">
+      <ul className={`${s.listSpacing} ${s.bottomMargin} flex-grow`}>
         {plan.features.map((feature, i) => (
-          <li key={i} className="flex items-start gap-3">
-            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#1894a4] bg-opacity-10 flex items-center justify-center">
+          <li key={i} className="flex items-start gap-2.5">
+            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#1894a4] bg-opacity-10 flex items-center justify-center mt-0.5">
               <Check className="w-3.5 h-3.5 text-[#1894a4]" />
             </div>
             <span className={`text-gray-600 leading-tight ${s.feature}`}>{feature}</span>
@@ -219,7 +246,9 @@ function PricingCard({
         ))}
       </ul>
 
-      <button className={`w-full bg-[#1A3970] hover:bg-[#2A4D8F] text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl mt-auto ${s.button}`}>
+      <button
+        className={`w-full bg-[#1A3970] hover:bg-[#2A4D8F] text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl mt-auto ${s.button}`}
+      >
         Select Policy
       </button>
     </div>

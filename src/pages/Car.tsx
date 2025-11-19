@@ -1,7 +1,7 @@
 import FadeUp from "../components/common/FadeUp";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
-import HeroSection from "../components/common/Hero";
+// import HeroSection from "../components/common/Hero";
 import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
 import Navbar from "../components/common/Navbar";
 import VehicleInfoHeader from "../components/common/VehicleInfoHeader";

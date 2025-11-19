@@ -2,7 +2,7 @@ import FadeUp from "../components/common/FadeUp";
 import Navbar from "../components/common/Navbar";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
-import HeroSection from "../components/common/Hero";
+// import HeroSection from "../components/common/Hero";
 import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
 import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
 import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
@@ -13,7 +13,7 @@ const Bike = () => {
   return (
     <div>
       <Navbar />
-      <FadeUp>
+      {/* <FadeUp>
       <HeroSection
         backgroundImage="/Bikeinsurancepolicyimage.jpg"
         title={
@@ -27,7 +27,7 @@ const Bike = () => {
         height="h-[400px] md:h-[450px] lg:h-[500px]"
         titleSize="text-4xl md:text-5xl"
       />
-      </FadeUp>
+      </FadeUp> */}
       <FadeUp>
       <VehicleInfoHeader
         vehicleType="bike"

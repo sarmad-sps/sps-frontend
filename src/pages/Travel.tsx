@@ -1,6 +1,6 @@
 import FadeUp from "../components/common/FadeUp";
 import Navbar from "../components/common/Navbar";
-import HeroSection from "../components/common/Hero";
+// import HeroSection from "../components/common/Hero";
 import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
 import TravelInfoSection from "../components/travel/TravelInfoSection";
 import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
@@ -11,7 +11,7 @@ const Travel = () => {
   return (
     <>
       <Navbar />
-      <FadeUp>
+      {/* <FadeUp>
         <HeroSection
           backgroundImage="/Heroimage2.png"
           title={
@@ -25,7 +25,7 @@ const Travel = () => {
           height="h-[400px] md:h-[450px] lg:h-[500px]"
           titleSize="text-4xl md:text-5xl"
         />
-      </FadeUp>
+      </FadeUp> */}
       <FadeUp>
         <VehicleInfoHeader
           vehicleType="travel"
