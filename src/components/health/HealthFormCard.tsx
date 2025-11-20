@@ -13,6 +13,7 @@ const HealthFormCard = () => {
   const [formErrors, setFormErrors] = useState({
     yourAge: "",
     spouseAge: "",
+    children: "",
     treatmentLimit: "",
   });
 
@@ -33,78 +34,85 @@ const HealthFormCard = () => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
-    // Prevent non-numeric input for age fields
+    // Only numbers for age fields
     if ((name === "yourAge" || name === "spouseAge") && value !== "") {
       if (!/^\d*$/.test(value)) return;
+      if (value.length > 3) return;
     }
 
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    // Only numbers, commas, spaces for children
+    if (name === "children" && value !== "") {
+      if (!/^[\d,\s]*$/.test(value)) return;
+    }
 
-    setFormErrors((prev) => ({
-      ...prev,
-      [name]: "",
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   const validateForm = () => {
     const errors: any = {};
 
-    if (!formData.yourAge) {
+    // Your Age - Required
+    if (!formData.yourAge.trim()) {
       errors.yourAge = "Your age is required.";
-    } else if (Number(formData.yourAge) < 18 || Number(formData.yourAge) > 100) {
-      errors.yourAge = "Please enter a valid age (18–100).";
+    } else {
+      const age = Number(formData.yourAge);
+      if (age < 18 || age > 100) {
+        errors.yourAge = "Please enter a valid age (18–100).";
+      }
     }
 
-    if (formData.spouseAge && (Number(formData.spouseAge) < 18 || Number(formData.spouseAge) > 100)) {
-      errors.spouseAge = "Please enter a valid spouse age (18–100).";
+    // Spouse Age - Optional but valid if filled
+    if (formData.spouseAge.trim()) {
+      const age = Number(formData.spouseAge);
+      if (isNaN(age) || age < 18 || age > 100) {
+        errors.spouseAge = "Spouse age must be between 18–100.";
+      }
     }
 
+    // Children - Optional but valid format
+    if (formData.children.trim()) {
+      const ages = formData.children
+        .split(",")
+        .map((a) => a.trim())
+        .filter((a) => a !== "");
+
+      if (ages.length === 0 || ages.some((age) => !/^\d+$/.test(age) || Number(age) > 18)) {
+        errors.children = "Enter valid ages (0–18), e.g., 5, 8, 12";
+      }
+    }
+
+    // Treatment Limit - Required
     if (!selectedTreatmentLimit) {
       errors.treatmentLimit = "Please select a treatment limit.";
     }
 
     setFormErrors(errors);
-
     return Object.keys(errors).length === 0;
   };
 
   const handleSubmit = () => {
     if (!validateForm()) return;
 
-    console.log({
+    console.log("Health Form Submitted:", {
       personType: selectedPersonType,
       treatmentLimit: selectedTreatmentLimit,
-      ...formData,
+      yourAge: formData.yourAge,
+      spouseAge: formData.spouseAge || "N/A",
+      children: formData.children || "None",
     });
 
     alert("Form submitted successfully!");
 
-    // ---------- Reset Form ----------
+    // Reset everything
     setSelectedPersonType("myself");
     setSelectedTreatmentLimit("");
-    setFormData({
-      yourAge: "",
-      spouseAge: "",
-      children: "",
-    });
-    setFormErrors({
-      yourAge: "",
-      spouseAge: "",
-      treatmentLimit: "",
-    });
+    setFormData({ yourAge: "", spouseAge: "", children: "" });
+    setFormErrors({ yourAge: "", spouseAge: "", children: "", treatmentLimit: "" });
   };
 
   const getIconSize = (id: string) => {
-    switch (id) {
-      case "staff":
-      case "parents":
-        return "w-10 h-10";
-      default:
-        return "w-8 h-8";
-    }
+    return id === "staff" || id === "parents" ? "w-10 h-10" : "w-8 h-8";
   };
 
   return (
@@ -180,8 +188,15 @@ const HealthFormCard = () => {
           value={formData.children}
           onChange={handleInputChange}
           placeholder="Add children and ages (if any)"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#1894a4]"
+          className={`w-full px-4 py-3 border rounded-lg focus:outline-none ${
+            formErrors.children
+              ? "border-red-500"
+              : "border-gray-300 focus:border-[#1894a4]"
+          }`}
         />
+        {formErrors.children && (
+          <p className="text-red-500 text-sm mt-1">{formErrors.children}</p>
+        )}
       </div>
 
       {/* Treatment Limit */}
