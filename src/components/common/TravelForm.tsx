@@ -97,7 +97,7 @@ const TravelForm: React.FC = () => {
   };
 
   const validateForm = () => {
-    let newErrors: { [key: string]: string } = {};
+    const newErrors: { [key: string]: string } = {};
     if (!formData.country) newErrors.country = "Please select a country.";
     if (!formData.tripDate) newErrors.tripDate = "Please select trip dates.";
     if (!formData.passengers)
@@ -118,7 +118,7 @@ const TravelForm: React.FC = () => {
     const endDate = new Date(lastDay);
     endDate.setDate(endDate.getDate() + (6 - lastDay.getDay()));
 
-    let current = new Date(startDate);
+    const current = new Date(startDate);
     while (current <= endDate) {
       days.push(new Date(current));
       current.setDate(current.getDate() + 1);

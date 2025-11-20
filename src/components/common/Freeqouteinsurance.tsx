@@ -16,7 +16,7 @@ interface FreeQuoteProps {
 }
 
 const Freeqouteinsurance: React.FC<FreeQuoteProps> = ({
-  initialVehicleInfo,
+  // initialVehicleInfo,
   onBack,
 }) => {
   const [formData, setFormData] = useState({

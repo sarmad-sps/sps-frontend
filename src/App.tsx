@@ -16,6 +16,7 @@ import Healthtakaful from "./pages/Healthtakaful";
 import ItConsulting from "./pages/ItConsulting";
 import ScrollToTop from "./components/scrollToTop";
 import WhatsAppButton from "./components/common/WhatsappButton";
+import Insuranceplan from "./pages/Insuranceplan";
 export default function App() {
   return (
     <div className="overflow-x-hidden">
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="/bike-takaful" element={<BikeTakaful />} />
         <Route path="/health-takaful" element={<Healthtakaful />} />
         <Route path="/it-consulting" element={<ItConsulting />} />
+        <Route path="/insuranceplan" element={<Insuranceplan />} />
       </Routes>
     </div>
   );
