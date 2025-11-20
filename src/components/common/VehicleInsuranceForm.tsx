@@ -435,6 +435,7 @@
 import { useState } from "react";
 import Freeqouteinsurance from "./Freeqouteinsurance";
 import { Calendar, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface InsuranceQuote {
   id: number;
@@ -822,9 +823,10 @@ const VehicleInsuranceForm = ({
                             <button className="w-full bg-[#1A3970] text-white py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors mb-2">
                               INQUIRE NOW
                             </button>
+                            <Link to="/insuranceplan" state={{ quote: quote }}>
                             <button className="w-full bg-gray-600 text-white py-2 rounded font-semibold hover:bg-gray-700 transition-colors">
-                              BUY NOW
-                            </button>
+                             {`More Details > `}                            </button>
+                            </Link>
                           </div>
                         </div>
                       );
