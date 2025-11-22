@@ -46,7 +46,7 @@ const Bike = () => {
       <VehicleInsuranceForm
         vehicleType="bike"
         formFields={bikeFormFields}
-        apiEndpoint="/api/bike-insurance-quotes"
+        // apiEndpoint="/api/bike-insurance-quotes"
       />
       </FadeUp>
       <FadeUp>
