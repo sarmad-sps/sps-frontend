@@ -1,5 +1,6 @@
 import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import Home from "./pages/Home";
 import Car from "./pages/Car";
 import Bike from "./pages/Bike";
@@ -22,6 +23,7 @@ export default function App() {
     <div className="overflow-x-hidden">
        <ScrollToTop />
       <WhatsAppButton/>
+          <Toaster position="top-right" />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/car" element={<Car />} />

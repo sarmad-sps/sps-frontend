@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import { submitTravelForm } from "../../apis/travelApi"; // adjust path if needed
+import { submitTravelForm } from "../../apis/travelApi";
+import toast from "react-hot-toast";
 
 const TravelFormCard = () => {
+  const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -46,10 +49,14 @@ const TravelFormCard = () => {
   const handleSubmit = async () => {
     if (!validateForm()) return;
 
+    setLoading(true);
+    toast.loading("Submitting...");
+
     try {
       const response = await submitTravelForm(formData);
-      alert("Form submitted successfully!");
-      console.log("API Response:", response);
+
+      toast.dismiss();
+      toast.success("Form submitted successfully!");
 
       setFormData({
         name: "",
@@ -58,15 +65,20 @@ const TravelFormCard = () => {
         countryToTravel: "",
         destination: "",
       });
+
       setErrors({});
     } catch (err: any) {
-      alert(err.message || "Failed to submit form");
+      toast.dismiss();
+      toast.error(err.message || "Failed to submit form");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-8">
       <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 space-y-6">
+
         {/* Name */}
         <div>
           <label className="block text-sm font-bold text-gray-700 mb-2">Name</label>
@@ -110,7 +122,7 @@ const TravelFormCard = () => {
             name="travelType"
             value={formData.travelType}
             onChange={handleInputChange}
-            className={`w-full px-4 py-3 border rounded-lg focus:outline-none appearance-none pr-10 ${
+            className={`w-full px-4 py-3 border rounded-lg appearance-none pr-10 focus:outline-none ${
               errors.travelType ? "border-red-500" : "border-gray-300 focus:border-[#1894a4]"
             }`}
           >
@@ -121,9 +133,11 @@ const TravelFormCard = () => {
               </option>
             ))}
           </select>
+
           <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
             <ChevronDown className="w-5 h-5 text-gray-400 mt-6" />
           </div>
+
           {errors.travelType && <p className="text-red-500 text-sm mt-1">{errors.travelType}</p>}
         </div>
 
@@ -134,7 +148,7 @@ const TravelFormCard = () => {
             name="countryToTravel"
             value={formData.countryToTravel}
             onChange={handleInputChange}
-            className={`w-full px-4 py-3 border rounded-lg focus:outline-none appearance-none pr-10 ${
+            className={`w-full px-4 py-3 border rounded-lg appearance-none pr-10 focus:outline-none ${
               errors.countryToTravel ? "border-red-500" : "border-gray-300 focus:border-[#1894a4]"
             }`}
           >
@@ -145,9 +159,11 @@ const TravelFormCard = () => {
               </option>
             ))}
           </select>
+
           <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
             <ChevronDown className="w-5 h-5 text-gray-400 mt-6" />
           </div>
+
           {errors.countryToTravel && (
             <p className="text-red-500 text-sm mt-1">{errors.countryToTravel}</p>
           )}
@@ -160,7 +176,7 @@ const TravelFormCard = () => {
             name="destination"
             value={formData.destination}
             onChange={handleInputChange}
-            className={`w-full px-4 py-3 border rounded-lg focus:outline-none appearance-none pr-10 ${
+            className={`w-full px-4 py-3 border rounded-lg appearance-none pr-10 focus:outline-none ${
               errors.destination ? "border-red-500" : "border-gray-300 focus:border-[#1894a4]"
             }`}
           >
@@ -171,19 +187,31 @@ const TravelFormCard = () => {
               </option>
             ))}
           </select>
+
           <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
             <ChevronDown className="w-5 h-5 text-gray-400 mt-6" />
           </div>
-          {errors.destination && <p className="text-red-500 text-sm mt-1">{errors.destination}</p>}
+
+          {errors.destination && (
+            <p className="text-red-500 text-sm mt-1">{errors.destination}</p>
+          )}
         </div>
 
         {/* Submit Button */}
         <button
           onClick={handleSubmit}
-          className="w-full bg-[#1A3970] text-white py-4 rounded-lg font-semibold hover:bg-[#2A4D8F] transition-colors flex items-center justify-center gap-2"
+          disabled={loading}
+          className={`w-full bg-[#1A3970] text-white py-4 rounded-lg font-semibold transition-colors flex items-center justify-center gap-2 
+          ${loading ? "opacity-60 cursor-not-allowed" : "hover:bg-[#2A4D8F]"}`}
         >
-          See Plan
-          <ArrowRight className="w-5 h-5" />
+          {loading ? (
+            <span className="animate-spin border-2 border-white border-t-transparent w-5 h-5 rounded-full"></span>
+          ) : (
+            <>
+              See Plan
+              <ArrowRight className="w-5 h-5" />
+            </>
+          )}
         </button>
       </div>
     </div>
