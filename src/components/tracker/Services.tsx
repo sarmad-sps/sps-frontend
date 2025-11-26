@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import icon1 from "../../assets/Icon1.svg"
-import  icon2 from '../../assets/Icon2.svg'
 
-import  icon3 from '../../assets/Icon3.svg'
-import  icon4 from '../../assets/Icon4.svg'
+import icon1 from "../../assets/Icon1.svg"
+import icon2 from '../../assets/Icon2.svg'
+import icon3 from '../../assets/Icon3.svg'
+import icon4 from '../../assets/Icon4.svg'
+
 type ServiceCardProps = {
   title: string;
   text: string;
@@ -13,15 +14,15 @@ type ServiceCardProps = {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ title, text, icon, image }) => {
   return (
-    <div className="group relative rounded-3xl overflow-hidden ">
-      <img src={image} alt={title} className="w-full h-auto object-cover" />
+    <div className="group relative rounded-3xl overflow-hidden h-full flex flex-col">
+      <img src={image} alt={title} className="w-full h-56 sm:h-64 md:h-72 lg:h-[280px] object-cover" />
       <div className="absolute top-5 left-5 lg:top-7 lg:left-7">
-        <img src={icon} alt={title} className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 drop-shadow-2xl" />
+        <img src={icon} alt={title} className="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 drop-shadow-2xl" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-      <div className="absolute bottom-0 left-0 p-5 lg:p-7 text-white">
-        <h3 className="text-base sm:text-base lg:text-lg font-bold drop-shadow-2xl">{title}</h3>
-        <p className="text-sm lg:text-sm font-medium mt-2 leading-snug drop-shadow-lg">{text}</p>
+      <div className="absolute bottom-0 left-0 right-0 p-5 lg:p-7 text-white">
+        <h3 className="text-lg sm:text-xl lg:text-xl font-bold drop-shadow-2xl min-h-[56px] flex items-end">{title}</h3>
+        <p className="text-sm lg:text-sm font-medium mt-1 leading-snug drop-shadow-lg">{text}</p>
       </div>
     </div>
   );
@@ -43,8 +44,11 @@ const ServicesSection: React.FC = () => {
     if (window.innerWidth < 640) {
       setCardsPerPage(1);
       setSlideStep(1);
-    } else if (window.innerWidth < 1024) {
+    } else if (window.innerWidth < 768) {
       setCardsPerPage(2);
+      setSlideStep(1);
+    } else if (window.innerWidth < 1024) {
+      setCardsPerPage(3);
       setSlideStep(1);
     } else {
       setCardsPerPage(4);
@@ -68,56 +72,60 @@ const ServicesSection: React.FC = () => {
   const cardWidthPercent = 100 / cardsPerPage;
 
   return (
-    <section className="py-12 sm:py-16 lg:py-24 bg-white">
-      <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 mx-auto">
+    <section className="py-12 sm:py-16 lg:py-20 bg-white">
+      {/* Container with proper max-width and padding */}
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16">
         {/* Heading */}
-        <div className="text-center mb-10 lg:mb-16">
-          <p className="text-[#1894A4] font-bold text-[12px] sm:text-[13px] uppercase tracking-widest mb-3">
+        <div className="text-center mb-10 lg:mb-14">
+          <p className="text-[#1894A4] font-bold text-xs sm:text-sm uppercase tracking-widest mb-3">
             What We're Offering
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold text-gray-900 leading-tight">
             SERVICES WE'RE PROVIDING
             <br />
             <span className="text-[#1894A4]">TO CUSTOMERS</span>
           </h2>
         </div>
 
-        {/* Slider */}
-        <div className="overflow-hidden w-full mb-4">
-          <div
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${currentIndex * cardWidthPercent}%)` }}
-          >
-            {services.concat(services.slice(0, cardsPerPage)).map((service, idx) => (
-              <div
-                key={idx}
-                className="flex-shrink-0 px-2"
-                style={{ flex: `0 0 ${cardWidthPercent}%` }}
-              >
-                <ServiceCard
-                  title={service.title}
-                  text={service.text}
-                  icon={service.icon}
-                  image={service.image}
-                />
-              </div>
+        {/* Slider Container */}
+        <div className="relative">
+          <div className="overflow-hidden w-full mb-6">
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * cardWidthPercent}%)` }}
+            >
+              {services.concat(services.slice(0, cardsPerPage)).map((service, idx) => (
+                <div
+                  key={idx}
+                  className="flex-shrink-0 px-3 sm:px-3 lg:px-3"
+                  style={{ flex: `0 0 ${cardWidthPercent}%` }}
+                >
+                  <ServiceCard
+                    title={service.title}
+                    text={service.text}
+                    icon={service.icon}
+                    image={service.image}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-8">
+            {Array.from({ length: Math.ceil(services.length / slideStep) }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentIndex(i * slideStep)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`cursor-pointer transition-all duration-300 ${
+                  currentIndex === i * slideStep
+                    ? "bg-[#1894A4] w-8 h-2 rounded-full"
+                    : "bg-gray-300 w-2 h-2 rounded-full hover:bg-gray-400"
+                }`}
+              ></button>
             ))}
           </div>
-        </div>
-
-        {/* Dots */}
-        <div className="flex justify-center gap-2 mt-6">
-          {Array.from({ length: Math.ceil(services.length / slideStep) }).map((_, i) => (
-            <span
-              key={i}
-              onClick={() => setCurrentIndex(i * slideStep)}
-              className={`cursor-pointer transition-all duration-300 ${
-                currentIndex === i * slideStep
-                  ? "bg-[#1894A4] w-4 h-1 rounded-full lg:w-6 lg:h-2"
-                  : "bg-gray-300 w-2 h-2 rounded-full hover:bg-gray-400 lg:w-3 lg:h-3"
-              }`}
-            ></span>
-          ))}
         </div>
       </div>
     </section>

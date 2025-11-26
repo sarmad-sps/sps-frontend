@@ -88,7 +88,7 @@ const Navbar = () => {
               </Link>
 
               {/* Desktop Nav */}
-              <div className="hidden md:flex items-center justify-center gap-6 md:pl-10 lg:gap-8 lg:pl-0 w-full">
+              <div className="hidden md:flex items-center justify-center gap-6 md:pl-14 lg:gap-8 lg:pl-6 w-full">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
@@ -113,16 +113,13 @@ const Navbar = () => {
                       03317495785
                     </span>
                   </div>
-                  <button className="hidden md:block p-2 hover:bg-gray-100 rounded">
-                    <div className="grid grid-cols-3 gap-1">
-                      {[...Array(9)].map((_, i) => (
-                        <div
-                          key={i}
-                          className="w-1.5 h-1.5 bg-gray-700 rounded-sm"
-                        ></div>
-                      ))}
-                    </div>
-                  </button>
+     <button className="hidden md:block p-2 hover:bg-gray-100 rounded">
+  <div className="grid grid-cols-3 gap-2">
+    {[...Array(9)].map((_, i) => (
+      <div key={i} className="w-1.5 h-1.5 bg-black rounded-full"></div>
+    ))}
+  </div>
+</button>
                 </a>
 
                 {/* Mobile Icon */}

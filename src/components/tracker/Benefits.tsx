@@ -139,13 +139,13 @@ const VehicleTrackingHero: React.FC = () => {
                 </div>
 
                 {/* Certifications - Responsive Flex */}
-                <div className="flex flex-wrap justify-center lg:justify-start gap-8 sm:gap-10 pt-8">
+                <div className="flex flex-wrap justify-center lg:justify-start gap-6 pt-8">
                   <div className="flex flex-col items-center space-y-2">
                     <img src="/pta.png" alt="PTA" className="w-14 h-14 sm:w-16 sm:h-16" />
                     <p className="text-xs sm:text-sm font-semibold text-gray-500">PTA Approved<br/> Devices</p>
                   </div>
                   <div className="flex flex-col items-center space-y-2">
-                    <img src="/iso.png" alt="ISO" className="w-14 h-14 sm:w-16 sm:h-16" />
+                    <img src="/SECP logo.png" alt="ISO" className="w-14 h-14 sm:w-16 sm:h-16" />
                     <p className="text-xs sm:text-sm font-semibold text-gray-500">ISO Certified <br/> Devices</p>
                    
                   </div>
@@ -199,7 +199,7 @@ const VehicleTrackingHero: React.FC = () => {
                 </div>
 
                 {/* Main Image - Perfectly Responsive */}
-                <div className="relative -mx-4 sm:mx-0 mt-10 lg:mt-16">
+                <div className="relative mx-auto sm:mx-0 mt-10 lg:mt-16">
                   <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-8 sm:border-[12px] border-white">
                     <img
                       src={benefitImg}
