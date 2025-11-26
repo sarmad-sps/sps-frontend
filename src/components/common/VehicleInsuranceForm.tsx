@@ -4,7 +4,7 @@ import Freeqouteinsurance from "./Freeqouteinsurance";
 import { Calendar, ChevronDown, ChevronLeft, ChevronRight, ChevronRight as ChevronRightIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { calculateInsurance } from "../../apis/insuranceApi";
-import toast, { Toaster } from "react-hot-toast"; // Added
+import toast, { Toaster } from "react-hot-toast";
 
 interface InsuranceQuote {
   id: number;
@@ -199,6 +199,7 @@ const VehicleInsuranceForm = ({ vehicleType, formFields }: VehicleInsuranceFormP
   );
 
   const renderFormField = (field: FormFieldConfig) => {
+    // ... same as before (select, date, input) — no change
     switch (field.type) {
       case "select":
         return (
@@ -310,40 +311,94 @@ const VehicleInsuranceForm = ({ vehicleType, formFields }: VehicleInsuranceFormP
     }
   };
 
+  // Insurance Card Component (DRY — reuse kiya)
+  const InsuranceCard = ({ quote }: { quote: InsuranceQuote }) => {
+    const isSelected = selectedQuote?.id === quote.id;
+
+    return (
+      <div
+        onClick={() => setSelectedQuote(quote)}
+        className={`relative bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 cursor-pointer h-full ${
+          isSelected
+            ? "ring-4 ring-[#1894a4] ring-offset-4 shadow-2xl scale-105"
+            : "hover:shadow-xl border border-transparent"
+        }`}
+      >
+        <div className="bg-white p-4 flex items-center justify-center border-b">
+          <img
+            src={quote.logo}
+            alt={quote.company}
+            className="h-12 object-contain"
+            onError={(e) => (e.currentTarget.src = "/Jubileeinsurance.png")}
+          />
+        </div>
+
+        <div className="bg-[#1894a4] text-white p-5">
+          <div className="mb-4">
+            <p className="text-sm mb-1">3rd Party {vehicleType === "car" ? "Car" : "Bike"} Rate</p>
+            <p className="text-3xl font-bold">{quote.rate}</p>
+          </div>
+
+          <div className="space-y-2 text-sm mb-4">
+            <div className="flex items-center gap-2">
+              <span className="w-1 h-1 bg-white rounded-full"></span>
+              <span>{quote.insurancePlan}</span>
+            </div>
+            {quote.trackerIncluded && (
+              <div className="flex items-center gap-2">
+                <span className="w-1 h-1 bg-white rounded-full"></span>
+                <span>Tracker Included</span>
+              </div>
+            )}
+          </div>
+
+          <div className="border-t border-white/30 pt-3 mb-5">
+            <div className="flex justify-between items-center">
+              <span className="font-semibold">Total:</span>
+              <span className="text-xl font-bold">{quote.total}</span>
+            </div>
+          </div>
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedQuote(quote);
+              handleProceed();
+            }}
+            disabled={proceedLoading}
+            className="w-full bg-[#1A3970] text-white py-3 rounded font-bold hover:bg-[#2A4D8F] transition-all flex items-center justify-center gap-2"
+          >
+            {proceedLoading ? (
+              <span className="animate-spin border-2 border-white border-t-transparent w-5 h-5 rounded-full"></span>
+            ) : (
+              "INQUIRE NOW"
+            )}
+          </button>
+
+          <Link to="/insuranceplan" state={{ quote }}>
+            <button className="w-full mt-2 bg-gray-700 text-white py-2 rounded text-sm font-medium hover:bg-gray-800 transition">
+              More Details
+            </button>
+          </Link>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <>
-      <Toaster
-        position="top-center"
-        reverseOrder={false}
-        toastOptions={{
-          duration: 4000,
-          style: {
-            background: "#363636",
-            color: "#fff",
-          },
-        }}
-      />
+      <Toaster position="top-center" reverseOrder={false} toastOptions={{ duration: 4000, style: { background: "#363636", color: "#fff" } }} />
 
       <section className="w-full bg-[#F4F9FE] pt-2 md:pt-4 pb-8 md:pb-12">
         <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 max-w-7xl mx-auto">
-
-         <div className="flex items-center justify-center mb-8">
-  <div className="flex items-center gap-4">
-    {/* Step 1 */}
-    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
-      showFreeQuote ? "bg-[#1A3970] text-white" : "bg-[#1A3970] text-white"
-    }`}>1</div>
-    
-    {/* Line */}
-    <div className={`w-16 h-1 ${showFreeQuote ? "bg-[#1A3970]" : "bg-gray-300"}`} />
-    
-    {/* Step 2 */}
-    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
-      showFreeQuote ? "bg-[#1A3970] text-white" : "bg-gray-300 text-gray-600"
-    }`}>2</div>
-  </div>
-</div>
-
+          {/* Progress Steps */}
+          <div className="flex items-center justify-center mb-8">
+            <div className="flex items-center gap-4">
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${showFreeQuote ? "bg-[#1A3970] text-white" : "bg-[#1A3970] text-white"}`}>1</div>
+              <div className={`w-16 h-1 ${showFreeQuote ? "bg-[#1A3970]" : "bg-gray-300"}`} />
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${showFreeQuote ? "bg-[#1A3970] text-white" : "bg-gray-300 text-gray-600"}`}>2</div>
+            </div>
+          </div>
 
           {/* Step 1 */}
           {!showFreeQuote ? (
@@ -373,91 +428,123 @@ const VehicleInsuranceForm = ({ vehicleType, formFields }: VehicleInsuranceFormP
 
               {apiError && <p className="text-red-500 text-center mt-4 font-medium">{apiError}</p>}
 
-              {/* Insurance Cards */}
+              {/* Insurance Cards - Responsive Slider on Mobile */}
               {showInsuranceCards && insuranceQuotes.length > 0 && (
                 <div className="mt-10">
                   <p className="text-center text-gray-600 mb-6 text-lg font-medium">
                     {selectedQuote ? `Selected: ${selectedQuote.company}` : "Please select a plan to continue"}
                   </p>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-                    {insuranceQuotes.map((quote) => {
-                      const isSelected = selectedQuote?.id === quote.id;
+             {/* Mobile: Slider with Proper Side Margins + Full Glowing Border + Dots */}
+<div className="block md:hidden">
+  {/* Container with safe side padding */}
+  <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory px-8">
+    <div className="flex gap-6 py-8 min-w-max">
+      {insuranceQuotes.map((quote) => {
+        const isSelected = selectedQuote?.id === quote.id;
 
-                      return (
-                        <div
-                          key={quote.id}
-                          onClick={() => setSelectedQuote(quote)}
-                          className={`relative bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 cursor-pointer ${
-                            isSelected
-                              ? "ring-4 ring-[#1894a4] ring-offset-4 shadow-2xl scale-105"
-                              : "hover:shadow-xl border border-transparent"
-                          }`}
-                        >
-                          <div className="bg-white p-4 flex items-center justify-center border-b">
-                            <img
-                              src={quote.logo}
-                              alt={quote.company}
-                              className="h-12 object-contain"
-                              onError={(e) => (e.currentTarget.src = "/Jubileeinsurance.png")}
-                            />
-                          </div>
+        return (
+          <div
+            key={quote.id}
+            className="flex-shrink-0 w-[60vw] max-w-md snap-center"
+          >
+            {/* Tumhara 100% original card – ab left/right dono taraf margin hai */}
+            <div
+              onClick={() => setSelectedQuote(quote)}
+              className={`relative bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 cursor-pointer h-full
+                ${isSelected
+                  ? "ring-4 ring-[#1894a4] ring-offset-4 shadow-2xl scale-105 z-10"
+                  : "hover:shadow-xl"
+                }`}
+            >
+              <div className="bg-white p-4 flex items-center justify-center border-b">
+                <img
+                  src={quote.logo}
+                  alt={quote.company}
+                  className="h-12 object-contain"
+                  onError={(e) => (e.currentTarget.src = "/Jubileeinsurance.png")}
+                />
+              </div>
 
-                          <div className="bg-[#1894a4] text-white p-5">
-                            <div className="mb-4">
-                              <p className="text-sm mb-1">3rd Party {vehicleType === "car" ? "Car" : "Bike"} Rate</p>
-                              <p className="text-3xl font-bold">{quote.rate}</p>
-                            </div>
+              <div className="bg-[#1894a4] text-white p-5">
+                <div className="mb-4">
+                  <p className="text-sm mb-1">3rd Party {vehicleType === "car" ? "Car" : "Bike"} Rate</p>
+                  <p className="text-3xl font-bold">{quote.rate}</p>
+                </div>
 
-                            <div className="space-y-2 text-sm mb-4">
-                              <div className="flex items-center gap-2">
-                                <span className="w-1 h-1 bg-white rounded-full"></span>
-                                <span>{quote.insurancePlan}</span>
-                              </div>
-                              {quote.trackerIncluded && (
-                                <div className="flex items-center gap-2">
-                                  <span className="w-1 h-1 bg-white rounded-full"></span>
-                                  <span>Tracker Included</span>
-                                </div>
-                              )}
-                            </div>
+                <div className="space-y-2 text-sm mb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-white rounded-full"></span>
+                    <span>{quote.insurancePlan}</span>
+                  </div>
+                  {quote.trackerIncluded && (
+                    <div className="flex items-center gap-2">
+                      <span className="w-1 h-1 bg-white rounded-full"></span>
+                      <span>Tracker Included</span>
+                    </div>
+                  )}
+                </div>
 
-                            <div className="border-t border-white/30 pt-3 mb-5">
-                              <div className="flex justify-between items-center">
-                                <span className="font-semibold">Total:</span>
-                                <span className="text-xl font-bold">{quote.total}</span>
-                              </div>
-                            </div>
+                <div className="border-t border-white/30 pt-3 mb-5">
+                  <div className="flex justify-between items-center">
+                    <span className="font-semibold">Total:</span>
+                    <span className="text-xl font-bold">{quote.total}</span>
+                  </div>
+                </div>
 
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setSelectedQuote(quote);
-                                handleProceed();
-                              }}
-                              disabled={proceedLoading}
-                              className="w-full bg-[#1A3970] text-white py-3 rounded font-bold hover:bg-[#2A4D8F] transition-all flex items-center justify-center gap-2"
-                            >
-                              {proceedLoading ? (
-                                <span className="animate-spin border-2 border-white border-t-transparent w-5 h-5 rounded-full"></span>
-                              ) : (
-                                "INQUIRE NOW"
-                              )}
-                            </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedQuote(quote);
+                    handleProceed();
+                  }}
+                  disabled={proceedLoading}
+                  className="w-full bg-[#1A3970] text-white py-3 rounded font-bold hover:bg-[#2A4D8F] transition-all flex items-center justify-center gap-2"
+                >
+                  {proceedLoading ? (
+                    <span className="animate-spin border-2 border-white border-t-transparent w-5 h-5 rounded-full"></span>
+                  ) : (
+                    "INQUIRE NOW"
+                  )}
+                </button>
 
-                            <Link to="/insuranceplan" state={{ quote }}>
-                              <button className="w-full mt-2 bg-gray-700 text-white py-2 rounded text-sm font-medium hover:bg-gray-800 transition">
-                                More Details →
-                              </button>
-                            </Link>
-                          </div>
-                        </div>
-                      );
-                    })}
+                <Link to="/insuranceplan" state={{ quote }}>
+                  <button className="w-full mt-2 bg-gray-700 text-white py-2 rounded text-sm font-medium hover:bg-gray-800 transition">
+                    More Details
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+
+  {/* Dots Indicator */}
+  <div className="flex justify-center gap-2 mt-6 pb-6">
+    {insuranceQuotes.map((_, index) => (
+      <div
+        key={index}
+        className={`h-2 rounded-full transition-all duration-300 ${
+          selectedQuote?.id === index + 1
+            ? "bg-[#1894a4] w-10"
+            : "bg-gray-300 w-2"
+        }`}
+      />
+    ))}
+  </div>
+</div>
+
+                  {/* Tablet & Desktop: Grid */}
+                  <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {insuranceQuotes.map((quote) => (
+                      <InsuranceCard key={quote.id} quote={quote} />
+                    ))}
                   </div>
 
                   {/* Final Proceed Button */}
-                  <div className="flex justify-center">
+                  <div className="flex justify-center mt-10">
                     <button
                       onClick={handleProceed}
                       disabled={!selectedQuote || proceedLoading}
@@ -503,6 +590,17 @@ const VehicleInsuranceForm = ({ vehicleType, formFields }: VehicleInsuranceFormP
           )}
         </div>
       </section>
+
+      {/* Hide Scrollbar CSS */}
+      <style>{`
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </>
   );
 };
