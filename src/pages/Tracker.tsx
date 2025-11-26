@@ -10,7 +10,8 @@ import Facts from "../components/tracker/Facts";
 import Testimonial from "../components/tracker/Testimonial";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
-
+import Benefits from '../components/tracker/Benefits'
+import Services from '../components/tracker/Services'
 const Tracker = () => {
   return (
     <div>
@@ -31,7 +32,8 @@ const Tracker = () => {
       <FadeUp>
         <ChoosingProcess />
       </FadeUp>
-
+      <Benefits/>
+      <Services/>
       <FadeUp>
         <WelcomeCompany />
       </FadeUp>
