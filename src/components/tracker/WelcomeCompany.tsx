@@ -61,36 +61,39 @@ const HeaderSection: React.FC = () => {
     <section className="bg-white py-16 w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 relative overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
         {/* Left Side: Images */}
-        <div className="relative w-full lg:w-1/2 h-[550px] flex items-center justify-center">
-          {/* Bottom Left Image */}
-          <div className="absolute top-[40%] left-0 w-[450px] h-[350px] z-10 rounded-2xl overflow-hidden shadow-xl">
-            <img
-              src="/boy.jpg"
-              alt="Boy with car"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          {/* Main Image */}
-          <div className="absolute top-0 right-0 w-[450px] h-[350px] z-20 rounded-2xl overflow-hidden shadow-xl">
-            <img
-              src="/womencar.jpg"
-              alt="Woman in car"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          {/* Car Image (behind both images, slightly forward) */}
-          <img
-            src="/car.png"
-            alt="Car behind images"
-            className="absolute bottom-[70px] right-[-20px] w-56 h-auto object-contain rotate-[-5deg]"
-            style={{ zIndex: 5 }}
-          />
+      {/* Left Side: Images */}
+<div className="relative w-full lg:w-1/2 h-[400px] sm:h-[500px] lg:h-[550px] flex items-center justify-center">
+  {/* Bottom Left Image */}
+  <div className="absolute top-[35%] sm:top-[40%] left-0 w-[240px] h-[180px] sm:w-[320px] sm:h-[240px] md:w-[380px] md:h-[280px] lg:w-[450px] lg:h-[350px] z-10 rounded-2xl overflow-hidden shadow-xl">
+    <img
+      src="/boy.jpg"
+      alt="Boy with car"
+      className="w-full h-full object-cover"
+    />
+  </div>
 
-          {/* Experience Tag */}
-          <div className="absolute top-10 left-20 bg-[#1894A4] text-white font-bold text-lg px-6 py-6 rounded-lg shadow-lg z-20">
-            50+ <br /> Years of <br /> Experience
-          </div>
-        </div>
+  {/* Main Image */}
+  <div className="absolute top-0 right-0 w-[240px] h-[180px] sm:w-[320px] sm:h-[240px] md:w-[380px] md:h-[280px] lg:w-[450px] lg:h-[350px] z-20 rounded-2xl overflow-hidden shadow-xl">
+    <img
+      src="/womencar.jpg"
+      alt="Woman in car"
+      className="w-full h-full object-cover"
+    />
+  </div>
+
+  {/* Car Image (behind both images, slightly forward) */}
+  <img
+    src="/car.png"
+    alt="Car behind images"
+    className="absolute bottom-[40px] sm:bottom-[60px] lg:bottom-[70px] right-[-10px] sm:right-[-15px] lg:right-[-20px] w-32 h-auto sm:w-44 lg:w-56 object-contain rotate-[-5deg]"
+    style={{ zIndex: 5 }}
+  />
+
+  {/* Experience Tag */}
+  <div className="absolute top-4 sm:top-8 lg:top-10 left-8 sm:left-12 lg:left-20 bg-[#1894A4] text-white font-bold text-sm sm:text-base lg:text-lg px-4 py-4 sm:px-5 sm:py-5 lg:px-6 lg:py-6 rounded-lg shadow-lg z-20">
+    50+ <br /> Years of <br /> Experience
+  </div>
+</div>
 
         {/* Right Side: Text + Progress Bars */}
         <div className="w-full lg:w-1/2 lg:pl-16 mt-8 lg:mt-0">
