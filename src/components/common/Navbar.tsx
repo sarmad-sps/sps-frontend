@@ -110,7 +110,7 @@ const Navbar = () => {
                   <div className="flex flex-col">
                     <span className="text-xs text-gray-600">Urgent Call</span>
                     <span className="text-sm font-semibold text-gray-800">
-                      03317495785
+                      03008492075
                     </span>
                   </div>
      <button className="hidden md:block p-2 hover:bg-gray-100 rounded">
