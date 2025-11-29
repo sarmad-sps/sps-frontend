@@ -46,9 +46,9 @@ const Health = () => {
       <FadeUp>
       <HealthInfoSection />
       </FadeUp>
-      <FadeUp>
+      {/* <FadeUp>
       <InsuranceDetailsSection />
-      </FadeUp>
+      </FadeUp> */}
       <FadeUp>
       <FAQSection />
       </FadeUp>

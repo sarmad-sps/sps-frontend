@@ -44,9 +44,9 @@ const Travel = () => {
       <FadeUp>
         <TravelInfoSection />
       </FadeUp>
-      <FadeUp>
+      {/* <FadeUp>
         <InsuranceDetailsSection />
-      </FadeUp>
+      </FadeUp>  */}
       <FadeUp>
         <FAQSection />
       </FadeUp>

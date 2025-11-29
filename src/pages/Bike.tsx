@@ -49,9 +49,9 @@ const Bike = () => {
         // apiEndpoint="/api/bike-insurance-quotes"
       />
       </FadeUp>
-      <FadeUp>
+      {/* <FadeUp>
       <InsuranceDetailsSection />
-      </FadeUp>
+      </FadeUp>  */}
       <FadeUp>
       <FAQSection />
       </FadeUp>

@@ -48,9 +48,9 @@ const Car = () => {
         // apiEndpoint="/api/car-insurance-quotes"
       />
       </FadeUp>
-      <FadeUp>
-      <InsuranceDetailsSection />
-      </FadeUp>
+      {/* <FadeUp>
+      <InsuranceDetailsSection /> 
+      </FadeUp> */}
       <FadeUp>
       <FAQSection />
       </FadeUp>
@@ -60,3 +60,4 @@ const Car = () => {
 };
 
 export default Car;
+// mnnnn 
