@@ -10,8 +10,8 @@ import Facts from "../components/tracker/Facts";
 import Testimonial from "../components/tracker/Testimonial";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
-import Benefits from '../components/tracker/Benefits'
-import Services from '../components/tracker/Services'
+import Benefits from "../components/tracker/Benefits";
+import Services from "../components/tracker/Services";
 const Tracker = () => {
   return (
     <div>
@@ -25,15 +25,18 @@ const Tracker = () => {
           titleSize="text-4xl md:text-5xl"
         />
       </FadeUp>
-
       <FadeUp>
         <TrackingProcess />
       </FadeUp>
       <FadeUp>
         <ChoosingProcess />
       </FadeUp>
-      <Benefits/>
-      <Services/>
+      <FadeUp>
+        <Benefits />
+      </FadeUp>
+      <FadeUp>
+        <Services />
+      </FadeUp>
       <FadeUp>
         <WelcomeCompany />
       </FadeUp>
@@ -46,11 +49,9 @@ const Tracker = () => {
       <FadeUp>
         <Facts />
       </FadeUp>
-
       <FadeUp>
         <Testimonial />
       </FadeUp>
-
       <FAQSection />
       <Footer />
     </div>
