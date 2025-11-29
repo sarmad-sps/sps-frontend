@@ -1,76 +1,49 @@
-import React, { useState, useEffect } from "react";
-
-type StepCardProps = {
-  title: string;
-  text: string;
-  iconImage: string;
-  imageUrl: string;
-  showArrow?: boolean;
-};
-
-const StepCard: React.FC<StepCardProps> = ({
-  title,
-  text,
-  iconImage,
-  imageUrl,
-  showArrow = true,
-}) => {
-  return (
-    <div
-      className="relative w-full h-[260px] sm:h-[280px] md:h-[300px] rounded-3xl overflow-hidden shadow-2xl 
-                 bg-[#1A3970] flex flex-col justify-end"
-      style={{
-        backgroundImage: `url(${imageUrl})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-
-      {/* Icon */}
-      <div className="absolute top-5 left-5 z-20">
-        <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm ring-4 ring-white/20 flex items-center justify-center">
-          <div className="w-12 h-12 rounded-full bg-[#1894A4] flex items-center justify-center shadow-lg">
-            <img src={iconImage} alt={title} className="w-6 h-6" />
-          </div>
-        </div>
-      </div>
-
-      {/* Arrow - Sirf desktop pe dikhega */}
-      {showArrow && (
-        <div className="absolute top-1/2 -right-8 -translate-y-1/2 hidden md:block z-10">
-          <svg width="70" height="40" viewBox="0 0 70 40" fill="none">
-            <line x1="0" y1="20" x2="50" y2="20" stroke="rgba(24,148,164,0.6)" strokeWidth="3" />
-            <polygon points="50,20 65,10 65,30" fill="#1894A4" />
-          </svg>
-        </div>
-      )}
-
-      {/* Content */}
-      <div className="relative z-10 px-6 pb-8 pt-16">
-        <h3 className="text-xl md:text-2xl font-extrabold text-white mb-2">{title}</h3>
-        <p className="text-sm md:text-base text-white/80 leading-snug">{text}</p>
-      </div>
-    </div>
-  );
-};
+import  { useState, useEffect } from "react";
 
 export default function TrackingProcess() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsPerPage, setCardsPerPage] = useState(3);
   const [slideStep, setSlideStep] = useState(1);
 
-  const cardText = "Open multiply a green form lesser their from in made herb multiply";
-
   const stepCards = [
-    { title: "Choose A Car", icon: "/card1.svg", image: "/carhover.jpg" },
-    { title: "Come In Contact", icon: "/card2.svg", image: "/carhover.jpg" },
-    { title: "Pick-Up Locations", icon: "/card3.svg", image: "/carhover.jpg" },
-    { title: "Enjoy Driving", icon: "/card4.svg", image: "/carhover.jpg" },
+    {
+      title: "Enter Tracking Details",
+      icon: "/card1.svg",
+      image: "/carhover.jpg",
+      text: "Add shipment, vehicle, or policy information."
+    },
+    {
+      title: "System Verification",
+      icon: "/card2.svg",
+      image: "/carhover.jpg",
+      text: "We verify your details instantly."
+    },
+    {
+      title: "Connect Providers",
+      icon: "/card3.svg",
+      image: "/carhover.jpg",
+      text: "We link your request with trusted tracking partners."
+    },
+    {
+      title: "Live Status Updates",
+      icon: "/card4.svg",
+      image: "/carhover.jpg",
+      text: "Track real-time location and progress."
+    },
+    {
+      title: "Smart Alerts",
+      icon: "/card4.svg",
+      image: "/carhover.jpg",
+      text: "Get instant notifications on status changes."
+    },
+    {
+      title: "Secure Tracking",
+      icon: "/card4.svg",
+      image: "/carhover.jpg",
+      text: "Your data remains safe and private."
+    },
   ];
 
-  // Teri original logic — bilkul same
   const updateLayout = () => {
     if (window.innerWidth < 640) {
       setCardsPerPage(1);
@@ -102,10 +75,11 @@ export default function TrackingProcess() {
   return (
     <section className="bg-[#f5f7fa] py-16 sm:py-20 lg:py-24 w-full">
       <div className="w-full px-4 md:px-10 lg:px-16 mx-auto max-w-7xl">
-        {/* Title - Same */}
+
+        {/* Title */}
         <div className="text-center mb-12 sm:mb-16">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <img src="/splogo.png" className="w-9 h-9 sm:w-11 sm:h-11" />
+            <img src="/splogo.png" className="w-9 h-9 sm:w-11 sm:h-11" alt="Logo" />
             <p className="text-[#1894A4] font-bold text-xs sm:text-sm tracking-widest uppercase">
               Steps
             </p>
@@ -115,7 +89,7 @@ export default function TrackingProcess() {
           </h2>
         </div>
 
-        {/* Slider - Sirf spacing tight kiya */}
+        {/* Slider */}
         <div className="overflow-hidden">
           <div
             className="flex transition-transform duration-500 ease-in-out"
@@ -128,20 +102,61 @@ export default function TrackingProcess() {
                 style={{ width: `${100 / cardsPerPage}%` }}
               >
                 <div className="px-3 sm:px-4 md:px-6">
-                  <StepCard
-                    title={card.title}
-                    text={cardText}
-                    iconImage={card.icon}
-                    imageUrl={card.image}
-                    showArrow={idx < stepCards.length - 1}
-                  />
+                  
+                  {/* Step Card */}
+                  <div
+                    className="relative w-full h-[260px] sm:h-[280px] md:h-[300px] rounded-3xl overflow-hidden shadow-2xl 
+                               bg-[#1A3970]"
+                    style={{
+                      backgroundImage: `url(${card.image})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  >
+                    {/* Dark Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+
+                    {/* Icon */}
+                    <div className="absolute top-5 left-5 z-20">
+                      <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm ring-4 ring-white/20 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-full bg-[#1894A4] flex items-center justify-center shadow-lg">
+                          <img src={card.icon} alt={card.title} className="w-6 h-6" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Arrow Line */}
+                    <div className="absolute top-1/2 -right-8 -translate-y-1/2 hidden md:block z-10">
+                      <svg width="70" height="40" viewBox="0 0 70 40" fill="none">
+                        <line
+                          x1="0"
+                          y1="20"
+                          x2="50"
+                          y2="20"
+                          stroke="rgba(24,148,164,0.6)"
+                          strokeWidth="3"
+                        />
+                      </svg>
+                    </div>
+
+                    {/* Content - Fixed Position at Bottom */}
+                    <div className="h-[120px] absolute bottom-0 left-0 right-0 z-10 px-6 pb-6">
+                      <h3 className="text-xl md:text-2xl font-extrabold text-white ">
+                        {card.title}
+                      </h3>
+                      <p className="text-sm md:text-base text-white/80 leading-snug mb-2">
+                        {card.text}
+                      </p>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Dots - Thoda better banaya */}
+        {/* Dots */}
         <div className="flex justify-center gap-3 mt-8">
           {Array.from({ length: Math.ceil(stepCards.length / slideStep) }).map((_, i) => (
             <button
@@ -159,3 +174,4 @@ export default function TrackingProcess() {
     </section>
   );
 }
+

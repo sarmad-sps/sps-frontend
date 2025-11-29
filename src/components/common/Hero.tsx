@@ -254,7 +254,7 @@ const HeroSection = ({
 
           <div className="relative z-10 w-full h-full flex items-center px-4 md:px-6 lg:px-10 xl:px-16 2xl:px-20">
             <div className="w-full">
-              <h1 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-tight mb-4">
+              <h1 className="text-white text-4xl  font-bold leading-tight mb-4">
                 {title}
               </h1>
               <p className="text-white text-lg md:text-xl">{heading}</p>

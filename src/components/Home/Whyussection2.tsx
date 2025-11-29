@@ -2,27 +2,27 @@ export default function WhyUsSection2() {
   const features = [
     {
       id: 1,
-      title: "Dedicated Team Member",
+      title: " Wide Range of Insurance Options",
       description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium",
+        " We partner with top insurance providers to give you access to multiple plans in one place, so you can easily find coverage that fits your needs and budget.",
     },
     {
       id: 2,
-      title: "Dedicated Team Member",
+      title: "Quick & Easy Comparison",
       description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium",
+        " Our smart comparison tools help you evaluate policies side by side, making it easy to choose the right insurance without confusion.",
     },
     {
       id: 3,
-      title: "Dedicated Team Member",
+      title: "Trusted by Customers",
       description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium",
+        "We focus on transparency, honest advice, and customer-first service to make insurance simple, fair, and reliable.",
     },
     {
       id: 4,
-      title: "Dedicated Team Member",
+      title: " Expert Support Team",
       description:
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium",
+        "Our experienced support team is always ready to guide you through policy selection, claims processes, and renewals.",
     },
   ];
 
@@ -59,15 +59,13 @@ export default function WhyUsSection2() {
                 Get Know Why Us
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-black mb-2">
-                Transforming Vision Into
+               Connecting You With The
               </h2>
               <h2 className="text-3xl md:text-4xl font-bold text-[#1894a4] mb-4">
-                Business Success
+               Right Insurance,Made Simple
               </h2>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium totam rem aperiam eaque ipsa
-                quae ab illo inventore veritatis et quasi
+                We are a trusted insurance aggregator that helps individuals and businesses compare, choose, and secure the best insurance plans from leading providers. Our goal is to simplify insurance by offering transparent comparisons, expert guidance, and fast, hassle-free service.
               </p>
             </div>
 

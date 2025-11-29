@@ -63,7 +63,7 @@ const Footer = () => {
       </div>
 
       {/* Newsletter Section */}
-      <div className="bg-[#1a1a1a] py-8">
+      {/* <div className="bg-[#1a1a1a] py-8">
         <div className="px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
@@ -87,7 +87,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Main Footer Content */}
       <div className="bg-[#0f0f0f] py-12">
@@ -99,9 +99,8 @@ const Footer = () => {
                 About Company
               </h4>
               <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                Sed ut perspiciatis unde omnis natus error sit voluptatem
-                santium doloremque laudan totam sequa sunt quasi architecto
-                beatae vitae
+                We are a trusted insurance aggregator dedicated to helping individuals and businesses find the right insurance solutions with ease and confidence. 
+Our mission is to simplify insurance by making it more accessible, understandable, and stress-free for everyone.
               </p>
 
               {/* Social Icons */}
@@ -259,10 +258,10 @@ const Footer = () => {
             </div>
 
             {/* Global Partners */}
-            <div className="text-gray-500 text-sm">
+            {/* <div className="text-gray-500 text-sm">
               <span className="font-bold text-white">25537B+</span> Global
               Partners
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
