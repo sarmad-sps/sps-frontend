@@ -3,6 +3,7 @@ import HeroSection from "../components/common/Hero";
 import TravelForm from "../components/common/TravelForm";
 import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
 import Footer from "../components/common/Footer";
+import TravelInfoSection from "../components/travel/TravelInfoSection";
 
 function TravelTakaful() {
   return (
@@ -21,7 +22,8 @@ function TravelTakaful() {
         height="h-[400px] md:h-[450px] lg:h-[500px]"
         titleSize="text-4xl md:text-5xl"
       />
-      <TravelForm />
+      {/* <TravelForm /> */}
+      <TravelInfoSection/>
       <InsuranceDetailsSection />
       <Footer />
     </div>
