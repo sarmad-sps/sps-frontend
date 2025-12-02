@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface HeroProps {
   backgroundImage?: string;
@@ -9,6 +9,7 @@ interface HeroProps {
   isTrackerPage?: boolean;
   height?: string;
   titleSize?: string;
+  heading?:string;
 }
 
 const HeroSection = ({
@@ -22,23 +23,7 @@ const HeroSection = ({
   height = "h-screen",
   titleSize = "text-5xl md:text-6xl",
 }: HeroProps) => {
-  const [formData, setFormData] = useState({
-    pickup: '',
-    dropoff: '',
-    carType: '',
-    date: ''
-  });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleTrack = () => {
-    console.log('Tracking:', formData);
-  };
 
   return (
     <section className={`relative w-full ${isTrackerPage ? 'min-h-screen' : height} overflow-hidden mt-0 pt-0`}>
@@ -58,121 +43,27 @@ const HeroSection = ({
             <div className="w-full flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 items-start md:items-center justify-between">
               
               {/* Left Content */}
-              <div className="w-full md:w-1/2 lg:w-[45%] mb-10 ">
-                <p className="text-cyan-400 text-sm md:text-base font-medium mb-4">
-                  We Make Finding The Right Car Simple
-                </p>
+<div className="w-full md:w-1/2 lg:w-[100%] mb-10">
+  <p className="text-cyan-400 text-sm md:text-base font-medium mb-4">
+    Reliable Vehicle Tracking Solutions
+  </p>
 
-                <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                  FIND WHAT ARE YOU{' '}
-                  <span className="text-cyan-400">LOOKING</span> FOR
-                </h1>
+  <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+    TRACK YOUR VEHICLE <span className="text-cyan-400">ANYTIME</span> & <span className="text-cyan-400">ANYWHERE</span>
+  </h1>
 
-                <p className="text-gray-300 text-base md:text-lg mb-8 leading-relaxed">
-                  Lorem ipsum is simply junk text more so dummy text of free available in market the printing and typesetting industry.
-                </p>
+  <p className="text-gray-300 text-base md:text-lg mb-8 leading-relaxed max-w-[550px]">
+    Stay connected with real-time GPS tracking, instant alerts, trip history, and complete vehicle monitoring.
+    Our smart tracking system keeps your car secure 24/7 — giving you full control and peace of mind.
+  </p>
 
-                <button className="bg-[#1A3970] text-white px-8 md:px-12 py-3 md:py-4 rounded font-semibold hover:bg-[#132B55] transition-colors text-base md:text-lg">
-                  Free Consulting &gt;&gt;
-                </button>
-              </div>
+  <button className="bg-[#1A3970] text-white px-8 md:px-12 py-3 md:py-4 rounded font-semibold hover:bg-[#132B55] transition-colors text-base md:text-lg">
+    Get Free Demo &gt;&gt;
+  </button>
+</div>
 
-              {/* Right Form */}
-              <div className="w-full md:w-1/2 lg:w-[40%] flex justify-center md:justify-end">
-                <div className="bg-white rounded-lg shadow-2xl overflow-hidden w-full max-w-md md:max-w-lg">
-                  <div className="bg-[#1A3970] text-white text-center py-3 md:py-4">
-                    <h2 className="text-lg md:text-xl font-bold">
-                      TRACK YOUR VEHICLE
-                    </h2>
-                  </div>
 
-                  <div className="p-5 md:p-6 space-y-4">
-                    {/* Pickup Location */}
-                    <div>
-                      <label className="flex items-center text-gray-700 text-sm font-medium mb-2">
-                        <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                        </svg>
-                        Pickup
-                      </label>
-                      <input
-                        type="text"
-                        name="pickup"
-                        placeholder="Enter a Location"
-                        value={formData.pickup}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1A3970] focus:border-transparent text-sm"
-                      />
-                    </div>
-
-                    {/* Drop off Location */}
-                    <div>
-                      <label className="flex items-center text-gray-700 text-sm font-medium mb-2">
-                        <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                        </svg>
-                        Drop of
-                      </label>
-                      <input
-                        type="text"
-                        name="dropoff"
-                        placeholder="Enter a Location"
-                        value={formData.dropoff}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1A3970] focus:border-transparent text-sm"
-                      />
-                    </div>
-
-                    {/* Car Type */}
-                    <div>
-                      <label className="flex items-center text-gray-700 text-sm font-medium mb-2">
-                        <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
-                          <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z" />
-                        </svg>
-                        Your car type
-                      </label>
-                      <input
-                        type="text"
-                        name="carType"
-                        placeholder="Your Car Type"
-                        value={formData.carType}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1A3970] focus:border-transparent text-sm"
-                      />
-                    </div>
-
-                    {/* Date */}
-                    <div>
-                      <label className="flex items-center text-gray-700 text-sm font-medium mb-2">
-                        <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-                        </svg>
-                        Date
-                      </label>
-                      <input
-                        type="text"
-                        name="date"
-                        placeholder="mm/dd/yyy"
-                        value={formData.date}
-                        onChange={handleInputChange}
-                        className="w-full px-3 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#1A3970] focus:border-transparent text-sm"
-                      />
-                    </div>
-
-                    {/* Submit Button */}
-                    <button
-                      onClick={handleTrack}
-                      className="w-full bg-[#1A3970] text-white py-2.5 md:py-3 rounded-md font-semibold hover:bg-[#132B55] transition-colors flex items-center justify-center gap-2 text-sm md:text-base"
-                    >
-                      Track Now
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
+           
 
             </div>
           </div>

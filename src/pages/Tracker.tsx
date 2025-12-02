@@ -4,7 +4,7 @@ import Hero from "../components/common/Hero";
 import TrackingProcess from "../components/tracker/TrackingProcess";
 import ChoosingProcess from "../components/tracker/ChoosingProcess";
 import WelcomeCompany from "../components/tracker/WelcomeCompany";
-import Plans from "../components/tracker/Plans";
+// import Plans from "../components/tracker/Plans";
 import TrackerForm from "../components/tracker/TrackerForm";
 import Facts from "../components/tracker/Facts";
 import Testimonial from "../components/tracker/Testimonial";
@@ -40,9 +40,9 @@ const Tracker = () => {
       <FadeUp>
         <WelcomeCompany />
       </FadeUp>
-      <FadeUp>
+      {/* <FadeUp>
         <Plans />
-      </FadeUp>
+      </FadeUp> */}
       <FadeUp>
         <TrackerForm />
       </FadeUp>

@@ -3,7 +3,7 @@ import Navbar from "../components/common/Navbar";
 // import HeroSection from "../components/common/Hero";
 import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
 import TravelInfoSection from "../components/travel/TravelInfoSection";
-import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
+// import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
 
@@ -36,8 +36,7 @@ const Travel = () => {
               Travel Insurance
             </>
           }
-          subtitle="We are a professional and creative company and we offer you a trusty insurance on
-        your travel adventures."
+          subtitle="Compare top travel insurance plans and get trusted coverage for all your adventures, anywhere in the world."
           vehicleImage="/Travelicon.png"
         />
       </FadeUp>

@@ -5,7 +5,7 @@ import Footer from "../components/common/Footer";
 // import HeroSection from "../components/common/Hero";
 import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
 import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
-import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
+// import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
 import { bikeFormFields } from "../config/formFields";
 
 
@@ -38,7 +38,7 @@ const Bike = () => {
             Insurance in Pakistan
           </>
         }
-        subtitle="Compare & find coverage for your bike from top insurance providers in Pakistan."
+        subtitle="Easily compare top insurance providers and find the perfect coverage for your bike, all in one place."
         vehicleImage="/Bikeimage.png"
       />
       </FadeUp>

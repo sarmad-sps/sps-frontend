@@ -29,12 +29,33 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, text, icon, image }) =
 };
 
 const ServicesSection: React.FC = () => {
-  const services = [
-    { title: "Tracking Device Logs Location", text: "Open multiply a green form lesser their from in made herb multiply", icon: icon1, image: "/Background.png" },
-    { title: "2G/4G Network", text: "Open multiply a green form lesser their from in made herb multiply", icon: icon2, image: "/Background.png" },
-    { title: "SPS Track Servers", text: "Open multiply a green form lesser their from in made herb multiply", icon: icon3, image: "/Background.png" },
-    { title: "Real-Time on Web & Mobile", text: "Open multiply a green form lesser their from in made herb multiply", icon: icon4, image: "/Background.png" },
-  ];
+ const services = [
+  {
+    title: "Live GPS Tracking",
+    text: "Track your vehicle’s location in real time with instant updates.",
+    icon: icon1,
+    image: "/Background.png",
+  },
+  {
+    title: "2G/4G Connectivity",
+    text: "Strong network support for smooth and stable tracking.",
+    icon: icon2,
+     image: "/Background.png",
+  },
+  {
+    title: "Secure Cloud Servers",
+    text: "Fast, safe and reliable cloud storage for your tracking data.",
+    icon: icon3,
+    image: "/Background.png",
+  },
+  {
+    title: "Web & App Tracking",
+    text: "Track live movement on app/web.",
+    icon: icon4,
+    image: "/Background.png",
+  },
+];
+
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsPerPage, setCardsPerPage] = useState(4);

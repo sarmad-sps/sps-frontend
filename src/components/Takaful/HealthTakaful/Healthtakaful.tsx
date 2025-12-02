@@ -109,15 +109,15 @@ const HealthTakaful = () => {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-sm text-gray-700">
               <div className="min-w-0 flex-shrink">
                 <p className="truncate">
-                  <span className="font-semibold">Name:</span> Osama Bin Jahangir
+                  <span className="font-semibold">Name:</span> Anum Zainab
                 </p>
                 <p className="truncate">
-                  <span className="font-semibold">Email:</span> osamajahangir786@gmail.com
+                  <span className="font-semibold">Email:</span> contact@securepathsolutions.com
                 </p>
               </div>
               <div className="mt-2 sm:mt-0 flex-shrink-0">
                 <p><span className="font-semibold">Gender:</span> Male</p>
-                <p><span className="font-semibold">Phone:</span> +923314272709</p>
+                <p><span className="font-semibold">Phone:</span> 03008492075</p>
               </div>
             </div>
 
@@ -133,13 +133,13 @@ const HealthTakaful = () => {
 
             <div className="text-center space-y-1">
               <h2 className="text-lg font-semibold text-blue-700">
-                Buy Personal Accident Insurance Plan
+               Protect Your Health with Takaful
               </h2>
               <p className="text-blue-600 text-sm font-medium">
-                for as low as Rs. 190/year
+                Affordable coverage for individuals and organizations
               </p>
               <p className="text-gray-600 text-xs">
-                Accidental Death Coverage up to Rs. 15 Lakh. Buy online in 10 minutes
+              Quick online enrollment. Comprehensive health coverage tailored for your needs.
               </p>
             </div>
           </div>

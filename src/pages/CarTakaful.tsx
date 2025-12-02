@@ -40,7 +40,7 @@ const CarTakaful = () => {
               Insurance in Pakistan
             </>
           }
-          subtitle="Compare & find coverage for your car from top insurance providers in Pakistan."
+          subtitle="Compare top Takaful providers and find trusted coverage for your car with ease."
           vehicleImage="/Vehicleinfosection1image1.png"
         />
         </FadeUp>

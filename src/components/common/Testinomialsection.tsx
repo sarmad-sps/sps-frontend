@@ -29,7 +29,9 @@ const TestimonialsSection = () => {
 
               {/* Testimonial Text */}
               <p className="text-gray-600 leading-relaxed mb-6">
-                On the other hand, we denounce with righteous indignations dislike men who are so beguile demoralized by the charms of pleasure of the moment so blinded desire
+               “This platform has completely transformed how we manage our fleet. 
+                The service is intuitive, reliable, and gives us real-time insights that save time and costs. 
+                Highly recommended for anyone looking for professional vehicle tracking solutions.”
               </p>
 
               {/* Star Rating */}
@@ -49,7 +51,7 @@ const TestimonialsSection = () => {
                   />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-black">Ronald B. Griffin</h4>
+                  <h4 className="text-lg font-bold text-black">Maria</h4>
                   <p className="text-sm text-[#1894a4]">Business Manager</p>
                 </div>
               </div>

@@ -116,19 +116,25 @@ const VehicleTrackingHero: React.FC = () => {
         <div className="max-w-screen-2xl mx-auto">
           <div className="py-16 lg:py-24">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-start">
-
               {/* Left Side - Text & CTA */}
               <div className="space-y-8 lg:space-y-10 text-center lg:text-left">
                 <div className="space-y-5">
-                  <p className="text-[#1894A4] font-bold text-sm uppercase tracking-wider">
-                    Why Choose Us?
-                  </p>
+                  <div className="flex items-center gap-3">
+                    <img
+                      src="/splogo.png"
+                      className="w-9 h-9 sm:w-11 sm:h-11"
+                    />
+                    <p className="text-[#1894A4] font-bold text-sm uppercase tracking-wider">
+                      Why Choose Us?
+                    </p>
+                  </div>
                   <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
                     Key Features &{" "}
                     <span className="text-[#1894A4]">Benefits</span>
                   </h1>
                   <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                    Experience unmatched convenience and security with our advanced vehicle tracking solutions.
+                    Experience unmatched convenience and security with our
+                    advanced vehicle tracking solutions.
                   </p>
                 </div>
 
@@ -141,20 +147,36 @@ const VehicleTrackingHero: React.FC = () => {
                 {/* Certifications - Responsive Flex */}
                 <div className="flex flex-wrap justify-center lg:justify-start gap-6 pt-8">
                   <div className="flex flex-col items-center space-y-2">
-                    <img src="/pta.png" alt="PTA" className="w-14 h-14 sm:w-16 sm:h-16" />
-                    <p className="text-xs sm:text-sm font-semibold text-gray-500">PTA Approved<br/> Devices</p>
+                    <img
+                      src="/pta.png"
+                      alt="PTA"
+                      className="w-14 h-14 sm:w-16 sm:h-16"
+                    />
+                    <p className="text-xs sm:text-sm font-semibold text-gray-500">
+                      PTA Approved
+                      <br /> Devices
+                    </p>
                   </div>
                   <div className="flex flex-col items-center space-y-2">
-                    <img src="/SECP logo.png" alt="ISO" className="w-14 h-14 sm:w-16 sm:h-16" />
-                    <p className="text-xs sm:text-sm font-semibold text-gray-500">ISO Certified <br/> Devices</p>
-                   
+                    <img
+                      src="/SECP logo.png"
+                      alt="ISO"
+                      className="w-14 h-14 sm:w-16 sm:h-16"
+                    />
+                    <p className="text-xs sm:text-sm font-semibold text-gray-500">
+                      ISO Certified <br /> Devices
+                    </p>
                   </div>
                   <div className="flex flex-col items-center space-y-2 max-w-[160px]">
-                    <img src="/pcs.png" alt="PCSIR" className="w-14 h-14 sm:w-16 sm:h-16" />
+                    <img
+                      src="/pcs.png"
+                      alt="PCSIR"
+                      className="w-14 h-14 sm:w-16 sm:h-16"
+                    />
                     <p className="text-xs sm:text-sm font-medium text-gray-500 text-center leading-tight">
-                      Certified from Pakistan<br/>
-                       Council of Scientific 
-                       & Industrial Research
+                      Certified from Pakistan
+                      <br />
+                      Council of Scientific & Industrial Research
                     </p>
                   </div>
                 </div>
@@ -168,25 +190,29 @@ const VehicleTrackingHero: React.FC = () => {
                     {
                       icon: "/realtime.svg",
                       title: "Real-Time Tracking",
-                      desc: "Live vehicle location updates with precision"
+                      desc: "Live vehicle location updates with precision",
                     },
                     {
                       icon: "/geo.svg",
                       title: "Geo-Fencing Alerts",
-                      desc: "Instant alerts for route deviations"
+                      desc: "Instant alerts for route deviations",
                     },
                     {
                       icon: "/driving.svg",
                       title: "Driver Monitoring",
-                      desc: "Track speed, braking & fuel efficiency"
-                    }
+                      desc: "Track speed, braking & fuel efficiency",
+                    },
                   ].map((feature, index) => (
                     <div
                       key={index}
                       className="text-center group transform transition-all duration-300 hover:scale-105"
                     >
                       <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg group-hover:shadow-2xl transition-shadow">
-                        <img src={feature.icon} alt={feature.title} className="w-9 h-9" />
+                        <img
+                          src={feature.icon}
+                          alt={feature.title}
+                          className="w-9 h-9"
+                        />
                       </div>
                       <h3 className="font-bold text-blue-900 text-lg mb-3">
                         {feature.title}
@@ -211,7 +237,6 @@ const VehicleTrackingHero: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-3xl pointer-events-none"></div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>

@@ -13,18 +13,17 @@ const TrackingServiceSection: React.FC = () => {
               <div className="flex items-center justify-left gap-3 mb-4">
                 <img src="/splogo.png" className="w-9 h-9 sm:w-11 sm:h-11" />
                 <p className="text-[#1894A4] font-bold text-xs sm:text-sm tracking-widest uppercase">
-                  Essential Facts
+                  Essentials Facts
                 </p>
               </div>
-
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                EXPERIENCE FREEDOM ON OUR TRACKING SERVICE
+                TRACK YOUR VEHICLES WITH EASE AND CONFIDENCE
               </h2>
 
-              <p className="text-gray-500 text-sm md:text-base max-w-md leading-relaxed">
-                Dominion fowe there light she does lights begining subdue
-                without run saying moving winger Open multipy a green form
-                lesser.
+              <p className="text-xs md:text-sm max-w-md text-gray-500 leading-relaxed">
+                Our Tracking Platform gives you complete control and visibility
+                over your fleet. Monitor vehicles in real-time, optimize routes,
+                and improve efficiency—all from a simple, intuitive dashboard.
               </p>
             </div>
 
@@ -32,29 +31,29 @@ const TrackingServiceSection: React.FC = () => {
             <div className="grid grid-cols-2 gap-4 max-w-lg">
               <StatCard
                 icon={<Car className="w-8 h-8 text-white" />}
-                value="1 000+"
-                label="Vehicle fleet"
+                value="1,200+"
+                label="Vehicles Monitored"
                 color="teal"
               />
 
               <StatCard
                 icon={<Gauge className="w-8 h-8 text-white" />}
-                value="10M+"
-                label="Miles of drive"
+                value="12M+"
+                label="Miles Tracked"
                 color="blue"
               />
 
               <StatCard
                 icon={<Tag className="w-8 h-8 text-white" />}
-                value="15K+"
-                label="Booking reserved"
+                value="18K+"
+                label="Trips Completed"
                 color="blue"
               />
 
               <StatCard
                 icon={<MapPin className="w-8 h-8 text-white" />}
-                value="50K+"
-                label="Vehicles tracked"
+                value="50+"
+                label="Cities Covered"
                 color="teal"
               />
             </div>

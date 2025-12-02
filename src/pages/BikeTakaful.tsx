@@ -7,7 +7,7 @@ import InsuranceDetailsSection from "../components/common/Insurancedetailssectio
 import FadeUp from "../components/common/FadeUp";
 import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
 import { bikeFormFields } from "../config/formFields";
-import BikeTakafulForm from "../components/Takaful/BikeTakaful/BikeTakafulForm";
+// import BikeTakafulForm from "../components/Takaful/BikeTakaful/BikeTakafulForm";
 
 const BikeTakaful = () => {
   return (
@@ -38,7 +38,7 @@ const BikeTakaful = () => {
             Insurance in Pakistan
           </>
         }
-        subtitle="Compare & find coverage for your bike from top insurance providers in Pakistan."
+        subtitle="Compare top Takaful providers and find trusted coverage for your bike with ease."
         vehicleImage="/Bikeimage.png"
       />
       </FadeUp>
