@@ -19,6 +19,7 @@ const InsurancePlanDetails: React.FC<{ quote: InsuranceQuote }> = ({ quote }) =>
   const [withTracker, setWithTracker] = useState(false);
   const finalPrice = withTracker ? basePrice + trackerPrice : basePrice;
   const [activeTab, setActiveTab] = useState<ActiveTab>('coverage');
+  
 
   return (
     <div className="w-full bg-gray-50 py-8 md:py-12">
@@ -41,7 +42,7 @@ const InsurancePlanDetails: React.FC<{ quote: InsuranceQuote }> = ({ quote }) =>
               <p className="text-gray-600 text-lg mb-8">Total amount</p>
 
               {/* Tracker Toggle */}
-              <div className="flex items-center justify-center lg:justify-start gap-4 bg-gray-200 px-6 py-4 rounded-full max-w-md mx-auto lg:mx-0">
+              {/* <div className="flex items-center justify-center lg:justify-start gap-4 bg-gray-200 px-6 py-4 rounded-full max-w-md mx-auto lg:mx-0">
                 {withTracker ? (
                   <Check className="w-6 h-6 text-green-600" />
                 ) : (
@@ -62,7 +63,7 @@ const InsurancePlanDetails: React.FC<{ quote: InsuranceQuote }> = ({ quote }) =>
                     }`}
                   />
                 </button>
-              </div>
+              </div> */}
             </div>
 
             {/* Right: Rate & Features */}
@@ -95,12 +96,14 @@ const InsurancePlanDetails: React.FC<{ quote: InsuranceQuote }> = ({ quote }) =>
           {/* Buttons */}
           <div className="p-8 bg-white border-t border-gray-200">
             <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-md mx-auto">
-              <button className="flex-1 bg-[#0066CC] hover:bg-[#0055aa] text-white font-bold py-4 px-12 rounded-full text-lg transition transform hover:scale-105">
+              <button className="flex-1 bg-[#0066CC] hover:bg-[#0055aa] text-white font-bold py-4 px-12 rounded-full text-lg transition transform hover:scale-105"
+            
+              >
                 INQUIRE NOW
               </button>
-              <button className="flex-1 bg-gray-700 hover:bg-gray-800 text-white font-bold py-4 px-12 rounded-full text-lg transition transform hover:scale-105">
+              {/* <button className="flex-1 bg-gray-700 hover:bg-gray-800 text-white font-bold py-4 px-12 rounded-full text-lg transition transform hover:scale-105">
                 BUY NOW
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
@@ -158,7 +161,7 @@ const InsurancePlanDetails: React.FC<{ quote: InsuranceQuote }> = ({ quote }) =>
               <div className="bg-[#f0fffe] rounded-2xl p-6 shadow-sm">
                 <h3 className="font-bold text-xl text-[#1A3970] mb-6">Value Added features</h3>
                 {[
-                  { label: "Tracker", covered: withTracker },
+                  { label: "Tracker", covered: true },
                   { label: "Call Center support", covered: true },
                   { label: "In-house surveyors", covered: true },
                   { label: "Replacement at Door Step", covered: false },
