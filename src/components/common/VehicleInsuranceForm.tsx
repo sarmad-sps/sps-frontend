@@ -1,5 +1,5 @@
 // src/components/VehicleInsuranceForm.tsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Freeqouteinsurance from "./Freeqouteinsurance";
 import { Calendar, ChevronDown, ChevronLeft, ChevronRight, ChevronRight as ChevronRightIcon } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -186,10 +186,27 @@ const VehicleInsuranceForm = ({ vehicleType, formFields }: VehicleInsuranceFormP
     setTimeout(() => {
       toast.dismiss();
       toast.success("Proceeding to next step...");
-      setShowFreeQuote(true);
+        setShowFreeQuote(true);
+        // ensure the free-quote view is visible from the top of the page
+        try {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } catch (e) {
+          /* ignore in non-browser environments */
+        }
       setProceedLoading(false);
     }, 1000);
   };
+
+    // Scroll to top when free quote view opens (covers other opening flows)
+    useEffect(() => {
+      if (showFreeQuote) {
+        try {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } catch (e) {
+          /* ignore */
+        }
+      }
+    }, [showFreeQuote]);
 
   const renderLabel = (field: FormFieldConfig) => (
     <label className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-1">
