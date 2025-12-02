@@ -1,5 +1,5 @@
 import React from 'react';
-import { Car, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface PlanCardProps {
   title: string;
@@ -22,7 +22,7 @@ const PlanCard: React.FC<PlanCardProps> = ({
   waitingCharge,
   icon,
 }) => {
-  const blueBg = 'bg-[#00B5AD]';
+
   const darkBlueText = 'text-[#1F3A6A]';
   const buttonBg = 'bg-[#1A3970]';
 

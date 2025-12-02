@@ -3,7 +3,7 @@ import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
 import HealthInfoSection from "../components/health/Healthinfosection";
 // import HeroSection from "../components/common/Hero";
-import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
+// import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
 import Navbar from "../components/common/Navbar";
 import TestimonialsSection from "../components/common/Testinomialsection";
 import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
@@ -38,8 +38,7 @@ const Health = () => {
             Health Insurance
           </>
         }
-        subtitle="We are a professional and creative company and we offer you a trusty insurance on
-        your vehicle."
+        subtitle="Compare top health insurance plans and get trusted coverage for you and your family."
         vehicleImage="/Healthicon.png"
       />
       </FadeUp>

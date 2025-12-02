@@ -1,6 +1,6 @@
 import Navbar from "../components/common/Navbar";
 import HeroSection from "../components/common/Hero";
-import TravelForm from "../components/common/TravelForm";
+// import TravelForm from "../components/common/TravelForm";
 import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
 import Footer from "../components/common/Footer";
 import TravelInfoSection from "../components/travel/TravelInfoSection";

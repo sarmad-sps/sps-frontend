@@ -95,12 +95,12 @@ const FireTakafulSection = () => {
           <div className="flex-1 min-w-0 space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-sm text-gray-700">
               <div className="min-w-0 flex-shrink">
-                <p className="truncate"><span className="font-semibold">Name:</span> Osama Bin Jahangir</p>
-                <p className="truncate"><span className="font-semibold">Email:</span> osamajahangir786@gmail.com</p>
+                <p className="truncate"><span className="font-semibold">Name:</span> Anum Zainab</p>
+                <p className="truncate"><span className="font-semibold">Email:</span> contact@securepathsolutions.com</p>
               </div>
               <div className="mt-2 sm:mt-0 flex-shrink-0">
                 <p><span className="font-semibold">Gender:</span> Male</p>
-                <p><span className="font-semibold">Phone:</span> +923314272709</p>
+                <p><span className="font-semibold">Phone:</span> 03008492075</p>
               </div>
             </div>
 
@@ -116,13 +116,13 @@ const FireTakafulSection = () => {
 
             <div className="text-center space-y-1">
               <h2 className="text-lg font-semibold text-blue-700">
-                Buy Personal Accident Insurance Plan
+               Secure Your Assets with Fire Takaful
               </h2>
               <p className="text-blue-600 text-sm font-medium">
-                for as low as Rs. 190/year
+               Comprehensive coverage starting from just Rs. 250/year
               </p>
               <p className="text-gray-600 text-xs">
-                Accidental Death Coverage up to Rs. 15 Lakh. Buy online in 10 minutes
+               Protect your home, office, or business from fire hazards. Quick online purchase in minutes.
               </p>
             </div>
           </div>

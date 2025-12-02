@@ -61,7 +61,16 @@ export default function TeamSection() {
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
-          <p className="text-gray-700 text-sm md:text-base font-semibold mb-2">Team Member</p>
+          <div className="flex items-center justify-center gap-3">
+                    <img
+                      src="/splogo.png"
+                      className="w-9 h-9 sm:w-11 sm:h-11"
+                    />
+                    <p className="text-[#1894A4] font-bold text-sm uppercase tracking-wider">
+                      TEAM MEMBER's
+                    </p>
+                  </div>
+          {/* <p className="text-gray-700 text-sm md:text-base font-semibold mb-2">Team Member</p> */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-2">
             We have More Than 55+ Years Of Experience
           </h2>
@@ -151,6 +160,3 @@ function TeamCard({ member }: { member: TeamMember }) {
     </div>
   );
 }
-
-
-

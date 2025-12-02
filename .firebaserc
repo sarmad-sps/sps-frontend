@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "vehicleinsuranceweb"
-  }
+    "default": "sps-web-55b91"
+  },
+  "targets": {},
+  "etags": {}
 }
