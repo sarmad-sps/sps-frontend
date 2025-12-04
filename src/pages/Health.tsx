@@ -7,9 +7,60 @@ import HealthInfoSection from "../components/health/Healthinfosection";
 import Navbar from "../components/common/Navbar";
 import TestimonialsSection from "../components/common/Testinomialsection";
 import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
-
+import Carinfo from "../components/car/Carinfo";
+import Claimprocess from "../components/car/Claimprocess";
+import CoverageHighlights from "../components/car/Coveragehighlight";
+import Partner from "../components/car/Partner"
 
 const Health = () => {
+const healthClaimPlans = [
+  {
+    title: "Basic",
+    features: [
+      "Covers hospitalization for minor illnesses",
+      "Outpatient consultation coverage",
+      "Basic diagnostic tests",
+      "Emergency room visits",
+    ],
+  },
+  {
+    title: "Standard",
+    features: [
+      "Covers hospitalization for major illnesses and surgeries",
+      "Outpatient and specialist consultation coverage",
+      "Diagnostic tests and lab work",
+      "Emergency care with ambulance support",
+     
+    ],
+  },
+  {
+    title: "Premium",
+    features: [
+      "Comprehensive hospitalization & surgery coverage",
+      
+      "Advanced diagnostic and lab tests",
+      "Emergency care with worldwide coverage",
+      "Preventive & wellness programs",
+    
+    ],
+  },
+];
+
+  const healthInsuranceInfo = {
+  title: "What is Health Insurance?",
+  description:
+    "Health insurance is a type of coverage that helps you pay for medical expenses, doctor visits, hospital stays, and treatments. It protects you from high healthcare costs and ensures access to quality care when needed.",
+  benefits: [
+    "Covers hospitalization and surgery costs",
+    "Covers doctor visits and medical tests",
+    "Provides financial protection during emergencies",
+    "Access to a network of healthcare providers",
+    "Preventive care and wellness support",
+    "Customizable plans to suit your health needs",
+  ],
+  image: "/healthinsurance.png", // replace with your actual image path
+};
+
   return (
     <>
       <Navbar />
@@ -48,6 +99,22 @@ const Health = () => {
       {/* <FadeUp>
       <InsuranceDetailsSection />
       </FadeUp> */}
+      <FadeUp>
+         <Carinfo {...healthInsuranceInfo}/>
+      </FadeUp>
+      <FadeUp>
+           <Claimprocess
+        title="Health Insurance Claim Process"
+        plans={healthClaimPlans}
+       />
+      </FadeUp>
+      <FadeUp>
+          <CoverageHighlights/>
+      </FadeUp>
+       <FadeUp>
+          <Partner/>
+       </FadeUp>
+       
       <FadeUp>
       <FAQSection />
       </FadeUp>

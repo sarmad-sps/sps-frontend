@@ -3,8 +3,10 @@ import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
 // import HeroSection from "../components/common/Hero";
 import Navbar from "../components/common/Navbar";
-
+import Partner from "../components/car/Partner";
 import InsuranceCard from "../components/Takaful/InsuranceCard";
+import Takafulinfo from "../components/takafulinfo/Takaful"
+import Takafulwork from "../components/takafulinfo/Takafulwork"
 const Takaful = () => {
   return (
     <>
@@ -27,6 +29,14 @@ const Takaful = () => {
       <FadeUp>
         <InsuranceCard />
       </FadeUp>
+      <FadeUp>
+ <Partner/>
+      </FadeUp>
+     <FadeUp>
+         <Takafulinfo/>
+     </FadeUp>
+     
+      {/* <Takafulwork/> */}
       <FadeUp>
         <FAQSection />
       </FadeUp>
