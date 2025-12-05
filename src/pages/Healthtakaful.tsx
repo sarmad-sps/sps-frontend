@@ -5,11 +5,8 @@ import Footer from "../components/common/Footer";
 import FAQSection from "../components/common/FAQsection";
 import FadeUp from "../components/common/FadeUp";
 import HealthTakaful from "../components/Takaful/HealthTakaful/Healthtakaful";
-<<<<<<< HEAD
 import Claimprocess from "../components/car/Claimprocess";
-=======
 import Faq from "../components/takafulinfo/Faqs"
->>>>>>> 572375ceda5bd71ca08fb04262a425a7edaa08a6
 const Healthtakaful = () => {
   const healthClaimPlans = [
   {

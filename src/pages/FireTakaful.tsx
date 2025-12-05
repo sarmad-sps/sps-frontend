@@ -63,16 +63,15 @@ const FireTakaful = () => {
       <FadeUp>
       <FireTakafulSection />
       </FadeUp>
-<<<<<<< HEAD
+
        <ClaimProcess
         title="Risk Covered"
         plans={fireClaimPlans}
-=======
+      />
       <Faq
         variant="fire"
         title="Fire Takaful"
         subtitle="Fire Takaful is a type of Islamic property protection plan that provides financial security against losses or damages to a person's assets caused by fire and related perils, operating in a manner consistent with Shariah (Islamic law)."
->>>>>>> 572375ceda5bd71ca08fb04262a425a7edaa08a6
       />
       <FadeUp>
       <FAQSection />

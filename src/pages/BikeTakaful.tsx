@@ -82,7 +82,6 @@ const BikeTakaful = () => {
         // apiEndpoint="/api/bike-insurance-quotes"
       />
       </FadeUp>
-<<<<<<< HEAD
         <FadeUp>
            <ClaimProcess
         title="Risk Covered"
