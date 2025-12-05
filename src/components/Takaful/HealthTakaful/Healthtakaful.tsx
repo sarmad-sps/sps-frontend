@@ -106,29 +106,15 @@ const HealthTakaful = () => {
         <div className="flex flex-col md:flex-row justify-between bg-white shadow-md rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 overflow-hidden">
           {/* Left Section */}
           <div className="flex-1 min-w-0 space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-sm text-gray-700">
-              <div className="min-w-0 flex-shrink">
-                <p className="truncate">
-                  <span className="font-semibold">Name:</span> Anum Zainab
-                </p>
-                <p className="truncate">
-                  <span className="font-semibold">Email:</span> contact@securepathsolutions.com
-                </p>
-              </div>
-              <div className="mt-2 sm:mt-0 flex-shrink-0">
-                <p><span className="font-semibold">Gender:</span> Male</p>
-                <p><span className="font-semibold">Phone:</span> 03008492075</p>
-              </div>
-            </div>
-
-            <hr className="border-gray-300" />
+           
 
             <div className="flex justify-center w-full">
-              <img
-                src="/takaful.png"
-                alt="Accident Insurance"
-                className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain max-w-full mx-auto"
-              />
+             <img
+  src="/health123.png"
+  alt="Accident Insurance"
+  className="w-36 h-40 sm:w-40 sm:h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 object-contain"
+/>
+
             </div>
 
             <div className="text-center space-y-1">

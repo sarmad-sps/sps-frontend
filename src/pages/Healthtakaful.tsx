@@ -5,7 +5,11 @@ import Footer from "../components/common/Footer";
 import FAQSection from "../components/common/FAQsection";
 import FadeUp from "../components/common/FadeUp";
 import HealthTakaful from "../components/Takaful/HealthTakaful/Healthtakaful";
+<<<<<<< HEAD
 import Claimprocess from "../components/car/Claimprocess";
+=======
+import Faq from "../components/takafulinfo/Faqs"
+>>>>>>> 572375ceda5bd71ca08fb04262a425a7edaa08a6
 const Healthtakaful = () => {
   const healthClaimPlans = [
   {
@@ -59,6 +63,11 @@ const Healthtakaful = () => {
       </FadeUp> */}
       <HealthTakaful 
       
+      />
+      <Faq
+        variant="health"
+        title="Health Takaful"
+        subtitle="Health Takaful is an Islamic alternative to regular health insurance. It is based on helping each other, sharing responsibility, and making donations (Tabarru'). Everyone contributes to a common fund, which is used to support any member who needs medical help."
       />
       <FadeUp>
            <Claimprocess

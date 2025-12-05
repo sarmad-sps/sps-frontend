@@ -8,7 +8,7 @@ import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
 import ClaimProcess from "../components/car/Claimprocess";
 import { carFormFields } from "../config/formFields";
 // import CarTakafulForm from "../components/Takaful/CarTakaful/CarTakafulForm";
-
+import Faq from "../components/takafulinfo/Faqs"
 const CarTakaful = () => {
    const carClaimPlans = [
   {
@@ -82,6 +82,11 @@ const CarTakaful = () => {
           // apiEndpoint="/api/car-insurance-quotes"
         />
       </FadeUp>
+      <Faq
+        variant="car"
+        title="Car Takaful"
+        subtitle="Car Takaful is a type of Islamic insurance that provides a Shariah-compliant alternative to conventional motor insurance. It operates on the principles of mutual cooperation, shared responsibility, and risk-sharing among participants."
+      />
       <FadeUp>
         <ClaimProcess
         title="Risk Covered"
