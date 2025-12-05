@@ -1,5 +1,5 @@
 import ClaimProcess from "../components/car/Claimprocess";
-import CoverageHighlights from "../components/car/Coveragehighlight";
+// import CoverageHighlights from "../components/car/Coveragehighlight";
 import FadeUp from "../components/common/FadeUp";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";

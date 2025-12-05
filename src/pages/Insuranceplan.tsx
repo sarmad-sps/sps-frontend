@@ -34,8 +34,12 @@ const Insuranceplan = () => {
             <FadeUp>
             <InsurancePlanDetails quote={selectedQuote}/>
             </FadeUp>
+            <FadeUp>
             <TestimonialsSection />
+            </FadeUp>
+            <FadeUp>
             <FAQSection />
+            </FadeUp>
             <Footer />
         </div>
     );

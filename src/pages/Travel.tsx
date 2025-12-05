@@ -93,13 +93,18 @@ const travelInsuranceInfo = {
       {/* <FadeUp>
         <InsuranceDetailsSection />
       </FadeUp>  */}
+      <FadeUp>
       <Carinfo {...travelInsuranceInfo}/>
+      </FadeUp>
+      <FadeUp>
       <ClaimProcess
         title="Risk Covered"
         plans={travelClaimPlans}
       />
-    
+      </FadeUp>
+      <FadeUp>
       <Partner/>
+      </FadeUp>
       <FadeUp>
         <FAQSection />
       </FadeUp>

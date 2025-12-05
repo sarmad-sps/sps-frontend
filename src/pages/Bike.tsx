@@ -8,7 +8,6 @@ import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
 // import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
 import { bikeFormFields } from "../config/formFields";
 import ClaimProcess from "../components/car/Claimprocess";
-import CoverageHighlights from "../components/car/Coveragehighlight";
 import Partner from "../components/car/Partner"
 import Carinfo from "../components/car/Carinfo";
 
@@ -77,7 +76,7 @@ const bikeInsuranceInfo = {
         titleSize="text-4xl md:text-5xl"
       />
       </FadeUp> */}
-      <FadeUp>
+      <FadeUp>=
       <VehicleInfoHeader
         vehicleType="bike"
         title={

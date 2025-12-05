@@ -50,9 +50,11 @@ const Tracker = () => {
         <Facts />
       </FadeUp>
       <FadeUp>
-        <Testimonial />
+      <Testimonial />
       </FadeUp>
+      <FadeUp>
       <FAQSection />
+      </FadeUp>
       <Footer />
     </div>
   );

@@ -58,14 +58,17 @@ const Healthtakaful = () => {
       {/* <FadeUp>
         <InsuranceCard showForm={true} />
       </FadeUp> */}
+      <FadeUp>
       <HealthTakaful 
-      
       />
+      </FadeUp>
+      <FadeUp>
       <Faq
         variant="health"
         title="Health Takaful"
         subtitle="Health Takaful is an Islamic alternative to regular health insurance. It is based on helping each other, sharing responsibility, and making donations (Tabarru'). Everyone contributes to a common fund, which is used to support any member who needs medical help."
       />
+      </FadeUp>
       <FadeUp>
            <Claimprocess
         title="Risk Covered"

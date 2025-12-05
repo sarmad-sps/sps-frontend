@@ -31,8 +31,12 @@ const Pricingplan = () => {
       <FadeUp>
       <WhyUsSection />
       </FadeUp>
+      <FadeUp>
       <TeamSection />
+      </FadeUp>
+      <FadeUp>
       <FAQSection />
+      </FadeUp>
       <Footer />
     </>
   );
