@@ -6,7 +6,7 @@ import Footer from "../components/common/Footer";
 import FAQSection from "../components/common/FAQsection";
 
 import FireTakafulSection from "../components/Takaful/Firetakaful/FireTakaful";
-
+import Faq from "../components/takafulinfo/Faqs"
 const FireTakaful = () => {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -32,6 +32,11 @@ const FireTakaful = () => {
       <FadeUp>
       <FireTakafulSection />
       </FadeUp>
+      <Faq
+        variant="fire"
+        title="Fire Takaful"
+        subtitle="Fire Takaful is a type of Islamic property protection plan that provides financial security against losses or damages to a person's assets caused by fire and related perils, operating in a manner consistent with Shariah (Islamic law)."
+      />
       <FadeUp>
       <FAQSection />
       </FadeUp>

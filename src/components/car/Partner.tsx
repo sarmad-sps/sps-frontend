@@ -22,16 +22,16 @@ const BrandCarousel: React.FC = () => {
 
         {/* Description */}
         <p className="text-gray-700 text-lg mb-10">
-  Partnering with leading and trusted brands to bring you the best insurance solutions.
-</p>
-
+          Partnering with leading and trusted brands to bring you the best
+          insurance solutions.
+        </p>
 
         {/* Brand logos */}
-        <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 justify-items-center">
           {brands.map((brand) => (
             <div
               key={brand.id}
-              className="flex items-center justify-center bg-white/5 p-4 rounded-2xl shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-300"
+              className="flex items-center justify-center bg-white/5 p-4 rounded-2xl shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-300 w-32 sm:w-36 md:w-40"
             >
               <img
                 src={brand.logo}

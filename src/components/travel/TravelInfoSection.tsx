@@ -12,6 +12,7 @@ const TravelInfoSection = () => {
       description="Compare & find coverage for your travel from top insurance providers in Pakistan."
     />
   );
+
 };
 
 export default TravelInfoSection;
