@@ -4,10 +4,41 @@ import Footer from "../components/common/Footer";
 // import InsuranceCard from "../components/Takaful/InsuranceCard";
 // import HeroSection from "../components/common/Hero";
 import FAQSection from "../components/common/FAQsection";
+import ClaimProcess from "../components/car/Claimprocess";
 
 import FireTakafulSection from "../components/Takaful/Firetakaful/FireTakaful";
 
 const FireTakaful = () => {
+  const fireClaimPlans = [
+  {
+    title: "Third Party",
+    features: [
+      "Property Damage Liability",
+      "Bodily Injury Liability",
+      "Accidental Death",
+      "Third-Party Property Repair",
+    ],
+  },
+  {
+    title: "Total Loss",
+    features: [
+      "Actual Cash Value (ACV)",
+      "Parts Replacement Cost",
+      "Comprehensive Coverage",
+      "Deductibles",
+    ],
+  },
+  {
+    title: "Own Damage",
+    features: [
+      "Comprehensive Coverage",
+      "Theft & Total Loss",
+      "Third Party Liability",
+      "Personal Accident Coverage",
+    ],
+  },
+];
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
@@ -32,6 +63,10 @@ const FireTakaful = () => {
       <FadeUp>
       <FireTakafulSection />
       </FadeUp>
+       <ClaimProcess
+        title="Risk Covered"
+        plans={fireClaimPlans}
+      />
       <FadeUp>
       <FAQSection />
       </FadeUp>

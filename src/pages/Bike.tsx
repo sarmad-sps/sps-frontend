@@ -16,31 +16,30 @@ import Carinfo from "../components/car/Carinfo";
 const Bike = () => {
 const bikeClaimPlans = [
   {
-    title: "Basic",
+    title: "Third Party",
     features: [
-      "Trip cancellation coverage",
-      "Emergency medical expenses",
-      "Baggage loss/delay",
-      "24/7 travel help",
+      "Property Damage Liability",
+      "Bodily Injury Liability",
+      "Accidental Death",
+      "Third-Party Property Repair",
     ],
   },
   {
-    title: "Standard",
+    title: "Total Loss",
     features: [
-      "Medical coverage abroad",
-      "Trip interruption protection",
-      "Baggage protection",
-      "Emergency evacuation",
-      "Travel assistance",
+      "Actual Cash Value (ACV)",
+      "Parts Replacement Cost",
+      "Comprehensive Coverage",
+      "Deductibles",
     ],
   },
   {
-    title: "Premium",
+    title: "Own Damage",
     features: [
-      "Worldwide medical & hospitalization",
-      "Trip cancellation & delay",
-      "Lost/stolen baggage",
-      "Evacuation & support",
+      "Comprehensive Coverage",
+      "Theft & Total Loss",
+      "Third Party Liability",
+      "Personal Accident Coverage",
     ],
   },
 ];
@@ -108,13 +107,13 @@ const bikeInsuranceInfo = {
 
      <FadeUp>
            <ClaimProcess
-        title="Bike Insurance Claim Process"
+        title="Risk Covered"
         plans={bikeClaimPlans}
       />
      </FadeUp>
-      <FadeUp>
+      {/* <FadeUp>
             <CoverageHighlights/>
-      </FadeUp>
+      </FadeUp> */}
       <FadeUp>
           <Partner/>
       </FadeUp>

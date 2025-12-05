@@ -13,36 +13,35 @@ import { carFormFields } from "../config/formFields";
 import Partner from "../components/car/Partner"
 
 const Car = () => {
-   const carClaimPlans = [
-    {
-      title: "Basic",
-      features: [
-        "Coverage amount",
-        "Medical benefits",
-        "Theft coverage",
-        "Workshop services",
-      ],
-    },
-    {
-      title: "Standard",
-      features: [
-        "Coverage amount",
-        "Medical benefits",
-        "Theft coverage",
-        "Workshop services",
-      ],
-    },
-    {
-      title: "Premium",
-      features: [
-        "Coverage amount",
-        "Medical benefits",
-        "Theft coverage",
-        "Workshop services",
-      ],
-    },
-  ];
-
+ const carClaimPlans = [
+  {
+    title: "Third Party",
+    features: [
+      "Property Damage Liability",
+      "Bodily Injury Liability",
+      "Accidental Death",
+      "Third-Party Property Repair",
+    ],
+  },
+  {
+    title: "Total Loss",
+    features: [
+      "Actual Cash Value (ACV)",
+      "Parts Replacement Cost",
+      "Comprehensive Coverage",
+      "Deductibles",
+    ],
+  },
+  {
+    title: "Own Damage",
+    features: [
+      "Comprehensive Coverage",
+      "Theft & Total Loss",
+      "Third Party Liability",
+      "Personal Accident Coverage",
+    ],
+  },
+];
   return (
     <div>
       <Navbar />
@@ -88,13 +87,13 @@ const Car = () => {
       </FadeUp>
       <FadeUp>
         <ClaimProcess
-        title="Car Insurance Claim Process"
+        title="Risk Covered"
         plans={carClaimPlans}
          />
       </FadeUp>
-      <FadeUp>
+      {/* <FadeUp>
         <CoverageHighlights />
-      </FadeUp>
+      </FadeUp> */}
         <FadeUp>
           <Partner/>
         </FadeUp>

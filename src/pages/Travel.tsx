@@ -8,39 +8,38 @@ import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
 import ClaimProcess from "../components/car/Claimprocess";
 import Carinfo from "../components/car/Carinfo";
-import CoverageHighlights from "../components/car/Coveragehighlight";
 import Partner from "../components/car/Partner"
 const Travel = () => {
- const travelClaimPlans = [
+const travelClaimPlans = [
   {
-    title: "Basic",
+    title: "Third Party",
     features: [
-      "Coverage for trip cancellations or interruptions",
-      "Emergency medical expenses abroad",
-      "Loss or delay of baggage",
-      "Travel assistance services",
+      "Property Damage Liability",
+      "Bodily Injury Liability",
+      "Accidental Death",
+      "Third-Party Property Repair",
     ],
   },
   {
-    title: "Standard",
+    title: "Total Loss",
     features: [
-      "Comprehensive medical coverage while traveling",
-      "Trip cancellation and interruption protection",
-      "Baggage loss, delay, and theft coverage",
-      "Emergency evacuation and repatriation",
-     
+      "Actual Cash Value (ACV)",
+      "Parts Replacement Cost",
+      "Comprehensive Coverage",
+      "Deductibles",
     ],
   },
   {
-    title: "Premium",
+    title: "Own Damage",
     features: [
-      "Full medical and hospitalization coverage worldwide",
-      "Trip cancellation, interruption, and delay coverage",
-      "Baggage loss, theft, and damage protection",
-      "Emergency evacuation, repatriation & travel support",
+      "Comprehensive Coverage",
+      "Theft & Total Loss",
+      "Third Party Liability",
+      "Personal Accident Coverage",
     ],
   },
 ];
+
 const travelInsuranceInfo = {
   title: "What is Travel Insurance?",
   description:
@@ -96,10 +95,10 @@ const travelInsuranceInfo = {
       </FadeUp>  */}
       <Carinfo {...travelInsuranceInfo}/>
       <ClaimProcess
-        title="Bike Insurance Claim Process"
+        title="Risk Covered"
         plans={travelClaimPlans}
       />
-      <CoverageHighlights/>
+    
       <Partner/>
       <FadeUp>
         <FAQSection />

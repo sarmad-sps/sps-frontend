@@ -5,8 +5,37 @@ import Footer from "../components/common/Footer";
 import FAQSection from "../components/common/FAQsection";
 import FadeUp from "../components/common/FadeUp";
 import HealthTakaful from "../components/Takaful/HealthTakaful/Healthtakaful";
-
+import Claimprocess from "../components/car/Claimprocess";
 const Healthtakaful = () => {
+  const healthClaimPlans = [
+  {
+    title: "Third Party",
+    features: [
+      "Property Damage Liability",
+      "Bodily Injury Liability",
+      "Accidental Death",
+      "Third-Party Property Repair",
+    ],
+  },
+  {
+    title: "Total Loss",
+    features: [
+      "Actual Cash Value (ACV)",
+      "Parts Replacement Cost",
+      "Comprehensive Coverage",
+      "Deductibles",
+    ],
+  },
+  {
+    title: "Own Damage",
+    features: [
+      "Comprehensive Coverage",
+      "Theft & Total Loss",
+      "Third Party Liability",
+      "Personal Accident Coverage",
+    ],
+  },
+];
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
@@ -31,6 +60,12 @@ const Healthtakaful = () => {
       <HealthTakaful 
       
       />
+      <FadeUp>
+           <Claimprocess
+        title="Risk Covered"
+        plans={healthClaimPlans}
+       />
+      </FadeUp>
       <FadeUp>
         <FAQSection />
       </FadeUp>

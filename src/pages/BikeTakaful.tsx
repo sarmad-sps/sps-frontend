@@ -7,13 +7,43 @@ import InsuranceDetailsSection from "../components/common/Insurancedetailssectio
 import FadeUp from "../components/common/FadeUp";
 import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
 import { bikeFormFields } from "../config/formFields";
+import ClaimProcess from "../components/car/Claimprocess";
 // import BikeTakafulForm from "../components/Takaful/BikeTakaful/BikeTakafulForm";
 
 const BikeTakaful = () => {
+  const bikeClaimPlans = [
+  {
+    title: "Third Party",
+    features: [
+      "Property Damage Liability",
+      "Bodily Injury Liability",
+      "Accidental Death",
+      "Third-Party Property Repair",
+    ],
+  },
+  {
+    title: "Total Loss",
+    features: [
+      "Actual Cash Value (ACV)",
+      "Parts Replacement Cost",
+      "Comprehensive Coverage",
+      "Deductibles",
+    ],
+  },
+  {
+    title: "Own Damage",
+    features: [
+      "Comprehensive Coverage",
+      "Theft & Total Loss",
+      "Third Party Liability",
+      "Personal Accident Coverage",
+    ],
+  },
+];
   return (
     <div>
       <Navbar />  
-      <FadeUp>
+      {/* <FadeUp>
       <HeroSection
         backgroundImage="/Bikeinsurancepolicyimage.jpg"
         title={
@@ -27,7 +57,7 @@ const BikeTakaful = () => {
         height="h-[400px] md:h-[450px] lg:h-[500px]"
         titleSize="text-4xl md:text-5xl"
       />
-      </FadeUp>
+      </FadeUp> */}
       <FadeUp>
       <VehicleInfoHeader
         vehicleType="bike"
@@ -52,9 +82,15 @@ const BikeTakaful = () => {
         // apiEndpoint="/api/bike-insurance-quotes"
       />
       </FadeUp>
-      <FadeUp>
+        <FadeUp>
+           <ClaimProcess
+        title="Risk Covered"
+        plans={bikeClaimPlans}
+      />
+     </FadeUp>
+      {/* <FadeUp>
       <InsuranceDetailsSection />
-      </FadeUp>
+      </FadeUp> */}
       <FadeUp>
       <FAQSection />
       </FadeUp>
