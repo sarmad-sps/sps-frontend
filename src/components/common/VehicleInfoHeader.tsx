@@ -5,6 +5,7 @@ interface VehicleInfoProps {
   title: ReactNode;
   subtitle: string;
   vehicleImage: string;
+
 }
 
 const VehicleInfoSection1 = ({
@@ -12,9 +13,10 @@ const VehicleInfoSection1 = ({
   title,
   subtitle,
   vehicleImage,
+
 }: VehicleInfoProps) => {
   return (
-    <section className="w-full bg-white py-8 md:py-12 pb-2 md:pb-4">
+    <section id="vehicle-info-header" className="w-full bg-white py-8 md:py-12 pb-2 md:pb-4">
       <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18"> 
         {/* Header */}
         <div className="flex flex-col items-center lg:flex-row md:items-start justify-between mb-4 gap-8">

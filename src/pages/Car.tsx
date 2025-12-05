@@ -1,3 +1,5 @@
+import ClaimProcess from "../components/car/Claimprocess";
+import CoverageHighlights from "../components/car/Coveragehighlight";
 import FadeUp from "../components/common/FadeUp";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
@@ -6,9 +8,41 @@ import Footer from "../components/common/Footer";
 import Navbar from "../components/common/Navbar";
 import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
 import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
+import Carinfo from "../components/car/Carinfo";
 import { carFormFields } from "../config/formFields";
+import Partner from "../components/car/Partner"
 
 const Car = () => {
+   const carClaimPlans = [
+    {
+      title: "Basic",
+      features: [
+        "Coverage amount",
+        "Medical benefits",
+        "Theft coverage",
+        "Workshop services",
+      ],
+    },
+    {
+      title: "Standard",
+      features: [
+        "Coverage amount",
+        "Medical benefits",
+        "Theft coverage",
+        "Workshop services",
+      ],
+    },
+    {
+      title: "Premium",
+      features: [
+        "Coverage amount",
+        "Medical benefits",
+        "Theft coverage",
+        "Workshop services",
+      ],
+    },
+  ];
+
   return (
     <div>
       <Navbar />
@@ -28,31 +62,44 @@ const Car = () => {
       />
       </FadeUp> */}
       <FadeUp>
-      <VehicleInfoHeader
-        vehicleType="car"
-        title={
-          <>
-            Find Best Car
-            <br />
-            Insurance in Pakistan
-          </>
-        }
-        subtitle="Easily compare top insurance providers and find the perfect coverage for your car, all in one place."
-        vehicleImage="/Vehicleinfosection1image1.png"
-      />
+        <VehicleInfoHeader  
+          vehicleType="car"
+          
+          title={
+            <>
+              Find Best Car
+              <br />
+              Insurance in Pakistan
+            </>
+          }
+          subtitle="Easily compare top insurance providers and find the perfect coverage for your car, all in one place."
+          vehicleImage="/Vehicleinfosection1image1.png"
+        />
       </FadeUp>
       <FadeUp>
-      <VehicleInsuranceForm
-        vehicleType="car"
-        formFields={carFormFields}
-        // apiEndpoint="/api/car-insurance-quotes"
-      />
+        <VehicleInsuranceForm
+          vehicleType="car"
+          formFields={carFormFields}
+          // apiEndpoint="/api/car-insurance-quotes"
+        />
       </FadeUp>
-      {/* <FadeUp>
-      <InsuranceDetailsSection /> 
-      </FadeUp> */}
       <FadeUp>
-      <FAQSection />
+        <Carinfo />
+      </FadeUp>
+      <FadeUp>
+        <ClaimProcess
+        title="Car Insurance Claim Process"
+        plans={carClaimPlans}
+         />
+      </FadeUp>
+      <FadeUp>
+        <CoverageHighlights />
+      </FadeUp>
+        <FadeUp>
+          <Partner/>
+        </FadeUp>
+      <FadeUp>
+        <FAQSection />
       </FadeUp>
       <Footer />
     </div>
@@ -60,4 +107,4 @@ const Car = () => {
 };
 
 export default Car;
-// mnnnn 
+// mnnnn

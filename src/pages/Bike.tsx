@@ -7,9 +7,59 @@ import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
 import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
 // import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
 import { bikeFormFields } from "../config/formFields";
+import ClaimProcess from "../components/car/Claimprocess";
+import CoverageHighlights from "../components/car/Coveragehighlight";
+import Partner from "../components/car/Partner"
+import Carinfo from "../components/car/Carinfo";
 
 
 const Bike = () => {
+const bikeClaimPlans = [
+  {
+    title: "Basic",
+    features: [
+      "Trip cancellation coverage",
+      "Emergency medical expenses",
+      "Baggage loss/delay",
+      "24/7 travel help",
+    ],
+  },
+  {
+    title: "Standard",
+    features: [
+      "Medical coverage abroad",
+      "Trip interruption protection",
+      "Baggage protection",
+      "Emergency evacuation",
+      "Travel assistance",
+    ],
+  },
+  {
+    title: "Premium",
+    features: [
+      "Worldwide medical & hospitalization",
+      "Trip cancellation & delay",
+      "Lost/stolen baggage",
+      "Evacuation & support",
+    ],
+  },
+];
+
+const bikeInsuranceInfo = {
+    title: "What is Bike Insurance?",
+    description:
+      "Bike insurance is a type of coverage that protects your bike and finances in case of accidents, theft, or damage. It covers repairs, medical expenses, and third-party liability.",
+    benefits: [
+      "Accidental damage coverage",
+      "Theft protection",
+      "Third-party liability",
+      "Peace of mind while riding",
+      "24/7 Roadside assistance",
+      "Customizable insurance plans",
+    ],
+    image: "/bikeinsurance.jpg",
+  };
+
   return (
     <div>
       <Navbar />
@@ -52,6 +102,23 @@ const Bike = () => {
       {/* <FadeUp>
       <InsuranceDetailsSection />
       </FadeUp>  */}
+      <FadeUp>
+             <Carinfo {...bikeInsuranceInfo}/>
+      </FadeUp>
+
+     <FadeUp>
+           <ClaimProcess
+        title="Bike Insurance Claim Process"
+        plans={bikeClaimPlans}
+      />
+     </FadeUp>
+      <FadeUp>
+            <CoverageHighlights/>
+      </FadeUp>
+      <FadeUp>
+          <Partner/>
+      </FadeUp>
+      
       <FadeUp>
       <FAQSection />
       </FadeUp>
