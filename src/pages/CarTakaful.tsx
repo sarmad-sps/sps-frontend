@@ -1,21 +1,49 @@
-
 import FadeUp from "../components/common/FadeUp";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
 import HeroSection from "../components/common/Hero";
-import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
 import Navbar from "../components/common/Navbar";
 import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
 import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
+import ClaimProcess from "../components/car/Claimprocess";
 import { carFormFields } from "../config/formFields";
 // import CarTakafulForm from "../components/Takaful/CarTakaful/CarTakafulForm";
 import Faq from "../components/takafulinfo/Faqs"
 const CarTakaful = () => {
+   const carClaimPlans = [
+  {
+    title: "Third Party",
+    features: [
+      "Property Damage Liability",
+      "Bodily Injury Liability",
+      "Accidental Death",
+      "Third-Party Property Repair",
+    ],
+  },
+  {
+    title: "Total Loss",
+    features: [
+      "Actual Cash Value (ACV)",
+      "Parts Replacement Cost",
+      "Comprehensive Coverage",
+      "Deductibles",
+    ],
+  },
+  {
+    title: "Own Damage",
+    features: [
+      "Comprehensive Coverage",
+      "Theft & Total Loss",
+      "Third Party Liability",
+      "Personal Accident Coverage",
+    ],
+  },
+];
   return (
     <div>
       {/* Navbar remains full width */}
       <Navbar />
-      <FadeUp>
+      {/* <FadeUp>
         <HeroSection
           backgroundImage="/Heroimage2.png"
           title={
@@ -29,8 +57,8 @@ const CarTakaful = () => {
           height="h-[400px] md:h-[450px] lg:h-[500px]"
           titleSize="text-4xl md:text-5xl"
         />
-        </FadeUp>
-        <FadeUp>
+      </FadeUp> */}
+      <FadeUp>
         <VehicleInfoHeader
           vehicleType="car"
           title={
@@ -43,16 +71,16 @@ const CarTakaful = () => {
           subtitle="Compare top Takaful providers and find trusted coverage for your car with ease."
           vehicleImage="/Vehicleinfosection1image1.png"
         />
-        </FadeUp>
+      </FadeUp>
 
-        {/* <CarTakafulForm /> */}
+      {/* <CarTakafulForm /> */}
 
-        <FadeUp>
+      <FadeUp>
         <VehicleInsuranceForm
-        vehicleType="car"
-        formFields={carFormFields}
-        // apiEndpoint="/api/car-insurance-quotes"
-      />
+          vehicleType="car"
+          formFields={carFormFields}
+          // apiEndpoint="/api/car-insurance-quotes"
+        />
       </FadeUp>
       <Faq
         variant="car"
@@ -60,14 +88,19 @@ const CarTakaful = () => {
         subtitle="Car Takaful is a type of Islamic insurance that provides a Shariah-compliant alternative to conventional motor insurance. It operates on the principles of mutual cooperation, shared responsibility, and risk-sharing among participants."
       />
       <FadeUp>
+        <ClaimProcess
+        title="Risk Covered"
+        plans={carClaimPlans}
+         />
+      </FadeUp>
+      {/* <FadeUp>
         <InsuranceDetailsSection />
-        </FadeUp>
-        <FadeUp>
+      </FadeUp> */}
+      <FadeUp>
         <FAQSection />
-        </FadeUp>
+      </FadeUp>
 
-        <Footer />
-
+      <Footer />
     </div>
   );
 };
