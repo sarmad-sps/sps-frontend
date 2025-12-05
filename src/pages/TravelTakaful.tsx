@@ -4,8 +4,11 @@ import HeroSection from "../components/common/Hero";
 import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
 import Footer from "../components/common/Footer";
 import TravelInfoSection from "../components/travel/TravelInfoSection";
-
+import Faq from "../components/takafulinfo/Faqs"
+//import Guidelines from "../components/takafulinfo/Guidelins"
 function TravelTakaful() {
+
+
   return (
     <div>
       <Navbar />
@@ -23,7 +26,13 @@ function TravelTakaful() {
         titleSize="text-4xl md:text-5xl"
       />
       {/* <TravelForm /> */}
-      <TravelInfoSection/>
+      <TravelInfoSection />
+      <Faq
+        variant="travel"
+        title="Travel Takaful"
+        subtitle="Travel Takaful is a Shariah-compliant, mutual protection plan that covers financial losses from unexpected travel issues, like medical emergencies, lost luggage, or trip cancellations, by pooling contributions (donations) from participants for collective assistance, operating on Islamic principles of mutual help rather than conventional insurance's commercial model."
+      />
+      {/* <Guidelines/> */}
       <InsuranceDetailsSection />
       <Footer />
     </div>

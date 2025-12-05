@@ -8,7 +8,7 @@ import FadeUp from "../components/common/FadeUp";
 import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
 import { bikeFormFields } from "../config/formFields";
 // import BikeTakafulForm from "../components/Takaful/BikeTakaful/BikeTakafulForm";
-
+import Faq from "../components/takafulinfo/Faqs"
 const BikeTakaful = () => {
   return (
     <div>
@@ -52,6 +52,11 @@ const BikeTakaful = () => {
         // apiEndpoint="/api/bike-insurance-quotes"
       />
       </FadeUp>
+      <Faq
+        variant="bike"
+        title="Bike Takaful"
+        subtitle="Bike Takaful is a Shariah-compliant, faith-based motor insurance alternative where participants pool contributions into a mutual fund (Waqf) for shared risk, avoiding interest (riba) and uncertainty (gharar), offering financial protection against theft, accidents, fire, natural disasters, and third-party liabilities, ensuring ethical investment and ethical protection for your two-wheeler."
+      />
       <FadeUp>
       <InsuranceDetailsSection />
       </FadeUp>
