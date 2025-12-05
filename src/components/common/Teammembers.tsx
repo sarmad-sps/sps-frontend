@@ -8,9 +8,24 @@ interface TeamMember {
 }
 
 const teamMembers: TeamMember[] = [
-  { id: 1, name: "Fiaz Anjum", position: "Chief Executive Officer", image: "/CEO.jpg" },
-  { id: 2, name: "Muhammad Shoaib", position: "Chief Operating Officer", image: "/COO.jpg" },
-  { id: 3, name: "Muhammad Sohaib", position: "Director", image: "/director.jpg" },
+  {
+    id: 1,
+    name: "Fiaz Anjum",
+    position: "Chief Executive Officer",
+    image: "/CEO.jpg",
+  },
+  {
+    id: 2,
+    name: "Muhammad Shoaib",
+    position: "Chief Operating Officer",
+    image: "/COO.jpg",
+  },
+  {
+    id: 3,
+    name: "Muhammad Sohaib",
+    position: "Director",
+    image: "/director.jpg",
+  },
 ];
 
 export default function TeamSection() {
@@ -20,11 +35,11 @@ export default function TeamSection() {
 
   const updateCardsPerPage = () => {
     if (window.innerWidth < 640) {
-      setCardsPerPage(1);        // Mobile → 1 card (center mein)
+      setCardsPerPage(1); // Mobile → 1 card (center mein)
     } else if (window.innerWidth < 1024) {
-      setCardsPerPage(2);        // Tablet → 2 cards (dono center mein)
+      setCardsPerPage(2); // Tablet → 2 cards (dono center mein)
     } else {
-      setCardsPerPage(3);        // Desktop → 3 cards side by side
+      setCardsPerPage(3); // Desktop → 3 cards side by side
     }
   };
 
@@ -34,24 +49,36 @@ export default function TeamSection() {
     return () => window.removeEventListener("resize", updateCardsPerPage);
   }, []);
 
-  // Slides banate waqt dynamic chunk size use kar rahe hain
+  // Slides logic similar to ServiceSection1
   useEffect(() => {
-    const chunks: TeamMember[][] = [];
-    for (let i = 0; i < teamMembers.length; i += cardsPerPage) {
-      chunks.push(teamMembers.slice(i, i + cardsPerPage));
+    let newSlides: TeamMember[][] = [];
+
+    if (cardsPerPage === 3) {
+      // Desktop: All 3 cards together
+      newSlides = [teamMembers];
+    } else if (cardsPerPage === 2) {
+      // Tablet: slides [1,2] → [2,3] → [3,1] → back to [1,2]
+      newSlides = [
+        [teamMembers[0], teamMembers[1]], // [Fiaz, Shoaib]
+        [teamMembers[1], teamMembers[2]], // [Shoaib, Sohaib]
+        [teamMembers[2], teamMembers[0]], // [Sohaib, Fiaz]
+      ];
+    } else {
+      // Mobile: 1 card per slide
+      newSlides = teamMembers.map((member) => [member]);
     }
-    setSlides(chunks);
+
+    setSlides(newSlides);
     setPage(0);
   }, [cardsPerPage]);
 
   const totalPages = slides.length;
 
-  // Auto slide (sirf jab 1 ya 2 cards dikhte hain)
+  // Auto Slide like ServiceSection1
   useEffect(() => {
-    if (totalPages <= 1) return;
     const interval = setInterval(() => {
       setPage((prev) => (prev + 1) % totalPages);
-    }, 4000);
+    }, 3500);
     return () => clearInterval(interval);
   }, [totalPages]);
 
@@ -62,14 +89,11 @@ export default function TeamSection() {
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
           <div className="flex items-center justify-center gap-3">
-                    <img
-                      src="/splogo.png"
-                      className="w-9 h-9 sm:w-11 sm:h-11"
-                    />
-                    <p className="text-[#1894A4] font-bold text-sm uppercase tracking-wider">
-                      TEAM MEMBER's
-                    </p>
-                  </div>
+            <img src="/splogo.png" className="w-9 h-9 sm:w-11 sm:h-11" />
+            <p className="text-[#1894A4] font-bold text-sm uppercase tracking-wider">
+              TEAM MEMBER's
+            </p>
+          </div>
           {/* <p className="text-gray-700 text-sm md:text-base font-semibold mb-2">Team Member</p> */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-2">
             We have More Than 55+ Years Of Experience
@@ -88,54 +112,47 @@ export default function TeamSection() {
           </div>
         ) : (
           <>
-            {/* Mobile & Tablet: Carousel with Perfect Centering */}
-            <div className="overflow-hidden">
+            {/* Mobile & Tablet: Carousel like ServiceSection1 */}
+            <div className="overflow-hidden w-full mb-6">
               <div
                 className="flex transition-transform duration-700 ease-in-out"
                 style={{ transform: `translateX(-${page * 100}%)` }}
               >
-                {slides.map((slide, index) => (
-                  <div key={index} className="w-full flex-shrink-0">
-                    <div className="flex justify-center px-4 sm:px-8">
+                {slides.map((slideMembers, slideIndex) => (
+                  <div key={slideIndex} className="w-full flex-shrink-0 flex">
+                    {slideMembers.map((member: TeamMember) => (
                       <div
-                        className={`flex gap-6 md:gap-10 justify-center flex-wrap max-w-5xl w-full
-                          ${cardsPerPage === 1 ? "max-w-sm" : "max-w-4xl"}`}
+                        key={member.id}
+                        className={`flex-shrink-0 p-3 ${
+                          cardsPerPage === 1
+                            ? "w-full"
+                            : cardsPerPage === 2
+                            ? "w-1/2"
+                            : "w-1/3"
+                        }`}
                       >
-                        {slide.map((member) => (
-                          <div
-                            key={member.id}
-                            className={`flex-shrink-0 ${
-                              cardsPerPage === 1
-                                ? "w-full max-w-sm"
-                                : "w-full sm:w-80 md:w-72"
-                            }`}
-                          >
-                            <TeamCard member={member} />
-                          </div>
-                        ))}
+                        <TeamCard member={member} />
                       </div>
-                    </div>
+                    ))}
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Dots */}
-            {totalPages > 1 && (
-              <div className="flex justify-center gap-3 mt-12">
-                {Array.from({ length: totalPages }).map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setPage(i)}
-                    className={`transition-all rounded-full ${
-                      page === i
-                        ? "bg-[#1894a4] w-10 h-2"
-                        : "bg-gray-400 w-2 h-2 hover:bg-gray-600"
-                    }`}
-                  />
-                ))}
-              </div>
-            )}
+            {/* Pagination Dots like ServiceSection1 */}
+            <div className="flex justify-center gap-3">
+              {Array.from({ length: totalPages }).map((_, i) => (
+                <span
+                  key={i}
+                  onClick={() => setPage(i)}
+                  className={`cursor-pointer transition-all duration-300 ${
+                    page === i
+                      ? "bg-[#1894A4] w-5 h-2 rounded-full lg:w-10 lg:h-3"
+                      : "bg-gray-300 w-2 h-2 rounded-full hover:bg-gray-400 lg:w-3 lg:h-3"
+                  }`}
+                ></span>
+              ))}
+            </div>
           </>
         )}
       </div>
@@ -150,11 +167,19 @@ function TeamCard({ member }: { member: TeamMember }) {
         <img
           src={member.image}
           alt={member.name}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ${
+            member.name === "Muhammad Sohaib"
+              ? "object-top"
+              : member.name === "Fiaz Anjum"
+              ? "object-center"
+              : "object-center"
+          }`}
         />
       </div>
       <div className="p-6 text-center flex-1 flex flex-col justify-center bg-white">
-        <h3 className="text-2xl font-bold text-[#1894a4] mb-1">{member.name}</h3>
+        <h3 className="text-2xl font-bold text-[#1894a4] mb-1">
+          {member.name}
+        </h3>
         <p className="text-gray-600 text-base">{member.position}</p>
       </div>
     </div>
