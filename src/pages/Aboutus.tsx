@@ -20,11 +20,12 @@ const Aboutus = () => {
         titleSize="text-4xl md:text-5xl"
       />
       </FadeUp>
-      <FadeUp>
-      <AboutUsSection1 />
-      </FadeUp>
+      
       <FadeUp>
       <WhyUsSection />
+      </FadeUp>
+      <FadeUp>
+      <AboutUsSection1 />
       </FadeUp>
       <FadeUp>
       <TeamSection />

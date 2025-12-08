@@ -69,7 +69,7 @@ const ServiceFeatures: React.FC = () => {
                   <p className="text-blue-100 text-sm leading-relaxed mb-6">
                     {feature.description}
                   </p>
-                  <button className="bg-[#1894A4] hover:bg-[#14768f] text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center gap-2 group/btn">
+                  {/* <button className="bg-[#1894A4] hover:bg-[#14768f] text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center gap-2 group/btn">
                     Rent Now
                     <svg
                       className="w-5 h-5 transform group-hover/btn:translate-x-1 transition-transform duration-300"
@@ -84,7 +84,7 @@ const ServiceFeatures: React.FC = () => {
                         d="M17 8l4 4m0 0l-4 4m4-4H3"
                       />
                     </svg>
-                  </button>
+                  </button> */}
                 </div>
               </div>
             );

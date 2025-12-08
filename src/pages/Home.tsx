@@ -4,7 +4,7 @@ import Navbar from "../components/common/Navbar";
 import ServicesSection1 from "../components/Home/ServiceSection1";
 import AboutUsSection1 from "../components/common/Aboutussection1";
 
-import WhyUsSection from "../components/common/Whyussection";
+// import WhyUsSection from "../components/common/Whyussection";
 
 import TeamSection from "../components/common/Teammembers";
 import WhyUsSection2 from "../components/Home/Whyussection2";
@@ -36,9 +36,9 @@ const Home = () => {
         <ServicesSection2 />
       </FadeUp> */}
 
-      <FadeUp>
+      {/* <FadeUp>
         <WhyUsSection />
-      </FadeUp>
+      </FadeUp> */}
 
       {/* <FadeUp>
         <Bestplan />

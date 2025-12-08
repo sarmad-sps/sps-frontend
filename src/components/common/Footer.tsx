@@ -55,9 +55,11 @@ const Footer = () => {
               Get Free Consultations! We're
               <span className="block">Ready to Work Together</span>
             </h3>
+            <Link to="/contactus">
             <button className="bg-white text-[#1894a4] px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-3 rounded font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
               Get Free Consultations ≫
             </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -146,11 +146,11 @@ We understand your needs and offer simple, affordable, and flexible insurance pl
             </div>
 
             {/* CTA Button */}
-            <div className="hidden xl:block lg:justify-start">
+            {/* <div className="hidden xl:block lg:justify-start">
             <button className="bg-[#1A3970] text-white px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-4 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
               Learn More
             </button>
-            </div>
+            </div> */}
           </div>
 
           {/* Right Side - Image with Large Animated Ring */}
@@ -190,11 +190,11 @@ We understand your needs and offer simple, affordable, and flexible insurance pl
             </div>
             
           </div>
-                 <div className="flex justify-center xl:hidden">
+                 {/* <div className="flex justify-center xl:hidden">
             <button className="bg-[#1A3970] text-white px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-4 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
               Learn More
             </button>
-            </div>
+            </div> */}
         </div>
       </div>
     </section>

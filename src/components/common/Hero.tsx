@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface HeroProps {
   backgroundImage?: string;
@@ -61,10 +62,11 @@ const HeroSection = ({
                   tracking system keeps your car secure 24/7 — giving you full
                   control and peace of mind.
                 </p>
-
+                <Link to="/contactus">
                 <button className="bg-[#1A3970] text-white px-8 md:px-12 py-3 md:py-4 rounded font-semibold hover:bg-[#132B55] transition-colors text-base md:text-lg">
-                  Get Free Demo &gt;&gt;
+                  Free Consultation
                 </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -161,10 +163,11 @@ const HeroSection = ({
                   25+ Years Of Experience In Consulting Services
                 </p>
               </div>
-
+              <Link to="/contactus">
               <button className="bg-[#1A3970] text-white px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-20 py-3 rounded font-semibold hover:bg-[#132B55] transition-colors mb-8">
                 Free Consulting
               </button>
+              </Link>
 
               <div className="flex items-center gap-4">
                 <div className="flex -space-x-3">

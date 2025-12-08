@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const FAQSection = () => {
   const [openIndexes, setOpenIndexes] = useState<number[]>([0]);
@@ -70,10 +71,11 @@ const FAQSection = () => {
                 <span className="text-white">Trusted insurance partners</span>
               </div>
             </div>
-
+            <Link to="/contactus">
             <button className="bg-white text-[#0f1729] px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-4 rounded font-semibold hover:bg-gray-100 transition-colors">
               Explore More Us ≫
             </button>
+            </Link>
           </div>
 
           {/* Right Side - Accordion */}
