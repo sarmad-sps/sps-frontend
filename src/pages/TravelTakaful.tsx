@@ -2,7 +2,7 @@ import Navbar from "../components/common/Navbar";
 // import TravelForm from "../components/common/TravelForm";
 import Footer from "../components/common/Footer";
 import TravelInfoSection from "../components/travel/TravelInfoSection";
-import Faq from "../components/takafulinfo/Faqs";
+import Faq from "../components/Takaful/takafulinfo/Faqs";
 import ClaimProcess from "../components/car/Claimprocess";
 import FadeUp from "../components/common/FadeUp";
 function TravelTakaful() {

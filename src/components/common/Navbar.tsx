@@ -20,8 +20,8 @@ const Navbar = () => {
     { name: "Health", route: "/health" },
     { name: "Travel", route: "/travel" },
     { name: "Takaful", route: "/takaful" },
-    { name: "About Us", route: "/aboutus" },
     { name: "Tracker", route: "/tracker" },
+     { name: "About Us", route: "/aboutus" },
   ];
 
   return (
