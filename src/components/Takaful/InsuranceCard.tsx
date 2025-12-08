@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-// import { ArrowRight } from "lucide-react";
 import card1 from "../../../public/card1.png";
 import card2 from "../../../public/card2.png";
 import card3 from "../../../public/card3.png";
@@ -22,9 +21,15 @@ const InsuranceCard = () => {
         
         {/* Main Card */}
         <div className="flex flex-col md:flex-row justify-between bg-white shadow-md rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 overflow-hidden">
-          
           {/* Left Section */}
           <div className="flex-1 min-w-0 space-y-4">
+            <div className="flex justify-center w-full">
+              <img
+                src={Takaful}
+                alt="Accident Insurance"
+                className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 object-contain max-w-full mx-auto"
+              />
+            </div>
             <div className="flex justify-center w-full">
               <img
                 src={Takaful}
@@ -45,7 +50,9 @@ const InsuranceCard = () => {
 
           {/* Right Section - Cards Grid */}
           <div className="flex-1 min-w-0 bg-gray-50 rounded-lg shadow-lg p-3 sm:p-4 border border-gray-200">
-            <h3 className="text-center font-semibold text-gray-700 mb-3 sm:mb-4">Takaful</h3>
+            <h3 className="text-center font-semibold text-gray-700 mb-3 sm:mb-4">
+              Takaful
+            </h3>
 
             <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4">
 
@@ -133,3 +140,4 @@ const InsuranceCard = () => {
 };
 
 export default InsuranceCard;
+
