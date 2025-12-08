@@ -9,32 +9,32 @@ import ClaimProcess from "../components/car/Claimprocess";
 import FireTakafulSection from "../components/Takaful/Firetakaful/FireTakaful";
 import Faq from "../components/takafulinfo/Faqs"
 const FireTakaful = () => {
-  const fireClaimPlans = [
+ const fireClaimPlans = [
   {
-    title: "Third Party",
+    title: "Basic Health Protection",
     features: [
-      "Property Damage Liability",
-      "Bodily Injury Liability",
-      "Accidental Death",
-      "Third-Party Property Repair",
+      "Outpatient Consultation Coverage",
+      "Prescription Medicines",
+      "Annual Health Checkup",
+      "24/7 Telemedicine Support",
     ],
   },
   {
-    title: "Total Loss",
+    title: "Comprehensive Health Protection",
     features: [
-      "Actual Cash Value (ACV)",
-      "Parts Replacement Cost",
-      "Comprehensive Coverage",
-      "Deductibles",
+      "Hospitalization & Surgery Coverage",
+      "Specialist Consultation Coverage",
+      "Emergency Medical Services",
+      "Diagnostic Tests & Lab Work",
     ],
   },
   {
-    title: "Own Damage",
+    title: "Premium Wellness Protection",
     features: [
-      "Comprehensive Coverage",
-      "Theft & Total Loss",
-      "Third Party Liability",
-      "Personal Accident Coverage",
+      "Preventive Care & Vaccinations",
+      "Mental Health & Counseling Support",
+      "Chronic Disease Management",
+      "Dental & Vision Coverage",
     ],
   },
 ];
