@@ -85,12 +85,12 @@ const Car = () => {
       <FadeUp>
         <Carinfo />
       </FadeUp>
-      <FadeUp>
+      {/* <FadeUp>
         <ClaimProcess
         title="Risk Covered"
         plans={carClaimPlans}
          />
-      </FadeUp>
+      </FadeUp> */}
       {/* <FadeUp>
         <CoverageHighlights />
       </FadeUp> */}

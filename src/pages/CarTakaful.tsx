@@ -87,12 +87,12 @@ const CarTakaful = () => {
         title="Car Takaful"
         subtitle="Car Takaful is a type of Islamic insurance that provides a Shariah-compliant alternative to conventional motor insurance. It operates on the principles of mutual cooperation, shared responsibility, and risk-sharing among participants."
       />
-      <FadeUp>
+      {/* <FadeUp>
         <ClaimProcess
         title="Risk Covered"
         plans={carClaimPlans}
          />
-      </FadeUp>
+      </FadeUp> */}
       {/* <FadeUp>
         <InsuranceDetailsSection />
       </FadeUp> */}

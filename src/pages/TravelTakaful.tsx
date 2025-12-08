@@ -6,39 +6,35 @@ import Faq from "../components/Takaful/takafulinfo/Faqs";
 import ClaimProcess from "../components/car/Claimprocess";
 import FadeUp from "../components/common/FadeUp";
 function TravelTakaful() {
-  const travelClaimPlans = [
+const travelClaimPlans = [
   {
-    title: "Third Party",
+    title: "Basic Health Cover",
     features: [
-      "Property Damage Liability",
-      "Bodily Injury Liability",
-      "Accidental Death",
-      "Third-Party Property Repair",
+      "Emergency Medical Assistance",
+      "Telemedicine Consultations",
+      "Prescription Reimbursement",
+      "24/7 Health Helpline",
     ],
   },
   {
-    title: "Total Loss",
+    title: "Comprehensive Health Cover",
     features: [
-      "Actual Cash Value (ACV)",
-      "Parts Replacement Cost",
-      "Comprehensive Coverage",
-      "Deductibles",
+      "Hospitalization & Surgery Coverage",
+      "Pre-existing Condition Support",
+      "Medical Evacuation",
+      "Travel Health Checkups",
     ],
   },
   {
-    title: "Own Damage",
+    title: "Premium Wellness Cover",
     features: [
-      "Comprehensive Coverage",
-      "Theft & Total Loss",
-      "Third Party Liability",
-      "Personal Accident Coverage",
+      "Preventive Care & Vaccinations Abroad",
+      "Mental Health & Counseling Services",
+      "Chronic Illness Management While Traveling",
+      "Dental & Vision Care During Travel",
     ],
   },
 ];
-
-// //import Guidelines from "../components/takafulinfo/Guidelins"
-// function TravelTakaful() {
-
 
   return (
     <div>
@@ -67,9 +63,7 @@ function TravelTakaful() {
       />
      </FadeUp>
       {/* <InsuranceDetailsSection /> */}
-      <FadeUp>
-      <TravelInfoSection />
-      </FadeUp>
+      
       <FadeUp>
       <Faq
         variant="travel"

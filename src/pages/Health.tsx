@@ -15,33 +15,34 @@ import Partner from "../components/car/Partner"
 const Health = () => {
 const healthClaimPlans = [
   {
-    title: "Third Party",
+    title: "Basic Care",
     features: [
-      "Property Damage Liability",
-      "Bodily Injury Liability",
-      "Accidental Death",
-      "Third-Party Property Repair",
+      "Outpatient Consultation Coverage",
+      "Prescription Drugs Coverage",
+      "Annual Health Checkup",
+      "Telemedicine Support",
     ],
   },
   {
-    title: "Total Loss",
+    title: "Comprehensive Care",
     features: [
-      "Actual Cash Value (ACV)",
-      "Parts Replacement Cost",
-      "Comprehensive Coverage",
-      "Deductibles",
+      "Hospitalization & Surgery Coverage",
+      "Specialist Consultation Coverage",
+      "Diagnostic Tests Coverage",
+      "Emergency Room Services",
     ],
   },
   {
-    title: "Own Damage",
+    title: "Premium Wellness",
     features: [
-      "Comprehensive Coverage",
-      "Theft & Total Loss",
-      "Third Party Liability",
-      "Personal Accident Coverage",
+      "Preventive Care & Vaccinations",
+      "Chronic Disease Management",
+      "Mental Health & Counseling",
+      "Dental & Vision Coverage",
     ],
   },
 ];
+
 
   const healthInsuranceInfo = {
   title: "What is Health Insurance?",
@@ -105,9 +106,9 @@ const healthClaimPlans = [
         plans={healthClaimPlans}
        />
       </FadeUp>
-      <FadeUp>
+      {/* <FadeUp>
           <CoverageHighlights/>
-      </FadeUp>
+      </FadeUp> */}
        <FadeUp>
           <Partner/>
        </FadeUp>
