@@ -55,22 +55,6 @@ const VehicleInfoSection1 = ({
                     }`}
                   />
                 </div>
-
-                {/* Category Buttons - centered under the image */}
-                {/* <div className="flex flex-wrap gap-3 justify-center">
-                  <button className="bg-[#1A3970] text-white px-6 py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
-                    RENT
-                  </button>
-                  <button className="bg-[#1A3970] text-white px-6 py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
-                    VEHICLES
-                  </button>
-                  <button className="bg-[#1A3970] text-white px-6 py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
-                    HEALTH
-                  </button>
-                  <button className="bg-[#1A3970] text-white px-6 py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
-                    TRAVEL
-                  </button>
-                </div> */}
               </div>
             ) : (
               <div className="flex items-center  gap-6">
@@ -78,22 +62,6 @@ const VehicleInfoSection1 = ({
                 <div className="flex justify-center">
                   <img src={vehicleImage} alt="Bike" className="w-40 h-auto" />
                 </div>
-
-                {/* Category Buttons - next to the image in one line */}
-                {/* <div className="flex gap-3">
-                  <button className="bg-[#1A3970] text-white px-6 py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
-                    RENT
-                  </button>
-                  <button className="bg-[#1A3970] text-white px-6 py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
-                    VEHICLES
-                  </button>
-                  <button className="bg-[#1A3970] text-white px-6 py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
-                    HEALTH
-                  </button>
-                  <button className="bg-[#1A3970] text-white px-6 py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
-                    TRAVEL
-                  </button>
-                </div> */}
               </div>
             )}
           </div>
