@@ -21,7 +21,7 @@ const ServiceFeatures: React.FC = () => {
       icon: ThumbsUp,
       title: "Customer Satisfaction",
       description:
-        "We prioritize your comfort and safety. Trusted service, professional support, and a smooth riding experience every single time.Your satisfaction is our top priority.",
+        "We prioritize your comfort and safety. Trusted service, professional support, and a smooth riding experience every single time.",
       color: "from-teal-400 to-teal-500",
     },
   ];

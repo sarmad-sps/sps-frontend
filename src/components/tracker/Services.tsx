@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import icon1 from "../../assets/Icon1.svg"
-import icon2 from '../../assets/Icon2.svg'
-import icon3 from '../../assets/Icon3.svg'
-import icon4 from '../../assets/Icon4.svg'
+import icon1 from "../../assets/Icon1.svg";
+import icon2 from "../../assets/Icon2.svg";
+import icon3 from "../../assets/Icon3.svg";
+import icon4 from "../../assets/Icon4.svg";
 
 type ServiceCardProps = {
   title: string;
@@ -29,38 +30,19 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, text, icon, image }) =
 };
 
 const ServicesSection: React.FC = () => {
- const services = [
-  {
-    title: "Live GPS Tracking",
-    text: "Track your vehicle’s location in real time with instant updates.",
-    icon: icon1,
-    image: "/Background.png",
-  },
-  {
-    title: "2G/4G Connectivity",
-    text: "Strong network support for smooth and stable tracking.",
-    icon: icon2,
-     image: "/Background.png",
-  },
-  {
-    title: "Secure Cloud Servers",
-    text: "Fast, safe and reliable cloud storage for your tracking data.",
-    icon: icon3,
-    image: "/Background.png",
-  },
-  {
-    title: "Web & App Tracking",
-    text: "Track live movement on app/web.",
-    icon: icon4,
-    image: "/Background.png",
-  },
-];
-
+  const services = [
+    { title: "Live GPS Tracking", text: "Track your vehicle’s location in real time with instant updates.", icon: icon1, image: "/Background.png" },
+    { title: "2G/4G Connectivity", text: "Strong network support for smooth and stable tracking.", icon: icon2, image: "/Background.png" },
+    { title: "Secure Cloud Servers", text: "Fast, safe and reliable cloud storage for your tracking data.", icon: icon3, image: "/Background.png" },
+    { title: "Web & App Tracking", text: "Track live movement on app/web.", icon: icon4, image: "/Background.png" },
+  ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsPerPage, setCardsPerPage] = useState(4);
   const [slideStep, setSlideStep] = useState(1);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
+  // Update layout based on screen width
   const updateLayout = () => {
     if (window.innerWidth < 640) {
       setCardsPerPage(1);
@@ -83,34 +65,92 @@ const ServicesSection: React.FC = () => {
     return () => window.removeEventListener("resize", updateLayout);
   }, []);
 
+  // Auto scroll
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + slideStep) % services.length);
+      nextSlide();
     }, 3000);
     return () => clearInterval(interval);
-  }, [slideStep, services.length]);
+  }, [currentIndex, cardsPerPage]);
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - slideStep + services.length) % services.length);
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + slideStep) % services.length);
+  };
 
   const cardWidthPercent = 100 / cardsPerPage;
 
+  // Touch / swipe support
+  useEffect(() => {
+    let startX = 0;
+    let isDragging = false;
+
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    const onTouchStart = (e: TouchEvent) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      if (!isDragging) return;
+      const currentX = e.touches[0].clientX;
+      const diff = startX - currentX;
+      if (diff > 50) {
+        nextSlide();
+        isDragging = false;
+      } else if (diff < -50) {
+        prevSlide();
+        isDragging = false;
+      }
+    };
+
+    const onTouchEnd = () => {
+      isDragging = false;
+    };
+
+    slider.addEventListener("touchstart", onTouchStart);
+    slider.addEventListener("touchmove", onTouchMove);
+    slider.addEventListener("touchend", onTouchEnd);
+
+    return () => {
+      slider.removeEventListener("touchstart", onTouchStart);
+      slider.removeEventListener("touchmove", onTouchMove);
+      slider.removeEventListener("touchend", onTouchEnd);
+    };
+  }, [cardsPerPage]);
+
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-white">
-      {/* Container with proper max-width and padding */}
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16">
         {/* Heading */}
         <div className="text-center mb-10 lg:mb-14">
-          <p className="text-[#1894A4] font-bold text-xs sm:text-sm uppercase tracking-widest mb-3">
-            What We're Offering
-          </p>
+          <p className="text-[#1894A4] font-bold text-xs sm:text-sm uppercase tracking-widest mb-3">What We're Offering</p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold text-gray-900 leading-tight">
             SERVICES WE'RE PROVIDING
             <br />
             <span className="text-[#1894A4]">TO CUSTOMERS</span>
           </h2>
         </div>
-
-        {/* Slider Container */}
+<button
+  onClick={prevSlide}
+  className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-[#1894A4] hover:text-white transition mt-12 ml-4"
+>
+  <ChevronLeft />
+</button>
+        {/* Slider */}
         <div className="relative">
-          <div className="overflow-hidden w-full mb-6">
+          {/* Left / Right buttons */}
+        {/* Left / Right buttons */}
+
+
+
+
+          <div className="overflow-hidden w-full mb-6" ref={sliderRef}>
             <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * cardWidthPercent}%)` }}
@@ -121,12 +161,7 @@ const ServicesSection: React.FC = () => {
                   className="flex-shrink-0 px-3 sm:px-3 lg:px-3"
                   style={{ flex: `0 0 ${cardWidthPercent}%` }}
                 >
-                  <ServiceCard
-                    title={service.title}
-                    text={service.text}
-                    icon={service.icon}
-                    image={service.image}
-                  />
+                  <ServiceCard title={service.title} text={service.text} icon={service.icon} image={service.image} />
                 </div>
               ))}
             </div>
@@ -148,6 +183,12 @@ const ServicesSection: React.FC = () => {
             ))}
           </div>
         </div>
+        <button
+  onClick={nextSlide}
+  className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-[#1894A4] hover:text-white transition mt-12 mr-4"
+>
+  <ChevronRight />
+</button>
       </div>
     </section>
   );
