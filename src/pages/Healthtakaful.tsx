@@ -6,7 +6,7 @@ import FAQSection from "../components/common/FAQsection";
 import FadeUp from "../components/common/FadeUp";
 import HealthTakaful from "../components/Takaful/HealthTakaful/Healthtakaful";
 import Claimprocess from "../components/car/Claimprocess";
-import Faq from "../components/takafulinfo/Faqs"
+import Faq from "../components/Takaful/takafulinfo/Faqs";
 const Healthtakaful = () => {
 
   const healthClaimPlans = [
