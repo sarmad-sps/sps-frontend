@@ -5,9 +5,10 @@ import Footer from "../components/common/Footer";
 // import HeroSection from "../components/common/Hero";
 import FAQSection from "../components/common/FAQsection";
 import ClaimProcess from "../components/car/Claimprocess";
+import Faq from "../components/Takaful/takafulinfo/Faqs";
 
 import FireTakafulSection from "../components/Takaful/Firetakaful/FireTakaful";
-import Faq from "../components/takafulinfo/Faqs"
+
 const FireTakaful = () => {
  const fireClaimPlans = [
   {

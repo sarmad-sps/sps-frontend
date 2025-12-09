@@ -30,13 +30,7 @@ const InsuranceCard = () => {
                 className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 object-contain max-w-full mx-auto"
               />
             </div>
-            <div className="flex justify-center w-full">
-              <img
-                src={Takaful}
-                alt="Accident Insurance"
-                className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 object-contain max-w-full mx-auto"
-              />
-            </div>
+            
 
             <div className="text-center space-y-1">
               <h2 className="text-lg font-semibold text-blue-700">

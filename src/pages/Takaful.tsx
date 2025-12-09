@@ -5,7 +5,7 @@ import Footer from "../components/common/Footer";
 import Navbar from "../components/common/Navbar";
 import Partner from "../components/car/Partner";
 import InsuranceCard from "../components/Takaful/InsuranceCard";
-import Takafulinfo from "../components/takafulinfo/Takaful"
+import Takafulinfo from "../components/Takaful/takafulinfo/Takaful";
 // import Takafulwork from "../components/takafulinfo/Takafulwork"
 const Takaful = () => {
   return (

@@ -1,13 +1,10 @@
 import React from "react";
 import {
   Car,
-  Flame,
   ShieldCheck,
   Droplet,
   Users,
-  Wrench,
   Clock,
-  PhoneCall,
 } from "lucide-react";
 
 const CoverageHighlights: React.FC = () => {
