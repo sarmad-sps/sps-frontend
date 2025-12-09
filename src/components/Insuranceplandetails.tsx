@@ -1,5 +1,6 @@
-import { Check, X, Info } from "lucide-react";
+import { Check, X, Info, ArrowLeft } from "lucide-react";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface InsuranceQuote {
   id: number;
@@ -11,11 +12,26 @@ interface InsuranceQuote {
 
 type ActiveTab = "coverage" | "depreciation" | "claim";
 
-const InsurancePlanDetails: React.FC<{ quote: InsuranceQuote }> = ({
-  quote,
-}) => {
+const InsurancePlanDetails: React.FC<{
+  quote: InsuranceQuote;
+  vehicleType?: "car" | "bike";
+  allQuotes?: InsuranceQuote[];
+  formData?: Record<string, string>;
+}> = ({ quote, vehicleType = "car", allQuotes = [], formData = {} }) => {
   const basePrice = parseInt(quote.total.replace(/[^0-9]/g, ""), 10) || 0;
   const [activeTab, setActiveTab] = useState<ActiveTab>("coverage");
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    // Navigate back with state to show quotes
+    navigate(`/${vehicleType}`, {
+      state: {
+        returnFromDetails: true,
+        allQuotes,
+        formData,
+      },
+    });
+  };
 
   return (
     <div className="w-full bg-gray-50 py-8 md:py-12">
@@ -70,8 +86,12 @@ const InsurancePlanDetails: React.FC<{ quote: InsuranceQuote }> = ({
           {/* Buttons */}
           <div className="p-8 bg-white border-t border-gray-200">
             <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-md mx-auto">
-              <button className="flex-1 bg-[#0066CC] hover:bg-[#0055aa] text-white font-bold py-4 px-12 rounded-full text-lg transition transform hover:scale-105">
-                INQUIRE NOW
+              <button
+                onClick={handleBackClick}
+                className="flex-1 bg-[#0066CC] hover:bg-[#0055aa] text-white font-bold py-4 px-12 rounded-full text-lg transition transform hover:scale-105 flex items-center justify-center gap-2"
+              >
+                <ArrowLeft className="w-5 h-5" />
+                BACK
               </button>
               {/* <button className="flex-1 bg-gray-700 hover:bg-gray-800 text-white font-bold py-4 px-12 rounded-full text-lg transition transform hover:scale-105">
                 BUY NOW

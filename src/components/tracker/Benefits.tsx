@@ -1,6 +1,6 @@
 import React from "react";
 import benefitImg from "/benefit.png";
-
+import { Link } from "react-router-dom";
 const VehicleTrackingHero: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
@@ -31,9 +31,11 @@ const VehicleTrackingHero: React.FC = () => {
                 </div>
 
                 <div className="flex justify-center lg:justify-start">
+                  <Link to="/aboutus">
                   <button className="bg-[#1A3970] hover:bg-[#142b55] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-xl text-lg">
                     Learn More
                   </button>
+                  </Link>
                 </div>
 
                 {/* Certifications - Responsive Flex */}

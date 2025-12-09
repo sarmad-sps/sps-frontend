@@ -8,7 +8,7 @@ import {
   ChevronRight,
   ChevronRight as ChevronRightIcon,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { calculateInsurance } from "../../apis/insuranceApi";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -42,9 +42,10 @@ const VehicleInsuranceForm = ({
   vehicleType,
   formFields,
 }: VehicleInsuranceFormProps) => {
+  const location = useLocation();
   const [showInsuranceCards, setShowInsuranceCards] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [proceedLoading, setProceedLoading] = useState(false);
+  const [proceedLoading, setProceedLoading] = useState<number | null>(null);
   const [apiError, setApiError] = useState<string | null>(null);
 
   const [formData, setFormData] = useState<Record<string, string>>(() => {
@@ -200,26 +201,39 @@ const VehicleInsuranceForm = ({
     }
   };
 
-  const handleProceed = () => {
+  const handleProceed = (quoteId: number) => {
     if (!selectedQuote) {
       toast.error("Please select an insurance plan first");
       return;
     }
 
-    setProceedLoading(true);
+    setProceedLoading(quoteId);
     toast.loading("Preparing your final quote...");
 
     setTimeout(() => {
       toast.dismiss();
       toast.success("Proceeding to next step...");
       setShowFreeQuote(true);
+      // Save current state in history before going to step 2
+      window.history.replaceState(
+        {
+          step: 1,
+          quotes: insuranceQuotes,
+          formData: formData,
+          showQuotes: true,
+        },
+        "",
+        window.location.pathname
+      );
+      // Add history entry for step 2
+      window.history.pushState({ step: 2 }, "", window.location.pathname);
       // ensure the free-quote view is visible from the top of the page
       try {
         window.scrollTo({ top: 0, behavior: "smooth" });
       } catch {
         /* ignore in non-browser environments */
       }
-      setProceedLoading(false);
+      setProceedLoading(null);
     }, 1000);
   };
 
@@ -232,6 +246,52 @@ const VehicleInsuranceForm = ({
         /* ignore */
       }
     }
+  }, [showFreeQuote]);
+
+  // Restore state when returning from insuranceplan page
+  useEffect(() => {
+    const state = location.state as {
+      returnFromDetails?: boolean;
+      allQuotes?: InsuranceQuote[];
+      formData?: Record<string, string>;
+    } | null;
+
+    if (state?.returnFromDetails && state?.allQuotes && state?.formData) {
+      setFormData(state.formData);
+      setInsuranceQuotes(state.allQuotes);
+      setShowInsuranceCards(true);
+      // Clear the state to prevent re-triggering
+      window.history.replaceState({}, document.title);
+      // Scroll to quotes section
+      setTimeout(() => {
+        window.scrollTo({ top: 400, behavior: "smooth" });
+      }, 100);
+    }
+  }, [location.state]);
+
+  // Handle browser back button - go back to quotes (Step 1) with saved data
+  useEffect(() => {
+    const handlePopState = (event: PopStateEvent) => {
+      if (showFreeQuote) {
+        setShowFreeQuote(false);
+        // Restore state if available
+        if (
+          event.state?.step === 1 &&
+          event.state?.quotes &&
+          event.state?.formData
+        ) {
+          setInsuranceQuotes(event.state.quotes);
+          setFormData(event.state.formData);
+          setShowInsuranceCards(true);
+        }
+        setTimeout(() => {
+          window.scrollTo({ top: 400, behavior: "smooth" });
+        }, 100);
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
   }, [showFreeQuote]);
 
   const renderLabel = (field: FormFieldConfig) => (
@@ -454,19 +514,22 @@ const VehicleInsuranceForm = ({
             onClick={(e) => {
               e.stopPropagation();
               setSelectedQuote(quote);
-              handleProceed();
+              handleProceed(quote.id);
             }}
-            disabled={proceedLoading}
+            disabled={proceedLoading === quote.id}
             className="w-full bg-[#1A3970] text-white py-3 rounded font-bold hover:bg-[#2A4D8F] transition-all flex items-center justify-center gap-2"
           >
-            {proceedLoading ? (
+            {proceedLoading === quote.id ? (
               <span className="animate-spin border-2 border-white border-t-transparent w-5 h-5 rounded-full"></span>
             ) : (
               "INQUIRE NOW"
             )}
           </button>
 
-          <Link to="/insuranceplan" state={{ quote }}>
+          <Link
+            to="/insuranceplan"
+            state={{ quote, vehicleType, allQuotes: insuranceQuotes, formData }}
+          >
             <button className="w-full mt-2 bg-gray-700 text-white py-2 rounded text-sm font-medium hover:bg-gray-800 transition">
               More Details
             </button>
@@ -636,19 +699,27 @@ const VehicleInsuranceForm = ({
                                     onClick={(e) => {
                                       e.stopPropagation();
                                       setSelectedQuote(quote);
-                                      handleProceed();
+                                      handleProceed(quote.id);
                                     }}
-                                    disabled={proceedLoading}
+                                    disabled={proceedLoading === quote.id}
                                     className="w-full bg-[#1A3970] text-white py-3 rounded font-bold hover:bg-[#2A4D8F] transition-all flex items-center justify-center gap-2"
                                   >
-                                    {proceedLoading ? (
+                                    {proceedLoading === quote.id ? (
                                       <span className="animate-spin border-2 border-white border-t-transparent w-5 h-5 rounded-full"></span>
                                     ) : (
                                       "INQUIRE NOW"
                                     )}
                                   </button>
 
-                                  <Link to="/insuranceplan" state={{ quote }}>
+                                  <Link
+                                    to="/insuranceplan"
+                                    state={{
+                                      quote,
+                                      vehicleType,
+                                      allQuotes: insuranceQuotes,
+                                      formData,
+                                    }}
+                                  >
                                     <button className="w-full mt-2 bg-gray-700 text-white py-2 rounded text-sm font-medium hover:bg-gray-800 transition">
                                       More Details
                                     </button>
@@ -686,15 +757,17 @@ const VehicleInsuranceForm = ({
                   {/* Final Proceed Button */}
                   <div className="flex justify-center mt-10">
                     <button
-                      onClick={handleProceed}
-                      disabled={!selectedQuote || proceedLoading}
+                      onClick={() =>
+                        selectedQuote && handleProceed(selectedQuote.id)
+                      }
+                      disabled={!selectedQuote || proceedLoading !== null}
                       className={`px-16 py-5 rounded-lg font-bold text-lg transition-all flex items-center gap-3 ${
-                        selectedQuote && !proceedLoading
+                        selectedQuote && proceedLoading === null
                           ? "bg-[#1A3970] text-white hover:bg-[#2A4D8F] shadow-xl"
                           : "bg-gray-400 text-gray-200 cursor-not-allowed"
                       }`}
                     >
-                      {proceedLoading ? (
+                      {proceedLoading !== null ? (
                         <>
                           <span className="animate-spin border-2 border-white border-t-transparent w-6 h-6 rounded-full"></span>
                           Processing...
