@@ -1,5 +1,7 @@
 import React from "react";
-
+import web from "../../assets/it-consulting-web.png";
+import devops from "../../assets/it-consulting-dev.png";
+import mobile from "../../assets/it-consulting.png";
 interface Service {
   title: string;
   desc: string;
@@ -10,23 +12,24 @@ interface Service {
 const services: Service[] = [
   {
     title: "Mobile App Development",
-    desc: "Neque porro est qui dolorem ipsum quia quaed inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-    img: "./public/it-consulting.png",
+    desc: "We create responsive and high-performing mobile applications for Android and iOS, tailored to your business needs.",
+    img: mobile,
     plans: ["International Plans", "Domestic Plans", "Student Study Plans"],
   },
   {
     title: "Website Development",
-    desc: "Neque porro est qui dolorem ipsum quia quaed inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-    img: "./public/it-consulting.png",
+    desc: "We design and develop modern websites that are user-friendly, SEO-optimized, and visually appealing for all industries.",
+    img: web,
     plans: ["International Plans", "Domestic Plans", "Student Study Plans"],
   },
   {
-    title: "Devops Services",
-    desc: "Neque porro est qui dolorem ipsum quia quaed inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-    img: "./public/it-consulting.png",
+    title: "DevOps Services",
+    desc: "We offer DevOps solutions including CI/CD, cloud deployment, and infrastructure automation to streamline your development process.",
+    img: devops,
     plans: ["International Plans", "Domestic Plans", "Student Study Plans"],
   },
 ];
+
 
 const ITConsultingCard: React.FC = () => {
   return (
