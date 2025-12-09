@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { ArrowRight, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ProgressBar: React.FC<{
   label: string;
@@ -10,28 +11,29 @@ const ProgressBar: React.FC<{
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      setInView(entry.isIntersecting);
-    },
-    {
-      threshold: 0.4,
-      rootMargin: "0px 0px -100px 0px",
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      {
+        threshold: 0.4,
+        rootMargin: "0px 0px -100px 0px",
+      }
+    );
+
+    const currentRef = ref.current;
+
+    if (currentRef) {
+      observer.observe(currentRef);
     }
-  );
 
-  if (ref.current) {
-    observer.observe(ref.current);
-  }
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
 
-  return () => {
-    if (ref.current) {
-      observer.unobserve(ref.current);
-    }
-  };
-}, []);
-
- 
   return (
     <div className="mb-6" ref={ref}>
       <div className="flex justify-between items-center mb-2">
@@ -61,18 +63,24 @@ const HeaderSection: React.FC = () => {
   return (
     <section className="bg-white py-16 w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 relative overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
-
         {/* Left Images */}
         <div className="relative w-full lg:w-1/2 h-[400px] sm:h-[500px] lg:h-[550px] flex items-center justify-center">
-
           {/* Bottom Left Image */}
           <div className="absolute top-[35%] sm:top-[40%] left-0 w-[240px] h-[180px] sm:w-[320px] sm:h-[240px] md:w-[380px] md:h-[280px] lg:w-[450px] lg:h-[350px] z-10 rounded-2xl overflow-hidden shadow-xl">
-            <img src="/boy.jpg" alt="Boy with car" className="w-full h-full object-cover" />
+            <img
+              src="/boy.jpg"
+              alt="Boy with car"
+              className="w-full h-full object-cover"
+            />
           </div>
 
           {/* Main Image */}
           <div className="absolute top-0 right-0 w-[240px] h-[180px] sm:w-[320px] sm:h-[240px] md:w-[380px] md:h-[280px] lg:w-[450px] lg:h-[350px] z-20 rounded-2xl overflow-hidden shadow-xl">
-            <img src="/womencar.jpg" alt="Woman in car" className="w-full h-full object-cover" />
+            <img
+              src="/womencar.jpg"
+              alt="Woman in car"
+              className="w-full h-full object-cover"
+            />
           </div>
 
           {/* Car Image */}
@@ -91,15 +99,20 @@ const HeaderSection: React.FC = () => {
 
         {/* Right Text */}
         <div className="w-full lg:w-1/2 lg:pl-16 mt-8 lg:mt-0">
-
           <p className="flex items-center gap-2 text-[#00B5AD] font-semibold mb-4 text-sm">
-            <img src="/splogo.png" alt="SP Logo" className="w-6 h-6 object-contain" />
+            <img
+              src="/splogo.png"
+              alt="SP Logo"
+              className="w-6 h-6 object-contain"
+            />
             <p className="text-[#1894A4] font-bold text-xs sm:text-sm tracking-widest uppercase">
               About Secure Path
             </p>
           </p>
 
-          <h1 className={`text-4xl md:text-5xl font-extrabold ${darkBlueText} leading-tight mb-6`}>
+          <h1
+            className={`text-4xl md:text-5xl font-extrabold ${darkBlueText} leading-tight mb-6`}
+          >
             WELCOME TO SECURE <br /> PATH COMPANY
           </h1>
 
@@ -114,26 +127,35 @@ const HeaderSection: React.FC = () => {
 
           {/* Progress Bars */}
           <div className="mb-8">
-            <ProgressBar label="Time Awareness" percentage={50} color={mainColor} />
-            <ProgressBar label="Driver Experience" percentage={70} color={mainColor} />
+            <ProgressBar
+              label="Time Awareness"
+              percentage={50}
+              color={mainColor}
+            />
+            <ProgressBar
+              label="Driver Experience"
+              percentage={70}
+              color={mainColor}
+            />
           </div>
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-center gap-6 mt-10">
-            <button
-              className={`${mainColor} hover:bg-[#009E97] text-white px-8 py-3 rounded-lg font-bold flex items-center gap-2 transition-colors duration-300 shadow-lg group`}
-            >
-              Read More
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </button>
-
+            ,
+            <Link to="/aboutus">
+              <button
+                className={`${mainColor} hover:bg-[#009E97] text-white px-8 py-3 rounded-lg font-bold flex items-center gap-2 transition-colors duration-300 shadow-lg group`}
+              >
+                Read More
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </button>
+            </Link>
             <div className="flex items-center text-gray-700 font-semibold">
               <Phone className="w-5 h-5 mr-2 text-gray-500" />
               <span>
                 Call Anytime <br /> 03008492075
               </span>
             </div>
-
           </div>
         </div>
       </div>
