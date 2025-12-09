@@ -59,7 +59,9 @@ const ITConsultingCard: React.FC = () => {
         </ul>
       </div>
 
-      <button className="bg-[#0a2a57] text-white text-sm font-medium px-5 py-2 rounded-md hover:bg-[#0c3563] transition">
+      <button
+      
+       className="bg-[#0a2a57] text-white text-sm font-medium px-5 py-2 rounded-md hover:bg-[#0c3563] transition">
         Read more
       </button>
     </div>
