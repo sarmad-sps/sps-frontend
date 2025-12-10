@@ -36,7 +36,7 @@ const ClaimProcess: React.FC<ClaimProcessProps> = ({
         that cater to your specific needs.
       </p>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+      <div className="max-w-[1450px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:px-12  xl:px-10">
         {plans.map((p, i) => (
           <div
             key={i}

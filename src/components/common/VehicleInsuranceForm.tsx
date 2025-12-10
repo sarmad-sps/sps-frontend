@@ -64,6 +64,10 @@ const VehicleInsuranceForm = ({
   const [selectedQuote, setSelectedQuote] = useState<InsuranceQuote | null>(
     null
   );
+  
+  // NEW: Carousel state with sliding animation
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [cardsPerSlide, setCardsPerSlide] = useState(4);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -294,6 +298,39 @@ const VehicleInsuranceForm = ({
     return () => window.removeEventListener("popstate", handlePopState);
   }, [showFreeQuote]);
 
+  // NEW: Responsive cards per slide
+  useEffect(() => {
+    const updateCardsPerSlide = () => {
+      if (window.innerWidth < 640) {
+        setCardsPerSlide(1); // Mobile: 1 card
+      } else if (window.innerWidth < 1024) {
+        setCardsPerSlide(2); // Tablet: 2 cards
+      } else {
+        setCardsPerSlide(4); // Desktop: 4 cards
+      }
+    };
+
+    updateCardsPerSlide();
+    window.addEventListener("resize", updateCardsPerSlide);
+    return () => window.removeEventListener("resize", updateCardsPerSlide);
+  }, []);
+
+  // NEW: Carousel navigation functions with smooth sliding
+  const totalSlides = Math.ceil(insuranceQuotes.length / cardsPerSlide);
+
+  const handleNextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  };
+
+  const handlePrevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  // Reset to first slide when cards per slide changes (responsive)
+  useEffect(() => {
+    setCurrentSlide(0);
+  }, [cardsPerSlide]);
+
   const renderLabel = (field: FormFieldConfig) => (
     <label className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-1">
       {field.required && <span className="text-red-500">*</span>}
@@ -302,7 +339,6 @@ const VehicleInsuranceForm = ({
   );
 
   const renderFormField = (field: FormFieldConfig) => {
-    // ... same as before (select, date, input) — no change
     switch (field.type) {
       case "select":
         return (
@@ -460,7 +496,7 @@ const VehicleInsuranceForm = ({
     }
   };
 
-  // Insurance Card Component (DRY — reuse kiya)
+  // Insurance Card Component
   const InsuranceCard = ({ quote }: { quote: InsuranceQuote }) => {
     const isSelected = selectedQuote?.id === quote.id;
 
@@ -551,7 +587,7 @@ const VehicleInsuranceForm = ({
       />
 
       <section className="w-full bg-[#F4F9FE] pt-2 md:pt-4 pb-8 md:pb-12">
-        <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 max-w-7xl mx-auto">
+        <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 xl:max-w-8xl 2xl: max-w-9xl mx-auto">
           {/* Progress Steps */}
           <div className="flex items-center justify-center mb-8">
             <div className="flex items-center gap-4">
@@ -583,7 +619,7 @@ const VehicleInsuranceForm = ({
 
           {/* Step 1 */}
           {!showFreeQuote ? (
-            <div className="bg-white rounded-lg p-6 md:p-8">
+            <div className="bg-white rounded-lg p-6 md:p-8 ">
               <h3 className="text-xl font-bold text-[#1A3970] mb-6">
                 Vehicle Info
               </h3>
@@ -615,7 +651,7 @@ const VehicleInsuranceForm = ({
                 </p>
               )}
 
-              {/* Insurance Cards - Responsive Slider on Mobile */}
+              {/* Insurance Cards - NEW: Sliding Carousel */}
               {showInsuranceCards && insuranceQuotes.length > 0 && (
                 <div className="mt-10">
                   <p className="text-center text-gray-600 mb-6 text-lg font-medium">
@@ -624,107 +660,41 @@ const VehicleInsuranceForm = ({
                       : "Please select a plan to continue"}
                   </p>
 
-                  {/* Mobile: Slider with Proper Side Margins + Full Glowing Border + Dots */}
-                  <div className="block md:hidden">
-                    {/* Container with safe side padding */}
-                    <div className="overflow-x-auto scrollbar-hide snap-x snap-mandatory px-8">
-                      <div className="flex gap-6 py-8 min-w-max">
-                        {insuranceQuotes.map((quote) => {
-                          const isSelected = selectedQuote?.id === quote.id;
+                  {/* Carousel Container with Overflow Hidden */}
+                  <div className="relative ">
+                    {/* Left Arrow */}
+                    <button
+                      onClick={handlePrevSlide}
+                      className="hidden md:flex mr-6 absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 z-20 bg-[#1A3970] hover:bg-[#16325c] rounded-full p-3 shadow-lg transition-all"
+                      aria-label="Previous"
+                    >
+                      <ChevronLeft className="w-3 h-3 text-white" />
+                    </button>
+
+                    {/* Sliding Container */}
+                    <div className="overflow-hidden px-2 pt-6">
+                      <div
+                        className="flex transition-transform  duration-500 ease-in-out h-[450px]"                        style={{
+                          transform: `translateX(-${currentSlide * 100}%)`,
+                        }}
+                      >
+                        {/* Create slides by grouping cards */}
+                        {Array.from({ length: totalSlides }).map((_, slideIndex) => {
+                          const startIdx = slideIndex * cardsPerSlide;
+                          const slideQuotes = insuranceQuotes.slice(
+                            startIdx,
+                            startIdx + cardsPerSlide
+                          );
 
                           return (
                             <div
-                              key={quote.id}
-                              className="flex-shrink-0 w-[60vw] max-w-md snap-center"
+                              key={slideIndex}
+                              className="flex-shrink-0 w-full"
                             >
-                              {/* Tumhara 100% original card – ab left/right dono taraf margin hai */}
-                              <div
-                                onClick={() => setSelectedQuote(quote)}
-                                className={`relative bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 cursor-pointer h-full
-                ${
-                  isSelected
-                    ? "ring-4 ring-[#1894a4] ring-offset-4 shadow-2xl scale-105 z-10"
-                    : "hover:shadow-xl"
-                }`}
-                              >
-                                <div className="bg-white p-4 flex items-center justify-center border-b">
-                                  <img
-                                    src={quote.logo}
-                                    alt={quote.company}
-                                    className="h-12 object-contain"
-                                    onError={(e) =>
-                                      (e.currentTarget.src =
-                                        "/Jubileeinsurance.png")
-                                    }
-                                  />
-                                </div>
-
-                                <div className="bg-[#1894a4] text-white p-5">
-                                  <div className="mb-4">
-                                    <p className="text-sm mb-1">
-                                      3rd Party{" "}
-                                      {vehicleType === "car" ? "Car" : "Bike"}{" "}
-                                      Rate
-                                    </p>
-                                    <p className="text-3xl font-bold">
-                                      {quote.rate}
-                                    </p>
-                                  </div>
-
-                                  <div className="space-y-2 text-sm mb-4">
-                                    <div className="flex items-center gap-2">
-                                      <span className="w-1 h-1 bg-white rounded-full"></span>
-                                      <span>{quote.insurancePlan}</span>
-                                    </div>
-                                    {quote.trackerIncluded && (
-                                      <div className="flex items-center gap-2">
-                                        <span className="w-1 h-1 bg-white rounded-full"></span>
-                                        <span>Tracker Included</span>
-                                      </div>
-                                    )}
-                                  </div>
-
-                                  <div className="border-t border-white/30 pt-3 mb-5">
-                                    <div className="flex justify-between items-center">
-                                      <span className="font-semibold">
-                                        Total:
-                                      </span>
-                                      <span className="text-xl font-bold">
-                                        {quote.total}
-                                      </span>
-                                    </div>
-                                  </div>
-
-                                  <button
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      setSelectedQuote(quote);
-                                      handleProceed(quote.id);
-                                    }}
-                                    disabled={proceedLoading === quote.id}
-                                    className="w-full bg-[#1A3970] text-white py-3 rounded font-bold hover:bg-[#2A4D8F] transition-all flex items-center justify-center gap-2"
-                                  >
-                                    {proceedLoading === quote.id ? (
-                                      <span className="animate-spin border-2 border-white border-t-transparent w-5 h-5 rounded-full"></span>
-                                    ) : (
-                                      "INQUIRE NOW"
-                                    )}
-                                  </button>
-
-                                  <Link
-                                    to="/insuranceplan"
-                                    state={{
-                                      quote,
-                                      vehicleType,
-                                      allQuotes: insuranceQuotes,
-                                      formData,
-                                    }}
-                                  >
-                                    <button className="w-full mt-2 bg-gray-700 text-white py-2 rounded text-sm font-medium hover:bg-gray-800 transition">
-                                      More Details
-                                    </button>
-                                  </Link>
-                                </div>
+                              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 px-2">
+                                {slideQuotes.map((quote) => (
+                                  <InsuranceCard key={quote.id} quote={quote} />
+                                ))}
                               </div>
                             </div>
                           );
@@ -732,25 +702,27 @@ const VehicleInsuranceForm = ({
                       </div>
                     </div>
 
-                    {/* Dots Indicator */}
-                    <div className="flex justify-center gap-2 mt-6 pb-6">
-                      {insuranceQuotes.map((_, index) => (
-                        <div
-                          key={index}
-                          className={`h-2 rounded-full transition-all duration-300 ${
-                            selectedQuote?.id === index + 1
-                              ? "bg-[#1894a4] w-10"
-                              : "bg-gray-300 w-2"
-                          }`}
-                        />
-                      ))}
-                    </div>
+                    {/* Right Arrow */}
+                    <button
+                      onClick={handleNextSlide}
+                      className="hidden md:flex ml-4 absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 z-20 bg-[#1A3970] hover:bg-[#16325c] rounded-full p-3 shadow-lg transition-all"
+                      aria-label="Next"
+                    >
+                      <ChevronRight className="w-3 h-3 md: text-white" />
+                    </button>
                   </div>
 
-                  {/* Tablet & Desktop: Grid */}
-                  <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {insuranceQuotes.map((quote) => (
-                      <InsuranceCard key={quote.id} quote={quote} />
+                  {/* Dot Indicators */}
+                  <div className="flex justify-center gap-2 mt-8">
+                    {Array.from({ length: totalSlides }).map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentSlide(index)}
+                        className={`h-2 rounded-full transition-all duration-300 ${
+                          currentSlide === index ? "bg-[#1894a4] w-10" : "bg-gray-300 w-2"
+                        }`}
+                        aria-label={`Go to slide ${index + 1}`}
+                      />
                     ))}
                   </div>
 
@@ -803,17 +775,6 @@ const VehicleInsuranceForm = ({
           )}
         </div>
       </section>
-
-      {/* Hide Scrollbar CSS */}
-      <style>{`
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </>
   );
 };

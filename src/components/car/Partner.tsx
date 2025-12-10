@@ -14,7 +14,7 @@ const BrandCarousel: React.FC = () => {
 
   return (
     <section className="w-full py-16 bg-[#F8FBFF]">
-      <div className="max-w-6xl mx-auto px-4 text-center">
+      <div className="max-w-8xl mx-auto px-4 text-center">
         {/* Heading */}
         <h2 className="text-3xl md:text-4xl font-bold text-[#071B34] mb-4">
           Our Partners
@@ -31,7 +31,7 @@ const BrandCarousel: React.FC = () => {
           {brands.map((brand) => (
             <div
               key={brand.id}
-              className="flex items-center justify-center bg-white/5 p-4 rounded-2xl shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-300 w-32 sm:w-36 md:w-40"
+              className="flex items-center justify-center bg-white/5 p-4 rounded-2xl shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-300 w-32 sm:w-36 md:w-48"
             >
               <img
                 src={brand.logo}

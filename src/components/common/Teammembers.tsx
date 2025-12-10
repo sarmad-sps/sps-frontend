@@ -86,7 +86,7 @@ export default function TeamSection() {
     <section className="w-full relative py-16 md:py-20 overflow-hidden">
       <div className="absolute inset-0 bg-gray-100"></div>
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-0">
         <div className="text-center mb-12 md:mb-16">
           <div className="flex items-center justify-center gap-3">
             <img src="/splogo.png" className="w-9 h-9 sm:w-11 sm:h-11" />
@@ -105,7 +105,7 @@ export default function TeamSection() {
 
         {/* Desktop: 3 cards in a row */}
         {cardsPerPage === 3 ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 xl:max-w-8xl mx-auto">
             {teamMembers.map((member) => (
               <TeamCard key={member.id} member={member} />
             ))}

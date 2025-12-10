@@ -126,7 +126,7 @@ const ServicesSection: React.FC = () => {
 
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-white">
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16">
+      <div className="max-w-8xl mx-auto px-6 sm:px-8 md:px-10 lg:px-32 ">
         {/* Heading */}
         <div className="text-center mb-10 lg:mb-14">
           <p className="text-[#1894A4] font-bold text-xs sm:text-sm uppercase tracking-widest mb-3">What We're Offering</p>
@@ -138,7 +138,7 @@ const ServicesSection: React.FC = () => {
         </div>
 <button
   onClick={prevSlide}
-  className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-[#1894A4] hover:text-white transition mt-12 ml-4"
+  className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-[#1894A4] hover:text-white transition mt-12 ml-20"
 >
   <ChevronLeft />
 </button>
@@ -185,7 +185,7 @@ const ServicesSection: React.FC = () => {
         </div>
         <button
   onClick={nextSlide}
-  className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-[#1894A4] hover:text-white transition mt-12 mr-4"
+  className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-[#1894A4] hover:text-white transition mt-12 mr-20"
 >
   <ChevronRight />
 </button>

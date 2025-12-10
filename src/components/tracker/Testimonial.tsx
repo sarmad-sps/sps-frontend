@@ -190,7 +190,7 @@ const TestimonialsSection: React.FC = () => {
 
   return (
     <section className="py-20 bg-gradient-to-b from-white via-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="flex items-center gap-4 mb-14">
           <img src="/splogo.png" className="w-14 h-14" alt="Logo" />

@@ -3,8 +3,8 @@ import { Car, Gauge, Tag, MapPin } from "lucide-react";
 
 const TrackingServiceSection: React.FC = () => {
   return (
-    <section className="w-full bg-[#f8fbff] py-16 px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section className="w-full bg-[#f8fbff] py-16 px-4 md:px-10 lg:px-14  2xl:px-18 overflow-hidden">
+      <div className="max-w-8xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* LEFT COLUMN — TEXT + STATS */}
           <div className="space-y-8">

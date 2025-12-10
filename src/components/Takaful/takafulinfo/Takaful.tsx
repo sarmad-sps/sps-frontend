@@ -3,7 +3,7 @@ import React from "react";
 
 const TakafulInfo: React.FC = () => {
   return (
-    <div className="max-w-7xl mx-auto mt-12 mb-12 w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-8 bg-[#e8f1ff] ">
+    <div className="max-w-8xl mx-auto mt-12 mb-12    px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-8 bg-[#e8f1ff] ">
       
       {/* Heading */}
       <h2 className="text-4xl font-semibold text-center text-[#1d3b78] mb-8">

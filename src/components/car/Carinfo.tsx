@@ -23,7 +23,7 @@ const Carinfo: React.FC<CarInfoProps> = ({
 }) => {
   return (
     <section className="py-16 bg-[#F8FBFF]">
-      <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
+      <div className="max-w-8xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10 md:ml-16 ">
         
         {/* Left: Question, Answer & Benefits */}
         <div className="md:w-1/2">

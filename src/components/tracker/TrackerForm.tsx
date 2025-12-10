@@ -65,8 +65,8 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <section className="relative py-8 md:py-10 lg:py-12 bg-[#0a0e17] text-white overflow-hidden w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-8 md:py-10 lg:py-12 bg-[#0a0e17] text-white overflow-hidden w-full px-4 md:px-10 lg:px-10 2xl:px-18">
+      <div className="max-w-8xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 
           {/* Form Box */}

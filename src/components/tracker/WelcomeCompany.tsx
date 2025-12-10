@@ -62,7 +62,7 @@ const HeaderSection: React.FC = () => {
 
   return (
     <section className="bg-white py-16 w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div className="max-w-8xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
         {/* Left Images */}
         <div className="relative w-full lg:w-1/2 h-[400px] sm:h-[500px] lg:h-[550px] flex items-center justify-center">
           {/* Bottom Left Image */}

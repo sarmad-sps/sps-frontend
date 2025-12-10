@@ -98,7 +98,7 @@ export default function TrackingProcess() {
 
   return (
     <section className="py-16 sm:py-20 lg:py-24 w-full relative">
-      <div className="w-full px-4 md:px-10 lg:px-16 mx-auto max-w-7xl">
+      <div className="w-full px-4 md:px-10 lg:px-32 mx-auto max-w-8xl">
 
         {/* HEADER */}
         <div className="text-center mb-12 sm:mb-16">
@@ -112,14 +112,14 @@ export default function TrackingProcess() {
         {/* LEFT ARROW */}
         <button
           onClick={prevSlide}
-          className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow hover:bg-[#1894A4] hover:text-white transition ml-4 mt-12"
+          className="hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow hover:bg-[#1894A4] hover:text-white transition ml-12 mt-12"
         >
           <ChevronLeft size={28} />
         </button>
 
         {/* SLIDER */}
         <div
-          className="overflow-hidden"
+          className="overflow-hidden "
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onMouseDown={handleMouseDown}
@@ -180,7 +180,7 @@ export default function TrackingProcess() {
         {/* RIGHT ARROW */}
         <button
           onClick={nextSlide}
-          className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow hover:bg-[#1894A4] hover:text-white transition mr-4 mt-12"
+          className="hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow hover:bg-[#1894A4] hover:text-white transition mr-12 mt-12"
         >
           <ChevronRight size={28} />
         </button>

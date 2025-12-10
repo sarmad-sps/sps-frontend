@@ -127,7 +127,7 @@ const Faq: React.FC<FAQProps> = ({ variant, title, subtitle, faqs }) => {
   id={`${variant}-faq`}
   className="w-full bg-[#e8f1ff] px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 mt-12"
 >
-  <div className="max-w-7xl mx-auto p-10 ">
+  <div className="max-w-9xl mx-auto p-6 ">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
       {/* LEFT SIDE */}
