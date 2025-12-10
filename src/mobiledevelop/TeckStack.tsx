@@ -1,28 +1,29 @@
-// // TechStackSection.tsx
 // import React from "react";
 
-// const techStack = [
-//   "React Native",
-//   "Flutter",
-//   "Swift",
-//   "Kotlin",
-//   "Firebase",
-//   "Node.js",
-//   "AWS",
-// ];
+// interface TechStackGridSectionProps {
+//   title: string;
+//   stack: string[];
+//   background?: string;
+// }
 
-// const TechStackSection: React.FC = () => {
+// const TechStack: React.FC<TechStackGridSectionProps> = ({
+//   title,
+//   stack,
+//   background = "bg-gradient-to-r from-blue-50 to-indigo-50",
+// }) => {
 //   return (
-//     <section className="py-16 bg-gradient-to-r from-blue-50 to-indigo-50">
-//       <div className="max-w-6xl mx-auto px-6 md:px-16">
-//         <h2 className="text-4xl font-bold mb-12 text-center text-gray-800">
-//           Tech Stack
+//     <section className={`w-full px-4 py-16 ${background}`}>
+//       <div className="max-w-5xl mx-auto w-full">
+//         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-gray-800 leading-snug">
+//           {title}
 //         </h2>
-//         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6">
-//           {techStack.map((tech, idx) => (
+
+//         {/* Responsive Grid */}
+//         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+//           {stack.map((tech, idx) => (
 //             <div
 //               key={idx}
-//               className="p-4 bg-white rounded-2xl shadow-lg hover:shadow-2xl text-center font-medium text-gray-700 hover:-translate-y-1 transform transition-all duration-300"
+//               className="p-4 bg-white rounded-2xl shadow-lg text-center font-medium text-sm sm:text-base md:text-lg lg:text-xl break-words"
 //             >
 //               {tech}
 //             </div>
@@ -33,45 +34,47 @@
 //   );
 // };
 
-// export default TechStackSection;
-// TechStackGridSection.tsx
+// export default TechStack;
 import React from "react";
 
 interface TechStackGridSectionProps {
   title: string;
-  stack: string[];
+  stack?: string[]; // fallback for string array
+  stackWithIcons?: { name: string; icon: React.ReactElement; color?: string }[];
   background?: string;
-  columns?: string;
 }
 
-const TechStackGridSection: React.FC<TechStackGridSectionProps> = ({
+const TechStack: React.FC<TechStackGridSectionProps> = ({
   title,
-  stack,
+  stackWithIcons,
   background = "bg-gradient-to-r from-blue-50 to-indigo-50",
-  columns = "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7",
 }) => {
   return (
-    <section className={`py-16 ${background}`}>
-      <div className="max-w-6xl mx-auto px-6 md:px-16">
-        
-        <h2 className="text-4xl font-bold mb-12 text-center text-gray-800">
+    <section className={`w-full px-4 py-16 ${background}`}>
+      <div className="max-w-5xl mx-auto w-full">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-gray-800 leading-snug">
           {title}
         </h2>
 
-        <div className={`grid ${columns} gap-6`}>
-          {stack.map((tech, idx) => (
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+          {stackWithIcons?.map((tech, idx) => (
             <div
               key={idx}
-              className="p-4 bg-white rounded-2xl shadow-lg hover:shadow-2xl text-center font-medium text-gray-700 hover:-translate-y-1 transform transition-all duration-300"
+              className="flex flex-col items-center p-4 bg-white rounded-2xl shadow-lg text-center font-medium text-sm sm:text-base md:text-lg lg:text-xl break-words gap-2"
             >
-              {tech}
+              <div className="text-4xl">
+                {React.isValidElement(tech.icon) &&
+                  React.cloneElement(tech.icon as React.ReactElement<any>, {
+                    style: { color: tech.color }, // Apply brand color
+                  })}
+              </div>
+              <span>{tech.name}</span>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
 };
 
-export default TechStackGridSection;
+export default TechStack;
