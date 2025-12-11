@@ -197,11 +197,11 @@ const HealthFormCard = () => {
  <div className="relative">
       {/* Toaster Component */}
       <Toaster
-        position="top-center"
+        position="top-right"
         reverseOrder={false}
         toastOptions={{
           duration: 4000,
-          style: { background: "#363636", color: "#fff" },
+          style: { background: "#fff", color: "#363636" },
         }}
       />
 

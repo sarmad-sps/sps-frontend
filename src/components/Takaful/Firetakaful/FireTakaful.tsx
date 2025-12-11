@@ -294,13 +294,13 @@ const FireTakafulSection = () => {
 
       <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-8">
          <Toaster
-        position="top-right"
-        reverseOrder={false}
-        toastOptions={{
-          duration: 4000,
-          style: { background: "#ffffff", color: "#1A3970" }, // white background, dark text
-        }}
-      />
+      position="top-right"
+      reverseOrder={false}
+      toastOptions={{
+        duration: 4000,
+        style: { background: "#ffffff", color: "#1A3970" },
+      }}
+    />
         <div className="flex flex-col md:flex-row justify-between bg-white shadow-md rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 overflow-hidden">
           {/* Left Section */}
           <div className="flex-1 min-w-0 space-y-4">
