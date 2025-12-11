@@ -60,7 +60,7 @@ const TrackingServiceSection: React.FC = () => {
           </div>
 
           {/* RIGHT COLUMN — FIXED IMAGE SECTION */}
-          <div className="relative mt-36 lg:mt-28 h-[520px] w-full flex items-end justify-center lg:justify-end">
+          <div className="relative mt-36 lg:mt-28 h-[520px] w-full flex items-end justify-center lg:justify-end 2xl:w-[750px]">
             {/* Dots Top Right */}
             <div className="absolute top-24 lg:top-16 right-8 z-0 hidden lg:block">
               <DotPattern />

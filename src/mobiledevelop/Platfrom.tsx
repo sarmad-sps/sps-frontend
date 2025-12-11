@@ -62,16 +62,12 @@ interface FeatureItem {
 interface FeatureGridSectionProps {
   title: string;
   features: FeatureItem[];
-  
 }
 
-const Platform: React.FC<FeatureGridSectionProps> = ({
-  title,
-  features,
-}) => {
+const Platform: React.FC<FeatureGridSectionProps> = ({ title, features }) => {
   return (
-    <section className="w-full min-h-screen flex items-center px-4 py-16 md:px-6 lg:px-10 xl:px-16 2xl:px-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto w-full">
+    <section className="w-full  flex items-center px-4 py-16 md:px-6 lg:px-10 xl:px-16 2xl:px-20 bg-gray-50">
+      <div className="max-w-8xl mx-auto w-full">
         {/* Responsive Title */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center text-gray-800 leading-snug">
           {title}
@@ -88,9 +84,12 @@ const Platform: React.FC<FeatureGridSectionProps> = ({
                 className={`p-3 rounded-xl ${f.color} flex items-center justify-center flex-shrink-0`}
               >
                 {React.isValidElement(f.icon) &&
-                  React.cloneElement(f.icon as React.ReactElement<any>, {
-                    className: "w-6 h-6 sm:w-7 md:w-8",
-                  })}
+                  React.cloneElement(
+                    f.icon as React.ReactElement<React.SVGProps<SVGSVGElement>>,
+                    {
+                      className: "w-6 h-6 sm:w-7 md:w-8",
+                    }
+                  )}
               </div>
 
               <span className="text-gray-700 font-semibold text-center sm:text-left text-base sm:text-lg md:text-xl break-words">

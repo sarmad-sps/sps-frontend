@@ -3,9 +3,9 @@ import benefitImg from "/benefit.png";
 import { Link } from "react-router-dom";
 const VehicleTrackingHero: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
+    <div className=" bg-gradient-to-br from-blue-50 via-white to-blue-50">
       <div className="w-full px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20">
-        <div className="max-w-screen-2xl mx-auto">
+        <div className=" mx-auto">
           <div className="py-16 lg:py-24">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-start">
               {/* Left Side - Text & CTA */}

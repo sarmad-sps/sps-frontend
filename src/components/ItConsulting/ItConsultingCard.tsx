@@ -42,7 +42,7 @@ const ITConsultingCard: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#f4f8fc] py-10 px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 sm:px-8">
-      <div className="max-w-7xl mx-auto grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="max-w-8xl mx-auto grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
 
         {services.map((service: Service, index: number) => (
           <div

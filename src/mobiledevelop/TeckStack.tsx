@@ -50,8 +50,8 @@ const TechStack: React.FC<TechStackGridSectionProps> = ({
   background = "bg-gradient-to-r from-blue-50 to-indigo-50",
 }) => {
   return (
-    <section className={`w-full px-4 py-16 ${background}`}>
-      <div className="max-w-5xl mx-auto w-full">
+    <section className={`w-full px-16 py-16 ${background}`}>
+      <div className="max-w-8xl mx-auto w-full">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-gray-800 leading-snug">
           {title}
         </h2>
@@ -64,9 +64,14 @@ const TechStack: React.FC<TechStackGridSectionProps> = ({
             >
               <div className="text-4xl">
                 {React.isValidElement(tech.icon) &&
-                  React.cloneElement(tech.icon as React.ReactElement<any>, {
-                    style: { color: tech.color }, // Apply brand color
-                  })}
+                  React.cloneElement(
+                    tech.icon as React.ReactElement<
+                      React.SVGProps<SVGSVGElement>
+                    >,
+                    {
+                      style: { color: tech.color }, // Apply brand color
+                    }
+                  )}
               </div>
               <span>{tech.name}</span>
             </div>

@@ -1,4 +1,4 @@
-import React from "react";
+
 import Navbar from "../components/common/Navbar";
 import Mobile from "../mobiledevelop/Choosingus";
 import FAQSection from "../components/common/FAQsection";

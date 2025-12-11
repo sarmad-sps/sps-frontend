@@ -27,7 +27,7 @@ const ServiceFeatures: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 py-16 w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18">
+    <div className=" bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 py-16 w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18">
       <div className="max-w-8xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16">

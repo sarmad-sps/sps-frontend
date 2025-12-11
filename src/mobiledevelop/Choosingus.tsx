@@ -56,9 +56,9 @@ const Choosingus: React.FC<ReasonGridSectionProps> = ({
 }) => {
   return (
     <section
-      className={`w-full min-h-screen flex items-center justify-center px-4 py-16 md:px-6 lg:px-10 xl:px-16 2xl:px-20 ${background}`}
+      className={`w-full  flex items-center justify-center px-4 py-16 md:px-6 lg:px-10 xl:px-16 2xl:px-20 ${background}`}
     >
-      <div className="w-full max-w-7xl mx-auto">
+      <div className="w-full max-w-8xl mx-auto">
         {/* Responsive Title */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-16 text-center text-gray-800 leading-snug">
           {title}
