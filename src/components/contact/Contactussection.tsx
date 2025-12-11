@@ -1,4 +1,6 @@
+
 import React, { useState } from "react";
+import toast, { Toaster } from "react-hot-toast"; // ✅ toaster
 import { submitContactForm, type ContactFormData } from "../../apis/contactApi";
 
 export default function ContactUsSection() {
@@ -11,7 +13,6 @@ export default function ContactUsSection() {
 
   const [errors, setErrors] = useState<Partial<ContactFormData>>({});
   const [loading, setLoading] = useState(false);
-  const [successMsg, setSuccessMsg] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -56,17 +57,20 @@ export default function ContactUsSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSuccessMsg("");
     if (!validate()) return;
 
     setLoading(true);
+    const toastId = toast.loading("Sending your message..."); // ✅ loading toast
+
     try {
       const res = await submitContactForm(formData);
-      setSuccessMsg(res.message || "Message sent successfully 🎉");
+      toast.dismiss(toastId);
+      toast.success(res.message || "Message sent successfully 🎉"); // ✅ success toast
       setFormData({ name: "", email: "", subject: "", message: "" });
       setErrors({});
     } catch (err: any) {
-      setSuccessMsg(err.message || "Something went wrong");
+      toast.dismiss(toastId);
+      toast.error(err.message || "Something went wrong. Please try again."); // ✅ error toast
     } finally {
       setLoading(false);
     }
@@ -79,8 +83,17 @@ export default function ContactUsSection() {
 
   return (
     <section className="w-full relative py-16 md:py-20 bg-gradient-to-b from-gray-100 to-gray-200">
-      <div className="relative z-10 w-full px-4 md:px-10 lg:px-16">
+      {/* ✅ Toaster */}
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 4000,
+          style: { background: "#ffffff", color: "#1A3970" },
+        }}
+      />
 
+      <div className="relative z-10 w-full px-4 md:px-10 lg:px-16">
         {/* Header */}
         <div className="text-center mb-12">
           <p className="text-gray-600 text-sm md:text-base font-semibold mb-3">
@@ -94,7 +107,6 @@ export default function ContactUsSection() {
 
         {/* Form + Map in same container */}
         <div className="bg-white rounded-xl shadow-xl p-6 md:p-10 flex flex-col md:flex-row gap-6">
-
           {/* LEFT: Inputs */}
           <div className="flex-1">
             <form onSubmit={handleSubmit}>
@@ -184,10 +196,6 @@ export default function ContactUsSection() {
                   {loading ? "Sending..." : "SEND MESSAGE"}
                 </button>
               </div>
-
-              {successMsg && (
-                <p className="mt-4 text-center text-green-600">{successMsg}</p>
-              )}
             </form>
           </div>
 
@@ -210,7 +218,6 @@ export default function ContactUsSection() {
               ></iframe>
             </a>
           </div>
-
         </div>
       </div>
     </section>

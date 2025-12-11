@@ -1,8 +1,8 @@
 import { useState, type ChangeEvent } from "react";
 import { ArrowRight } from "lucide-react";
 import { submitHealthForm } from "../../apis/healthApi";
-import toast from "react-hot-toast";
-
+//import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 interface FormDataType {
   name: string;
   phone: string;
@@ -41,9 +41,9 @@ const HealthFormCard = () => {
 
   const personTypes = [
     { id: "myself", label: "Myself", icon: "/Personicon.png" },
-    { id: "staff", label: "Staff", icon: "/Stafficonimage.png" },
     { id: "family", label: "Family", icon: "/Familyiconimage.jpg" },
     { id: "parents", label: "Parents", icon: "/Coupleiconimage.png" },
+     { id: "staff", label: "Staff", icon: "/Stafficonimage.png" },
   ] as const;
 
   const treatmentLimits = [
@@ -194,176 +194,184 @@ const HealthFormCard = () => {
     id === "staff" || id === "parents" ? "w-10 h-10" : "w-8 h-8";
 
   return (
-    <div className="relative">
+ <div className="relative">
+      {/* Toaster Component */}
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 4000,
+          style: { background: "#363636", color: "#fff" },
+        }}
+      />
+
       <style>{`
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
         .animate-fadeIn { animation: fadeIn 0.3s ease-out; }
       `}</style>
 
       <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8">
+        {/* Person Type Selection */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+          {personTypes.map((type) => (
+            <button
+              key={type.id}
+              type="button"
+              onClick={() => setSelectedPersonType(type.id)}
+              className={`p-4 border-2 rounded-xl flex flex-col items-center gap-2 
+                ${selectedPersonType === type.id ? "border-[#1A3970] shadow-md" : "border-gray-300"}`}
+            >
+              <img src={type.icon} alt={type.label} className={`${getIconSize(type.id)}`} />
+              <span className="font-medium">{type.label}</span>
+            </button>
+          ))}
+        </div>
 
-  {/* Person Type Selection */}
-  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-    {personTypes.map((type) => (
-      <button
-        key={type.id}
-        type="button"
-        onClick={() => setSelectedPersonType(type.id)}
-   className={`p-4 border-2 rounded-xl flex flex-col items-center gap-2 
-  ${selectedPersonType === type.id ? "border-[#1A3970] shadow-md" : "border-gray-300"}`}
+        {/* Form Inputs */}
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          value={formData.name}
+          onChange={handleInputChange}
+          className="w-full border p-3 rounded-lg mb-2"
+        />
+        {formErrors.name && <p className="text-red-500 text-sm">{formErrors.name}</p>}
 
-      >
-        <img src={type.icon} alt={type.label} className={`${getIconSize(type.id)}`} />
-        <span className="font-medium">{type.label}</span>
-      </button>
-    ))}
-  </div>
+        <input
+          type="text"
+          name="phone"
+          placeholder="Phone Number"
+          value={formData.phone}
+          onChange={handleInputChange}
+          className="w-full border p-3 rounded-lg mb-2"
+        />
+        {formErrors.phone && <p className="text-red-500 text-sm">{formErrors.phone}</p>}
 
-  {/* Name */}
-  <input
-    type="text"
-    name="name"
-    placeholder="Your Name"
-    value={formData.name}
-    onChange={handleInputChange}
-    className="w-full border p-3 rounded-lg mb-2"
-  />
-  {formErrors.name && <p className="text-red-500 text-sm">{formErrors.name}</p>}
+        {/* Treatment Limit */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-4">
+          {treatmentLimits.map((t) => (
+            <button
+              key={t.value}
+              type="button"
+              onClick={() => setSelectedTreatmentLimit(t.value)}
+              className={`p-3 border rounded-xl 
+                ${selectedTreatmentLimit === t.value ? "border-green-600 shadow" : "border-gray-300"}`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+        {formErrors.treatmentLimit && (
+          <p className="text-red-500 text-sm">{formErrors.treatmentLimit}</p>
+        )}
 
-  {/* Phone */}
-  <input
-    type="text"
-    name="phone"
-    placeholder="Phone Number"
-    value={formData.phone}
-    onChange={handleInputChange}
-    className="w-full border p-3 rounded-lg mb-2"
-  />
-  {formErrors.phone && <p className="text-red-500 text-sm">{formErrors.phone}</p>}
+        {/* Dynamic Inputs */}
+        {selectedPersonType === "myself" && (
+          <div className="animate-fadeIn">
+            <input
+              type="text"
+              name="yourAge"
+              placeholder="Your Age"
+              value={formData.yourAge}
+              onChange={handleInputChange}
+              className="w-full border p-3 rounded-lg mb-2"
+            />
+            {formErrors.yourAge && <p className="text-red-500 text-sm">{formErrors.yourAge}</p>}
+          </div>
+        )}
 
-  {/* Treatment Limit */}
-  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-4">
-    {treatmentLimits.map((t) => (
-      <button
-        key={t.value}
-        type="button"
-        onClick={() => setSelectedTreatmentLimit(t.value)}
-        className={`p-3 border rounded-xl 
-          ${selectedTreatmentLimit === t.value ? "border-green-600 shadow" : "border-gray-300"}`}
-      >
-        {t.label}
-      </button>
-    ))}
-  </div>
-  {formErrors.treatmentLimit && (
-    <p className="text-red-500 text-sm">{formErrors.treatmentLimit}</p>
-  )}
+        {selectedPersonType === "family" && (
+          <div className="animate-fadeIn">
+            <input
+              type="text"
+              name="spouseAge"
+              placeholder="Spouse Age"
+              value={formData.spouseAge}
+              onChange={handleInputChange}
+              className="w-full border p-3 rounded-lg mb-2"
+            />
+            <input
+              type="text"
+              name="children"
+              placeholder="Children Ages (e.g., 5, 8, 12)"
+              value={formData.children}
+              onChange={handleInputChange}
+              className="w-full border p-3 rounded-lg mb-2"
+            />
+            {formErrors.family && <p className="text-red-500 text-sm">{formErrors.family}</p>}
+            {formErrors.spouseAge && <p className="text-red-500 text-sm">{formErrors.spouseAge}</p>}
+            {formErrors.children && <p className="text-red-500 text-sm">{formErrors.children}</p>}
+          </div>
+        )}
 
-  {/* Dynamic Inputs */}
-  {selectedPersonType === "myself" && (
-    <div className="animate-fadeIn">
-      <input
-        type="text"
-        name="yourAge"
-        placeholder="Your Age"
-        value={formData.yourAge}
-        onChange={handleInputChange}
-        className="w-full border p-3 rounded-lg mb-2"
-      />
-      {formErrors.yourAge && <p className="text-red-500 text-sm">{formErrors.yourAge}</p>}
+        {selectedPersonType === "parents" && (
+          <div className="animate-fadeIn">
+            <select
+              name="parentsAgeRange"
+              value={formData.parentsAgeRange}
+              onChange={(e) =>
+                setFormData((prev) => ({ ...prev, parentsAgeRange: e.target.value }))
+              }
+              className="w-full border p-3 rounded-lg mb-2"
+            >
+              <option value="">Select Parents Age Range</option>
+              {parentsAgeOptions.map((opt) => (
+                <option key={opt.value} value={opt.value}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
+            {formErrors.parentsAgeRange && (
+              <p className="text-red-500 text-sm">{formErrors.parentsAgeRange}</p>
+            )}
+          </div>
+        )}
+
+        {selectedPersonType === "staff" && (
+          <div className="animate-fadeIn">
+            <input
+              type="text"
+              name="companyName"
+              placeholder="Company Name"
+              value={formData.companyName}
+              onChange={handleInputChange}
+              className="w-full border p-3 rounded-lg mb-2"
+            />
+            <input
+              type="text"
+              name="numberOfPersons"
+              placeholder="Number of Persons"
+              value={formData.numberOfPersons}
+              onChange={handleInputChange}
+              className="w-full border p-3 rounded-lg mb-2"
+            />
+            {formErrors.companyName && <p className="text-red-500 text-sm">{formErrors.companyName}</p>}
+            {formErrors.numberOfPersons && <p className="text-red-500 text-sm">{formErrors.numberOfPersons}</p>}
+          </div>
+        )}
+
+        {/* Submit Button */}
+        <button
+          disabled={loading}
+          onClick={handleSubmit}
+          className="w-full bg-[#1A3970] text-white py-3 rounded-lg flex items-center justify-center gap-2"
+        >
+          {loading ? (
+            <>
+              <span className="animate-spin border-2 border-white border-t-transparent w-5 h-5 rounded-full"></span>
+              Submitting...
+            </>
+          ) : (
+            <>
+              Submit
+              <ArrowRight />
+            </>
+          )}
+        </button>
+      </div>
     </div>
-  )}
 
-  {selectedPersonType === "family" && (
-    <div className="animate-fadeIn">
-      <input
-        type="text"
-        name="spouseAge"
-        placeholder="Spouse Age"
-        value={formData.spouseAge}
-        onChange={handleInputChange}
-        className="w-full border p-3 rounded-lg mb-2"
-      />
-      <input
-        type="text"
-        name="children"
-        placeholder="Children Ages (e.g., 5, 8, 12)"
-        value={formData.children}
-        onChange={handleInputChange}
-        className="w-full border p-3 rounded-lg mb-2"
-      />
-
-      {formErrors.family && <p className="text-red-500 text-sm">{formErrors.family}</p>}
-      {formErrors.spouseAge && <p className="text-red-500 text-sm">{formErrors.spouseAge}</p>}
-      {formErrors.children && <p className="text-red-500 text-sm">{formErrors.children}</p>}
-    </div>
-  )}
-
-  {selectedPersonType === "parents" && (
-    <div className="animate-fadeIn">
-      <select
-        name="parentsAgeRange"
-        value={formData.parentsAgeRange}
-        onChange={(e) =>
-          setFormData((prev) => ({ ...prev, parentsAgeRange: e.target.value }))
-        }
-        className="w-full border p-3 rounded-lg mb-2"
-      >
-        <option value="">Select Parents Age Range</option>
-        {parentsAgeOptions.map((opt) => (
-          <option key={opt.value} value={opt.value}>
-            {opt.label}
-          </option>
-        ))}
-      </select>
-
-      {formErrors.parentsAgeRange && (
-        <p className="text-red-500 text-sm">{formErrors.parentsAgeRange}</p>
-      )}
-    </div>
-  )}
-
-  {selectedPersonType === "staff" && (
-    <div className="animate-fadeIn">
-      <input
-        type="text"
-        name="companyName"
-        placeholder="Company Name"
-        value={formData.companyName}
-        onChange={handleInputChange}
-        className="w-full border p-3 rounded-lg mb-2"
-      />
-
-      <input
-        type="text"
-        name="numberOfPersons"
-        placeholder="Number of Persons"
-        value={formData.numberOfPersons}
-        onChange={handleInputChange}
-        className="w-full border p-3 rounded-lg mb-2"
-      />
-
-      {formErrors.companyName && (
-        <p className="text-red-500 text-sm">{formErrors.companyName}</p>
-      )}
-      {formErrors.numberOfPersons && (
-        <p className="text-red-500 text-sm">{formErrors.numberOfPersons}</p>
-      )}
-    </div>
-  )}
-
-  {/* Submit Button */}
-  <button
-    disabled={loading}
-    onClick={handleSubmit}
-    className="w-full bg-[#1A3970] text-white py-3 rounded-lg flex items-center justify-center gap-2"
-  >
-    Submit
-    <ArrowRight />
-  </button>
-</div>
-
-    </div>
   );
 };
 
