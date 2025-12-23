@@ -62,7 +62,7 @@ const ServiceFeatures: React.FC = () => {
                 </div>
 
                 {/* Card */}
-                <div className="bg-gradient-to-br from-blue-900 bg-[#1A3970] rounded-3xl p-8 pt-12 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="bg-gradient-to-br from-blue-900 bg-[#1A3970] rounded-3xl p-8 pt-12 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 h-[200px] lg:h-[250px] xl:h-[200px]">
                   <h3 className="text-2xl font-bold text-white mb-4">
                     {feature.title}
                   </h3>

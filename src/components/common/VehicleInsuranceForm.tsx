@@ -503,9 +503,9 @@ const VehicleInsuranceForm = ({
     return (
       <div
         onClick={() => setSelectedQuote(quote)}
-        className={`relative bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 cursor-pointer h-full ${
+        className={`relative bg-white rounded-lg  overflow-hidden transition-all duration-300 cursor-pointer h-full border border-white ${
           isSelected
-            ? "ring-4 ring-[#1894a4] ring-offset-4 shadow-2xl scale-105"
+            ? "ring-4 ring-[#1894a4] ring-offset-4 shadow-2xl scale-95"
             : "hover:shadow-xl border border-transparent"
         }`}
       >
@@ -665,7 +665,7 @@ const VehicleInsuranceForm = ({
                     </button>
 
                     {/* Sliding Container */}
-                    <div className="overflow-hidden px-2 pt-6">
+                    <div className="overflow-hidden px-2 pt-6 bg-white">
                       <div
                         className="flex transition-transform  duration-500 ease-in-out h-[450px]"                        style={{
                           transform: `translateX(-${currentSlide * 100}%)`,

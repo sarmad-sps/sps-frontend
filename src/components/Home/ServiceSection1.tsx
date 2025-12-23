@@ -104,7 +104,7 @@ const ServicesSection: React.FC = () => {
      {/* Left Arrow */}
       <button
         onClick={prevSlide}
-        className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-[#1894A4] hover:text-white transition ml-4 mt-10"
+        className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-[#1894A4] hover:text-white transition sm:ml-1 lg:ml-4 mt-10"
       >
         <ChevronLeft size={24} />
       </button>
@@ -174,7 +174,7 @@ const ServicesSection: React.FC = () => {
      {/* Right Arrow */}
       <button
         onClick={nextSlide}
-        className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-[#1894A4] hover:text-white transition mr-4 mt-10"
+        className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-[#1894A4] hover:text-white transition sm:mr-1 lg:mr-4 mt-10"
       >
         <ChevronRight size={24} />
       </button>
