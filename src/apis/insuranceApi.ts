@@ -1,7 +1,7 @@
 // src/apis/insuranceApi.ts
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/insurance";
+const API_URL = "https://api.securepath-solutions.com/api/insurance";
 
 export const calculateInsurance = async (data: any) => {
   try {

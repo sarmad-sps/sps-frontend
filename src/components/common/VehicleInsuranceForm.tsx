@@ -182,7 +182,7 @@ const VehicleInsuranceForm = ({
           id: i + 1,
           company: item.companyName,
           logo: item.companyLogo
-            ? `http://localhost:5000${item.companyLogo}`
+            ? `http://api.securepath-solutions.com${item.companyLogo}`
             : "/Jubileeinsurance.png",
           rate: "1.5%",
           insurancePlan: "Workshop",

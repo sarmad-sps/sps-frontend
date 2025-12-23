@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Backend URL
-const API_URL = "http://localhost:5000/api/tracker"; 
+const API_URL = "https://api.securepath-solutions.com/api/tracker"; 
 
 // Interface for form data
 export interface TrackerFormData {

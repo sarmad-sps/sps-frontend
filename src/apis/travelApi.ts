@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/travel";
+const API_URL = "https://api.securepath-solutions.com/api/travel";
 
 export const submitTravelForm = async (data: any) => {
   try {

@@ -1,7 +1,7 @@
 // src/apis/quoteRequestsApi.ts
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/quote-requests";
+const API_URL = "https://api.securepath-solutions.com/api/quote-requests";
 
 // POST: Create quote request
 export const createQuoteRequest = async (data: any) => {

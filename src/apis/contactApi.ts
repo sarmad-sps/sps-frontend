@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/contact"; 
+const API_URL = "https://api.securepath-solutions.com/api/contact"; 
 
 export interface ContactFormData {
   name: string;

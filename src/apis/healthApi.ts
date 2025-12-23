@@ -1,7 +1,7 @@
 // src/apis/healthApi.ts
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://api.securepath-solutions.com/api";
 
 export const submitHealthForm = async (data: any) => {
   try {
