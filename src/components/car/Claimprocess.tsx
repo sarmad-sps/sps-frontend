@@ -24,7 +24,7 @@ const ClaimProcess: React.FC<ClaimProcessProps> = ({
   };
 
   return (
-    <section className="py-16 bg-[#F8FBFF]">
+    <section className="py-16 bg-[#F8FBFF]  px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18">
       <h2 className="text-3xl md:text-4xl font-bold text-center text-[#071B34] mb-4">
         {title}
       </h2>
@@ -36,7 +36,7 @@ const ClaimProcess: React.FC<ClaimProcessProps> = ({
         that cater to your specific needs.
       </p>
 
-      <div className="max-w-[1450px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:px-12  xl:px-10">
+      <div className="max-w-[1450px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 ">
         {plans.map((p, i) => (
           <div
             key={i}

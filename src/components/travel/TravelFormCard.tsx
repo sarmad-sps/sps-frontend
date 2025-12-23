@@ -279,9 +279,7 @@ const TravelFormCard = () => {
         // const response = await submitTravelForm(formData);
 
         toast.dismiss(toastId);
-        toast.success("Form submitted successfully!", {
-          position: "bottom-center",
-        });
+        toast.success("Form submitted successfully!");
 
         setFormData({
           name: "",

@@ -26,10 +26,11 @@ import WebDevelopment from "./pages/WebDevelopment"
 import Devops from "./pages/Devops"
 export default function App() {
   return (
-    <div className="overflow-x-hidden">
+    <div >
+        <Toaster position="top-right" />
        <ScrollToTop />
       <WhatsAppButton/>
-          <Toaster position="top-right" />
+        
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/car" element={<Car />} />
