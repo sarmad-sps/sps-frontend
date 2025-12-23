@@ -128,7 +128,7 @@ export default function TrackingProcess() {
           onMouseLeave={handleMouseUp}
         >
           <div
-            className="flex transition-transform duration-500 ease-in-out"
+            className=" flex transition-transform duration-500 ease-in-out pb-4 "
             style={{
               width: `${totalSlides * 100}%`,
               transform: `translateX(-${currentSlide * slideWidth}%)`,

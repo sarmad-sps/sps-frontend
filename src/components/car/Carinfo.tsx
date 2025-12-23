@@ -23,14 +23,19 @@ const Carinfo: React.FC<CarInfoProps> = ({
 }) => {
   return (
     <section className="py-16 bg-[#F8FBFF]">
-      <div className="max-w-8xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10 md:ml-16 ">
-        
+      <div className="max-w-8xl mx-auto px-6 md:px-8 xl:px-4 flex flex-col xl:flex-row items-center xl:items-start gap-10 xl:ml-16">
         {/* Left: Question, Answer & Benefits */}
-        <div className="md:w-1/2">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#071B34] mb-6">{title}</h2>
-          <p className="text-gray-700 text-lg leading-relaxed mb-6">{description}</p>
+        <div className="xl:w-1/2">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#071B34] mb-6">
+            {title}
+          </h2>
+          <p className="text-gray-700 text-lg leading-relaxed mb-6">
+            {description}
+          </p>
 
-          <h3 className="text-2xl font-semibold text-[#071B34] mb-4">Key Benefits:</h3>
+          <h3 className="text-2xl font-semibold text-[#071B34] mb-4">
+            Key Benefits:
+          </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {benefits.map((benefit, i) => (
               <div
@@ -45,10 +50,13 @@ const Carinfo: React.FC<CarInfoProps> = ({
         </div>
 
         {/* Right: Image */}
-        <div className="md:w-1/2 flex justify-center">
-          <img src={image} alt="Car Insurance Illustration" className="w-full" />
+        <div className=" xl:w-1/2 flex justify-center items-center mt-24 ">
+          <img
+            src={image}
+            alt="Car Insurance Illustration"
+            className="w-full max-w-2xl xl:max-w-full h-auto"
+          />
         </div>
-
       </div>
     </section>
   );
