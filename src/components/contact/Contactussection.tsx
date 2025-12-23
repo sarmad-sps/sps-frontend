@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import toast, { Toaster } from "react-hot-toast"; // ✅ toaster
+import toast from "react-hot-toast";
 import { submitContactForm, type ContactFormData } from "../../apis/contactApi";
 
 export default function ContactUsSection() {
@@ -83,17 +83,7 @@ export default function ContactUsSection() {
 
   return (
     <section className="w-full relative py-16 md:py-20 bg-gradient-to-b from-gray-100 to-gray-200">
-      {/* ✅ Toaster */}
-      <Toaster
-        position="top-right"
-        reverseOrder={false}
-        toastOptions={{
-          duration: 4000,
-          style: { background: "#ffffff", color: "#1A3970" },
-        }}
-      />
-
-      <div className="relative z-10 w-full px-4 md:px-10 lg:px-16">
+     <div className="relative z-10 w-full px-4 md:px-10 lg:px-16">
         {/* Header */}
         <div className="text-center mb-12">
           <p className="text-gray-600 text-sm md:text-base font-semibold mb-3">

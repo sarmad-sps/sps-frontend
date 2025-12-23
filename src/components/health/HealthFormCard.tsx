@@ -2,7 +2,7 @@ import { useState, type ChangeEvent } from "react";
 import { ArrowRight } from "lucide-react";
 import { submitHealthForm } from "../../apis/healthApi";
 //import toast from "react-hot-toast";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 interface FormDataType {
   name: string;
   phone: string;
@@ -195,15 +195,7 @@ const HealthFormCard = () => {
 
   return (
  <div className="relative">
-      {/* Toaster Component */}
-      <Toaster
-        position="top-right"
-        reverseOrder={false}
-        toastOptions={{
-          duration: 4000,
-          style: { background: "#fff", color: "#363636" },
-        }}
-      />
+    
 
       <style>{`
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }

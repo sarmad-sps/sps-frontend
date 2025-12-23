@@ -221,7 +221,7 @@
 // export default TravelFormCard;
 import { useState } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import toast,{Toaster} from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const TravelFormCard = () => {
   const [loading, setLoading] = useState(false);
@@ -304,14 +304,6 @@ const TravelFormCard = () => {
 
   return (
     <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-8">
-       <Toaster
-      position="top-right"
-      reverseOrder={false}
-      toastOptions={{
-        duration: 4000,
-        style: { background: "#ffffff", color: "#1A3970" },
-      }}
-    />
       <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 space-y-6">
         {/* Name */}
         <div>

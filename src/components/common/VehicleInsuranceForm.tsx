@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { calculateInsurance } from "../../apis/insuranceApi";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 interface InsuranceQuote {
   id: number;
@@ -577,14 +577,7 @@ const VehicleInsuranceForm = ({
 
   return (
     <>
-      <Toaster
-        position="top-right"
-        reverseOrder={false}
-        toastOptions={{
-          duration: 4000,
-          style: { background: "#fff", color: "black" },
-        }}
-      />
+     
 
       <section className="w-full bg-[#F4F9FE] pt-2 md:pt-4 pb-8 md:pb-12">
         <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 xl:max-w-8xl 2xl: max-w-9xl mx-auto">
