@@ -10,6 +10,7 @@ import { bikeFormFields } from "../config/formFields";
 import ClaimProcess from "../components/car/Claimprocess";
 import Partner from "../components/car/Partner"
 import Carinfo from "../components/car/Carinfo";
+import BrandsSection from "../components/Home/Brandsection";
 
 
 const Bike = () => {
@@ -114,7 +115,8 @@ const bikeInsuranceInfo = {
             <CoverageHighlights/>
       </FadeUp> */}
       <FadeUp>
-          <Partner/>
+          {/* <Partner/> */}
+            <BrandsSection/>
       </FadeUp>
       
       <FadeUp>

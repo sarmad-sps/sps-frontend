@@ -9,6 +9,7 @@ import Footer from "../components/common/Footer";
 import ClaimProcess from "../components/car/Claimprocess";
 import Carinfo from "../components/car/Carinfo";
 import Partner from "../components/car/Partner"
+import BrandsSection from "../components/Home/Brandsection";
 const Travel = () => {
 const travelClaimPlans = [
   {
@@ -104,7 +105,8 @@ const travelInsuranceInfo = {
       />
       </FadeUp>
       <FadeUp>
-      <Partner/>
+      {/* <Partner/> */}
+      <BrandsSection/>
       </FadeUp>
       <FadeUp>
         <FAQSection />

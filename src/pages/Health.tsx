@@ -11,6 +11,7 @@ import Carinfo from "../components/car/Carinfo";
 import Claimprocess from "../components/car/Claimprocess";
 // import CoverageHighlights from "../components/car/Coveragehighlight";
 import Partner from "../components/car/Partner"
+import BrandsSection from "../components/Home/Brandsection";
 
 const Health = () => {
 const healthClaimPlans = [
@@ -110,7 +111,8 @@ const healthClaimPlans = [
           <CoverageHighlights/>
       </FadeUp> */}
        <FadeUp>
-          <Partner/>
+          {/* <Partner/> */}
+          <BrandsSection/>
        </FadeUp>
        
       <FadeUp>
