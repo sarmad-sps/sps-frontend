@@ -1,46 +1,5 @@
-// const BrandsSection = () => {
-//   const brands = [
-//     { id: 1, name: "Brand 1", logo: "/logo1.png" },
-//     { id: 2, name: "Brand 2", logo: "/logo2.png" },
-//     { id: 3, name: "Brand 3", logo: "/eastlogo.png" },
-//     { id: 4, name: "Brand 4", logo: "/sgi.png" },
-//     { id: 5, name: "Brand 5", logo: "/logo5.png" },
-//     { id: 6, name: "Brand 6", logo: "/logo6.png" },
-//     { id: 7, name: "Brand 7", logo: "/logo7.png" },
-//     { id: 8, name: "Brand 8", logo: "/logo8.png" },
-//   ];
-
-//   return (
-//     <section className="w-full bg-[#1a1a2e] py-12 md:py-16 overflow-hidden">
-//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//         {/* Single Row - Flex instead of Grid */}
-//         <div className="flex items-center justify-center gap-8 md:gap-12 lg:gap-16 flex-wrap md:flex-nowrap">
-//           {brands.map((brand) => (
-//             <div
-//               key={brand.id}
-//               className="flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity duration-300"
-//             >
-//               <img
-//                 src={brand.logo}
-//                 alt={brand.name}
-//                 className="h-10 sm:h-12 md:h-14 lg:h-16 object-contain"
-//                 style={{
-//                   filter:
-//                     "brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%)",
-//                 }}
-//               />
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default BrandsSection;
-
-
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface Brand {
   id: number;
@@ -59,64 +18,137 @@ const brands: Brand[] = [
   { id: 8, name: "Brand 8", logo: "/logo8.png" },
 ];
 
-const SHIFT_BY = 2;
-
 const BrandsSection = () => {
-  const [startIndex, setStartIndex] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(6);
+  const [itemsPerPage, setItemsPerPage] = useState<number>(
+    window.innerWidth < 768 ? 2 : 4
+  );
+  const [currentPage, setCurrentPage] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
-  // responsive items
-  const updateItemsPerPage = () => {
-    if (window.innerWidth < 640) setItemsPerPage(3);       // Mobile
-    else if (window.innerWidth < 1024) setItemsPerPage(4); // Tablet
-    else setItemsPerPage(6);                               // Desktop
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  const handleResize = () => {
+    setItemsPerPage(window.innerWidth < 768 ? 2 : 4);
+    setCurrentPage(0);
   };
 
   useEffect(() => {
-    updateItemsPerPage();
-    window.addEventListener("resize", updateItemsPerPage);
-    return () => window.removeEventListener("resize", updateItemsPerPage);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // auto slide
+  const totalPages = Math.ceil(brands.length / itemsPerPage);
+
+  // Auto slide (pause on hover or touch)
   useEffect(() => {
+    if (isHovered) return;
     const interval = setInterval(() => {
-      setStartIndex((prev) => (prev + SHIFT_BY) % brands.length);
-    }, 4500);
-
+      setCurrentPage((prev) => (prev + 1) % totalPages);
+    }, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [totalPages, isHovered]);
 
-  // get visible brands circularly
-  const visibleBrands = Array.from({ length: itemsPerPage }).map(
-    (_, i) => brands[(startIndex + i) % brands.length]
-  );
+  const getSlideBrands = (pageIndex: number) =>
+    brands.slice(
+      pageIndex * itemsPerPage,
+      pageIndex * itemsPerPage + itemsPerPage
+    );
+
+  const prevSlide = () => {
+    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
+  };
+
+  const nextSlide = () => {
+    setCurrentPage((prev) => (prev + 1) % totalPages);
+  };
+
+  // Touch handlers for mobile swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchEndX.current = null;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+
+    const distance = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 50; // minimum distance for swipe
+
+    if (Math.abs(distance) > minSwipeDistance) {
+      if (distance > 0) {
+        // Swipe left → next slide
+        nextSlide();
+      } else {
+        // Swipe right → previous slide
+        prevSlide();
+      }
+    }
+
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
 
   return (
-    <section className="w-full bg-[#1a1a2e] py-14 overflow-hidden">
-      <div className="w-full px-4 md:px-10 lg:px-14 xl:px-16">
-        <div className="overflow-hidden">
-          <div className="flex transition-all duration-700 ease-in-out">
-            {visibleBrands.map((brand, index) => (
+    <section
+      className="w-full bg-white py-14 overflow-hidden relative"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="max-w-7xl mx-auto px-4 md:px-6 relative">
+        {/* Arrows: Hidden on mobile, visible on larger screens */}
+        <button
+          onClick={prevSlide}
+          className="hidden md:block absolute left-1 sm:left-2 md:left-6 lg:left-20 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-white rounded-full shadow-md hover:bg-gray-100 transition flex items-center justify-center"
+        >
+          <ChevronLeft size={20} />
+        </button>
+
+        <button
+          onClick={nextSlide}
+          className="hidden md:block absolute right-1 sm:right-2 md:right-6 lg:right-20 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-white rounded-full shadow-md hover:bg-gray-100 transition flex items-center justify-center"
+        >
+          <ChevronRight size={20} />
+        </button>
+
+        {/* Slider Container with touch events on mobile */}
+        <div
+          className="overflow-hidden touch-pan-x" // tailwind touch-pan for better feel
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div
+            className="flex transition-transform duration-700 ease-in-out"
+            style={{
+              width: `${totalPages * 100}%`,
+              transform: `translateX(-${currentPage * (100 / totalPages)}%)`,
+            }}
+          >
+            {Array.from({ length: totalPages }).map((_, pageIndex) => (
               <div
-                key={`${brand.id}-${index}`}
-                className={`flex justify-center items-center px-4 ${
-                  itemsPerPage === 3
-                    ? "w-1/3"
-                    : itemsPerPage === 4
-                    ? "w-1/4"
-                    : "w-1/6"
-                }`}
+                key={pageIndex}
+                className="flex items-center justify-center flex-shrink-0"
+                style={{ width: `${100 / totalPages}%` }}
               >
-                <img
-                  src={brand.logo}
-                  alt={brand.name}
-                  className="h-10 sm:h-12 md:h-14 lg:h-16 opacity-70 hover:opacity-100 transition"
-                  style={{
-                    filter:
-                      "brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg)",
-                  }}
-                />
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-3 lg:gap-14 max-w-3xl px-2 w-full">
+                  {getSlideBrands(pageIndex).map((brand) => (
+                    <div
+                      key={brand.id}
+                      className="flex items-center justify-center"
+                    >
+                      <img
+                        src={brand.logo}
+                        alt={brand.name}
+                        className="h-10 sm:h-12 md:h-14 lg:h-16 object-contain hover:opacity-100 transition-opacity duration-300"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>

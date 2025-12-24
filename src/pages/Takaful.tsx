@@ -6,6 +6,7 @@ import Navbar from "../components/common/Navbar";
 import Partner from "../components/car/Partner";
 import InsuranceCard from "../components/Takaful/InsuranceCard";
 import Takafulinfo from "../components/Takaful/takafulinfo/Takaful";
+import BrandsSection from "../components/Home/Brandsection";
 // import Takafulwork from "../components/takafulinfo/Takafulwork"
 const Takaful = () => {
   return (
@@ -30,7 +31,8 @@ const Takaful = () => {
         <InsuranceCard />
       </FadeUp>
       <FadeUp>
-       <Partner/>
+       {/* <Partner/> */}
+       <BrandsSection/>
       </FadeUp>
      <FadeUp>
          <Takafulinfo/>
