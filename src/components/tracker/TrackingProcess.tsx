@@ -9,7 +9,7 @@ export default function TrackingProcess() {
   const [isDragging, setIsDragging] = useState(false);
 
   const stepCards = [
-    { title: "Enter Tracking Details", icon: "/card1.svg", image: "/carhover.jpg", text: "Add shipment, vehicle, or policy information." },
+    { title: "Tracking Details", icon: "/card1.svg", image: "/carhover.jpg", text: "Add shipment, vehicle, or policy information." },
     { title: "System Verification", icon: "/card2.svg", image: "/carhover.jpg", text: "We verify your details instantly." },
     { title: "Connect Providers", icon: "/card3.svg", image: "/carhover.jpg", text: "We link your request with trusted tracking partners." },
     { title: "Live Status Updates", icon: "/card4.svg", image: "/carhover.jpg", text: "Track real-time location and progress." },

@@ -6,18 +6,23 @@ import WhyUsSection from "../components/common/Whyussection";
 import TeamSection from "../components/common/Teammembers";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
+import CustomHero from "../components/common/CustomHero";
 
 const Contactus = () => {
   return (
     <>
       <Navbar />
       <FadeUp>
-      <HeroSection
-        backgroundImage="/Heroimage2.png"
+      {/* <HeroSection
+        backgroundImage="/contact.jpeg"
         title={<>Contact Us</>}
         isCarPage={true}
         height="h-[400px] md:h-[450px] lg:h-[500px]"
         titleSize="text-4xl md:text-5xl"
+      /> */}
+      <CustomHero
+      backgroundImage="/contact2.jpeg"
+  title=""
       />
       </FadeUp>
       <FadeUp>
