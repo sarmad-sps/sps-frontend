@@ -11,7 +11,7 @@ const ItConsulting = () => {
       <Navbar />
       <FadeUp>
        <HeroSection
-        backgroundImage="/Kafalaheroimage.png"
+        backgroundImage="/it-consulting5.png"
         title={
           <>
             IT Consulting
