@@ -280,21 +280,22 @@ const FireTakafulSection = () => {
 
       setFormData({});
       setErrors({});
-    } catch (err: any) {
+    } catch (err: unknown) {
       toast.dismiss();
-      toast.error(err.message || "Something went wrong! Please try again."); // ✅ error toast
+      const errorMessage =
+        err instanceof Error
+          ? err.message
+          : "Something went wrong! Please try again.";
+      toast.error(errorMessage); // ✅ error toast
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="w-full bg-[#F4F9FE] min-h-screen flex items-center justify-center pb-24 ">
-
-
-      <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-8">
-       
-        <div className="flex flex-col md:flex-row justify-between bg-white shadow-md rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 overflow-hidden">
+    <div className="w-full bg-[#F4F9FE]  flex items-start justify-center  md:items-center md:pt-4 ">
+      <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 pt-4">
+        <div className="flex flex-col md:flex-row justify-between bg-white  rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 overflow-hidden">
           {/* Left Section */}
           <div className="flex-1 min-w-0 space-y-4">
             <div className="flex justify-center w-full">

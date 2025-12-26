@@ -103,7 +103,7 @@ const Navbar = () => {
               {/* Right Side */}
               <div className="flex items-center gap-2 sm:gap-4">
                 <a
-                  href="tel:03317495785"
+                  href="tel: 03008492075"
                   className="hidden lg:flex items-center gap-3 border-l border-r border-gray-300 px-6"
                 >
                   <Phone className="w-5 h-5 text-teal-600" />
@@ -157,14 +157,14 @@ const Navbar = () => {
 
                 <div className="mt-4 pt-4 border-t border-gray-200">
                   <a
-                    href="tel:03317495785"
+                    href="tel:03008492075"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center gap-3 px-2 py-4 hover:bg-gray-50 rounded"
                   >
                     <Phone className="w-5 h-5 text-teal-600" />
                     <div>
                       <div className="text-xs text-gray-600">Urgent Call</div>
-                      <div className="font-semibold">03317495785</div>
+                      <div className="font-semibold"> 03008492075</div>
                     </div>
                   </a>
                 </div>
