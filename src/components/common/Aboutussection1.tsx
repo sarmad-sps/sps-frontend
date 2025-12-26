@@ -24,7 +24,7 @@ const AboutUsSection1 = () => {
               </h3>
 
               {/* Avatar Group */}
-              <div className="flex -space-x-3">
+              {/* <div className="flex -space-x-3">
                 <div className="w-12 h-12 rounded-full bg-gray-300 border-2 border-white overflow-hidden">
                   <img
                     src="/Aboutusimage2.jpg"
@@ -53,7 +53,7 @@ const AboutUsSection1 = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 

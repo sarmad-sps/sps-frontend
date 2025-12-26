@@ -169,7 +169,7 @@ const HeroSection = ({
               </button>
               </Link>
 
-              <div className="flex items-center gap-4">
+              {/* <div className="flex items-center gap-4">
                 <div className="flex -space-x-3">
                   <div className="w-12 h-12 rounded-full bg-blue-500 border-2 border-white overflow-hidden">
                     <img
@@ -205,7 +205,7 @@ const HeroSection = ({
                   <p className="font-bold text-lg">+12k Testimonials</p>
                   <p className="text-sm text-gray-300">Client feedback</p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
