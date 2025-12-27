@@ -36,8 +36,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
       <div className="absolute bottom-0 left-0 right-0 p-5 lg:p-7 text-white">
 
-        <h6 className=" font-bold drop-shadow-2xl min-h-[56px] flex items-end">{title}</h6>
-        <p className="text-sm lg:text-sm font-medium mt-1 leading-snug drop-shadow-lg">{text}</p>
+      
 
         <h3 className="text-lg sm:text-xl lg:text-xl font-bold drop-shadow-2xl h-14 leading-tight overflow-hidden line-clamp-2">
           {title}
