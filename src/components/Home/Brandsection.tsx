@@ -95,7 +95,7 @@ const BrandsSection = () => {
 
   return (
     <section
-      className="w-full bg-white py-14 overflow-hidden relative"
+      className="w-full bg-white py-8 overflow-hidden relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -103,14 +103,14 @@ const BrandsSection = () => {
         {/* Arrows: Hidden on mobile, visible on larger screens */}
         <button
           onClick={prevSlide}
-          className="hidden md:block absolute left-1 sm:left-2 md:left-6 lg:left-20 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-white rounded-full shadow-md hover:bg-gray-100 transition flex items-center justify-center"
+          className="hidden md:flex absolute left-1 sm:left-2 md:left-6 lg:left-20 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-white rounded-full shadow-md hover:bg-gray-100 transition  items-center justify-center"
         >
           <ChevronLeft size={20} />
         </button>
 
         <button
           onClick={nextSlide}
-          className="hidden md:block absolute right-1 sm:right-2 md:right-6 lg:right-20 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-white rounded-full shadow-md hover:bg-gray-100 transition flex items-center justify-center"
+          className="hidden md:flex absolute right-1 sm:right-2 md:right-6 lg:right-20 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-white rounded-full shadow-md hover:bg-gray-100 transition  items-center justify-center"
         >
           <ChevronRight size={20} />
         </button>

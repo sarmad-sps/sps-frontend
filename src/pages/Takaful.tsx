@@ -3,7 +3,7 @@ import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
 // import HeroSection from "../components/common/Hero";
 import Navbar from "../components/common/Navbar";
-import Partner from "../components/car/Partner";
+// import Partner from "../components/car/Partner";
 import InsuranceCard from "../components/Takaful/InsuranceCard";
 import Takafulinfo from "../components/Takaful/takafulinfo/Takaful";
 import BrandsSection from "../components/Home/Brandsection";

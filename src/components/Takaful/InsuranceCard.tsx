@@ -16,11 +16,11 @@ const InsuranceCard = () => {
   const HandleFireTClick = () => navigate("/fire-takaful");
 
   return (
-    <div className="w-full bg-[#F4F9FE] min-h-screen h-[400px] flex items-center justify-center pb-24">
-      <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-8">
+    <div className="w-full bg-[#F4F9FE]  flex items-start justify-center  md:items-center md:pt-4 ">
+      <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-4">
         
         {/* Main Card */}
-        <div className="flex flex-col md:flex-row justify-between bg-white shadow-md rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 overflow-hidden">
+        <div className="flex flex-col md:flex-row justify-between bg-white  rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 overflow-hidden">
           {/* Left Section */}
           <div className="flex-1 min-w-0 space-y-4">
             <div className="flex justify-center w-full">

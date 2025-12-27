@@ -47,7 +47,9 @@ const HealthTakaful = () => {
       (field: (typeof healthTakafulFormFields)[number]) => {
         const value = formData[field.name] || "";
         if (field.required && !value.trim()) {
-          newErrors[field.name] = `Enter a valid ${getFieldLabel(field.name).toLowerCase()}`;
+          newErrors[field.name] = `Enter a valid ${getFieldLabel(
+            field.name
+          ).toLowerCase()}`;
         }
 
         if (field.name === "workEmail") {
@@ -92,40 +94,40 @@ const HealthTakaful = () => {
 
       setFormData({});
       setErrors({});
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast.dismiss();
-      toast.error(error.message || "Failed to submit form!"); // ✅ error toaster
+      const errorMessage =
+        error instanceof Error ? error.message : "Failed to submit form!";
+      toast.error(errorMessage); // ✅ error toaster
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="w-full bg-[#F4F9FE] min-h-screen flex items-center justify-center pb-24 ">
-      <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-8">
-        <div className="flex flex-col md:flex-row justify-between bg-white shadow-md rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 overflow-hidden">
+    <div className="w-full bg-[#F4F9FE]  flex items-start justify-center  md:items-center pt-8 ">
+      <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 ">
+        <div className="flex flex-col md:flex-row justify-between bg-white  rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 overflow-hidden">
           {/* Left Section */}
           <div className="flex-1 min-w-0 space-y-4">
-           
-
             <div className="flex justify-center w-full">
-             <img
-  src="/health123.png"
-  alt="Accident Insurance"
-  className="w-36 h-40 sm:w-40 sm:h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 object-contain"
-/>
-
+              <img
+                src="/health123.png"
+                alt="Accident Insurance"
+                className="w-36 h-40 sm:w-40 sm:h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 object-contain"
+              />
             </div>
 
             <div className="text-center space-y-1">
               <h2 className="text-lg font-semibold text-blue-700">
-               Protect Your Health with Takaful
+                Protect Your Health with Takaful
               </h2>
               <p className="text-blue-600 text-sm font-medium">
                 Affordable coverage for individuals and organizations
               </p>
               <p className="text-gray-600 text-xs">
-              Quick online enrollment. Comprehensive health coverage tailored for your needs.
+                Quick online enrollment. Comprehensive health coverage tailored
+                for your needs.
               </p>
             </div>
           </div>
@@ -190,11 +192,13 @@ const HealthTakaful = () => {
                                 <option value="">Number of employees</option>
                                 {healthTakafulFormFields
                                   .find((f) => f.name === "employeeCount")
-                                  ?.options?.map((opt: { value: string; label: string }) => (
-                                    <option key={opt.value} value={opt.value}>
-                                      {opt.label}
-                                    </option>
-                                  ))}
+                                  ?.options?.map(
+                                    (opt: { value: string; label: string }) => (
+                                      <option key={opt.value} value={opt.value}>
+                                        {opt.label}
+                                      </option>
+                                    )
+                                  )}
                               </select>
                               {errors.employeeCount && (
                                 <div className="flex items-center gap-1 text-red-600 text-xs">
@@ -218,11 +222,13 @@ const HealthTakaful = () => {
                               required={field.required}
                             >
                               <option value="">{field.placeholder}</option>
-                              {field.options?.map((opt: { value: string; label: string }) => (
-                                <option key={opt.value} value={opt.value}>
-                                  {opt.label}
-                                </option>
-                              ))}
+                              {field.options?.map(
+                                (opt: { value: string; label: string }) => (
+                                  <option key={opt.value} value={opt.value}>
+                                    {opt.label}
+                                  </option>
+                                )
+                              )}
                             </select>
                             {errors[field.name] && (
                               <div className="flex items-center gap-1 text-red-600 text-xs">
@@ -234,7 +240,9 @@ const HealthTakaful = () => {
                         ) : (
                           <div className="space-y-1">
                             <input
-                              type={field.name === "workEmail" ? "email" : "text"}
+                              type={
+                                field.name === "workEmail" ? "email" : "text"
+                              }
                               name={field.name}
                               value={formData[field.name] || ""}
                               onChange={handleInputChange}
