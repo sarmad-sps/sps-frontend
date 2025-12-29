@@ -73,7 +73,7 @@ const Car = () => {
             </>
           }
           subtitle="Easily compare top insurance providers and find the perfect coverage for your car, all in one place."
-          vehicleImage="/Vehicleinfosection1image1.png"
+          vehicleImage="/Car Smoke.mp4"
         />
       </FadeUp>
       <FadeUp>

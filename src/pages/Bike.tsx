@@ -88,8 +88,9 @@ const bikeInsuranceInfo = {
           </>
         }
         subtitle="Easily compare top insurance providers and find the perfect coverage for your bike, all in one place."
-        vehicleImage="/Bikeimage.png"
+        vehicleImage="/Bike.mp4"
       />
+      
       </FadeUp>
       <FadeUp>
       <VehicleInsuranceForm
