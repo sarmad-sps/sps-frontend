@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react"; // Lucide icons
 
@@ -92,15 +94,50 @@ const ServicesSection: React.FC = () => {
   // Arrow navigation
   const prevSlide = () => setPage((prev) => (prev - 1 + totalPages) % totalPages);
   const nextSlide = () => setPage((prev) => (prev + 1) % totalPages);
+const leftVariant = {
+  hidden: { opacity: 0, x: -60 },
+  visible: { opacity: 1, x: 0 }
+};
+
+const rightVariant = {
+  hidden: { opacity: 0, x: 60 },
+  visible: { opacity: 1, x: 0 }
+};
 
   return (
    <section className="w-full bg-[#F5F8Fc] py-16 md:py-20 relative">
   <div className="w-full px-4 md:px-10 lg:px-14 xl:px-16 2xl:px-18 sm:px-6">
     {/* Section Header */}
-    <div className="text-center mb-12">
+    {/* <div className="text-center mb-12">
       <p className="text-[#1A3970] text-sm md:text-base font-semibold mb-2">Our Services</p>
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black">Services We Offered</h2>
-    </div>
+    </div> */}
+    <div className="text-center mb-12 overflow-hidden">
+  {/* Our Services – from LEFT */}
+  <motion.p
+    variants={leftVariant}
+    initial="hidden"
+    whileInView="visible"
+
+    transition={{ duration: 0.8, ease: "easeOut" }}
+    className="text-[#1A3970] text-sm md:text-base font-semibold mb-2"
+  >
+    Our Services
+  </motion.p>
+
+  {/* Main Heading – from RIGHT */}
+  <motion.h2
+    variants={rightVariant}
+    initial="hidden"
+    whileInView="visible"
+  
+    transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+    className="text-3xl md:text-4xl lg:text-5xl font-bold text-black"
+  >
+    Services We Offered
+  </motion.h2>
+</div>
+
      {/* Left Arrow */}
       <button
         onClick={prevSlide}

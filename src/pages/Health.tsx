@@ -89,7 +89,7 @@ const healthClaimPlans = [
           </>
         }
         subtitle="Compare top health insurance plans and get trusted coverage for you and your family."
-        vehicleImage="/Healthicon.png"
+        vehicleImage="/Health.mp4"
       />
       </FadeUp>
       <FadeUp>

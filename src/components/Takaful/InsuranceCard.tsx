@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { motion,type Variants } from "framer-motion"; 
 import card1 from "../../../public/card1.png";
 import card2 from "../../../public/card2.png";
 import card3 from "../../../public/card3.png";
@@ -15,123 +16,155 @@ const InsuranceCard = () => {
   const HandleBikeTakafulClick = () => navigate("/bike-takaful");
   const HandleFireTClick = () => navigate("/fire-takaful");
 
+  const cardClasses =
+    "group relative flex flex-col items-center justify-center rounded-lg p-4 cursor-pointer bg-white shadow-lg transition-all duration-700 hover:shadow-2xl hover:scale-110 overflow-hidden border border-gray-100";
+
+  const bubbleEffectClasses =
+    "absolute inset-0 rounded-full bg-gradient-to-r from-[#42c3ca]/40 to-[#309df0]/30 scale-0 transition-all duration-1000 ease-out group-hover:scale-150 opacity-0 group-hover:opacity-100 z-0";
+
+  // Explicitly typed variants
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const leftSectionVariants: Variants = {
+    hidden: { opacity: 0, x: -80 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut", // Valid string hai, ab type safe hai
+      },
+    },
+  };
+
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 60, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.7,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const titleVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        delay: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
-    <div className="w-full bg-[#F4F9FE]  flex items-start justify-center  md:items-center md:pt-4 ">
-      <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-4">
-        
-        {/* Main Card */}
-        <div className="flex flex-col md:flex-row justify-between bg-white  rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 overflow-hidden">
-          {/* Left Section */}
-          <div className="flex-1 min-w-0 space-y-4">
-            <div className="flex justify-center w-full">
-              <img
-                src={Takaful}
-                alt="Accident Insurance"
-                className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 object-contain max-w-full mx-auto"
-              />
-            </div>
-            
-
-            <div className="text-center space-y-1">
-              <h2 className="text-lg font-semibold text-blue-700">
-                Secure Your Future with a Personal Accident Plan
-              </h2>
-              <p className="text-gray-600 text-xs">
-                Get accidental death coverage up to Rs. 15 Lakh. Apply online in under 10 minutes.
-              </p>
-            </div>
-          </div>
-
-          {/* Right Section - Cards Grid */}
-          <div className="flex-1 min-w-0 bg-gray-50 rounded-lg shadow-lg p-3 sm:p-4 border border-gray-200">
-            <h3 className="text-center font-semibold text-gray-700 mb-3 sm:mb-4">
-              Takaful
-            </h3>
-
-            <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4">
-
-              {/* Travel Takaful */}
-              <div
-                onClick={HandleTravelTakafulClick}
-                className="group flex flex-col items-center justify-center rounded-lg p-2 sm:p-3 md:p-4 cursor-pointer bg-gray-50 shadow-md hover:shadow-lg transition hover:bg-[#1894A4] hover:text-white"
+    <div className="w-full bg-[#F4F9FE] py-12 px-4 md:px-10 lg:px-16">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={containerVariants}
+        className="max-w-7xl mx-auto"
+      >
+        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+          <div className="flex flex-col lg:flex-row">
+            {/* Left Section */}
+            <motion.div
+              variants={leftSectionVariants}
+              className="flex-1 flex flex-col items-center justify-center p-8 lg:p-12 text-center bg-gradient-to-br from-[#f0fbff] to-[#e6f7ff]"
+            >
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.9, ease: "easeOut" }}
+                className="relative"
               >
+                <div className="absolute inset-0  rounded-full blur-3xl animate-pulse" />
                 <img
-                  src={card1}
-                  alt="Travel"
-                  className="w-8 h-8 sm:w-10 sm:h-10 mb-1 sm:mb-2 transition group-hover:invert"
+                  src={Takaful}
+                  alt="Personal Accident Takaful"
+                  className="w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 object-contain relative z-10 drop-shadow-2xl"
                 />
-                <p className="text-xs sm:text-sm font-medium text-center group-hover:text-white">
-                  Travel Takaful
-                </p>
-              </div>
+              </motion.div>
 
-              {/* Group Health Takaful */}
-              <div
-                onClick={HandleGroupHealthClick}
-                className="group flex flex-col items-center justify-center rounded-lg p-2 sm:p-3 md:p-4 cursor-pointer bg-gray-50 shadow-md hover:shadow-lg transition hover:bg-[#1894A4] hover:text-white"
+              <motion.div variants={titleVariants} className="mt-8 space-y-4">
+                <h2 className="  font-bold text-[#1e72c2]">
+                  Secure Your Future with a Personal Accident Plan
+                </h2>
+                <p className="text-gray-600 text-sm md:text-base max-w-md mx-auto">
+                  Get accidental death coverage up to Rs. 15 Lakh. Apply online in under 10 minutes.
+                </p>
+              </motion.div>
+            </motion.div>
+
+            {/* Right Section - Cards */}
+            <div className="flex-1 p-8 lg:p-12 bg-white">
+              <motion.h3
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="text-center text-2xl font-bold text-gray-800 mb-8"
               >
-                <img
-                  src={card2}
-                  alt="Health"
-                  className="w-8 h-8 sm:w-10 sm:h-10 mb-1 sm:mb-2 transition group-hover:invert"
-                />
-                <p className="text-xs sm:text-sm font-medium text-center group-hover:text-white">
-                  Group Health Takaful
-                </p>
-              </div>
+                Takaful
+              </motion.h3>
 
-              {/* Motor Car Takaful */}
-              <div
-                onClick={HandleCarTakafulClick}
-                className="group flex flex-col items-center justify-center rounded-lg p-2 sm:p-3 md:p-4 cursor-pointer bg-gray-50 shadow-md hover:shadow-lg transition hover:bg-[#1894A4] hover:text-white"
-              >
-                <img
-                  src={card3}
-                  alt="Car"
-                  className="w-8 h-8 sm:w-10 sm:h-10 mb-1 sm:mb-2 transition group-hover:invert"
-                />
-                <p className="text-xs sm:text-sm font-medium text-center group-hover:text-white">
-                  Motor Car Takaful
-                </p>
-              </div>
+              <div className="grid grid-cols-2 gap-6 max-w-lg mx-auto">
+                {/* Cards with motion */}
+                <motion.div variants={cardVariants} whileHover={{ y: -10 }} onClick={HandleTravelTakafulClick} className={`${cardClasses} hover:bg-gradient-to-br hover:from-[#42c3ca] hover:to-[#1e72c2]`}>
+                  <div className={bubbleEffectClasses} />
+                  <img src={card1} alt="Travel" className="w-12 h-12 mb-3 transition-all duration-500 group-hover:invert group-hover:brightness-0 relative z-10" />
+                  <p className="text-base font-semibold relative z-10">Travel Takaful</p>
+                </motion.div>
 
-              {/* Bike Takaful */}
-              <div
-                onClick={HandleBikeTakafulClick}
-                className="group flex flex-col items-center justify-center rounded-lg p-2 sm:p-3 md:p-4 cursor-pointer bg-gray-50 shadow-md hover:shadow-lg transition hover:bg-[#1894A4] hover:text-white"
-              >
-                <img
-                  src={card4}
-                  alt="Bike"
-                  className="w-8 h-8 sm:w-10 sm:h-10 mb-1 sm:mb-2 transition group-hover:invert"
-                />
-                <p className="text-xs sm:text-sm font-medium text-center group-hover:text-white">
-                  Bike Takaful
-                </p>
-              </div>
+                <motion.div variants={cardVariants} whileHover={{ y: -10 }} onClick={HandleGroupHealthClick} className={`${cardClasses} hover:bg-gradient-to-br hover:from-[#42c3ca] hover:to-[#1e72c2]`}>
+                  <div className={bubbleEffectClasses} />
+                  <img src={card2} alt="Health" className="w-12 h-12 mb-3 transition-all duration-500 group-hover:invert group-hover:brightness-0 relative z-10" />
+                  <p className="text-base font-semibold relative z-10">Group Health Takaful</p>
+                </motion.div>
 
-              {/* Fire Takaful */}
-              <div
-                onClick={HandleFireTClick}
-                className="group col-span-2 flex items-center justify-center rounded-lg p-2 sm:p-3 md:p-4 cursor-pointer bg-gray-50 shadow-md hover:shadow-lg transition gap-2 sm:gap-3 hover:bg-[#1894A4] hover:text-white"
-              >
-                <img
-                  src={card5}
-                  alt="Fire"
-                  className="w-10 h-10 sm:w-12 sm:h-12 object-contain transition group-hover:invert"
-                />
-                <p className="text-xs sm:text-sm font-medium text-center group-hover:text-white">
-                  Fire Takaful
-                </p>
-              </div>
+                <motion.div variants={cardVariants} whileHover={{ y: -10 }} onClick={HandleCarTakafulClick} className={`${cardClasses} hover:bg-gradient-to-br hover:from-[#42c3ca] hover:to-[#1e72c2]`}>
+                  <div className={bubbleEffectClasses} />
+                  <img src={card3} alt="Car" className="w-12 h-12 mb-3 transition-all duration-500 group-hover:invert group-hover:brightness-0 relative z-10" />
+                  <p className="text-base font-semibold relative z-10">Motor Car Takaful</p>
+                </motion.div>
 
+                <motion.div variants={cardVariants} whileHover={{ y: -10 }} onClick={HandleBikeTakafulClick} className={`${cardClasses} hover:bg-gradient-to-br hover:from-[#42c3ca] hover:to-[#1e72c2]`}>
+                  <div className={bubbleEffectClasses} />
+                  <img src={card4} alt="Bike" className="w-12 h-12 mb-3 transition-all duration-500 group-hover:invert group-hover:brightness-0 relative z-10" />
+                  <p className="text-base font-semibold relative z-10">Bike Takaful</p>
+                </motion.div>
+
+                <motion.div variants={cardVariants} whileHover={{ y: -10 }} onClick={HandleFireTClick} className={`${cardClasses} col-span-2 hover:bg-gradient-to-br hover:from-[#42c3ca] hover:to-[#1e72c2]`}>
+                  <div className={bubbleEffectClasses} />
+                  <div className="flex items-center justify-center gap-4">
+                    <img src={card5} alt="Fire" className="w-14 h-14 transition-all duration-500 group-hover:invert group-hover:brightness-0 relative z-10" />
+                    <p className="text-lg font-bold relative z-10">Fire Takaful</p>
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
 
 export default InsuranceCard;
-
