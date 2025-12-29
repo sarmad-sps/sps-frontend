@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react"; // Lucide icons
 
@@ -174,15 +172,6 @@ const ServicesSection: React.FC = () => {
   const prevSlide = () =>
     setPage((prev) => (prev - 1 + totalPages) % totalPages);
   const nextSlide = () => setPage((prev) => (prev + 1) % totalPages);
-const leftVariant = {
-  hidden: { opacity: 0, x: -60 },
-  visible: { opacity: 1, x: 0 }
-};
-
-const rightVariant = {
-  hidden: { opacity: 0, x: 60 },
-  visible: { opacity: 1, x: 0 }
-};
 
   return (
     <section className="w-full bg-[#F5F8Fc] py-16 md:py-20 relative">
