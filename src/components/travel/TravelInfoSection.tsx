@@ -5,7 +5,7 @@ const TravelInfoSection = () => {
   return (
     <InsuranceSection
       FormCard={<TravelFormCard />}
-      image="/Travelsectionimage.png"
+      image="/travelinsurance.mp4"
       imageAlt="Travel Insurance"
       tagText="FREE QUOTE"
       title="Find Best Travel Insurance in Pakistan"

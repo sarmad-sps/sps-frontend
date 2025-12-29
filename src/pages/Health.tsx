@@ -10,7 +10,7 @@ import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
 import Carinfo from "../components/car/Carinfo";
 import Claimprocess from "../components/car/Claimprocess";
 // import CoverageHighlights from "../components/car/Coveragehighlight";
-import Partner from "../components/car/Partner"
+// import Partner from "../components/car/Partner"
 import BrandsSection from "../components/Home/Brandsection";
 
 const Health = () => {
@@ -57,7 +57,7 @@ const healthClaimPlans = [
     "Preventive care and wellness support",
     "Customizable plans to suit your health needs",
   ],
-  image: "/healthinsurance.png", // replace with your actual image path
+  image: "/Health Insurance.mp4", // replace with your actual image path
 };
 
   return (

@@ -5,7 +5,7 @@ interface CarInfoProps {
   title?: string;
   description?: string;
   benefits?: string[];
-  image?: string;
+  image?: string;  // image ya video path (extension se detect karega)
 }
 
 const Carinfo: React.FC<CarInfoProps> = ({
@@ -19,8 +19,11 @@ const Carinfo: React.FC<CarInfoProps> = ({
     "24/7 Roadside assistance",
     "Customizable insurance plans to fit your needs",
   ],
-  image = "/Car-Insurance.png",
+  image = "/Car Insurance.mp4",  // default image, lekin video bhi accept karega
 }) => {
+  // Extension check: video hai ya image?
+  const isVideo = /\.(mp4|webm|ogg)$/i.test(image || "");
+
   return (
     <section className="py-16 bg-[#F8FBFF]">
       <div className="max-w-8xl mx-auto px-6 md:px-8 xl:px-4 flex flex-col xl:flex-row items-center xl:items-start gap-10 xl:ml-16">
@@ -49,13 +52,24 @@ const Carinfo: React.FC<CarInfoProps> = ({
           </div>
         </div>
 
-        {/* Right: Image */}
-        <div className=" xl:w-1/2 flex justify-center items-center mt-24 ">
-          <img
-            src={image}
-            alt="Car Insurance Illustration"
-            className="w-full max-w-2xl xl:max-w-full h-auto"
-          />
+        {/* Right: Image or Video */}
+        <div className="xl:w-1/2 flex justify-center items-center ">
+          {isVideo ? (
+            <video
+              src={image}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full max-w-2xl xl:max-w-full h-[500px] rounded-2xl  object-contain"
+            />
+          ) : (
+            <img
+              src={image}
+              alt="Car Insurance Illustration"
+              className="w-full max-w-2xl xl:max-w-full h-auto rounded-2xl shadow-2xl"
+            />
+          )}
         </div>
       </div>
     </section>

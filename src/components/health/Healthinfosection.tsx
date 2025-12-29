@@ -5,7 +5,7 @@ const HealthInfoSection = () => {
   return (
     <InsuranceSection
       FormCard={<HealthFormCard />}
-      image="/Healthsectionimage1.png"
+      image="/Health insurance1.mp4"
       imageAlt="Health Insurance"
       tagText="≫≫ FREE QUOTE ≪≪"
       title="Find Best Health Insurance in Pakistan"
