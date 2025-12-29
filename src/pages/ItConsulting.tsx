@@ -10,23 +10,19 @@ const ItConsulting = () => {
     <div>
       <Navbar />
       <FadeUp>
-       <HeroSection
-        backgroundImage="/it-consulting5.png"
-        title={
-          <>
-            IT Consulting
-          </>
-        }
-        isKafalaPage={true}
-        height="h-[400px] md:h-[450px] lg:h-[500px]"
-        titleSize="text-4xl md:text-5xl"
-      />
+        <HeroSection
+          backgroundImages={["/it-consulting5.png"]}
+          title={<>IT Consulting</>}
+          isKafalaPage={true}
+          height="h-[400px] md:h-[450px] lg:h-[500px]"
+          titleSize="text-4xl md:text-5xl"
+        />
       </FadeUp>
       <FadeUp>
-      <ITConsultingCard/>
+        <ITConsultingCard />
       </FadeUp>
       <FadeUp>
-      <FAQSection />
+        <FAQSection />
       </FadeUp>
       <Footer />
     </div>

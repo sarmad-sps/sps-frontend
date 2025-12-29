@@ -14,28 +14,28 @@ const Pricingplan = () => {
     <>
       <Navbar />
       <FadeUp>
-      <HeroSection
-        backgroundImage="/Heroimage2.png"
-        title={<>Pricing Plan</>}
-        isCarPage={true}
-        height="h-[400px] md:h-[450px] lg:h-[500px]"
-        titleSize="text-4xl md:text-5xl"
-      />
+        <HeroSection
+          backgroundImages={["/Heroimage2.png"]}
+          title={<>Pricing Plan</>}
+          isCarPage={true}
+          height="h-[400px] md:h-[450px] lg:h-[500px]"
+          titleSize="text-4xl md:text-5xl"
+        />
       </FadeUp>
       <FadeUp>
-      <Bestplan />
+        <Bestplan />
       </FadeUp>
       <FadeUp>
-      <AboutUsSection1 />
+        <AboutUsSection1 />
       </FadeUp>
       <FadeUp>
-      <WhyUsSection />
+        <WhyUsSection />
       </FadeUp>
       <FadeUp>
-      <TeamSection />
+        <TeamSection />
       </FadeUp>
       <FadeUp>
-      <FAQSection />
+        <FAQSection />
       </FadeUp>
       <Footer />
     </>
