@@ -56,8 +56,17 @@ const Footer = () => {
               <span className="block">Ready to Work Together</span>
             </h3>
             <Link to="/contactus">
-              <button className="bg-white text-[#1894a4] px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-3 rounded font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
-                Get Free Consultations ≫
+              <button className="relative bg-white text-[#1e3a8a] px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-3 rounded font-semibold overflow-hidden group transition-all duration-300 shadow-md hover:shadow-2xl hover:scale-105 cursor-pointer">
+                {/* Text + Arrow */}
+                <span className="relative z-10 flex items-center gap-2">
+                  Get Free Consultations
+                  <span className="inline-block transform transition-transform duration-300 group-hover:translate-x-2 animate-bounce">
+                    ≫
+                  </span>
+                </span>
+
+                {/* Gradient neon glow */}
+                <span className="absolute inset-0 bg-gradient-to-r from-[#3b82f6] via-[#06b6d4] to-[#9333ea] opacity-0 rounded transition-opacity duration-500 group-hover:opacity-40 animate-pulse blur-lg"></span>
               </button>
             </Link>
           </div>

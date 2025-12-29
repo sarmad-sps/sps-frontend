@@ -13,7 +13,6 @@ import {
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   const navItems = [
     { name: "Car", route: "/car" },
     { name: "Bike", route: "/bike" },

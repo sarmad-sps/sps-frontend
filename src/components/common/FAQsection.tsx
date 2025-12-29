@@ -72,9 +72,13 @@ const FAQSection = () => {
               </div>
             </div>
             <Link to="/contactus">
-            <button className="bg-white text-[#0f1729] px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-4 rounded font-semibold hover:bg-gray-100 transition-colors">
-              Explore More Us ≫
-            </button>
+              <button className=" neon-btn px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-4 ">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Explore More Us ≫
+              </button>
             </Link>
           </div>
 

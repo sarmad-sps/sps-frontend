@@ -115,9 +115,34 @@ const AboutUsSection1 = () => {
             {/* CTA Button */}
             <div className="flex justify-center lg:justify-start">
               <Link to="/aboutus">
-                <button className="bg-[#1A3970] text-white px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-4 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
-                  Learn More
-                </button>
+                <button className="relative px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-4 rounded font-semibold text-white overflow-hidden transition-all duration-500 
+                   bg-gradient-to-r from-[#1A3970] to-[#2ba9b4] 
+                   hover:shadow-[0_0_20px_rgba(26,57,112,0.5)] hover:scale-102 group">
+  {/* Button Text */}
+  <span className="relative z-10 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+    Learn More
+  </span>
+
+  {/* Subtle animated glow overlay */}
+  <span className="absolute inset-0 bg-gradient-to-r from-[#1A3970] to-[#2ba9b4] opacity-0 rounded transition-opacity duration-500 animate-pulse group-hover:opacity-30 pointer-events-none"></span>
+
+  {/* Optional shine effect */}
+  <span className="absolute top-0 left-[-50%] w-1/2 h-full bg-white opacity-20 transform -skew-x-12 animate-shine pointer-events-none"></span>
+
+  <style>
+    {`
+      @keyframes shine {
+        0% { left: -50%; }
+        50% { left: 100%; }
+        100% { left: 100%; }
+      }
+      .animate-shine {
+        animation: shine 1.5s infinite;
+      }
+    `}
+  </style>
+</button>
+
               </Link>
             </div>
           </div>

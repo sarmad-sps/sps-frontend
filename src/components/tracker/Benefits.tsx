@@ -3,7 +3,7 @@ import benefitImg from "/benefit.png";
 import { Link } from "react-router-dom";
 const VehicleTrackingHero: React.FC = () => {
   return (
-    <div className=" bg-gradient-to-br from-blue-50 via-white to-blue-50">
+    <div className=" bg-[#0f172a] transition-colors duration-500">
       <div className="w-full px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20">
         <div className=" mx-auto">
           <div className="py-16 lg:py-24">
@@ -20,11 +20,11 @@ const VehicleTrackingHero: React.FC = () => {
                       BENEFITS
                     </p>
                   </div>
-                  <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
+                  <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold text-[#ffff] leading-tight">
                     Key Features &{" "}
                     <span className="text-[#1894A4]">Benefits</span>
                   </h1>
-                  <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                  <p className="text-[#ffff] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
                     Experience unmatched convenience and security with our
                     advanced vehicle tracking solutions.
                   </p>
@@ -32,9 +32,35 @@ const VehicleTrackingHero: React.FC = () => {
 
                 <div className="flex justify-center lg:justify-start">
                   <Link to="/aboutus">
-                  <button className="bg-[#1A3970] hover:bg-[#142b55] text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-xl text-lg">
-                    Learn More
-                  </button>
+                    <button
+                      className="relative px-8 py-4  font-bold text-lg text-white overflow-hidden transition-all duration-500 
+                   bg-gradient-to-r from-[#1A3970] to-[#2ba9b4] 
+                   hover:shadow-[0_0_20px_rgba(26,57,112,0.5)] hover:scale-105 transform group"
+                    >
+                      {/* Button Text */}
+                      <span className="relative z-10 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+                        Learn More
+                      </span>
+
+                      {/* Subtle animated glow overlay */}
+                      <span className="absolute inset-0 bg-gradient-to-r from-[#1A3970] to-[#2ba9b4] opacity-0 rounded-xl transition-opacity duration-500 animate-pulse group-hover:opacity-30 pointer-events-none"></span>
+
+                      {/* Optional shine effect */}
+                      <span className="absolute top-0 left-[-50%] w-1/2 h-full bg-white opacity-20 transform -skew-x-12 animate-shine pointer-events-none"></span>
+
+                      <style>
+                        {`
+      @keyframes shine {
+        0% { left: -50%; }
+        50% { left: 100%; }
+        100% { left: 100%; }
+      }
+      .animate-shine {
+        animation: shine 1.5s infinite;
+      }
+    `}
+                      </style>
+                    </button>
                   </Link>
                 </div>
 
@@ -46,7 +72,7 @@ const VehicleTrackingHero: React.FC = () => {
                       alt="PTA"
                       className="w-14 h-14 sm:w-16 sm:h-16"
                     />
-                    <p className="text-xs sm:text-sm font-semibold text-gray-500">
+                    <p className="text-xs sm:text-sm font-semibold text-[#ffff]">
                       PTA Approved
                       <br /> Devices
                     </p>
@@ -57,7 +83,7 @@ const VehicleTrackingHero: React.FC = () => {
                       alt="ISO"
                       className="w-14 h-14 sm:w-16 sm:h-16"
                     />
-                    <p className="text-xs sm:text-sm font-semibold text-gray-500">
+                    <p className="text-xs sm:text-sm font-semibold text-[#ffff]">
                       ISO Certified <br /> Devices
                     </p>
                   </div>
@@ -67,7 +93,7 @@ const VehicleTrackingHero: React.FC = () => {
                       alt="PCSIR"
                       className="w-14 h-14 sm:w-16 sm:h-16"
                     />
-                    <p className="text-xs sm:text-sm font-medium text-gray-500 text-center leading-tight">
+                    <p className="text-xs sm:text-sm font-medium text-[#ffff] text-center leading-tight">
                       Certified from Pakistan
                       <br />
                       Council of Scientific & Industrial Research
@@ -111,7 +137,7 @@ const VehicleTrackingHero: React.FC = () => {
                       <h3 className="font-bold text-blue-900 text-lg mb-3">
                         {feature.title}
                       </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed px-2">
+                      <p className="text-gray-400 text-sm leading-relaxed px-2">
                         {feature.desc}
                       </p>
                     </div>
@@ -120,7 +146,7 @@ const VehicleTrackingHero: React.FC = () => {
 
                 {/* Main Image - Perfectly Responsive */}
                 <div className="relative mx-auto sm:mx-0 mt-10 lg:mt-16">
-                  <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-8 sm:border-[12px] border-white">
+                  <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-8 sm:border-[12px] ">
                     <img
                       src={benefitImg}
                       alt="Vehicle Tracking System"
