@@ -86,7 +86,7 @@ const travelInsuranceInfo = {
             </>
           }
           subtitle="Compare top travel insurance plans and get trusted coverage for all your adventures, anywhere in the world."
-          vehicleImage="/Travelicon.png"
+          vehicleImage="/Travel.mp4"
         />
       </FadeUp>
       <FadeUp>
