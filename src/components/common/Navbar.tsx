@@ -28,7 +28,7 @@ const Navbar = () => {
     <>
       <div className="fixed top-0 left-0 w-full z-[999] bg-white shadow-md">
         {/* Top Blue Bar */}
-        <nav className={`w-full bg-[#1894a4]`}>
+        <nav className={`w-full bg-gradient-to-r from-[#1a3a5c] to-[#1f7b85] animate-gradient-shift`}>
           <div className="text-white px-4 sm:px-4 py-2 sm:py-3">
             <div className="flex items-center justify-between text-xs sm:text-sm lg:pl-8 w-full">
               <div className="flex-1 flex gap-2 sm:gap-6 min-w-0">

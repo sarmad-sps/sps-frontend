@@ -8,7 +8,7 @@ import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
 // import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
 import { bikeFormFields } from "../config/formFields";
 import ClaimProcess from "../components/car/Claimprocess";
-import Partner from "../components/car/Partner"
+// import Partner from "../components/car/Partner"
 import Carinfo from "../components/car/Carinfo";
 import BrandsSection from "../components/Home/Brandsection";
 
@@ -56,7 +56,7 @@ const bikeInsuranceInfo = {
       "24/7 Roadside assistance",
       "Customizable insurance plans",
     ],
-    image: "/bikeinsurance.jpg",
+    image: "/Bike Delivery.mp4",
   };
 
   return (

@@ -161,7 +161,7 @@ const Footer = () => {
                 </p>
               </div>
 
-              <h4 className="text-xl font-bold text-white mb-4 mt-8">
+              <h4 className="text-xl font-bold text-white mb-4 ">
                 Branch Office
               </h4>
               <div className="flex gap-3 items-start">
@@ -195,12 +195,14 @@ const Footer = () => {
                   href="mailto:contact@securepathsolutions.com"
                   className="text-gray-400 text-sm hover:text-[#1894a4] transition-colors"
                 >
-                  contact@securepathsolutions.com
+                  contact@securepathsolution.com
                 </a>
               </div>
 
               <p className="text-gray-500 text-xs">
-                Copyright 2025 Frmlux. All Rights reserved by Raye Themes
+                © 2025 Secure Path Solutions. All Rights Reserved.
+
+
               </p>
             </div>
           </div>

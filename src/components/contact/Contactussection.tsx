@@ -86,9 +86,9 @@ export default function ContactUsSection() {
      <div className="relative z-10 w-full px-4 md:px-10 lg:px-16">
         {/* Header */}
         <div className="text-center mb-12">
-          <p className="text-gray-600 text-sm md:text-base font-semibold mb-3">
+          {/* <p className="text-gray-600 text-sm md:text-base font-semibold mb-3">
             Contact
-          </p>
+          </p> */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
             <span className="text-[#1894a4]">We Always Ready</span>{" "}
             <span className="text-black">To Help You</span>

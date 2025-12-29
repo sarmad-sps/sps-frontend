@@ -8,7 +8,7 @@ import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
 import ClaimProcess from "../components/car/Claimprocess";
 import Carinfo from "../components/car/Carinfo";
-import Partner from "../components/car/Partner"
+// import Partner from "../components/car/Partner"
 import BrandsSection from "../components/Home/Brandsection";
 const Travel = () => {
 const travelClaimPlans = [
@@ -54,7 +54,7 @@ const travelInsuranceInfo = {
     "24/7 travel assistance services",
     "Customizable plans to suit your travel needs",
   ],
-  image: "/travelinsurance.webp", // replace with your actual image path
+  image: "/travelanimation.mp4", // replace with your actual image path
 };
 
   return (

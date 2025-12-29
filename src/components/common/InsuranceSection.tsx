@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 interface InsuranceSectionProps {
   FormCard: ReactNode;
-  image: string;
+  image: string;  // image ya video path (extension se detect karega)
   imageAlt: string;
   tagText: string;
   title: string;
@@ -19,6 +19,9 @@ const InsuranceSection = ({
   description,
   backgroundColor = "bg-gradient-to-b from-blue-50 to-white",
 }: InsuranceSectionProps) => {
+  // Check if it's a video file
+  const isVideo = /\.(mp4|webm|ogg)$/i.test(image);
+
   return (
     <section className={`w-full ${backgroundColor} py-16 md:py-20`}>
       <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18"> 
@@ -28,13 +31,24 @@ const InsuranceSection = ({
 
           {/* Right Side - Content */}
           <div>
-            {/* Illustration */}
+            {/* Illustration (Image or Video) */}
             <div className="mb-8">
-              <img
-                src={image}
-                alt={imageAlt}
-                className="w-full max-w-md mx-auto"
-              />
+              {isVideo ? (
+                <video
+                  src={image}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full max-w-md mx-auto rounded-lg object-contain"
+                />
+              ) : (
+                <img
+                  src={image}
+                  alt={imageAlt}
+                  className="w-full max-w-md mx-auto rounded-lg"
+                />
+              )}
             </div>
 
             {/* Text Content */}
