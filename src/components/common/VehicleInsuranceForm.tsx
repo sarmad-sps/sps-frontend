@@ -1,5 +1,6 @@
 // src/components/VehicleInsuranceForm.tsx
 import { useState, useEffect } from "react";
+import "./Button.css";
 import Freeqouteinsurance from "./Freeqouteinsurance";
 import {
   Calendar,
@@ -64,7 +65,7 @@ const VehicleInsuranceForm = ({
   const [selectedQuote, setSelectedQuote] = useState<InsuranceQuote | null>(
     null
   );
-  
+
   // NEW: Carousel state with sliding animation
   const [currentSlide, setCurrentSlide] = useState(0);
   const [cardsPerSlide, setCardsPerSlide] = useState(4);
@@ -577,8 +578,6 @@ const VehicleInsuranceForm = ({
 
   return (
     <>
-     
-
       <section className="w-full bg-[#F4F9FE] pt-2 md:pt-4 pb-8 md:pb-12">
         <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 xl:max-w-8xl 2xl: max-w-9xl mx-auto">
           {/* Progress Steps */}
@@ -622,7 +621,7 @@ const VehicleInsuranceForm = ({
               </div>
 
               <div className="flex justify-center mt-8">
-                <button
+                {/* <button
                   onClick={handleCheckInfo}
                   disabled={loading}
                   className="relative bg-[#1A3970] text-white px-12 py-4 rounded font-semibold hover:bg-[#2A4D8F] transition-all flex items-center gap-3 disabled:opacity-70"
@@ -635,6 +634,48 @@ const VehicleInsuranceForm = ({
                   ) : (
                     "Check Info"
                   )}
+                </button> */}
+                <button
+                  onClick={handleCheckInfo}
+                  disabled={loading}
+                  className="relative px-12 py-4 rounded-full font-bold text-white overflow-hidden flex items-center gap-3 
+             disabled:opacity-70 transition-all duration-500 
+             bg-[length:200%_auto] bg-gradient-to-r from-[#1A3970] via-[#2ba9b4] to-[#1A3970]
+             hover:bg-right hover:shadow-[0_0_40px_-5px_#2ba9b4] hover:scale-105 active:scale-95 group"
+                >
+                  {/* Glassy Border Overlay */}
+                  <span className="absolute inset-0 rounded-full border border-white/20 pointer-events-none z-20"></span>
+
+                  <span className="relative z-10 flex items-center gap-3 tracking-wide">
+                    {loading ? (
+                      <>
+                        <span className="animate-spin border-2 border-white border-t-transparent w-5 h-5 rounded-full"></span>
+                        <span className="animate-pulse">Calculating...</span>
+                      </>
+                    ) : (
+                      <>
+                        Check Info
+                        <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">
+                          →
+                        </span>
+                      </>
+                    )}
+                  </span>
+
+                  {/* Smooth Shimmer Shine */}
+                  <span className="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-[35deg] -translate-x-full group-hover:animate-refined-shine pointer-events-none"></span>
+
+                  <style>
+                    {`
+      @keyframes refined-shine {
+        from { transform: translateX(-150%) skewX(-35deg); }
+        to { transform: translateX(150%) skewX(-35deg); }
+      }
+      .group:hover .animate-refined-shine {
+        animation: refined-shine 1.5s infinite linear;
+      }
+    `}
+                  </style>
                 </button>
               </div>
 
@@ -667,31 +708,37 @@ const VehicleInsuranceForm = ({
                     {/* Sliding Container */}
                     <div className="overflow-hidden px-2 pt-6 bg-white">
                       <div
-                        className="flex transition-transform  duration-500 ease-in-out h-[450px]"                        style={{
+                        className="flex transition-transform  duration-500 ease-in-out h-[450px]"
+                        style={{
                           transform: `translateX(-${currentSlide * 100}%)`,
                         }}
                       >
                         {/* Create slides by grouping cards */}
-                        {Array.from({ length: totalSlides }).map((_, slideIndex) => {
-                          const startIdx = slideIndex * cardsPerSlide;
-                          const slideQuotes = insuranceQuotes.slice(
-                            startIdx,
-                            startIdx + cardsPerSlide
-                          );
+                        {Array.from({ length: totalSlides }).map(
+                          (_, slideIndex) => {
+                            const startIdx = slideIndex * cardsPerSlide;
+                            const slideQuotes = insuranceQuotes.slice(
+                              startIdx,
+                              startIdx + cardsPerSlide
+                            );
 
-                          return (
-                            <div
-                              key={slideIndex}
-                              className="flex-shrink-0 w-full"
-                            >
-                              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 px-2">
-                                {slideQuotes.map((quote) => (
-                                  <InsuranceCard key={quote.id} quote={quote} />
-                                ))}
+                            return (
+                              <div
+                                key={slideIndex}
+                                className="flex-shrink-0 w-full"
+                              >
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 px-2">
+                                  {slideQuotes.map((quote) => (
+                                    <InsuranceCard
+                                      key={quote.id}
+                                      quote={quote}
+                                    />
+                                  ))}
+                                </div>
                               </div>
-                            </div>
-                          );
-                        })}
+                            );
+                          }
+                        )}
                       </div>
                     </div>
 
@@ -712,7 +759,9 @@ const VehicleInsuranceForm = ({
                         key={index}
                         onClick={() => setCurrentSlide(index)}
                         className={`h-2 rounded-full transition-all duration-300 ${
-                          currentSlide === index ? "bg-[#1894a4] w-10" : "bg-gray-300 w-2"
+                          currentSlide === index
+                            ? "bg-[#1894a4] w-10"
+                            : "bg-gray-300 w-2"
                         }`}
                         aria-label={`Go to slide ${index + 1}`}
                       />
@@ -721,7 +770,7 @@ const VehicleInsuranceForm = ({
 
                   {/* Final Proceed Button */}
                   <div className="flex justify-center mt-10">
-                    <button
+                    {/* <button
                       onClick={() =>
                         selectedQuote && handleProceed(selectedQuote.id)
                       }
@@ -743,6 +792,62 @@ const VehicleInsuranceForm = ({
                           <ChevronRightIcon className="w-6 h-6" />
                         </>
                       )}
+                    </button> */}
+                    <button
+                      onClick={() =>
+                        selectedQuote && handleProceed(selectedQuote.id)
+                      }
+                      disabled={!selectedQuote || proceedLoading !== null}
+                      className={`fancy-btn px-16 py-5 rounded-lg font-bold text-lg transition-all flex items-center gap-3 relative overflow-hidden ${
+                        selectedQuote && proceedLoading === null
+                          ? "bg-transparent text-black shadow-none hover:bg-transparent"
+                          : "bg-transparent text-gray-400 cursor-not-allowed"
+                      }`}
+                    >
+                      {/* SVG BORDER */}
+                      <svg
+                        className="absolute inset-0 w-full h-full"
+                        viewBox="0 0 300 80"
+                        preserveAspectRatio="none"
+                      >
+                        <rect
+                          className="fancy-line fancy-outer"
+                          x="4"
+                          y="4"
+                          width="292"
+                          height="72"
+                          rx="36"
+                          stroke="#1A3970"
+                          strokeWidth="8"
+                          fill="none"
+                        />
+                        <rect
+                          className="fancy-line fancy-inner"
+                          x="4"
+                          y="4"
+                          width="292"
+                          height="72"
+                          rx="36"
+                          stroke="#2ba9b4"
+                          strokeWidth="4"
+                          fill="none"
+                        />
+                      </svg>
+
+                      {/* BUTTON CONTENT */}
+                      <span className="relative z-10 flex items-center gap-3">
+                        {proceedLoading !== null ? (
+                          <>
+                            <span className="animate-spin border-2 border-black border-t-transparent w-6 h-6 rounded-full"></span>
+                            Processing...
+                          </>
+                        ) : (
+                          <>
+                            Confirm & Proceed
+                            <ChevronRightIcon className="w-6 h-6 text-black" />
+                          </>
+                        )}
+                      </span>
                     </button>
                   </div>
                 </div>

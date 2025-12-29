@@ -57,11 +57,11 @@ const ProgressBar: React.FC<{
 
 const HeaderSection: React.FC = () => {
   const mainColor = "bg-[#1894A4]";
-  const darkBlueText = "text-[#1F3A6A]";
-  const lightGreyText = "text-gray-600";
+  const darkBlueText = "text-[#ffff]";
+  const lightGreyText = "text-gray-400";
 
   return (
-    <section className="bg-white py-16 w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 relative overflow-hidden">
+    <section className="bg-[#020617] py-16 w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 relative overflow-hidden">
       <div className="max-w-8xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
         {/* Left Images */}
         <div className="relative w-full lg:w-1/2 h-[400px] sm:h-[500px] lg:h-[550px] flex items-center justify-center">
@@ -92,9 +92,38 @@ const HeaderSection: React.FC = () => {
           />
 
           {/* Experience Tag */}
-          <div className="absolute top-4 sm:top-8 lg:top-10 left-8 sm:left-12 lg:left-20 bg-[#1894A4] text-white font-bold text-sm sm:text-base lg:text-lg px-4 py-4 sm:px-5 sm:py-5 lg:px-6 lg:py-6 rounded-lg shadow-lg z-20">
-            50+ <br /> Years of <br /> Experience
-          </div>
+          <div className="absolute top-4 sm:top-8 lg:top-10 left-8 sm:left-12 lg:left-20 
+                /* Colors & Gradient */
+                bg-[length:200%_200%] bg-gradient-to-br from-[#1A3970] via-[#2BA9B4] to-[#1A3970]
+                animate-gradient-flow shadow-xl shadow-[#1A3970]/30
+                /* Layout */
+                text-white font-bold text-sm sm:text-base lg:text-lg 
+                px-4 py-4 sm:px-5 sm:py-5 lg:px-6 lg:py-6 
+                rounded-2xl z-20 flex flex-col items-center justify-center text-center
+                /* Subtle Floating Animation */
+                hover:scale-105 transition-transform duration-500 ease-in-out">
+  
+  {/* The Number - Highlighted */}
+  <span className="text-2xl sm:text-3xl lg:text-4xl block mb-1 drop-shadow-md">50+</span>
+  
+  {/* The Text - Clean Spacing */}
+  <span className="leading-tight opacity-90 tracking-wide uppercase text-[10px] sm:text-xs lg:text-sm">
+    Years of <br /> Experience
+  </span>
+
+  <style>
+    {`
+      @keyframes gradient-flow {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .animate-gradient-flow {
+        animation: gradient-flow 6s ease infinite;
+      }
+    `}
+  </style>
+</div>
         </div>
 
         {/* Right Text */}
@@ -120,7 +149,7 @@ const HeaderSection: React.FC = () => {
             Delivering smart, fast and secure tracking solutions for everyone.
           </p>
 
-          <p className="text-gray-500 text-sm mb-8 leading-relaxed">
+          <p className="text-gray-400 text-sm mb-8 leading-relaxed">
             We provide reliable GPS tracking with real-time monitoring, strong
             connectivity and complete safety for your vehicles.
           </p>
@@ -144,14 +173,38 @@ const HeaderSection: React.FC = () => {
             ,
             <Link to="/aboutus">
               <button
-                className={`${mainColor} hover:bg-[#009E97] text-white px-8 py-3 rounded-lg font-bold flex items-center gap-2 transition-colors duration-300 shadow-lg group`}
+                className={`relative px-8 py-3  font-bold flex items-center gap-2 text-white overflow-hidden transition-all duration-500 
+              bg-gradient-to-r from-[#1A3970] to-[#2ba9b4] 
+              hover:shadow-[0_0_20px_rgba(26,57,112,0.5)] hover:scale-105 transform group`}
               >
-                Read More
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                {/* Button Text + Arrow */}
+                <span className="relative z-10 flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
+                  Read More
+                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
+                </span>
+
+                {/* Subtle animated glow overlay */}
+                <span className="absolute inset-0 bg-gradient-to-r from-[#1A3970] to-[#2ba9b4] opacity-0 rounded-lg transition-opacity duration-500 animate-pulse group-hover:opacity-30 pointer-events-none"></span>
+
+                {/* Optional shine effect */}
+                <span className="absolute top-0 left-[-50%] w-1/2 h-full bg-white opacity-20 transform -skew-x-12 animate-shine pointer-events-none"></span>
+
+                <style>
+                  {`
+      @keyframes shine {
+        0% { left: -50%; }
+        50% { left: 100%; }
+        100% { left: 100%; }
+      }
+      .animate-shine {
+        animation: shine 1.5s infinite;
+      }
+    `}
+                </style>
               </button>
             </Link>
             <div className="flex items-center text-gray-700 font-semibold">
-              <Phone className="w-5 h-5 mr-2 text-gray-500" />
+              <Phone className="w-5 h-5 mr-2 text-[#ffff]" />
               <span>
                 Call Anytime <br /> 03008492075
               </span>

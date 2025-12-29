@@ -12,13 +12,27 @@ import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
 import Benefits from "../components/tracker/Benefits";
 import Services from "../components/tracker/Services";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 const Tracker = () => {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [hash]);
+
   return (
     <div>
       <Navbar />
       <FadeUp>
         <Hero
-          backgroundImage="/trackerhero.jpg"
+          backgroundImages={["/trackerhero.jpg"]}
           title={<>Find What Are You Looking For</>}
           isTrackerPage={true}
           height="h-[400px] md:h-[450px] lg:h-[500px]"
@@ -28,9 +42,9 @@ const Tracker = () => {
       <FadeUp>
         <TrackingProcess />
       </FadeUp>
-      <FadeUp>
+      {/* <FadeUp>
         <ChoosingProcess />
-      </FadeUp>
+      </FadeUp> */}
       <FadeUp>
         <Benefits />
       </FadeUp>

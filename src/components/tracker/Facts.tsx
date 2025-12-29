@@ -3,7 +3,7 @@ import { Car, Gauge, Tag, MapPin } from "lucide-react";
 
 const TrackingServiceSection: React.FC = () => {
   return (
-    <section className="w-full bg-[#f8fbff] py-16 px-4 md:px-10 lg:px-14  2xl:px-18 overflow-hidden">
+    <section className="w-full bg-[#020617] py-16 px-4 md:px-10 lg:px-14  2xl:px-18 overflow-hidden">
       <div className="max-w-8xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* LEFT COLUMN — TEXT + STATS */}
@@ -16,7 +16,7 @@ const TrackingServiceSection: React.FC = () => {
                   Essentials Facts
                 </p>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-400 leading-tight">
                 TRACK YOUR VEHICLES WITH EASE AND CONFIDENCE
               </h2>
 

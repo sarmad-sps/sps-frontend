@@ -65,7 +65,7 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <section className="relative py-8 md:py-10 lg:py-12 bg-[#0a0e17] text-white overflow-hidden w-full px-4 md:px-10 lg:px-10 2xl:px-18">
+    <section id="tracker-form" className="relative py-8 md:py-10 lg:py-12 bg-[#0a0e17] text-white overflow-hidden w-full px-4 md:px-10 lg:px-10 2xl:px-18">
       <div className="max-w-8xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 
@@ -138,10 +138,10 @@ const ContactSection: React.FC = () => {
                       errors.service ? 'border-red-500' : 'border-[#1f293a] focus:border-[#1ca9c9]'
                     }`}
                   >
-                    <option value="" disabled>Service</option>
-                    <option value="Web">Web</option>
-                    <option value="SEO">SEO</option>
-                    <option value="Marketing">Marketing</option>
+                    <option value="" disabled>Packages</option>
+                    <option value="Web">Track me</option>
+                    <option value="SEO">Secure me</option>
+                    <option value="Marketing">Fleet minder</option>
                   </select>
                   <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
                   {errors.service && <span className="text-red-500 text-xs mt-1">{errors.service}</span>}
