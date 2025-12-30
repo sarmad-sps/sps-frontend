@@ -32,7 +32,7 @@ const Tracker = () => {
       <Navbar />
       <FadeUp>
         <Hero
-          backgroundImages={["/trackerhero.jpg"]}
+          backgroundImages={["/Tracking desktop.png"]}
           title={<>Find What Are You Looking For</>}
           isTrackerPage={true}
           height="h-[400px] md:h-[450px] lg:h-[500px]"

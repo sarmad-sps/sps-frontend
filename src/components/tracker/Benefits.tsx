@@ -3,7 +3,7 @@ import benefitImg from "/benefit.png";
 import { Link } from "react-router-dom";
 const VehicleTrackingHero: React.FC = () => {
   return (
-    <div className=" bg-[#0f172a] transition-colors duration-500">
+    <div className=" bg-[#1C4D8D] transition-colors duration-500">
       <div className="w-full px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20">
         <div className=" mx-auto">
           <div className="py-16 lg:py-24">
@@ -16,13 +16,13 @@ const VehicleTrackingHero: React.FC = () => {
                       src="/splogo.png"
                       className="w-9 h-9 sm:w-11 sm:h-11"
                     />
-                    <p className="text-[#1894A4] font-bold text-sm uppercase tracking-wider">
+                    <p className="text-[#ffff] font-bold text-sm uppercase tracking-wider">
                       BENEFITS
                     </p>
                   </div>
                   <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold text-[#ffff] leading-tight">
                     Key Features &{" "}
-                    <span className="text-[#1894A4]">Benefits</span>
+                    <span className="text-[#ffff]">Benefits</span>
                   </h1>
                   <p className="text-[#ffff] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
                     Experience unmatched convenience and security with our
@@ -134,10 +134,10 @@ const VehicleTrackingHero: React.FC = () => {
                           className="w-9 h-9"
                         />
                       </div>
-                      <h3 className="font-bold text-blue-900 text-lg mb-3">
+                      <h3 className="font-bold text-[#ffff] text-lg mb-3">
                         {feature.title}
                       </h3>
-                      <p className="text-gray-400 text-sm leading-relaxed px-2">
+                      <p className="text-black-400 text-sm leading-relaxed px-2">
                         {feature.desc}
                       </p>
                     </div>

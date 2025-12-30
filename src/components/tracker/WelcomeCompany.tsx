@@ -37,7 +37,7 @@ const ProgressBar: React.FC<{
   return (
     <div className="mb-6" ref={ref}>
       <div className="flex justify-between items-center mb-2">
-        <span className="text-gray-700 font-semibold text-sm md:text-base">
+        <span className="text-[#ffff] font-semibold text-sm md:text-base">
           {label}
         </span>
         <span className="text-[#1894A4] font-bold text-lg">{percentage}%</span>
@@ -56,12 +56,12 @@ const ProgressBar: React.FC<{
 };
 
 const HeaderSection: React.FC = () => {
-  const mainColor = "bg-[#1894A4]";
+  const mainColor = "bg-[#f97316]";
   const darkBlueText = "text-[#ffff]";
-  const lightGreyText = "text-gray-400";
+  const lightGreyText = "text-[#ffff]";
 
   return (
-    <section className="bg-[#020617] py-16 w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 relative overflow-hidden">
+    <section className="bg-[#1C4D8D] py-16 w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 relative overflow-hidden">
       <div className="max-w-8xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
         {/* Left Images */}
         <div className="relative w-full lg:w-1/2 h-[400px] sm:h-[500px] lg:h-[550px] flex items-center justify-center">
@@ -134,7 +134,7 @@ const HeaderSection: React.FC = () => {
               alt="SP Logo"
               className="w-6 h-6 object-contain"
             />
-            <p className="text-[#1894A4] font-bold text-xs sm:text-sm tracking-widest uppercase">
+            <p className="text-[#ffff] font-bold text-xs sm:text-sm tracking-widest uppercase">
               About Secure Path
             </p>
           </p>
@@ -149,7 +149,7 @@ const HeaderSection: React.FC = () => {
             Delivering smart, fast and secure tracking solutions for everyone.
           </p>
 
-          <p className="text-gray-400 text-sm mb-8 leading-relaxed">
+          <p className="text-[#ffff] text-sm mb-8 leading-relaxed">
             We provide reliable GPS tracking with real-time monitoring, strong
             connectivity and complete safety for your vehicles.
           </p>
@@ -203,7 +203,7 @@ const HeaderSection: React.FC = () => {
                 </style>
               </button>
             </Link>
-            <div className="flex items-center text-gray-700 font-semibold">
+            <div className="flex items-center text-[#ffff] font-semibold">
               <Phone className="w-5 h-5 mr-2 text-[#ffff]" />
               <span>
                 Call Anytime <br /> 03008492075
