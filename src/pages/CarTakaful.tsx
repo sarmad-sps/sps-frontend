@@ -70,7 +70,7 @@ const CarTakaful = () => {
             </>
           }
           subtitle="Compare top Takaful providers and find trusted coverage for your car with ease."
-          vehicleImage="/Vehicleinfosection1image1.png"
+          vehicleImage="/Car Smoke.mp4"
         />
       </FadeUp>
 

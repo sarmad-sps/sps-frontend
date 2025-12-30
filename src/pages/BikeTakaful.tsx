@@ -69,7 +69,7 @@ const BikeTakaful = () => {
           </>
         }
         subtitle="Compare top Takaful providers and find trusted coverage for your bike with ease."
-        vehicleImage="/Bikeimage.png"
+        vehicleImage="/Bike.mp4"
       />
       </FadeUp>
      

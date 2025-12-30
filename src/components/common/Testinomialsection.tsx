@@ -43,13 +43,13 @@ const TestimonialsSection = () => {
 
               {/* Author Info */}
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gray-300 overflow-hidden">
+                {/* <div className="w-12 h-12 rounded-full bg-gray-300 overflow-hidden">
                   <img
                     src="/Testinomialimage3.jpg"
                     alt="Ronald B. Griffin"
                     className="w-full h-full object-cover"
                   />
-                </div>
+                </div> */}
                 <div>
                   <h4 className="text-lg font-bold text-black">Maria</h4>
                   <p className="text-sm text-[#1894a4]">Business Manager</p>
@@ -63,7 +63,7 @@ const TestimonialsSection = () => {
             {/* Main Image */}
             <div className="rounded-2xl overflow-hidden">
               <img
-                src="/Testinomialimage1.png"
+                src="/testimonial.png"
                 alt="Happy customers"
                 className="w-full h-[400px] md:h-[500px] object-contain"
               />

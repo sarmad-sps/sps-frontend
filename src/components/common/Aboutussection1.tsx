@@ -11,14 +11,22 @@ const AboutUsSection1 = () => {
             {/* Main Image */}
             <div className="rounded-2xl overflow-hidden">
               <img
-                src="/Aboutusimage.png"
+                src="/about.png"
                 alt="Business professionals"
                 className="w-full h-[500px] md:h-[650px] lg:h-[700px] object-cover"
               />
             </div>
 
             {/* Blue Card Overlay */}
-            <div className="absolute bottom-8 right-0  bg-[#1A3970] text-white p-8 rounded-2xl shadow-2xl w-full max-w-none lg:max-w-lg">
+           <div
+  className="absolute bottom-8 right-0 
+             bg-gradient-to-r from-[#1A3970] to-[#2ba9b4]
+             text-white p-8 rounded-2xl shadow-2xl
+             w-full max-w-none lg:max-w-lg
+             transition-all duration-500
+             hover:shadow-[0_0_25px_rgba(26,57,112,0.5)]"
+>
+
               <h3 className="text-xl font-bold mb-6 leading-relaxed lg:right-8 ">
                 We Have 25 Years Of Experience in Business Consulting Services
               </h3>
@@ -55,6 +63,8 @@ const AboutUsSection1 = () => {
                 </div>
               </div> */}
             </div>
+            
+            
           </div>
 
           {/* Right Side - Content */}
