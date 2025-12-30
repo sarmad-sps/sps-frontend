@@ -44,7 +44,7 @@ export default function WhyUsSection2() {
           <div className="relative lg:bg-transparent bg-[#E3EFF0] rounded-2xl lg:rounded-none p-4 lg:p-0">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/Whyussection2image1.png"
+                src="/growth.png"
                 alt="Team collaboration"
                 className="w-full h-[530px] object-cover"
               />

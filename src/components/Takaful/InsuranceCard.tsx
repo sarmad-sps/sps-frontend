@@ -108,7 +108,7 @@ const InsuranceCard = () => {
                   Secure Your Future with a Personal Accident Plan
                 </h2>
                 <p className="text-gray-600 text-sm md:text-base max-w-md mx-auto">
-                  Get accidental death coverage up to Rs. 15 Lakh. Apply online in under 10 minutes.
+                  Get accident protection benefits. Apply online in under 10 minutes.
                 </p>
               </motion.div>
             </motion.div>
@@ -130,32 +130,32 @@ const InsuranceCard = () => {
                 <motion.div variants={cardVariants} whileHover={{ y: -10 }} onClick={HandleTravelTakafulClick} className={`${cardClasses} hover:bg-gradient-to-br hover:from-[#42c3ca] hover:to-[#1e72c2]`}>
                   <div className={bubbleEffectClasses} />
                   <img src={card1} alt="Travel" className="w-12 h-12 mb-3 transition-all duration-500 group-hover:invert group-hover:brightness-0 relative z-10" />
-                  <p className="text-base font-semibold relative z-10">Travel Takaful</p>
+                  <p className="text-base font-semibold relative z-10 group-hover:invert group-hover:brightness-0">Travel Takaful</p>
                 </motion.div>
 
                 <motion.div variants={cardVariants} whileHover={{ y: -10 }} onClick={HandleGroupHealthClick} className={`${cardClasses} hover:bg-gradient-to-br hover:from-[#42c3ca] hover:to-[#1e72c2]`}>
                   <div className={bubbleEffectClasses} />
                   <img src={card2} alt="Health" className="w-12 h-12 mb-3 transition-all duration-500 group-hover:invert group-hover:brightness-0 relative z-10" />
-                  <p className="text-base font-semibold relative z-10">Group Health Takaful</p>
+                  <p className="text-base font-semibold relative z-10 group-hover:invert group-hover:brightness-0">Group Health Takaful</p>
                 </motion.div>
 
                 <motion.div variants={cardVariants} whileHover={{ y: -10 }} onClick={HandleCarTakafulClick} className={`${cardClasses} hover:bg-gradient-to-br hover:from-[#42c3ca] hover:to-[#1e72c2]`}>
                   <div className={bubbleEffectClasses} />
                   <img src={card3} alt="Car" className="w-12 h-12 mb-3 transition-all duration-500 group-hover:invert group-hover:brightness-0 relative z-10" />
-                  <p className="text-base font-semibold relative z-10">Motor Car Takaful</p>
+                  <p className="text-base font-semibold relative z-10 group-hover:invert group-hover:brightness-0">Motor Car Takaful</p>
                 </motion.div>
 
                 <motion.div variants={cardVariants} whileHover={{ y: -10 }} onClick={HandleBikeTakafulClick} className={`${cardClasses} hover:bg-gradient-to-br hover:from-[#42c3ca] hover:to-[#1e72c2]`}>
                   <div className={bubbleEffectClasses} />
                   <img src={card4} alt="Bike" className="w-12 h-12 mb-3 transition-all duration-500 group-hover:invert group-hover:brightness-0 relative z-10" />
-                  <p className="text-base font-semibold relative z-10">Bike Takaful</p>
+                  <p className="text-base font-semibold relative z-10 group-hover:invert group-hover:brightness-0">Bike Takaful</p>
                 </motion.div>
 
                 <motion.div variants={cardVariants} whileHover={{ y: -10 }} onClick={HandleFireTClick} className={`${cardClasses} col-span-2 hover:bg-gradient-to-br hover:from-[#42c3ca] hover:to-[#1e72c2]`}>
                   <div className={bubbleEffectClasses} />
                   <div className="flex items-center justify-center gap-4">
                     <img src={card5} alt="Fire" className="w-14 h-14 transition-all duration-500 group-hover:invert group-hover:brightness-0 relative z-10" />
-                    <p className="text-lg font-bold relative z-10">Fire Takaful</p>
+                    <p className="text-lg font-bold relative z-10 group-hover:invert group-hover:brightness-0">Fire Takaful</p>
                   </div>
                 </motion.div>
               </div>
