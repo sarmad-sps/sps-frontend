@@ -168,17 +168,17 @@ const ServicesSection: React.FC = () => {
   }, [cardsPerPage]);
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-white">
+    <section className="bg-[#ffff] py-12 sm:py-16 lg:py-20 bg-white">
       <div className="max-w-8xl mx-auto px-6 sm:px-8 md:px-10 lg:px-32 ">
         {/* Heading */}
         <div className="text-center mb-10 lg:mb-14">
-          <p className="text-[#1894A4] font-bold text-xs sm:text-sm uppercase tracking-widest mb-3">
+          <p className="text-[#ffff] font-bold text-xs sm:text-sm uppercase tracking-widest mb-3">
             What We're Offering
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold text-gray-900 leading-tight">
             SERVICES WE'RE PROVIDING
             <br />
-            <span className="text-[#1894A4]">TO CUSTOMERS</span>
+            <span className="text-[#ffff]">TO CUSTOMERS</span>
           </h2>
         </div>
         <button

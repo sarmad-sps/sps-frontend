@@ -3,7 +3,7 @@ import { Car, Gauge, Tag, MapPin } from "lucide-react";
 
 const TrackingServiceSection: React.FC = () => {
   return (
-    <section className="w-full bg-[#020617] py-16 px-4 md:px-10 lg:px-14  2xl:px-18 overflow-hidden">
+    <section className="w-full bg-[#1C4D8D] py-16 px-4 md:px-10 lg:px-14  2xl:px-18 overflow-hidden">
       <div className="max-w-8xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* LEFT COLUMN — TEXT + STATS */}
@@ -12,15 +12,15 @@ const TrackingServiceSection: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-center justify-left gap-3 mb-4">
                 <img src="/splogo.png" className="w-9 h-9 sm:w-11 sm:h-11" />
-                <p className="text-[#1894A4] font-bold text-xs sm:text-sm tracking-widest uppercase">
+                <p className="text-[#ffff] font-bold text-xs sm:text-sm tracking-widest uppercase">
                   Essentials Facts
                 </p>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-400 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
                 TRACK YOUR VEHICLES WITH EASE AND CONFIDENCE
               </h2>
 
-              <p className="text-xs md:text-sm max-w-md text-gray-500 leading-relaxed">
+              <p className="text-xs md:text-sm max-w-md text-white leading-relaxed">
                 Our Tracking Platform gives you complete control and visibility
                 over your fleet. Monitor vehicles in real-time, optimize routes,
                 and improve efficiency—all from a simple, intuitive dashboard.

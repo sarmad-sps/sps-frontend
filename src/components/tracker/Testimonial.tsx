@@ -189,12 +189,12 @@ const TestimonialsSection: React.FC = () => {
   const displayTestimonials = [...testimonialsData, ...testimonialsData];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white via-gray-50 to-white">
+    <section className="py-20 bg-[#ffff]">
       <div className="max-w-8xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="flex items-center gap-4 mb-14">
           <img src="/splogo.png" className="w-14 h-14" alt="Logo" />
-          <h2 className="text-[#1894A4] font-bold uppercase tracking-widest text-2xl">
+          <h2 className="text-[black] font-bold uppercase tracking-widest text-2xl">
             What Our Clients Say
           </h2>
         </div>
