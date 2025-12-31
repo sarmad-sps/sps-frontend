@@ -36,9 +36,9 @@ const Tracker = () => {
       <FadeUp>
         <TrackingProcess />
       </FadeUp>
-      {/* <FadeUp>
+      <FadeUp>
         <ChoosingProcess />
-      </FadeUp> */}
+      </FadeUp>
       <FadeUp>
         <Benefits />
       </FadeUp>
