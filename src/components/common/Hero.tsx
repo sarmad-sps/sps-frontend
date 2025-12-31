@@ -57,6 +57,12 @@ const HeroSection = ({
   title: "Takaful Insurance",          // Hero title
   heading: "Islamic insurance solutions tailored to your needs.", // Hero subtitle
 },
+{
+  image: "/it-consulting.png",       // Desktop version image
+  mobileImage: "/it-consulting.png",  // Mobile version image
+  title: "IT Consulting",          // Hero title
+  heading: "Comprehensive Protection for Your IT Needs", // Hero subtitle
+},
 
   ];
 

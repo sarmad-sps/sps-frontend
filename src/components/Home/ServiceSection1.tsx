@@ -58,7 +58,7 @@ const services: Service[] = [
   },
   {
     id: "05",
-    iconSrc: "/travel-icon.png",
+    iconSrc: "/Itservice.png",
     title: "IT Services",
     features: [
       "Network Security Solutions",

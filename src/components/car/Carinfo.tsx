@@ -53,24 +53,40 @@ const Carinfo: React.FC<CarInfoProps> = ({
         </div>
 
         {/* Right: Image or Video */}
-        <div className="xl:w-1/2 flex justify-center items-center ">
-          {isVideo ? (
-            <video
-              src={image}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full max-w-2xl xl:max-w-full h-[500px] rounded-2xl  object-contain"
-            />
-          ) : (
-            <img
-              src={image}
-              alt="Car Insurance Illustration"
-              className="w-full max-w-2xl xl:max-w-full h-auto rounded-2xl shadow-2xl"
-            />
-          )}
-        </div>
+       <div className="xl:w-1/2 flex justify-center items-center">
+  {isVideo ? (
+    <video
+      src={image}
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="
+        w-full 
+        max-w-2xl 
+        xl:max-w-full 
+        h-auto 
+        md:h-[500px] 
+        rounded-2xl 
+        object-contain
+      "
+    />
+  ) : (
+    <img
+      src={image}
+      alt="Car Insurance Illustration"
+      className="
+        w-full 
+        max-w-2xl 
+        xl:max-w-full 
+        h-auto 
+        rounded-2xl 
+        shadow-2xl
+      "
+    />
+  )}
+</div>
+
       </div>
     </section>
   );
