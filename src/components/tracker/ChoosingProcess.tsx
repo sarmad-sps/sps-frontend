@@ -1,98 +1,126 @@
-import React from "react";
-import { Calendar, MapPin, ThumbsUp } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Shield, Users, Truck, Activity, Radio } from "lucide-react";
 
-const ServiceFeatures: React.FC = () => {
-  const features = [
-    {
-      icon: Calendar,
-      title: "Hass­le-Free Booking",
-      description:
-        "Book your car in just a few clicks. Fast process, simple steps, and instant confirmation — making your travel experience smoother than ever.",
-      color: "from-teal-400 to-teal-500",
-    },
-    {
-      icon: MapPin,
-      title: "Multiple Pickup Points",
-      description:
-        "Choose from our wide range of pickup locations across the city. Easy access, convenient spots, and maximum flexibility for your journey.",
-      color: "from-teal-400 to-teal-500",
-    },
-    {
-      icon: ThumbsUp,
-      title: "Customer Satisfaction",
-      description:
-        "We prioritize your comfort and safety. Trusted service, professional support, and a smooth riding experience every single time.",
-      color: "from-teal-400 to-teal-500",
-    },
-  ];
+/* ---------------- Types ---------------- */
+interface StatCardProps {
+  icon: React.ElementType;
+  value: string;
+  label: string;
+}
+
+/* ---------------- Animations ---------------- */
+const fadeUp = {
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0 },
+};
+
+/* ---------------- Stat Card ---------------- */
+const StatCard: React.FC<StatCardProps> = ({ icon: Icon, value, label }) => (
+  <motion.div
+    variants={fadeUp}
+    initial="hidden"
+    whileInView="visible"
+    transition={{ duration: 0.45 }}
+    viewport={{ once: true }}
+    className="flex items-center gap-4 p-4 sm:p-5 rounded-2xl 
+               bg-[#0f3a7a]/80 border border-cyan-400/40
+               shadow-[0_0_20px_rgba(34,211,238,0.12)]
+               hover:scale-105 transition-transform duration-300"
+  >
+    <div className="p-2 sm:p-3 rounded-lg bg-cyan-400/10 border border-cyan-400/30 flex-shrink-0">
+      <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400 animate-pulse" />
+    </div>
+    <div>
+      <p className="text-lg sm:text-xl font-bold text-white">{value}</p>
+      <p className="text-[10px] sm:text-xs text-white/70 uppercase tracking-wide">
+        {label}
+      </p>
+    </div>
+  </motion.div>
+);
+
+/* ---------------- Main Section ---------------- */
+const CoverageSection: React.FC = () => {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-    <div className=" bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 py-16 w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18">
-      <div className="max-w-8xl mx-auto">
-        {/* Header Section */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 mb-6">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <img src="/splogo.png" className="w-9 h-9 sm:w-11 sm:h-11" />
-              <p className="text-[#1894A4] font-bold text-xs sm:text-sm tracking-widest uppercase">
-                WHY CHOOSE US
-              </p>
-            </div>
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-            WE ARE INNOVATIVE AND PASSIONATE
-            <br />
-            ABOUT THE WORK WE DO.
-          </h1>
+    <section className="w-full flex flex-col items-center p-4 sm:p-8 md:p-10 bg-slate-100">
+      {/* Heading */}
+      <h1 className="text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl font-extrabold text-center text-[#0b2c63] mb-10">
+        Our Nationwide Tracking Services
+      </h1>
+
+      {/* Main Container */}
+      <div className="relative w-full max-w-6xl 2xl:max-w-[2200px] bg-white rounded-[40px] shadow-2xl overflow-hidden flex flex-col lg:flex-row min-h-[520px]">
+        {/* LEFT — MAP */}
+        {/* LEFT — MAP */}
+        <div className="lg:w-1/2 p-6 sm:p-8 lg:p-10 flex items-center justify-center relative">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="relative w-full max-w-sm sm:max-w-md
+               rounded-3xl shadow-2xl overflow-hidden border border-gray-200"
+          >
+            <img
+              src="/map5.png"
+              alt="Pakistan Map"
+              className="
+        w-full object-contain 
+        rounded-3xl
+      "
+            />
+          </motion.div>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <div key={index} className="relative group">
-                {/* Icon Badge */}
-                <div className="absolute -top-6 right-8 z-10">
-                  <div
-                    className={`w-16 h-16 bg-[#1894A4] rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <Icon className="w-8 h-8 text-white" strokeWidth={2} />
-                  </div>
-                </div>
+        {/* RIGHT — CONTENT */}
+        <div
+          className="lg:w-1/2 bg-gradient-to-br from-[#0b2c63] via-[#0a2a5a] to-[#081f45]
+                     p-6 sm:p-10 md:p-16 2xl:p-20 flex flex-col justify-center items-center text-center"
+          style={{
+            clipPath: isDesktop ? "ellipse(100% 100% at 100% 50%)" : "none",
+          }}
+        >
+          <div className="space-y-5 mb-10">
+            <p className="text-[10px] sm:text-[11px] uppercase tracking-widest text-cyan-300 font-semibold">
+              Statistics & Coverage Area
+            </p>
 
-                {/* Card */}
-                <div className="bg-gradient-to-br from-blue-900 bg-[#1A3970] rounded-3xl p-8 pt-12 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 h-[200px] lg:h-[250px] xl:h-[200px]">
-                  <h3 className="text-2xl font-bold text-white mb-4">
-                    {feature.title}
-                  </h3>
-                  <p className="text-blue-100 text-sm leading-relaxed mb-6">
-                    {feature.description}
-                  </p>
-                  {/* <button className="bg-[#1894A4] hover:bg-[#14768f] text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center gap-2 group/btn">
-                    Rent Now
-                    <svg
-                      className="w-5 h-5 transform group-hover/btn:translate-x-1 transition-transform duration-300"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </button> */}
-                </div>
-              </div>
-            );
-          })}
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+              Providing services all <br />
+              <span className="text-cyan-400">over Pakistan</span>
+            </h2>
+
+            <p className="text-white/70 text-sm max-w-md leading-relaxed">
+              Our tracking services are nationwide, ensuring seamless coverage
+              and secure real-time monitoring across Pakistan.
+            </p>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-lg">
+            <StatCard icon={Radio} value="80K+" label="Trackers Installed" />
+            <StatCard icon={Users} value="20K+" label="Active Clients" />
+            <StatCard icon={Truck} value="3k+" label="Vehicles Recovered" />
+            <StatCard
+              icon={Shield}
+              value="1 Million+"
+              label="Alarms Attended"
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default ServiceFeatures;
+export default CoverageSection;
