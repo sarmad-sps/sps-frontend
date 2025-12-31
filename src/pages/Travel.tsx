@@ -1,6 +1,6 @@
 import FadeUp from "../components/common/FadeUp";
 import Navbar from "../components/common/Navbar";
-// import HeroSection from "../components/common/Hero";
+import HeroSection from "../components/common/Hero";
 import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
 import TravelInfoSection from "../components/travel/TravelInfoSection";
 // import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
@@ -75,6 +75,8 @@ const travelInsuranceInfo = {
           titleSize="text-4xl md:text-5xl"
         />
       </FadeUp> */}
+      <HeroSection isTravelPage={true} />
+
       <FadeUp>
         <VehicleInfoHeader
           vehicleType="travel"

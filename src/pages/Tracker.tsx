@@ -1,6 +1,6 @@
 import Navbar from "../components/common/Navbar";
 import FadeUp from "../components/common/FadeUp";
-import Hero from "../components/common/Hero";
+import HeroSection from "../components/common/Hero";
 import TrackingProcess from "../components/tracker/TrackingProcess";
 import ChoosingProcess from "../components/tracker/ChoosingProcess";
 import WelcomeCompany from "../components/tracker/WelcomeCompany";
@@ -31,13 +31,7 @@ const Tracker = () => {
     <div>
       <Navbar />
       <FadeUp>
-        <Hero
-          backgroundImages={["/Tracking desktop.png"]}
-          title={<>Find What Are You Looking For</>}
-          isTrackerPage={true}
-          height="h-[400px] md:h-[450px] lg:h-[500px]"
-          titleSize="text-4xl md:text-5xl"
-        />
+       <HeroSection isTrackerPage={true} />
       </FadeUp>
       <FadeUp>
         <TrackingProcess />

@@ -1,7 +1,7 @@
 import Navbar from "../components/common/Navbar";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
-// import HeroSection from "../components/common/Hero";
+import HeroSection from "../components/common/Hero";
 import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
 // import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
 import FadeUp from "../components/common/FadeUp";
@@ -59,6 +59,7 @@ const BikeTakaful = () => {
       />
       </FadeUp> */}
       <FadeUp>
+           <HeroSection isBikePage={true} />
       <VehicleInfoHeader
         vehicleType="bike"
         title={

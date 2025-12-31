@@ -1,7 +1,7 @@
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
 // import InsuranceCard from "../components/Takaful/InsuranceCard";
-// import HeroSection from "../components/common/Hero";
+import HeroSection from "../components/common/Hero";
 import FAQSection from "../components/common/FAQsection";
 import FadeUp from "../components/common/FadeUp";
 import HealthTakaful from "../components/Takaful/HealthTakaful/Healthtakaful";
@@ -59,6 +59,7 @@ const Healthtakaful = () => {
       {/* <FadeUp>
         <InsuranceCard showForm={true} />
       </FadeUp> */}
+       <HeroSection isHealthPage={true} />
       <FadeUp>
       <HealthTakaful 
       />

@@ -4,6 +4,7 @@ import Footer from "../components/common/Footer";
 // import HeroSection from "../components/common/Hero";
 import Navbar from "../components/common/Navbar";
 import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
+import HeroSection from "../components/common/Hero";
 import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
 import ClaimProcess from "../components/car/Claimprocess";
 import Faq from "../components/Takaful/takafulinfo/Faqs";
@@ -59,6 +60,7 @@ const CarTakaful = () => {
           titleSize="text-4xl md:text-5xl"
         />
       </FadeUp> */}
+        <HeroSection isCarPage={true} />
       <FadeUp>
         <VehicleInfoHeader
           vehicleType="car"

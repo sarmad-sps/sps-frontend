@@ -176,7 +176,7 @@ We understand your needs and offer simple, affordable, and flexible insurance pl
             {/* Image Container */}
             <div className="relative flex-shrink-0 ml-6 sm:ml-8 md:ml-10 lg:ml-12">
               <img
-                src="/Whyusimage.png"
+                src="/testimonial.png"
                 alt="Team collaboration"
                 className="w-[240px] h-[380px] sm:w-[280px] sm:h-[450px] md:w-[320px] md:h-[520px] lg:w-[375px] lg:h-[600px] object-cover rounded-2xl transform scale-x-[-1]"
               />

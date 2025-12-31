@@ -61,13 +61,14 @@ const TestimonialsSection = () => {
           {/* Right Side - Image */}
           <div className="relative">
             {/* Main Image */}
-            <div className="rounded-2xl overflow-hidden">
-              <img
-                src="/testimonial.png"
-                alt="Happy customers"
-                className="w-full h-[400px] md:h-[500px] object-contain"
-              />
-            </div>
+          {/* Main Image */}
+<div className="w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden">
+  <img
+    src="/testimonial.png"
+    alt="Happy customers"
+    className="w-full h-full object-cover"
+  />
+</div>
 
             {/* Decorative wavy edge on left side */}
             <div className="absolute left-0 top-0 bottom-0 w-8">

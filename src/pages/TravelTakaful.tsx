@@ -5,6 +5,7 @@ import TravelInfoSection from "../components/travel/TravelInfoSection";
 import Faq from "../components/Takaful/takafulinfo/Faqs";
 import ClaimProcess from "../components/car/Claimprocess";
 import FadeUp from "../components/common/FadeUp";
+import HeroSection from "../components/common/Hero";
 function TravelTakaful() {
 const travelClaimPlans = [
   {
@@ -53,6 +54,7 @@ const travelClaimPlans = [
         titleSize="text-4xl md:text-5xl"
       /> */}
       {/* <TravelForm /> */}
+       <HeroSection isTravelPage={true} />
       <FadeUp>
       <TravelInfoSection/>
       </FadeUp>

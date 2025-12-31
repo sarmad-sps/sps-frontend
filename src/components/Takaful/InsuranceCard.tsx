@@ -73,7 +73,7 @@ const InsuranceCard = () => {
   };
 
   return (
-    <div className="w-full bg-[#F4F9FE] py-12 px-4 md:px-10 lg:px-16">
+    <div className="w-full bg-[#F4F9FE] py-12 px-4 md:px-10 lg:px-16"   id="quote-form">
       <motion.div
         initial="hidden"
         whileInView="visible"

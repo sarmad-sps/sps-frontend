@@ -578,7 +578,7 @@ const VehicleInsuranceForm = ({
 
   return (
     <>
-      <section className="w-full bg-[#F4F9FE] pt-2 md:pt-4 pb-8 md:pb-12">
+      <section   id="quote-form" className="w-full bg-[#F4F9FE] pt-2 md:pt-4 pb-8 md:pb-12">
         <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 xl:max-w-8xl 2xl: max-w-9xl mx-auto">
           {/* Progress Steps */}
           <div className="flex items-center justify-center mb-8">
