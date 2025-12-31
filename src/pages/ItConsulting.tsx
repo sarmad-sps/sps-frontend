@@ -10,13 +10,7 @@ const ItConsulting = () => {
     <div>
       <Navbar />
       <FadeUp>
-        <HeroSection
-          backgroundImages={["/it-consulting5.png"]}
-          title={<>IT Consulting</>}
-          isKafalaPage={true}
-          height="h-[400px] md:h-[450px] lg:h-[500px]"
-          titleSize="text-4xl md:text-5xl"
-        />
+       <HeroSection isConsultingPage={true} />
       </FadeUp>
       <FadeUp>
         <ITConsultingCard />

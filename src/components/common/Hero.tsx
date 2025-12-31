@@ -13,6 +13,7 @@ interface HeroProps {
   isHealthPage?: boolean;
   isTravelPage?: boolean;
   isFirePage?: boolean;
+  isConsultingPage?: boolean;
   height?: string;
   titleSize?: string;
 }
@@ -32,6 +33,7 @@ const HeroSection = ({
   isHealthPage = false,
   isTravelPage = false,
   isFirePage = false,
+  isConsultingPage = false,
   height = "md:h-screen h-[60vh]",
   titleSize = "text-3xl md:text-4xl",
 }: HeroProps) => {
@@ -57,6 +59,12 @@ const HeroSection = ({
   title: "Takaful Insurance",          // Hero title
   heading: "Islamic insurance solutions tailored to your needs.", // Hero subtitle
 },
+{
+  image: "/it-consulting5.png",       // Desktop version image
+  mobileImage: "/it-consulting5.png",  // Mobile version image
+  title: "IT Consulting",          // Hero title
+  heading: "Comprehensive protection for your employees and domestic workers", // Hero subtitle
+},
 
   ];
 
@@ -68,6 +76,7 @@ const HeroSection = ({
   else if (isHealthPage) slidesToShow = allSlides.filter(slide => slide.image.includes("Health"));
   else if (isTravelPage) slidesToShow = allSlides.filter(slide => slide.image.includes("Travel"));
   else if (isFirePage) slidesToShow = allSlides.filter(slide => slide.image.includes("Fire"));
+  else if (isConsultingPage) slidesToShow = allSlides.filter(slide => slide.image.includes("it-consulting5"));
  
   const [autoSpeed, setAutoSpeed] = useState(1200);
   const sliderSettings = {
