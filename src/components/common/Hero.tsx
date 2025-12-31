@@ -103,7 +103,7 @@ const isServicePage =
   isTravelPage ||
   isFirePage;
 
-const buttonText = isServicePage ? "Get Quote" : "Free Consulting";
+// const buttonText = isServicePage ? "Get Quote" : "Free Consulting";
 
   return (
     <section className={`relative w-full ${height} overflow-hidden`}>
