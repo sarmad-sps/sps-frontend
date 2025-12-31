@@ -2,6 +2,7 @@ import React from "react";
 import benefitImg from "/benefit.png";
 import { Link } from "react-router-dom";
 const VehicleTrackingHero: React.FC = () => {
+  
   return (
     <div className=" bg-[#1C4D8D] transition-colors duration-500">
       <div className="w-full px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20">
@@ -32,35 +33,13 @@ const VehicleTrackingHero: React.FC = () => {
 
                 <div className="flex justify-center lg:justify-start">
                   <Link to="/aboutus">
-                    <button
-                      className="relative px-8 py-4  font-bold text-lg text-white overflow-hidden transition-all duration-500 
-                   bg-gradient-to-r from-[#1A3970] to-[#2ba9b4] 
-                   hover:shadow-[0_0_20px_rgba(26,57,112,0.5)] hover:scale-105 transform group"
-                    >
-                      {/* Button Text */}
-                      <span className="relative z-10 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
-                        Learn More
-                      </span>
-
-                      {/* Subtle animated glow overlay */}
-                      <span className="absolute inset-0 bg-gradient-to-r from-[#1A3970] to-[#2ba9b4] opacity-0 rounded-xl transition-opacity duration-500 animate-pulse group-hover:opacity-30 pointer-events-none"></span>
-
-                      {/* Optional shine effect */}
-                      <span className="absolute top-0 left-[-50%] w-1/2 h-full bg-white opacity-20 transform -skew-x-12 animate-shine pointer-events-none"></span>
-
-                      <style>
-                        {`
-      @keyframes shine {
-        0% { left: -50%; }
-        50% { left: 100%; }
-        100% { left: 100%; }
-      }
-      .animate-shine {
-        animation: shine 1.5s infinite;
-      }
-    `}
-                      </style>
-                    </button>
+                    <button className="neon-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+           learn More
+          </button>
                   </Link>
                 </div>
 

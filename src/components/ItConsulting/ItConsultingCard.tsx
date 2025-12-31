@@ -74,12 +74,55 @@ const ITConsultingCard: React.FC = () => {
               </ul>
             </div>
 
-            <button
+            {/* <button
               onClick={() => navigate(service.route)}
               className="bg-[#0a2a57] text-white text-sm font-medium px-5 py-2 rounded-md hover:bg-[#0c3563] transition"
             >
               Read more
-            </button>
+            </button> */}
+            <button
+            onClick={() => navigate(service.route)}
+  className={`
+    relative px-8 py-3 font-black uppercase italic tracking-wider text-sm
+    flex items-center justify-center gap-2 text-white overflow-hidden 
+    transition-all duration-500 rounded-lg
+    bg-gradient-to-r from-[#1A3970] to-[#2ba9b4] 
+    hover:shadow-[0_0_30px_rgba(43,169,180,0.5)] 
+    hover:scale-105 active:scale-95 transform group
+  `}
+>
+  {/* Button Text + Arrow */}
+  <span className="relative z-10 flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
+    Read More
+    <svg 
+      className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2 shadow-sm" 
+      fill="none" 
+      stroke="currentColor" 
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+    </svg>
+  </span>
+
+  {/* Subtle animated glow overlay (Becomes active on hover) */}
+  <span className="absolute inset-0 bg-gradient-to-r from-[#2ba9b4] to-[#1A3970] opacity-0 transition-opacity duration-500 group-hover:opacity-40 animate-pulse pointer-events-none"></span>
+
+  {/* High-speed shine effect */}
+  <span className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 animate-shine pointer-events-none"></span>
+
+  <style>
+    {`
+      @keyframes shine {
+        0% { left: -100%; }
+        20% { left: 100%; }
+        100% { left: 100%; }
+      }
+      .animate-shine {
+        animation: shine 3s infinite ease-in-out;
+      }
+    `}
+  </style>
+</button>
           </div>
         ))}
 
