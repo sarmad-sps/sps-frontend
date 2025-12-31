@@ -14,7 +14,7 @@ interface Service {
 const services: Service[] = [
   {
     id: "01",
-    iconSrc: "/caricon.png",
+    iconSrc: "/carinsu.png",
     title: "Car Insurance",
     features: [
       "Full Safety For Your Cars",
@@ -25,7 +25,7 @@ const services: Service[] = [
   },
   {
     id: "02",
-    iconSrc: "/Healthicon.png",
+    iconSrc: "/Healthins.png",
     title: "Health Insurance",
     features: [
       "Covers Hospital Expense",
@@ -36,7 +36,7 @@ const services: Service[] = [
   },
   {
     id: "03",
-    iconSrc: "/motorcycleicon.png",
+    iconSrc: "/Bikeinsu.png",
     title: "Bike Insurance",
     features: [
       "Easy And Low Cost Plans",
@@ -47,7 +47,7 @@ const services: Service[] = [
   },
   {
     id: "04",
-    iconSrc: "/Travelicon.png",
+    iconSrc: "/travelinsu.png",
     title: "Travel Insurance",
     features: [
       "Medical Emergency Coverage",
@@ -69,7 +69,7 @@ const services: Service[] = [
   },
   {
     id: "06",
-    iconSrc: "/takaful-icon.png",
+    iconSrc: "/Takafulinsu.png",
     title: "Takaful",
     features: [
       "Shariah-Compliant Coverage",
@@ -231,9 +231,7 @@ const ServicesSection: React.FC = () => {
                               service.id === "04"
                                 ? "w-18 h-16"
                                 : "w-16 h-16"
-                            } mb-4 transition-all duration-500 ${
-                              service.id === "02" ? "filter brightness-0" : ""
-                            } group-hover:filter group-hover:brightness-0 group-hover:invert`}
+                            } mb-4 transition-all duration-500`}
                           />
                           <h3 className="text-xl font-bold mb-1 transition-colors duration-500 group-hover:text-white">
                             {service.title}
