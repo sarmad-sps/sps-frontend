@@ -4,6 +4,7 @@ import TravelFormCard from "./TravelFormCard";
 const TravelInfoSection = () => {
   return (
     <InsuranceSection
+    
       FormCard={<TravelFormCard />}
       image="/travelinsurance.mp4"
       imageAlt="Travel Insurance"

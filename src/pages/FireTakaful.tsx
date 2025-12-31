@@ -8,6 +8,7 @@ import ClaimProcess from "../components/car/Claimprocess";
 import Faq from "../components/Takaful/takafulinfo/Faqs";
 
 import FireTakafulSection from "../components/Takaful/Firetakaful/FireTakaful";
+import HeroSection from "../components/common/Hero";
 
 const FireTakaful = () => {
  const fireClaimPlans = [
@@ -61,6 +62,7 @@ const FireTakaful = () => {
       {/* <FadeUp>
       <InsuranceCard showForm={true} />
       </FadeUp> */}
+       <HeroSection isFirePage={true} />
       <FadeUp>
       <FireTakafulSection />
       </FadeUp>

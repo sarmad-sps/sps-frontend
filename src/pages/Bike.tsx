@@ -2,7 +2,7 @@ import FadeUp from "../components/common/FadeUp";
 import Navbar from "../components/common/Navbar";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
-// import HeroSection from "../components/common/Hero";
+import HeroSection from "../components/common/Hero";
 import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
 import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
 // import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
@@ -77,7 +77,8 @@ const bikeInsuranceInfo = {
         titleSize="text-4xl md:text-5xl"
       />
       </FadeUp> */}
-      <FadeUp>=
+       <HeroSection isBikePage={true} />
+      <FadeUp>
       <VehicleInfoHeader
         vehicleType="bike"
         title={

@@ -2,7 +2,7 @@ import FadeUp from "../components/common/FadeUp";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
 import HealthInfoSection from "../components/health/Healthinfosection";
-// import HeroSection from "../components/common/Hero";
+import HeroSection from "../components/common/Hero";
 // import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
 import Navbar from "../components/common/Navbar";
 import TestimonialsSection from "../components/common/Testinomialsection";
@@ -78,6 +78,7 @@ const healthClaimPlans = [
         titleSize="text-4xl md:text-5xl"
       />
       </FadeUp> */}
+       <HeroSection isHealthPage={true} />
       <FadeUp>
       <VehicleInfoHeader
         vehicleType="health"
