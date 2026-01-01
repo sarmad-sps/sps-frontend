@@ -293,9 +293,9 @@ const FireTakafulSection = () => {
   };
 
   return (
-    <div id="quote-form" className="w-full bg-[#F4F9FE]  flex items-start justify-center  md:items-center md:pt-4 ">
+    <div id="quote-form" className="w-full   flex items-start justify-center  md:items-center md:pt-4 ">
       <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 pt-4">
-        <div className="flex flex-col md:flex-row justify-between bg-white  rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 overflow-hidden">
+        <div className="flex flex-col md:flex-row bg-[#1C4D8D] justify-between  rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 overflow-hidden">
           {/* Left Section */}
           <div className="flex-1 min-w-0 space-y-4">
             <div className="flex justify-center w-full">
@@ -307,13 +307,13 @@ const FireTakafulSection = () => {
             </div>
 
             <div className="text-center space-y-1">
-              <h2 className="text-lg font-semibold text-blue-700">
+              <h2 className="text-lg font-semibold text-white">
                 Secure Your Assets with Fire Takaful
               </h2>
-              <p className="text-blue-600 text-sm font-medium">
+              <p className="text-white text-sm font-medium">
                 Comprehensive coverage starting from just Rs. 250/year
               </p>
-              <p className="text-gray-600 text-xs">
+              <p className="text-white text-xs">
                 Protect your home, office, or business from fire hazards. Quick
                 online purchase in minutes.
               </p>

@@ -128,7 +128,7 @@ const mobileStackWithIcons = [
         <Project
           title="Types of Apps We Build"
           items={appTypes}
-          background="bg-[#e8f1ff]"
+          background="bg-[#1C4D8D]"
           columns="grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
         />
       </FadeUp>
@@ -146,7 +146,7 @@ const mobileStackWithIcons = [
         <TeckStack
   title="Tech Stack"
   stackWithIcons={mobileStackWithIcons}
-  background="bg-gradient-to-r from-blue-50 to-indigo-50"
+  background="bg-[#1C4D8D]"
 />
 
       </FadeUp>

@@ -578,7 +578,7 @@ const VehicleInsuranceForm = ({
 
   return (
     <>
-      <section   id="quote-form" className="w-full bg-[#F4F9FE] pt-2 md:pt-4 pb-8 md:pb-12">
+      <section   id="quote-form" className="w-full bg-[#1C4D8D] pt-2 md:pt-4 pb-8 md:pb-12">
         <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 xl:max-w-8xl 2xl: max-w-9xl mx-auto">
           {/* Progress Steps */}
           <div className="flex items-center justify-center mb-8">
@@ -613,7 +613,7 @@ const VehicleInsuranceForm = ({
           {!showFreeQuote ? (
             <div className="bg-white rounded-lg p-6 md:p-8 ">
               <h3 className="text-xl font-bold text-[#1A3970] mb-6">
-                Vehicle Info
+                Add Vehicle Info to Get Quote!
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

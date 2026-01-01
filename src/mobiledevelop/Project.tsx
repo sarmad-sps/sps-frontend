@@ -84,7 +84,7 @@ const Project: React.FC<FeatureGridSectionProps> = ({
     >
       <div className="max-w-8xl mx-auto w-full">
         {/* Responsive Title */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center text-gray-800 leading-snug">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-center text-white leading-snug">
           {title}
         </h2>
 
