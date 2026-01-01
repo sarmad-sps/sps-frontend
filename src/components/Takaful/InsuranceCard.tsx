@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { motion,type Variants } from "framer-motion"; 
-import card1 from "../../../public/card1.png";
-import card2 from "../../../public/card2.png";
-import card3 from "../../../public/card3.png";
-import card4 from "../../../public/motorcycleicon.png";
-import card5 from "../../../public/card5.png";
+import card1 from "../../../public/travelinsu.png";
+import card2 from "../../../public/Healthins.png";
+import card3 from "../../../public/carinsu.png";
+import card4 from "../../../public/Bikeinsu.png";
+import card5 from "../../../public/fireinsu.png";
 import Takaful from "../../../public/takaful-img.png";
 
 const InsuranceCard = () => {
@@ -129,32 +129,32 @@ const InsuranceCard = () => {
                 {/* Cards with motion */}
                 <motion.div variants={cardVariants} whileHover={{ y: -10 }} onClick={HandleTravelTakafulClick} className={`${cardClasses} hover:bg-gradient-to-br hover:from-[#42c3ca] hover:to-[#1e72c2]`}>
                   <div className={bubbleEffectClasses} />
-                  <img src={card1} alt="Travel" className="w-12 h-12 mb-3 transition-all duration-500 group-hover:invert group-hover:brightness-0 relative z-10" />
+                  <img src={card1} alt="Travel" className="w-12 h-12 mb-3 transition-all duration-500  relative z-10" />
                   <p className="text-base font-semibold relative z-10 group-hover:invert group-hover:brightness-0">Travel Takaful</p>
                 </motion.div>
 
                 <motion.div variants={cardVariants} whileHover={{ y: -10 }} onClick={HandleGroupHealthClick} className={`${cardClasses} hover:bg-gradient-to-br hover:from-[#42c3ca] hover:to-[#1e72c2]`}>
                   <div className={bubbleEffectClasses} />
-                  <img src={card2} alt="Health" className="w-12 h-12 mb-3 transition-all duration-500 group-hover:invert group-hover:brightness-0 relative z-10" />
+                  <img src={card2} alt="Health" className="w-12 h-12 mb-3 transition-all duration-500  relative z-10" />
                   <p className="text-base font-semibold relative z-10 group-hover:invert group-hover:brightness-0">Group Health Takaful</p>
                 </motion.div>
 
                 <motion.div variants={cardVariants} whileHover={{ y: -10 }} onClick={HandleCarTakafulClick} className={`${cardClasses} hover:bg-gradient-to-br hover:from-[#42c3ca] hover:to-[#1e72c2]`}>
                   <div className={bubbleEffectClasses} />
-                  <img src={card3} alt="Car" className="w-12 h-12 mb-3 transition-all duration-500 group-hover:invert group-hover:brightness-0 relative z-10" />
+                  <img src={card3} alt="Car" className="w-12 h-12 mb-3 transition-all duration-500  relative z-10" />
                   <p className="text-base font-semibold relative z-10 group-hover:invert group-hover:brightness-0">Motor Car Takaful</p>
                 </motion.div>
 
                 <motion.div variants={cardVariants} whileHover={{ y: -10 }} onClick={HandleBikeTakafulClick} className={`${cardClasses} hover:bg-gradient-to-br hover:from-[#42c3ca] hover:to-[#1e72c2]`}>
                   <div className={bubbleEffectClasses} />
-                  <img src={card4} alt="Bike" className="w-12 h-12 mb-3 transition-all duration-500 group-hover:invert group-hover:brightness-0 relative z-10" />
+                  <img src={card4} alt="Bike" className="w-12 h-12 mb-3 transition-all duration-500  relative z-10" />
                   <p className="text-base font-semibold relative z-10 group-hover:invert group-hover:brightness-0">Bike Takaful</p>
                 </motion.div>
 
                 <motion.div variants={cardVariants} whileHover={{ y: -10 }} onClick={HandleFireTClick} className={`${cardClasses} col-span-2 hover:bg-gradient-to-br hover:from-[#42c3ca] hover:to-[#1e72c2]`}>
                   <div className={bubbleEffectClasses} />
                   <div className="flex items-center justify-center gap-4">
-                    <img src={card5} alt="Fire" className="w-14 h-14 transition-all duration-500 group-hover:invert group-hover:brightness-0 relative z-10" />
+                    <img src={card5} alt="Fire" className="w-14 h-14 transition-all duration-500  relative z-10" />
                     <p className="text-lg font-bold relative z-10 group-hover:invert group-hover:brightness-0">Fire Takaful</p>
                   </div>
                 </motion.div>

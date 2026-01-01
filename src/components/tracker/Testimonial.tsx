@@ -6,7 +6,7 @@ interface Testimonial {
   name: string;
   title: string;
   rating: number;
-  imageSrc: string;
+  // imageSrc: string;
 }
 
 const testimonialsData: Testimonial[] = [
@@ -17,7 +17,7 @@ const testimonialsData: Testimonial[] = [
     name: "Ahmed Khan",
     title: "Fleet Manager",
     rating: 5,
-    imageSrc: "/testimonial1.jpg",
+    // imageSrc: "/testimonial1.jpg",
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const testimonialsData: Testimonial[] = [
     name: "Sarah Malik",
     title: "Logistics Supervisor",
     rating: 5,
-    imageSrc: "/testimonial2.jpg",
+    // imageSrc: "/testimonial2.jpg",
   },
   {
     id: 3,
@@ -35,7 +35,7 @@ const testimonialsData: Testimonial[] = [
     name: "Usman Raza",
     title: "Operations Manager",
     rating: 4,
-    imageSrc: "/testimonial3.jpg",
+    // imageSrc: "/testimonial3.jpg",
   },
   {
     id: 4,
@@ -44,7 +44,7 @@ const testimonialsData: Testimonial[] = [
     name: "Huma Yousaf",
     title: "Business Owner",
     rating: 5,
-    imageSrc: "/testimonial1.jpg",
+    // imageSrc: "/testimonial1.jpg",
   },
   {
     id: 5,
@@ -53,7 +53,7 @@ const testimonialsData: Testimonial[] = [
     name: "Zain Shah",
     title: "Administrator",
     rating: 5,
-    imageSrc: "/testimonial2.jpg",
+    // imageSrc: "/testimonial2.jpg",
   },
   {
     id: 6,
@@ -62,7 +62,7 @@ const testimonialsData: Testimonial[] = [
     name: "Maria Ali",
     title: "Customer",
     rating: 4,
-    imageSrc: "/testimonial3.jpg",
+    // imageSrc: "/testimonial3.jpg",
   },
   {
     id: 7,
@@ -71,7 +71,7 @@ const testimonialsData: Testimonial[] = [
     name: "Bilal Akhtar",
     title: "Transport Incharge",
     rating: 5,
-    imageSrc: "/testimonial1.jpg",
+    // imageSrc: "/testimonial1.jpg",
   },
   {
     id: 8,
@@ -80,7 +80,7 @@ const testimonialsData: Testimonial[] = [
     name: "Nimra Faisal",
     title: "Customer",
     rating: 5,
-    imageSrc: "/testimonial2.jpg",
+    // imageSrc: "/testimonial2.jpg",
   },
 ];
 
@@ -115,7 +115,7 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({
         </div>
 
         {/* Profile Image - Top Right with margin from top */}
-        <div className="absolute top-4 right-8">
+        {/* <div className="absolute top-4 right-8">
           <div className="w-20 h-20 rounded-full overflow-hidden ring-8 ring-white shadow-2xl border-4 border-[#1894A4]">
             <img
               src={testimonial.imageSrc}
@@ -123,7 +123,7 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({
               className="w-full h-full object-cover"
             />
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Quote Text - Always starts from same position */}

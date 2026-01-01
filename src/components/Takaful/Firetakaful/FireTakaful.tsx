@@ -293,7 +293,7 @@ const FireTakafulSection = () => {
   };
 
   return (
-    <div className="w-full bg-[#F4F9FE]  flex items-start justify-center  md:items-center md:pt-4 ">
+    <div id="quote-form" className="w-full bg-[#F4F9FE]  flex items-start justify-center  md:items-center md:pt-4 ">
       <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 pt-4">
         <div className="flex flex-col md:flex-row justify-between bg-white  rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 overflow-hidden">
           {/* Left Section */}
