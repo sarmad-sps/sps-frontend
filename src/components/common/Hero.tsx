@@ -161,10 +161,10 @@ const isServicePage =
 
       <style>{`
         .custom-line-dots { bottom: 40px !important; }
-        .custom-line-dots li { margin: 0 14px !important; width: 16px !important; height: 1.5px !important; }
+        .custom-line-dots li { margin: 0 14px !important; width: 10px !important; height: 1.5px !important; }
         .custom-line-dots li button { display: none !important; }
         .custom-line-dot { width: 100%; height: 100%; background: rgba(255,255,255,0.4); border-radius: 2px; transition: all 0.4s ease; }
-        .custom-line-dots li.slick-active .custom-line-dot { background: white; transform: scaleX(2); }
+        .custom-line-dots li.slick-active .custom-line-dot { background: white; transform: scaleX(1.5); }
       `}</style>
     </section>
   );
