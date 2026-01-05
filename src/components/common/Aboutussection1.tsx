@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const AboutUsSection1 = () => {
   return (
-    <section className="w-full bg-white py-16 md:py-20">
+    <section className="w-full bg-[#1C4D8D]  py-16 md:py-20">
       <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Side - Image */}
@@ -69,13 +69,13 @@ const AboutUsSection1 = () => {
 
           {/* Right Side - Content */}
           <div className="self-center  -mt-2 lg:-mt-3">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
               Driving Your Peace Of Mind Through{" "}
               <span className="text-[#1894a4]">Trusted Insurance</span>
             </h2>
 
             {/* Subtitle */}
-            <p className="text-[#1A3970] text-lg font-semibold mb-4">
+            <p className="text-[Black] text-lg font-semibold mb-4">
               Our Goal is Clear: to Secure Your Today And Give You a Worry-Free
               Tomorrow.{" "}
             </p>
@@ -83,7 +83,7 @@ const AboutUsSection1 = () => {
             {/* Description with left border */}
 
             <div className="border-l-4 border-[#1894a4] pl-4 mb-8">
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-[#ffff] leading-relaxed">
                 At our company, we believe insurance is more than just a policy
                 it’s a promise. We provide reliable and easy insurance solutions
                 that protect your health, vehicles, travel, and future. With
@@ -102,7 +102,7 @@ const AboutUsSection1 = () => {
                   <h3 className="text-4xl md:text-5xl font-bold text-[#1894a4]">
                     1,000+
                   </h3>
-                  <p className="text-gray-700 font-medium mt-3">
+                  <p className="text-700 font-medium mt-3">
                     Policies Successfully Issued <br /> Last 5 Years
                   </p>
                 </div>
@@ -115,7 +115,7 @@ const AboutUsSection1 = () => {
                   <h3 className="text-4xl md:text-5xl font-bold text-[#1894a4]">
                     5,000+
                   </h3>
-                  <p className="text-gray-700 font-medium mt-3">
+                  <p className="text-700 font-medium mt-3">
                     Happy & Protected <br /> Customers
                   </p>
                 </div>

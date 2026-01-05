@@ -78,7 +78,9 @@ const healthClaimPlans = [
         titleSize="text-4xl md:text-5xl"
       />
       </FadeUp> */}
-       <HeroSection isHealthPage={true} />
+      <FadeUp>
+         <HeroSection isHealthPage={true} />
+      </FadeUp>
       <FadeUp>
       <VehicleInfoHeader
         vehicleType="health"
@@ -90,7 +92,7 @@ const healthClaimPlans = [
           </>
         }
         subtitle="Compare top health insurance plans and get trusted coverage for you and your family."
-        vehicleImage="/Health.mp4"
+        vehicleImage="/grouphealth.png"
       />
       </FadeUp>
       <FadeUp>

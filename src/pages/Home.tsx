@@ -14,6 +14,7 @@ import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
 
 const Home = () => {
+  
   return (
     <div>
       <Navbar />

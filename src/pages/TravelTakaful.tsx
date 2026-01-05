@@ -58,12 +58,6 @@ const travelClaimPlans = [
       <FadeUp>
       <TravelInfoSection/>
       </FadeUp>
-      <FadeUp>
-       <ClaimProcess
-        title="Risk Covered"
-        plans={travelClaimPlans}
-      />
-     </FadeUp>
       {/* <InsuranceDetailsSection /> */}
       
       <FadeUp>
@@ -73,6 +67,12 @@ const travelClaimPlans = [
         subtitle="Travel Takaful is a Shariah-compliant, mutual protection plan that covers financial losses from unexpected travel issues, like medical emergencies, lost luggage, or trip cancellations, by pooling contributions (donations) from participants for collective assistance, operating on Islamic principles of mutual help rather than conventional insurance's commercial model."
       />
       </FadeUp>
+       <FadeUp>
+       <ClaimProcess
+        title="Risk Covered"
+        plans={travelClaimPlans}
+      />
+     </FadeUp>
       {/* <Guidelines/> */}
       {/* <InsuranceDetailsSection /> */}
       <Footer />

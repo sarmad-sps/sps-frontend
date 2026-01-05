@@ -52,9 +52,9 @@ const CoverageSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="w-full flex flex-col items-center p-4 sm:p-8 md:p-10 bg-slate-100">
+    <section className="w-full flex flex-col items-center p-4 sm:p-8 md:p-10 bg-[#1C4D8D]">
       {/* Heading */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl font-extrabold text-center text-[#0b2c63] mb-10">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl font-extrabold text-center text-[#ffff] mb-10">
         Our Nationwide Tracking Services
       </h1>
 

@@ -107,25 +107,25 @@ const HealthTakaful = () => {
   return (
     <div className="w-full bg-[#F4F9FE]  flex items-start justify-center  md:items-center pt-8 ">
       <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 ">
-        <div className="flex flex-col md:flex-row justify-between bg-white  rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 overflow-hidden">
+        <div className="flex flex-col md:flex-row justify-between bg-[#1C4D8D]  rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 overflow-hidden">
           {/* Left Section */}
           <div className="flex-1 min-w-0 space-y-4">
             <div className="flex justify-center w-full">
               <img
-                src="/health123.png"
+                src="/micro.png"
                 alt="Accident Insurance"
                 className="w-36 h-40 sm:w-40 sm:h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 object-contain"
               />
             </div>
 
             <div className="text-center space-y-1">
-              <h2 className="text-lg font-semibold text-blue-700">
+              <h2 className="text-lg font-semibold text-white">
                 Protect Your Health with Takaful
               </h2>
-              <p className="text-blue-600 text-sm font-medium">
+              <p className="text-white text-sm font-medium">
                 Affordable coverage for individuals and organizations
               </p>
-              <p className="text-gray-600 text-xs">
+              <p className="text-white text-xs">
                 Quick online enrollment. Comprehensive health coverage tailored
                 for your needs.
               </p>

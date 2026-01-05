@@ -2,14 +2,14 @@ import { Star } from 'lucide-react';
 
 const TestimonialsSection = () => {
   return (
-    <section className="w-full bg-white py-16 md:py-20">
-      <div className="w-full px-4 sm:px-6  md:px-10 lg:px-16 xl:px-20 2xl:px-18"> 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section className="w-full  bg-[#1C4D8D] py-16 md:py-20 ">
+      <div className="w-full px-4 sm:px-6  md:px-10 lg:px-16 xl:px-20 2xl:px-18 "> 
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ">
           
           {/* Left Side - Testimonial Card */}
           <div>
             {/* Section Tag */}
-            <p className="text-gray-700 text-sm md:text-base font-semibold mb-2">
+            <p className="text-white text-sm md:text-base font-semibold mb-2">
               Clients Testimonials
             </p>
 

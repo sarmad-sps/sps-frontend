@@ -17,7 +17,7 @@ const InsuranceSection = ({
   tagText,
   title,
   description,
-  backgroundColor = "bg-gradient-to-b from-blue-50 to-white",
+  backgroundColor = "bg-[#1C4D8D]",
 }: InsuranceSectionProps) => {
   // Check if it's a video file
   const isVideo = /\.(mp4|webm|ogg)$/i.test(image);
@@ -53,11 +53,11 @@ const InsuranceSection = ({
 
             {/* Text Content */}
             <div className="text-center lg:text-left">
-              <p className="text-gray-600 text-sm mb-2">{tagText}</p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A3970] mb-4 leading-tight">
+              <p className="text-white text-sm mb-2">{tagText}</p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[white] mb-4 leading-tight">
                 {title}
               </h2>
-              <p className="text-gray-600 leading-relaxed">{description}</p>
+              <p className="text-white leading-relaxed">{description}</p>
             </div>
           </div>
         </div>

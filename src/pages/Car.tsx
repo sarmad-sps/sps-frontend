@@ -61,7 +61,9 @@ const Car = () => {
         titleSize="text-4xl md:text-5xl"
       />
       </FadeUp> */}
-       <HeroSection isCarPage={true} />
+       <FadeUp>
+        <HeroSection isCarPage={true} />
+       </FadeUp>
       <FadeUp>
         <VehicleInfoHeader  
           vehicleType="car"

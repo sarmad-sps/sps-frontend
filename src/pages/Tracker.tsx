@@ -40,9 +40,6 @@ const Tracker = () => {
         <ChoosingProcess />
       </FadeUp>
       <FadeUp>
-        <Benefits />
-      </FadeUp>
-      <FadeUp>
         <Services />
       </FadeUp>
       <FadeUp>
@@ -59,6 +56,9 @@ const Tracker = () => {
       </FadeUp>
       <FadeUp>
       <Testimonial />
+      </FadeUp>
+       <FadeUp>
+        <Benefits />
       </FadeUp>
       <FadeUp>
       <FAQSection />

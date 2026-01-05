@@ -1,147 +1,176 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import benefitImg from "/benefit.png";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+
 const VehicleTrackingHero: React.FC = () => {
-  
+  const features = [
+    { icon: "/realtime.svg", title: "Real-Time Tracking", desc: "Live vehicle location updates with precision" },
+    { icon: "/geo.svg", title: "Geo-Fencing Alerts", desc: "Instant alerts for route deviations" },
+    { icon: "/driving.svg", title: "Driver Monitoring", desc: "Track speed, braking & fuel efficiency" },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Mobile slider auto-play
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % features.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className=" bg-[#1C4D8D] transition-colors duration-500">
+    <div className="bg-[#1C4D8D] overflow-hidden">
       <div className="w-full px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 2xl:px-20">
-        <div className=" mx-auto">
-          <div className="py-16 lg:py-24">
-            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-start">
-              {/* Left Side - Text & CTA */}
-              <div className="space-y-8 lg:space-y-10 text-center lg:text-left">
-                <div className="space-y-5">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src="/splogo.png"
-                      className="w-9 h-9 sm:w-11 sm:h-11"
-                    />
-                    <p className="text-[#ffff] font-bold text-sm uppercase tracking-wider">
-                      BENEFITS
-                    </p>
-                  </div>
-                  <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold text-[#ffff] leading-tight">
-                    Key Features &{" "}
-                    <span className="text-[#ffff]">Benefits</span>
-                  </h1>
-                  <p className="text-[#ffff] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                    Experience unmatched convenience and security with our
-                    advanced vehicle tracking solutions.
-                  </p>
+        <div className="mx-auto py-16 lg:py-24">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            
+            {/* Left Side - Text Content */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              className="space-y-8 text-center lg:text-left"
+            >
+              <div className="space-y-5">
+                <div className="flex items-center gap-3 justify-center lg:justify-start">
+                  <img src="/splogo.png" className="w-9 h-9 sm:w-11" alt="Logo" />
+                  <p className="text-cyan-400 font-bold text-sm uppercase tracking-[0.2em]">BENEFITS</p>
                 </div>
-
-                <div className="flex justify-center lg:justify-start">
-                  <Link to="/aboutus">
-                    <button className="neon-btn">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-           learn More
-          </button>
-                  </Link>
-                </div>
-
-                {/* Certifications - Responsive Flex */}
-                <div className="flex flex-wrap justify-center lg:justify-start gap-6 pt-8">
-                  <div className="flex flex-col items-center space-y-2">
-                    <img
-                      src="/pta.png"
-                      alt="PTA"
-                      className="w-14 h-14 sm:w-16 sm:h-16"
-                    />
-                    <p className="text-xs sm:text-sm font-semibold text-[#ffff]">
-                      PTA Approved
-                      <br /> Devices
-                    </p>
-                  </div>
-                  <div className="flex flex-col items-center space-y-2">
-                    <img
-                      src="/SECP logo.png"
-                      alt="ISO"
-                      className="w-14 h-14 sm:w-16 sm:h-16"
-                    />
-                    <p className="text-xs sm:text-sm font-semibold text-[#ffff]">
-                      ISO Certified <br /> Devices
-                    </p>
-                  </div>
-                  <div className="flex flex-col items-center space-y-2 max-w-[160px]">
-                    <img
-                      src="/pcs.png"
-                      alt="PCSIR"
-                      className="w-14 h-14 sm:w-16 sm:h-16"
-                    />
-                    <p className="text-xs sm:text-sm font-medium text-[#ffff] text-center leading-tight">
-                      Certified from Pakistan
-                      <br />
-                      Council of Scientific & Industrial Research
-                    </p>
-                  </div>
-                </div>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                  Key Features & <span className="text-cyan-400 italic">Benefits</span>
+                </h1>
+                <p className="text-blue-100 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 opacity-80">
+                  Experience unmatched convenience and security with our advanced vehicle tracking solutions.
+                </p>
               </div>
 
-              {/* Right Side - Features + Image */}
-              <div className="space-y-12 lg:space-y-16">
-                {/* 3 Feature Cards - Fully Responsive */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-10">
-                  {[
-                    {
-                      icon: "/realtime.svg",
-                      title: "Real-Time Tracking",
-                      desc: "Live vehicle location updates with precision",
-                    },
-                    {
-                      icon: "/geo.svg",
-                      title: "Geo-Fencing Alerts",
-                      desc: "Instant alerts for route deviations",
-                    },
-                    {
-                      icon: "/driving.svg",
-                      title: "Driver Monitoring",
-                      desc: "Track speed, braking & fuel efficiency",
-                    },
-                  ].map((feature, index) => (
-                    <div
-                      key={index}
-                      className="text-center group transform transition-all duration-300 hover:scale-105"
-                    >
-                      <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg group-hover:shadow-2xl transition-shadow">
-                        <img
-                          src={feature.icon}
-                          alt={feature.title}
-                          className="w-9 h-9"
-                        />
-                      </div>
-                      <h3 className="font-bold text-[#ffff] text-lg mb-3">
-                        {feature.title}
-                      </h3>
-                      <p className="text-black-400 text-sm leading-relaxed px-2">
-                        {feature.desc}
-                      </p>
+              <div className="flex justify-center lg:justify-start">
+                <Link to="/aboutus">
+                  <button className="neon-btn">Learn More
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                  </button>
+                </Link>
+              </div>
+
+              {/* Certifications - White Circles */}
+              <div className="flex flex-wrap justify-center lg:justify-start gap-6 pt-8">
+                {[ 
+                  { src: "/pta.png", label: "PTA Approved" },
+                  { src: "/SECP logo.png", label: "ISO Certified" },
+                  { src: "/pcs.png", label: "PCSIR Certified", long: true }
+                ].map((cert, i) => (
+                  <div key={i} className="flex flex-col items-center space-y-3">
+                    <div className="bg-white w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center shadow-lg p-4 transition-transform hover:scale-110 border-4 border-white/10">
+                      <img src={cert.src} alt="Cert" className="w-full h-full object-contain" />
                     </div>
+                    <p className="text-[10px] font-bold text-white uppercase tracking-wider text-center max-w-[100px]">
+                      {cert.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Right Side - Features Section */}
+            <div className="space-y-12">
+              
+              {/* Desktop View: Transparent Cards, Whole Div Hover */}
+              <div className="hidden lg:grid grid-cols-3 gap-6">
+                {features.map((feature, index) => (
+                  <FeatureCard key={index} feature={feature} isDesktop={true} />
+                ))}
+              </div>
+
+              {/* Mobile View: White Background Slider */}
+              <div className="lg:hidden relative">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentIndex}
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -30 }}
+                    transition={{ duration: 0.5 }}
+                    className="w-full"
+                  >
+                    <FeatureCard feature={features[currentIndex]} isDesktop={false} />
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Mobile Dots */}
+                <div className="flex justify-center gap-3 mt-8">
+                  {features.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentIndex(index)}
+                      className={`transition-all duration-500 rounded-full h-1.5 ${
+                        index === currentIndex ? "bg-cyan-400 w-6" : "bg-white/40 w-1.5"
+                      }`}
+                    />
                   ))}
                 </div>
-
-                {/* Main Image - Perfectly Responsive */}
-                <div className="relative mx-auto sm:mx-0 mt-10 lg:mt-16">
-                  <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-8 sm:border-[12px] ">
-                    <img
-                      src={benefitImg}
-                      alt="Vehicle Tracking System"
-                      className="w-full h-auto object-cover"
-                    />
-                  </div>
-                  {/* Optional subtle overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-3xl pointer-events-none"></div>
-                </div>
               </div>
+
+              {/* Bottom Image with Glow */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="relative mx-auto pt-6 lg:pt-0 group"
+              >
+                <div className="absolute -inset-1 bg-cyan-400/20 blur-2xl rounded-[2rem] opacity-0 group-hover:opacity-100 transition duration-700"></div>
+                <div className="relative rounded-[2rem] overflow-hidden border-4 border-white/5 shadow-2xl">
+                  <img src={benefitImg} alt="Tracking System" className="w-full h-auto object-cover" />
+                </div>
+              </motion.div>
             </div>
+
           </div>
         </div>
       </div>
     </div>
   );
 };
+
+// Reusable Feature Card Component
+const FeatureCard = ({ feature, isDesktop }: { feature: any, isDesktop: boolean }) => (
+  <div
+    className={`group text-center p-6 rounded-[2.5rem] transition-all duration-500
+      ${isDesktop
+        ? 'bg-transparent border-none shadow-none cursor-pointer'
+        : 'bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg'}`} // ✅ Mobile: transparent + blur + shadow
+  >
+    {/* Icon Container */}
+    <div
+      className={`w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4 bg-cyan-400
+        transition-all duration-500 ease-out
+        ${isDesktop
+          ? 'group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-[0_0_20px_rgba(34,211,238,0.4)]'
+          : 'shadow-md'}`}
+    >
+      <img src={feature.icon} alt={feature.title} className="w-7 h-7 brightness-0 invert" />
+    </div>
+
+    <h3
+      className={`font-bold text-md mb-2 uppercase tracking-tight transition-colors duration-300
+        ${isDesktop ? 'text-white group-hover:text-cyan-400' : 'text-white'}`} // Mobile text white for contrast
+    >
+      {feature.title}
+    </h3>
+
+    <p
+      className={`text-xs leading-relaxed line-clamp-3 transition-opacity duration-300
+        ${isDesktop ? 'text-blue-100/60 group-hover:opacity-100' : 'text-white/70'}`} // Mobile desc semi-white
+    >
+      {feature.desc}
+    </p>
+  </div>
+);
+
 
 export default VehicleTrackingHero;

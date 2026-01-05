@@ -65,7 +65,7 @@ const Faq: React.FC<FAQProps> = ({ variant, title, subtitle, faqs, media }) => {
   return (
     <section
       id={`${variant}-faq`}
-      className="w-full bg-[#e8f1ff] px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 mt-12"
+      className="w-full bg-[#ffff] px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 mt-12"
     >
       <div className="max-w-9xl mx-auto p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -80,10 +80,14 @@ const Faq: React.FC<FAQProps> = ({ variant, title, subtitle, faqs, media }) => {
 
             <div className="mt-6 space-y-4">
               {data.map((item, index) => (
-                <details
-                  key={index}
-                  className="group bg-white rounded-xl p-5 border border-gray-200 hover:shadow-md transition-all duration-300 cursor-pointer"
-                >
+               <details
+  key={index}
+  className="group bg-white rounded-xl p-5 
+             shadow-[0_8px_24px_rgba(0,0,0,0.08)] 
+             hover:shadow-[0_12px_32px_rgba(0,0,0,0.15)] 
+             transition-all duration-300 cursor-pointer"
+>
+
                   <summary className="flex justify-between items-center text-lg font-medium text-gray-800">
                     {item.question}
                     <span className="transition-transform duration-300 group-open:rotate-180 text-gray-500">

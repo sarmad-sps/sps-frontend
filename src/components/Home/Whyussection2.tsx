@@ -43,13 +43,14 @@ export default function WhyUsSection2() {
   };
 
   return (
-    <section className="w-full relative py-16 md:py-20 overflow-hidden bg-white">
+    <section className="w-full relative py-16 md:py-20 overflow-hidden bg-[#1C4D8D]">
+
       {/* Split Background - Only on large screens */}
       <div className="absolute inset-0 hidden lg:block">
         {/* Left half - colored background */}
-        <div className="absolute top-0 left-0 w-1/2 h-full bg-[#E3EFF0]"></div>
+        <div className="absolute top-0 left-0 w-1/2 h-full "></div>
         {/* Right half - white background */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-white"></div>
+        <div className="absolute top-0 right-0 w-1/2 h-full"></div>
       </div>
 
       {/* Removed max-w-7xl */}
@@ -70,16 +71,16 @@ export default function WhyUsSection2() {
           <div>
             {/* Header */}
             <div className="mb-8">
-              <p className="text-gray-700 text-sm md:text-base font-semibold mb-3">
+              <p className="text-white text-sm md:text-base font-semibold mb-3">
                 Get Know Why Us
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-black mb-2">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
                 Connecting You With The
               </h2>
               <h2 className="text-3xl md:text-4xl font-bold text-[#1894a4] mb-4">
                 Right Insurance,Made Simple
               </h2>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-white text-sm leading-relaxed">
                 We are a trusted insurance aggregator that helps individuals and
                 businesses compare, choose, and secure the best insurance plans
                 from leading providers. Our goal is to simplify insurance by
@@ -89,28 +90,27 @@ export default function WhyUsSection2() {
             </div>
 
             {/* Features Grid - 2x2 on larger screens */}
-            <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-8">
-              {features.map((feature) => (
-                <div key={feature.id} className="group">
-                  {/* Icon */}
-                  <div className="mb-3">
-                    <img
-                      src="/Servicesection2Icon1.png"
-                      alt={feature.title}
-                      className="w-8 h-8"
-                    />
-                  </div>
+           <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-8">
+  {features.map((feature) => (
+    <div key={feature.id} className="group">
+      {/* Icon - Ab white hoga */}
+      <div className="mb-3">
+        <img
+          src="/Servicesection2Icon1.png"
+          alt={feature.title}
+          className="w-8 h-8 brightness-0 invert transition-all duration-300"
+        />
+      </div>
 
-                  {/* Content */}
-                  <h3 className="text-base font-bold text-black mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
-              ))}
-            </div>
+      <h3 className="text-base font-bold text-black mb-2">
+        {feature.title}
+      </h3>
+      <p className="text-white text-sm leading-relaxed">
+        {feature.description}
+      </p>
+    </div>
+  ))}
+</div>
 
             {/* Slider for small screens */}
             <div className="sm:hidden">
@@ -120,18 +120,19 @@ export default function WhyUsSection2() {
                     <div className="group pb-8">
                       {/* Icon */}
                       <div className="mb-3">
-                        <img
-                          src="/Servicesection2Icon1.png"
-                          alt={feature.title}
-                          className="w-8 h-8"
-                        />
+                      <img
+  src="/Servicesection2Icon1.png"
+  alt={feature.title}
+  className="w-8 h-8 brightness-0 invert transition-all duration-300 group-hover:brightness-100 group-hover:invert-0"
+/>
+
                       </div>
 
                       {/* Content */}
                       <h3 className="text-base font-bold text-black mb-2">
                         {feature.title}
                       </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">
+                      <p className="text-white text-sm leading-relaxed">
                         {feature.description}
                       </p>
                     </div>
