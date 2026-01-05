@@ -71,11 +71,11 @@ const AboutUsSection1 = () => {
           <div className="self-center  -mt-2 lg:-mt-3">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
               Driving Your Peace Of Mind Through{" "}
-              <span className="text-[#1894a4]">Trusted Insurance</span>
+              <span className="text-[#ffff]">Trusted Insurance</span>
             </h2>
 
             {/* Subtitle */}
-            <p className="text-[Black] text-lg font-semibold mb-4">
+            <p className="text-[#ffff] text-lg font-semibold mb-4">
               Our Goal is Clear: to Secure Your Today And Give You a Worry-Free
               Tomorrow.{" "}
             </p>
@@ -99,10 +99,10 @@ const AboutUsSection1 = () => {
               <div className="flex items-start gap-4">
                 <ArrowRight className="w-6 h-6 text-[#1894a4] flex-shrink-0 mt-4 " />
                 <div className="flex items-start gap-3">
-                  <h3 className="text-4xl md:text-5xl font-bold text-[#1894a4]">
+                  <h3 className="text-4xl md:text-5xl font-bold text-[#ffff]">
                     1,000+
                   </h3>
-                  <p className="text-700 font-medium mt-3">
+                  <p className="text-[#ffff] font-medium mt-3">
                     Policies Successfully Issued <br /> Last 5 Years
                   </p>
                 </div>
@@ -112,10 +112,10 @@ const AboutUsSection1 = () => {
               <div className="flex items-start gap-4">
                 <ArrowRight className="w-6 h-6 text-[#1894a4] flex-shrink-0 mt-4" />
                 <div className="flex items-start gap-3">
-                  <h3 className="text-4xl md:text-5xl font-bold text-[#1894a4]">
+                  <h3 className="text-4xl md:text-5xl font-bold text-[#ffff]">
                     5,000+
                   </h3>
-                  <p className="text-700 font-medium mt-3">
+                  <p className="text-[#ffff] font-medium mt-3">
                     Happy & Protected <br /> Customers
                   </p>
                 </div>
