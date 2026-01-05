@@ -54,7 +54,7 @@ const InsuranceSection = ({
             {/* Text Content */}
             <div className="text-center lg:text-left">
               <p className="text-white text-sm mb-2">{tagText}</p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[black] mb-4 leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[white] mb-4 leading-tight">
                 {title}
               </h2>
               <p className="text-white leading-relaxed">{description}</p>

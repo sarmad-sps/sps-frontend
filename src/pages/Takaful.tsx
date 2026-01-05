@@ -27,7 +27,9 @@ const Takaful = () => {
           titleSize="text-4xl md:text-5xl"
         />
       </FadeUp> */}
-       <HeroSection isTakafulPage={true} />
+       {/* <FadeUp>
+        <HeroSection isTakafulPage={true} />
+       </FadeUp> */}
       <FadeUp>
         <InsuranceCard />
       </FadeUp>

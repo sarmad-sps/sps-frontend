@@ -14,7 +14,7 @@ interface Service {
 const services: Service[] = [
   {
     id: "01",
-    iconSrc: "/carinsu.png",
+    iconSrc: "/carinsurance.png",
     title: "Car Insurance",
     features: [
       "Full Safety For Your Cars",
@@ -25,7 +25,7 @@ const services: Service[] = [
   },
   {
     id: "02",
-    iconSrc: "/Healthins.png",
+    iconSrc: "/health-screening.png",
     title: "Health Insurance",
     features: [
       "Covers Hospital Expense",
@@ -36,7 +36,7 @@ const services: Service[] = [
   },
   {
     id: "03",
-    iconSrc: "/Bikeinsu.png",
+    iconSrc: "/bikeinsurance.png",
     title: "Bike Insurance",
     features: [
       "Easy And Low Cost Plans",
@@ -47,7 +47,7 @@ const services: Service[] = [
   },
   {
     id: "04",
-    iconSrc: "/travelinsu.png",
+    iconSrc: "/travelinsurance.png",
     title: "Travel Insurance",
     features: [
       "Medical Emergency Coverage",
@@ -56,20 +56,9 @@ const services: Service[] = [
     ],
     route: "/travel",
   },
-  {
+   {
     id: "05",
-    iconSrc: "/Itservice.png",
-    title: "IT Services",
-    features: [
-      "Network Security Solutions",
-      "Data Backup & Recovery",
-      "24/7 Techinal Support",
-    ],
-    route: "/it-consulting",
-  },
-  {
-    id: "06",
-    iconSrc: "/Takafulinsu.png",
+    iconSrc: "/takaful.png",
     title: "Takaful",
     features: [
       "Shariah-Compliant Coverage",
@@ -77,6 +66,17 @@ const services: Service[] = [
       "transparent & Ethical Policies",
     ],
     route: "/takaful",
+  },
+  {
+    id: "06",
+    iconSrc: "/itservices.png",
+    title: "IT Services",
+    features: [
+      "Network Security Solutions",
+      "Data Backup & Recovery",
+      "24/7 Techinal Support",
+    ],
+    route: "/it-consulting",
   },
 ];
 
@@ -172,9 +172,20 @@ const ServicesSection: React.FC = () => {
   const prevSlide = () =>
     setPage((prev) => (prev - 1 + totalPages) % totalPages);
   const nextSlide = () => setPage((prev) => (prev + 1) % totalPages);
-
+  useEffect(() => {
+    // Wait a short time to make sure ServiceSection1 is rendered
+    setTimeout(() => {
+      const hash = window.location.hash; // e.g., #service-section-1
+      if (hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }, 100); // 100ms delay
+  }, []);
   return (
-    <section className="w-full bg-[#F5F8Fc] py-16 md:py-20 relative">
+    <section className="w-full bg-[#F5F8Fc] py-16 md:py-20 relative  " id="service-section-1">
       <div className="w-full px-4 md:px-10 lg:px-14 xl:px-16 2xl:px-18 sm:px-6">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -231,7 +242,7 @@ const ServicesSection: React.FC = () => {
                               service.id === "04"
                                 ? "w-18 h-16"
                                 : "w-16 h-16"
-                            } mb-4 transition-all duration-500`}
+                            } mb-4 group-hover:brightness-0 group-hover:invert transition-all duration-500`}
                           />
                           <h3 className="text-xl font-bold mb-1 transition-colors duration-500 group-hover:text-white">
                             {service.title}

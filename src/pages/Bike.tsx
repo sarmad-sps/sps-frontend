@@ -77,7 +77,9 @@ const bikeInsuranceInfo = {
         titleSize="text-4xl md:text-5xl"
       />
       </FadeUp> */}
-       <HeroSection isBikePage={true} />
+      <FadeUp>
+         <HeroSection isBikePage={true} />
+      </FadeUp>
       <FadeUp>
       <VehicleInfoHeader
         vehicleType="bike"
