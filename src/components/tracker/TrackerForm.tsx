@@ -71,7 +71,7 @@ const ContactSection: React.FC = () => {
   return (
     <section
       id="tracker-form"
-      className="relative pt-8 md:pt-10 lg:pt-12 pb-0 bg-[#ffff] text-white overflow-hidden w-full px-4 md:px-10 lg:px-10 2xl:px-18"
+      className=" relative pt-8 md:pt-10 lg:pt-12 pb-0 bg-[#ffff] text-white overflow-hidden w-full px-4 md:px-10 lg:px-10 2xl:px-18"
     >
       <div className="max-w-8xl mx-auto h-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch h-full">

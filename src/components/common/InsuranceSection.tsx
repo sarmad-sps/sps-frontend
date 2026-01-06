@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 interface InsuranceSectionProps {
   FormCard: ReactNode;
-  image: string;  // image ya video path (extension se detect karega)
+  image: string;  
   imageAlt: string;
   tagText: string;
   title: string;
@@ -52,8 +52,8 @@ const InsuranceSection = ({
             </div>
 
             {/* Text Content */}
-            <div className="text-center lg:text-left">
-              <p className="text-white text-sm mb-2">{tagText}</p>
+            <div className="text-center lg:text-center">
+              {/* <p className="text-white text-sm mb-2">{tagText}</p> */}
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[white] mb-4 leading-tight">
                 {title}
               </h2>

@@ -105,7 +105,8 @@ const HealthTakaful = () => {
   };
 
   return (
-    <div className="w-full bg-[#F4F9FE]  flex items-start justify-center  md:items-center pt-8 ">
+   <div id="quote-form">
+     <div className="w-full bg-[#F4F9FE]  flex items-start justify-center  md:items-center pt-8 ">
       <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 ">
         <div className="flex flex-col md:flex-row justify-between bg-[#1C4D8D]  rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 overflow-hidden">
           {/* Left Section */}
@@ -312,6 +313,7 @@ const HealthTakaful = () => {
         </div>
       </div>
     </div>
+   </div>
   );
 };
 
