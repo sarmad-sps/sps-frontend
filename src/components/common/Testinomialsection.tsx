@@ -15,9 +15,9 @@ const TestimonialsSection = () => {
 
             {/* Main Heading */}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8">
-              <span className="text-black">What Our Customers Say</span>
+              <span className="text-white">What Our Customers Say</span>
               <br />
-              <span className="text-[#1894a4]">About Our Services</span>
+              <span className="text-[#ffff]">About Our Services</span>
             </h2>
 
             {/* Testimonial Card */}

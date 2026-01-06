@@ -77,7 +77,7 @@ export default function WhyUsSection2() {
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
                 Connecting You With The
               </h2>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#1894a4] mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#ffff] mb-4">
                 Right Insurance,Made Simple
               </h2>
               <p className="text-white text-sm leading-relaxed">
@@ -102,7 +102,7 @@ export default function WhyUsSection2() {
         />
       </div>
 
-      <h3 className="text-base font-bold text-black mb-2">
+      <h3 className="text-base font-bold text-white mb-2">
         {feature.title}
       </h3>
       <p className="text-white text-sm leading-relaxed">
