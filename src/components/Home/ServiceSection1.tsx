@@ -242,7 +242,7 @@ const ServicesSection: React.FC = () => {
                               service.id === "04"
                                 ? "w-18 h-16"
                                 : "w-16 h-16"
-                            } mb-4 group-hover:brightness-0 group-hover:invert transition-all duration-500`}
+                            } mb-4 group-hover:brightness-0 cursor-pointer group-hover:invert transition-all duration-500`}
                           />
                           <h3 className="text-xl font-bold mb-1 transition-colors duration-500 group-hover:text-white">
                             {service.title}

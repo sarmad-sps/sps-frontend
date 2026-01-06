@@ -23,7 +23,8 @@ const HealthFormCard = () => {
     "myself" | "staff" | "family" | "parents"
   >("myself");
 
-  const [selectedTreatmentLimit, setSelectedTreatmentLimit] = useState<string>("");
+  const [selectedTreatmentLimit, setSelectedTreatmentLimit] =
+    useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
   const [formData, setFormData] = useState<FormDataType>({
@@ -43,7 +44,7 @@ const HealthFormCard = () => {
     { id: "myself", label: "Myself", icon: "/Personicon.png" },
     { id: "family", label: "Family", icon: "/Familyiconimage.jpg" },
     { id: "parents", label: "Parents", icon: "/Coupleiconimage.png" },
-     { id: "staff", label: "Staff", icon: "/Stafficonimage.png" },
+    { id: "staff", label: "Staff", icon: "/Stafficonimage.png" },
   ] as const;
 
   const treatmentLimits = [
@@ -65,7 +66,9 @@ const HealthFormCard = () => {
     if (name === "name" && !/^[a-zA-Z\s]*$/.test(value)) return;
     if (name === "phone" && (!/^\d*$/.test(value) || value.length > 11)) return;
     if (
-      (name === "yourAge" || name === "spouseAge" || name === "numberOfPersons") &&
+      (name === "yourAge" ||
+        name === "spouseAge" ||
+        name === "numberOfPersons") &&
       !/^\d*$/.test(value)
     )
       return;
@@ -194,9 +197,7 @@ const HealthFormCard = () => {
     id === "staff" || id === "parents" ? "w-10 h-10" : "w-8 h-8";
 
   return (
- <div className="relative"   id="quote-form">
-    
-
+    <div className="relative" id="quote-form">
       <style>{`
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
         .animate-fadeIn { animation: fadeIn 0.3s ease-out; }
@@ -211,9 +212,17 @@ const HealthFormCard = () => {
               type="button"
               onClick={() => setSelectedPersonType(type.id)}
               className={`p-4 border-2 rounded-xl flex flex-col items-center gap-2 
-                ${selectedPersonType === type.id ? "border-[#1A3970] shadow-md" : "border-gray-300"}`}
+                ${
+                  selectedPersonType === type.id
+                    ? "border-[#1A3970] shadow-md"
+                    : "border-gray-300"
+                }`}
             >
-              <img src={type.icon} alt={type.label} className={`${getIconSize(type.id)}`} />
+              <img
+                src={type.icon}
+                alt={type.label}
+                className={`${getIconSize(type.id)}`}
+              />
               <span className="font-medium">{type.label}</span>
             </button>
           ))}
@@ -228,7 +237,9 @@ const HealthFormCard = () => {
           onChange={handleInputChange}
           className="w-full border p-3 rounded-lg mb-2"
         />
-        {formErrors.name && <p className="text-red-500 text-sm">{formErrors.name}</p>}
+        {formErrors.name && (
+          <p className="text-red-500 text-sm">{formErrors.name}</p>
+        )}
 
         <input
           type="text"
@@ -238,7 +249,9 @@ const HealthFormCard = () => {
           onChange={handleInputChange}
           className="w-full border p-3 rounded-lg mb-2"
         />
-        {formErrors.phone && <p className="text-red-500 text-sm">{formErrors.phone}</p>}
+        {formErrors.phone && (
+          <p className="text-red-500 text-sm">{formErrors.phone}</p>
+        )}
 
         {/* Treatment Limit */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-4">
@@ -248,7 +261,11 @@ const HealthFormCard = () => {
               type="button"
               onClick={() => setSelectedTreatmentLimit(t.value)}
               className={`p-3 border rounded-xl 
-                ${selectedTreatmentLimit === t.value ? "border-green-600 shadow" : "border-gray-300"}`}
+                ${
+                  selectedTreatmentLimit === t.value
+                    ? "border-green-600 shadow"
+                    : "border-gray-300"
+                }`}
             >
               {t.label}
             </button>
@@ -269,7 +286,9 @@ const HealthFormCard = () => {
               onChange={handleInputChange}
               className="w-full border p-3 rounded-lg mb-2"
             />
-            {formErrors.yourAge && <p className="text-red-500 text-sm">{formErrors.yourAge}</p>}
+            {formErrors.yourAge && (
+              <p className="text-red-500 text-sm">{formErrors.yourAge}</p>
+            )}
           </div>
         )}
 
@@ -291,9 +310,15 @@ const HealthFormCard = () => {
               onChange={handleInputChange}
               className="w-full border p-3 rounded-lg mb-2"
             />
-            {formErrors.family && <p className="text-red-500 text-sm">{formErrors.family}</p>}
-            {formErrors.spouseAge && <p className="text-red-500 text-sm">{formErrors.spouseAge}</p>}
-            {formErrors.children && <p className="text-red-500 text-sm">{formErrors.children}</p>}
+            {formErrors.family && (
+              <p className="text-red-500 text-sm">{formErrors.family}</p>
+            )}
+            {formErrors.spouseAge && (
+              <p className="text-red-500 text-sm">{formErrors.spouseAge}</p>
+            )}
+            {formErrors.children && (
+              <p className="text-red-500 text-sm">{formErrors.children}</p>
+            )}
           </div>
         )}
 
@@ -303,7 +328,10 @@ const HealthFormCard = () => {
               name="parentsAgeRange"
               value={formData.parentsAgeRange}
               onChange={(e) =>
-                setFormData((prev) => ({ ...prev, parentsAgeRange: e.target.value }))
+                setFormData((prev) => ({
+                  ...prev,
+                  parentsAgeRange: e.target.value,
+                }))
               }
               className="w-full border p-3 rounded-lg mb-2"
             >
@@ -315,7 +343,9 @@ const HealthFormCard = () => {
               ))}
             </select>
             {formErrors.parentsAgeRange && (
-              <p className="text-red-500 text-sm">{formErrors.parentsAgeRange}</p>
+              <p className="text-red-500 text-sm">
+                {formErrors.parentsAgeRange}
+              </p>
             )}
           </div>
         )}
@@ -338,8 +368,14 @@ const HealthFormCard = () => {
               onChange={handleInputChange}
               className="w-full border p-3 rounded-lg mb-2"
             />
-            {formErrors.companyName && <p className="text-red-500 text-sm">{formErrors.companyName}</p>}
-            {formErrors.numberOfPersons && <p className="text-red-500 text-sm">{formErrors.numberOfPersons}</p>}
+            {formErrors.companyName && (
+              <p className="text-red-500 text-sm">{formErrors.companyName}</p>
+            )}
+            {formErrors.numberOfPersons && (
+              <p className="text-red-500 text-sm">
+                {formErrors.numberOfPersons}
+              </p>
+            )}
           </div>
         )}
 
@@ -363,7 +399,6 @@ const HealthFormCard = () => {
         </button>
       </div>
     </div>
-
   );
 };
 
