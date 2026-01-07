@@ -78,9 +78,9 @@ const healthClaimPlans = [
         titleSize="text-4xl md:text-5xl"
       />
       </FadeUp> */}
-      <FadeUp>
+      {/* <FadeUp>
          <HeroSection isHealthPage={true} />
-      </FadeUp>
+      </FadeUp> */}
       <FadeUp>
       <VehicleInfoHeader
         vehicleType="health"

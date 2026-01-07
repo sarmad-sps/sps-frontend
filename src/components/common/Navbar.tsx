@@ -114,27 +114,37 @@ const Navbar = () => {
               {/* Right Side */}
               <div className="flex items-center gap-2 sm:gap-4">
                 <a
-                  href="tel:03008492075"
-                  className="hidden lg:flex items-center gap-3 border-l border-r border-gray-300 px-6 hover:bg-gray-50 transition-colors group"
+                  href="tel: 03008492075"
+                  className="hidden lg:flex items-center gap-3 border-l border-r border-gray-300 px-6"
                 >
-                  <Phone className="w-5 h-5 text-[#1f7b85] group-hover:animate-shake" />
+                  <Phone className="w-5 h-5 text-teal-600" />
                   <div className="flex flex-col">
                     <span className="text-xs text-gray-600">Urgent Call</span>
                     <span className="text-sm font-semibold text-gray-800">
                       03008492075
                     </span>
                   </div>
+                  <button className="hidden md:block p-2 hover:bg-gray-100 rounded">
+                    <div className="grid grid-cols-3 gap-2">
+                      {[...Array(9)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="w-1.5 h-1.5 bg-black rounded-full"
+                        ></div>
+                      ))}
+                    </div>
+                  </button>
                 </a>
 
                 {/* Mobile Icon */}
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="lg:hidden p-2 hover:bg-gray-100 rounded-full transition-all"
+                  className="lg:hidden p-2 hover:bg-gray-100 rounded"
                 >
                   {mobileMenuOpen ? (
-                    <X className="w-6 h-6 rotate-90 transition-transform" />
+                    <X className="w-6 h-6" />
                   ) : (
-                    <Menu className="w-6 h-6 transition-transform" />
+                    <Menu className="w-6 h-6" />
                   )}
                 </button>
               </div>

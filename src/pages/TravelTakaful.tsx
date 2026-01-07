@@ -6,6 +6,7 @@ import Faq from "../components/Takaful/takafulinfo/Faqs";
 import ClaimProcess from "../components/car/Claimprocess";
 import FadeUp from "../components/common/FadeUp";
 import HeroSection from "../components/common/Hero";
+import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
 function TravelTakaful() {
 const travelClaimPlans = [
   {
@@ -54,7 +55,21 @@ const travelClaimPlans = [
         titleSize="text-4xl md:text-5xl"
       /> */}
       {/* <TravelForm /> */}
-       <HeroSection isTravelPage={true} />
+       {/* <HeroSection isTravelPage={true} /> */}
+        <FadeUp>
+        <VehicleInfoHeader
+          vehicleType="travel"
+          title={
+            <>
+              Up to 50% Off* on
+              <br />
+              Travel Insurance
+            </>
+          }
+          subtitle="Compare top travel insurance plans and get trusted coverage for all your adventures, anywhere in the world."
+          vehicleImage="/Travel.mp4"
+        />
+      </FadeUp>
       <FadeUp>
       <TravelInfoSection/>
       </FadeUp>

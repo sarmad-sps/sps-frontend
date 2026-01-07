@@ -62,7 +62,7 @@ const FireTakaful = () => {
       {/* <FadeUp>
       <InsuranceCard showForm={true} />
       </FadeUp> */}
-       <HeroSection isFirePage={true} />
+       {/* <HeroSection isFirePage={true} /> */}
       <FadeUp>
       <FireTakafulSection />
       </FadeUp>
