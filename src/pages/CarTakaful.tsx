@@ -60,7 +60,7 @@ const CarTakaful = () => {
           titleSize="text-4xl md:text-5xl"
         />
       </FadeUp> */}
-        <HeroSection isCarPage={true} />
+        {/* <HeroSection isCarPage={true} /> */}
       <FadeUp>
         <VehicleInfoHeader
           vehicleType="car"

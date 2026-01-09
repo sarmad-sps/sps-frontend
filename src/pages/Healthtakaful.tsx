@@ -59,7 +59,7 @@ const Healthtakaful = () => {
       {/* <FadeUp>
         <InsuranceCard showForm={true} />
       </FadeUp> */}
-       <HeroSection isHealthPage={true} />
+       {/* <HeroSection isHealthPage={true} /> */}
       <FadeUp>
       <HealthTakaful 
       />

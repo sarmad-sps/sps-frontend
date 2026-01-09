@@ -59,7 +59,7 @@ const BikeTakaful = () => {
       />
       </FadeUp> */}
       <FadeUp>
-           <HeroSection isBikePage={true} />
+           {/* <HeroSection isBikePage={true} /> */}
       <VehicleInfoHeader
         vehicleType="bike"
         title={
