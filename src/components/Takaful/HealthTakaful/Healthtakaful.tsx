@@ -3,7 +3,7 @@ import { ArrowRight, AlertCircle } from "lucide-react";
 import { submitHealthTakafulForm } from "../../../apis/healthTakafulApi";
 import { healthTakafulFormFields } from "../../../config/formFields";
 import toast from "react-hot-toast"; // ✅ Toaster added
-
+import micro from "../../../assets/micro.png"
 const validateEmail = (email: string): boolean => {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
@@ -113,7 +113,7 @@ const HealthTakaful = () => {
           <div className="flex-1 min-w-0 space-y-4">
             <div className="flex justify-center w-full">
               <img
-                src="/micro.png"
+                src={micro}
                 alt="Accident Insurance"
                 className="w-36 h-40 sm:w-40 sm:h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 object-contain"
               />

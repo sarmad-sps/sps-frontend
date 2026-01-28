@@ -1,5 +1,9 @@
 import React from "react";
-
+import carinsurance from "../../../assets/Car Insurance.mp4"
+import bike from "../../../assets/bike123.webp"
+import healthinsurance from "../../../assets/Health Insurance.mp4"
+import travelinsurance from "../../../assets/travelanimation.mp4"
+import fire from "../../../assets/fire.png"
 type FAQ = {
   question: string;
   answer: string;
@@ -48,11 +52,11 @@ const defaultFaqs: Record<FAQProps["variant"], FAQ[]> = {
 };
 
 const defaultMedia: Record<FAQProps["variant"], string> = {
-  car: "/Car Insurance.mp4",
-  bike: "/bike123.webp",
-  health: "/Health Insurance.mp4",
-  travel: "/travelanimation.mp4",  // ye video chalegi
-  fire: "/fire.png",
+  car: carinsurance,
+  bike: bike,
+  health: healthinsurance,
+  travel: travelinsurance,  // ye video chalegi
+  fire: fire,
 };
 
 const Faq: React.FC<FAQProps> = ({ variant, title, subtitle, faqs, media }) => {

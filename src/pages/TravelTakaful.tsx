@@ -7,6 +7,7 @@ import ClaimProcess from "../components/car/Claimprocess";
 import FadeUp from "../components/common/FadeUp";
 import HeroSection from "../components/common/Hero";
 import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
+import travel from "../assets/Travel.mp4"
 function TravelTakaful() {
 const travelClaimPlans = [
   {
@@ -67,7 +68,7 @@ const travelClaimPlans = [
             </>
           }
           subtitle="Compare top travel insurance plans and get trusted coverage for all your adventures, anywhere in the world."
-          vehicleImage="/Travel.mp4"
+          vehicleImage= {travel}
         />
       </FadeUp>
       <FadeUp>

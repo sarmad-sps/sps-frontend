@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Shield, Users, Truck, Activity, Radio } from "lucide-react";
-
+import map from "../../assets/map5.png"
 /* ---------------- Types ---------------- */
 interface StatCardProps {
   icon: React.ElementType;
@@ -72,7 +72,7 @@ const CoverageSection: React.FC = () => {
                rounded-3xl shadow-2xl overflow-hidden border border-gray-200"
           >
             <img
-              src="/map5.png"
+              src={map}
               alt="Pakistan Map"
               className="
         w-full object-contain 

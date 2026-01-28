@@ -1,6 +1,8 @@
 import React from "react";
 import { Car, Gauge, Tag, MapPin } from "lucide-react";
-
+import carroad from '../../assets/carroad.jpg'
+import driver from "../../assets/driver.jpg"
+import spslogo from "../../assets/splogo.png"
 const TrackingServiceSection: React.FC = () => {
   return (
     <section className="w-full bg-[#1C4D8D] py-16 px-4 md:px-10 lg:px-14  2xl:px-18 overflow-hidden">
@@ -11,7 +13,7 @@ const TrackingServiceSection: React.FC = () => {
             {/* Header */}
             <div className="space-y-4">
               <div className="flex items-center justify-left gap-3 mb-4">
-                <img src="/splogo.png" className="w-9 h-9 sm:w-11 sm:h-11" />
+                <img src={spslogo} className="w-9 h-9 sm:w-11 sm:h-11" />
                 <p className="text-[#ffff] font-bold text-xs sm:text-sm tracking-widest uppercase">
                   Essentials Facts
                 </p>
@@ -73,7 +75,7 @@ const TrackingServiceSection: React.FC = () => {
     rounded-2xl overflow-hidden shadow-xl"
             >
               <img
-                src="/carroad.jpg"
+                src={carroad}
                 alt="Car exterior"
                 className="w-full h-64 md:h-72 object-cover"
               />
@@ -86,7 +88,7 @@ const TrackingServiceSection: React.FC = () => {
     rounded-2xl overflow-hidden shadow-2xl"
             >
               <img
-                src="/driver.jpg"
+                src={driver}
                 alt="Driver inside car"
                 className="w-full h-80 md:h-96 object-cover"
               />

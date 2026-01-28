@@ -7,7 +7,7 @@ import Navbar from "../components/common/Navbar";
 import TeamSection from "../components/common/Teammembers";
 import WhyUsSection from "../components/common/Whyussection";
 import CustomHero from "../components/common/CustomHero";
-
+import about from "../assets/aboutus.jpeg"
 
 const Aboutus = () => {
   return (
@@ -22,7 +22,7 @@ const Aboutus = () => {
         titleSize="text-4xl md:text-5xl"
       /> */}
       <CustomHero
-       backgroundImage="/aboutus.jpeg"
+       backgroundImage={about}
   title=""
       />
       </FadeUp>

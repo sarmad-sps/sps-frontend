@@ -3,7 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import hero from "../../assets/Hero.jpg"
+import car from "../../assets/car123.png"
+import health from "../../assets/Health Desktop.png"
+import travel from "../../assets/travelinsurance.png"
+import tracker from "../../assets/Tracking desktop.png"
+import fire from "../../assets/Fire Desktop.png"
+import bike from "../../assets/bike desktop.png"
+import it from "../../assets/it.png"
 interface HeroProps {
   isCarPage?: boolean;
   isBikePage?: boolean;
@@ -50,56 +57,56 @@ const HeroSection = ({
 
   const allSlides = [
     {
-      image: "/Hero.jpg",
+      image: hero,
       mobileImage: "/Hero-mobile.jpg",
       title: "Secure Today, Smile Tomorrow",
       heading: "Trusted insurance solutions for a secure and worry-free future.",
       link: "/",
     },
     {
-      image: "/car123.png",
+      image: car,
       mobileImage: "/car-insurance-mobile.png",
       title: "Complete Car Insurance",
       heading: "Reliable coverage that keeps you and your car protected.",
       link: "/car",
     },
     {
-      image: "/Health Desktop.png",
+      image: health,
       mobileImage: "/Health mobile.png",
       title: "Health Insurance That Cares",
       heading: "Quality healthcare coverage for you and your family.",
       link: "/health",
     },
     {
-      image: "/Travel Insurance.png",
+      image: travel,
       mobileImage: "/TravelMobile.png",
       title: "Travel Without Worries",
       heading: "International travel insurance for stress-free journeys.",
       link: "/travel",
     },
     {
-      image: "/Tracking desktop.png",
+      image: tracker,
       mobileImage: "/Tracking mobile.png",
       title: "Smart Vehicle Tracking",
       heading: "Real-time tracking, alerts and complete vehicle control.",
       link: "/tracker",
     },
     {
-      image: "/Fire Desktop.png",
+      image: fire,
       mobileImage: "/Fire Mobile.png",
       title: "Fire Insurance Protection",
       heading: "Protect your property from unexpected fire risks.",
       link: "/fire-takaful",
     },
     {
-      image: "/bike desktop.png",
+      image: bike,
       mobileImage: "/bike mobile.png",
       title: "Complete Bike Insurance",
       heading: "Protect your bike with reliable insurance plans.",
       link: "/bike",
     },
     {
-      image: "/it.png",
+      image: it,
       mobileImage: "/it-consulting5.png",
       title: "IT Consulting",
       heading: "Comprehensive protection for your employees and domestic workers",

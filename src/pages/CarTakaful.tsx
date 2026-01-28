@@ -10,7 +10,7 @@ import ClaimProcess from "../components/car/Claimprocess";
 import Faq from "../components/Takaful/takafulinfo/Faqs";
 import { carFormFields } from "../config/formFields";
 // import CarTakafulForm from "../components/Takaful/CarTakaful/CarTakafulForm";
-
+import carsmoke from "../assets/Car Smoke.mp4"
 const CarTakaful = () => {
    const carClaimPlans = [
   {
@@ -72,7 +72,7 @@ const CarTakaful = () => {
             </>
           }
           subtitle="Compare top Takaful providers and find trusted coverage for your car with ease."
-          vehicleImage="/Car Smoke.mp4"
+          vehicleImage={carsmoke}
         />
       </FadeUp>
 

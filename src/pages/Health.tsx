@@ -12,7 +12,8 @@ import Claimprocess from "../components/car/Claimprocess";
 // import CoverageHighlights from "../components/car/Coveragehighlight";
 // import Partner from "../components/car/Partner"
 import BrandsSection from "../components/Home/Brandsection";
-
+import health from "../assets/Health Insurance.mp4"
+import grouphealth from "../assets/grouphealth.png"
 const Health = () => {
 const healthClaimPlans = [
   {
@@ -57,7 +58,7 @@ const healthClaimPlans = [
     "Preventive care and wellness support",
     "Customizable plans to suit your health needs",
   ],
-  image: "/Health Insurance.mp4", // replace with your actual image path
+  image: health, // replace with your actual image path
 };
 
   return (
@@ -92,7 +93,7 @@ const healthClaimPlans = [
           </>
         }
         subtitle="Compare top health insurance plans and get trusted coverage for you and your family."
-        vehicleImage="/grouphealth.png"
+        vehicleImage= {grouphealth}
       />
       </FadeUp>
       <FadeUp>

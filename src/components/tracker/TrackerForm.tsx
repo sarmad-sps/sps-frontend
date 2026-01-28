@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import toast from "react-hot-toast";
 import { submitTrackerForm, type TrackerFormData } from "../../apis/trackerApi";
-
+import form from "../../assets/fromimg.png"
+import spslogo from "../../assets/splogo.png"
 const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState<TrackerFormData>({
     name: "",
@@ -81,7 +82,7 @@ const ContactSection: React.FC = () => {
             <div className="p-5 md:p-7 bg-[#0F2854] text-[#0f121c] rounded-2xl shadow-2xl space-y-6 mb-8 md:mb-10 lg:mb-12">
               <div className="space-y-3">
                 <div className="flex items-center justify-left gap-3 mb-4">
-                  <img src="/splogo.png" className="w-9 h-9 sm:w-11 sm:h-11" alt="Logo" />
+                  <img src={spslogo} className="w-9 h-9 sm:w-11 sm:h-11" alt="Logo" />
                   <p className="text-[#1894A4] font-bold text-xs sm:text-sm tracking-widest uppercase">
                     CONTACT US
                   </p>
@@ -166,7 +167,7 @@ const ContactSection: React.FC = () => {
 
           <div className="hidden lg:flex items-end">
             <img
-              src="/fromimg.png"
+              src={form}
               alt="Contact"
               className="w-full h-full object-contain object-bottom block"
             />
