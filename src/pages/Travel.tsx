@@ -10,6 +10,8 @@ import ClaimProcess from "../components/car/Claimprocess";
 import Carinfo from "../components/car/Carinfo";
 // import Partner from "../components/car/Partner"
 import BrandsSection from "../components/Home/Brandsection";
+import travelanimation from "../assets/travelanimation.mp4"
+import travel from "../assets/Travel.mp4"
 const Travel = () => {
 const travelClaimPlans = [
   {
@@ -54,7 +56,7 @@ const travelInsuranceInfo = {
     "24/7 travel assistance services",
     "Customizable plans to suit your travel needs",
   ],
-  image: "/travelanimation.mp4", // replace with your actual image path
+  image: travelanimation, // replace with your actual image path
 };
 
   return (
@@ -90,7 +92,7 @@ const travelInsuranceInfo = {
             </>
           }
           subtitle="Compare top travel insurance plans and get trusted coverage for all your adventures, anywhere in the world."
-          vehicleImage="/Travel.mp4"
+          vehicleImage={travel}
         />
       </FadeUp>
       <FadeUp>

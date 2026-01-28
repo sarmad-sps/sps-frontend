@@ -1,40 +1,3 @@
-// import React from "react";
-
-// interface TechStackGridSectionProps {
-//   title: string;
-//   stack: string[];
-//   background?: string;
-// }
-
-// const TechStack: React.FC<TechStackGridSectionProps> = ({
-//   title,
-//   stack,
-//   background = "bg-gradient-to-r from-blue-50 to-indigo-50",
-// }) => {
-//   return (
-//     <section className={`w-full px-4 py-16 ${background}`}>
-//       <div className="max-w-5xl mx-auto w-full">
-//         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-gray-800 leading-snug">
-//           {title}
-//         </h2>
-
-//         {/* Responsive Grid */}
-//         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-//           {stack.map((tech, idx) => (
-//             <div
-//               key={idx}
-//               className="p-4 bg-white rounded-2xl shadow-lg text-center font-medium text-sm sm:text-base md:text-lg lg:text-xl break-words"
-//             >
-//               {tech}
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default TechStack;
 import React from "react";
 
 interface TechStackGridSectionProps {
@@ -52,7 +15,7 @@ const TechStack: React.FC<TechStackGridSectionProps> = ({
   return (
     <section className={`w-full px-16 py-16 ${background}`}>
       <div className="max-w-8xl mx-auto w-full">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-white leading-snug">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-black leading-snug">
           {title}
         </h2>
 

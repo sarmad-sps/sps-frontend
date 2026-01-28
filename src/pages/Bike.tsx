@@ -11,8 +11,8 @@ import ClaimProcess from "../components/car/Claimprocess";
 // import Partner from "../components/car/Partner"
 import Carinfo from "../components/car/Carinfo";
 import BrandsSection from "../components/Home/Brandsection";
-
-
+import bike from "../assets/Bike.mp4"
+import bikedelivery from "../assets/Bike Delivery.mp4"
 const Bike = () => {
 const bikeClaimPlans = [
   {
@@ -56,7 +56,7 @@ const bikeInsuranceInfo = {
       "24/7 Roadside assistance",
       "Customizable insurance plans",
     ],
-    image: "/Bike Delivery.mp4",
+    image: bikedelivery,
   };
 
   return (
@@ -91,7 +91,7 @@ const bikeInsuranceInfo = {
           </>
         }
         subtitle="Easily compare top insurance providers and find the perfect coverage for your bike, all in one place."
-        vehicleImage="/Bike.mp4"
+        vehicleImage={bike}
       />
       
       </FadeUp>

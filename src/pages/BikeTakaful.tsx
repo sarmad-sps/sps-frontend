@@ -10,6 +10,7 @@ import { bikeFormFields } from "../config/formFields";
 import ClaimProcess from "../components/car/Claimprocess";
 // import BikeTakafulForm from "../components/Takaful/BikeTakaful/BikeTakafulForm";
  import Faq from "../components/Takaful/takafulinfo/Faqs"
+ import bike from "../assets/Bike.mp4"
 const BikeTakaful = () => {
   const bikeClaimPlans = [
   {
@@ -70,7 +71,7 @@ const BikeTakaful = () => {
           </>
         }
         subtitle="Compare top Takaful providers and find trusted coverage for your bike with ease."
-        vehicleImage="/Bike.mp4"
+        vehicleImage={bike}
       />
       </FadeUp>
      

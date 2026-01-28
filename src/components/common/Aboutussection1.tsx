@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-
+import About from "../../assets/about.png"
 const AboutUsSection1 = () => {
   return (
     <section className="w-full bg-[#1C4D8D]  py-16 md:py-20">
@@ -11,7 +11,7 @@ const AboutUsSection1 = () => {
             {/* Main Image */}
             <div className="rounded-2xl overflow-hidden">
               <img
-                src="/about.png"
+                src={About}
                 alt="Business professionals"
                 className="w-full h-[500px] md:h-[650px] lg:h-[700px] object-cover"
               />

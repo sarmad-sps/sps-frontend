@@ -7,7 +7,7 @@ import TeamSection from "../components/common/Teammembers";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
 import CustomHero from "../components/common/CustomHero";
-
+import contact from "../assets/contact2.jpeg"
 const Contactus = () => {
   return (
     <>
@@ -21,7 +21,7 @@ const Contactus = () => {
         titleSize="text-4xl md:text-5xl"
       /> */}
       <CustomHero
-      backgroundImage="/contact2.jpeg"
+      backgroundImage={contact}
   title=""
       />
       </FadeUp>

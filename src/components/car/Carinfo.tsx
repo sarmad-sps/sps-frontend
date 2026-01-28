@@ -7,7 +7,7 @@ interface CarInfoProps {
   benefits?: string[];
   image?: string;  // image ya video path (extension se detect karega)
 }
-
+import carinsurance from "../../assets/Car Insurance.mp4"
 const Carinfo: React.FC<CarInfoProps> = ({
   title = "What is Car Insurance?",
   description = "Car insurance is a type of coverage that protects you financially in case of accidents, theft, or other damages to your vehicle. It helps cover repair costs, medical expenses, and liability towards third parties.",
@@ -19,7 +19,7 @@ const Carinfo: React.FC<CarInfoProps> = ({
     "24/7 Roadside assistance",
     "Customizable insurance plans to fit your needs",
   ],
-  image = "/Car Insurance.mp4",  // default image, lekin video bhi accept karega
+  image = carinsurance,  // default image, lekin video bhi accept karega
 }) => {
   // Extension check: video hai ya image?
   const isVideo = /\.(mp4|webm|ogg)$/i.test(image || "");

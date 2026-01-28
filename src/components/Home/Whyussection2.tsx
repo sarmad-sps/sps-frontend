@@ -1,6 +1,8 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Growth from "../../assets/growth.png"
+import icon from "../../assets/Servicesection2Icon1.png"
 
 export default function WhyUsSection2() {
   const features = [
@@ -60,7 +62,7 @@ export default function WhyUsSection2() {
           <div className="relative lg:bg-transparent bg-[#E3EFF0] rounded-2xl lg:rounded-none p-4 lg:p-0">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/growth.png"
+                src={Growth}
                 alt="Team collaboration"
                 className="w-full h-[530px] object-cover"
               />
@@ -96,7 +98,7 @@ export default function WhyUsSection2() {
       {/* Icon - Ab white hoga */}
       <div className="mb-3">
         <img
-          src="/Servicesection2Icon1.png"
+          src={icon}
           alt={feature.title}
           className="w-8 h-8 brightness-0 invert transition-all duration-300"
         />

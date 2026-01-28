@@ -12,7 +12,8 @@ import {
   Mail,
   Clock,
 } from "lucide-react";
-
+import logo from "../../assets/splogo.png";
+import sptext from "../../assets/securpathsolution.png"
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -73,12 +74,12 @@ const Navbar = () => {
                 <Link to="/">
                  <div className="flex items-center w-[170px] h-[70px] mx-auto pr-16  sm:mx-0 ">
                   <img
-                    src="/splogo.png"
+                    src={logo}
                     alt="Logo"
                     className="w-[118.7px] h-[70px]"
                   />
                   <img
-                    src="/securpathsolution.png"
+                    src={sptext}
                     alt="Logo Text"
                  
                   />

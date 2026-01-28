@@ -1,6 +1,13 @@
 import { useEffect, useState, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
+import Logo1 from "../../assets/logo1.png"
+import Logo2 from "../../assets/logo2.png"
+import Logo3 from "../../assets/eastlogo.png"
+import Logo4 from "../../assets/sgi.png"
+import Logo5 from "../../assets/logo5.png"
+import Logo6 from "../../assets/logo6.png"
+import Logo7 from "../../assets/logo7.png"
+import Logo8 from "../../assets/logo8.png"
 interface Brand {
   id: number;
   name: string;
@@ -8,14 +15,14 @@ interface Brand {
 }
 
 const brands: Brand[] = [
-  { id: 1, name: "Brand 1", logo: "/logo1.png" },
-  { id: 2, name: "Brand 2", logo: "/logo2.png" },
-  { id: 3, name: "Brand 3", logo: "/eastlogo.png" },
-  { id: 4, name: "Brand 4", logo: "/sgi.png" },
-  { id: 5, name: "Brand 5", logo: "/logo5.png" },
-  { id: 6, name: "Brand 6", logo: "/logo6.png" },
-  { id: 7, name: "Brand 7", logo: "/logo7.png" },
-  { id: 8, name: "Brand 8", logo: "/logo8.png" },
+  { id: 1, name: "Brand 1", logo: Logo1 },
+  { id: 2, name: "Brand 2", logo: Logo2 },
+  { id: 3, name: "Brand 3", logo: Logo3 },
+  { id: 4, name: "Brand 4", logo: Logo4},
+  { id: 5, name: "Brand 5", logo: Logo5 },
+  { id: 6, name: "Brand 6", logo: Logo6 },
+  { id: 7, name: "Brand 7", logo: Logo7 },
+  { id: 8, name: "Brand 8", logo: Logo8},
 ];
 
 const BrandsSection = () => {

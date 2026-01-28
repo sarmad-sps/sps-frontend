@@ -1,5 +1,5 @@
 import { Star } from 'lucide-react';
-
+import testinomial from "../../assets/testimonial.png"
 const TestimonialsSection = () => {
   return (
     <section className="w-full  bg-[#1C4D8D] py-16 md:py-20 ">
@@ -60,11 +60,10 @@ const TestimonialsSection = () => {
 
           {/* Right Side - Image */}
           <div className="relative">
-            {/* Main Image */}
-          {/* Main Image */}
+          
 <div className="w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden">
   <img
-    src="/testimonial.png"
+    src={testinomial}
     alt="Happy customers"
     className="w-full h-full object-cover"
   />
