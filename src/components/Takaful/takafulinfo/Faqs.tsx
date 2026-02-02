@@ -3,7 +3,7 @@ import carinsurance from "../../../assets/Car Insurance.mp4"
 import bike from "../../../assets/bike123.webp"
 import healthinsurance from "../../../assets/Health Insurance.mp4"
 import travelinsurance from "../../../assets/travelanimation.mp4"
-import fire from "../../../assets/fire.png"
+import fire from "../../../assets/fire.webp"
 type FAQ = {
   question: string;
   answer: string;

@@ -1,13 +1,13 @@
 import { useEffect, useState, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Logo1 from "../../assets/logo1.png"
-import Logo2 from "../../assets/logo2.png"
-import Logo3 from "../../assets/eastlogo.png"
-import Logo4 from "../../assets/sgi.png"
-import Logo5 from "../../assets/logo5.png"
-import Logo6 from "../../assets/logo6.png"
-import Logo7 from "../../assets/logo7.png"
-import Logo8 from "../../assets/logo8.png"
+import Logo1 from "../../assets/logo1.webp"
+import Logo2 from "../../assets/logo2.webp"
+import Logo3 from "../../assets/eastlogo.webp"
+import Logo4 from "../../assets/sgi.webp"
+import Logo5 from "../../assets/logo5.webp"
+import Logo6 from "../../assets/logo6.webp"
+import Logo7 from "../../assets/logo7.webp"
+import Logo8 from "../../assets/logo8.webp"
 interface Brand {
   id: number;
   name: string;

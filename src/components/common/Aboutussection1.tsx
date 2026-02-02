@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import About from "../../assets/about.png"
+import About from "../../assets/about.webp"
 const AboutUsSection1 = () => {
   return (
     <section className="w-full bg-[#1C4D8D]  py-16 md:py-20">

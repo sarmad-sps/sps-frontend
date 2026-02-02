@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { motion,type Variants } from "framer-motion"; 
-import card1 from "../../assets/travelinsu.png"
+import card1 from "../../assets/travelinsu.webp"
 //import card1 from "../../../assets/travelinsu.png";
-import card2 from "../../assets/Healthins.png";
-import card3 from "../../assets/carinsu.png";
-import card4 from "../../assets/Bikeinsu.png";
-import card5 from "../../assets/fireinsu.png";
-import Takaful from "../../assets/takaful-img.png";
+import card2 from "../../assets/Healthins.webp";
+import card3 from "../../assets/carinsu.webp";
+import card4 from "../../assets/Bikeinsu.webp";
+import card5 from "../../assets/fireinsu.webp";
+import Takaful from "../../assets/takaful-img.webp";
 
 const InsuranceCard = () => {
   const navigate = useNavigate();

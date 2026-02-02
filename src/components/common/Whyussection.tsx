@@ -1,6 +1,6 @@
 import { Handshake } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
-import testinomial from "../../assets/testimonial.png"
+import testinomial from "../../assets/testimonial.webp"
 interface CircularProgressProps {
   percentage: number;
   size?: number; // diameter in px

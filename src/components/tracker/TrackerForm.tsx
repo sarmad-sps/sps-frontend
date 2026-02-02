@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import toast from "react-hot-toast";
 import { submitTrackerForm, type TrackerFormData } from "../../apis/trackerApi";
-import form from "../../assets/fromimg.png"
-import spslogo from "../../assets/splogo.png"
+import form from "../../assets/fromimg.webp"
+import spslogo from "../../assets/splogo.webp"
 const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState<TrackerFormData>({
     name: "",

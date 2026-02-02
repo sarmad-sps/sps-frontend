@@ -9,7 +9,7 @@ import TeckStack from "../mobiledevelop/TeckStack";
 import Project from "../mobiledevelop/Project";
 import { Smartphone } from "lucide-react";
 import FadeUp from "../components/common/FadeUp";
-import mobile from "../assets/it-consulting.png"
+import mobile from "../assets/it-consulting.webp"
 import { SiReact, SiFlutter, SiKotlin, SiFirebase, SiNodedotjs, SiExpress, SiSwift } from "react-icons/si";
 import {
   Globe,

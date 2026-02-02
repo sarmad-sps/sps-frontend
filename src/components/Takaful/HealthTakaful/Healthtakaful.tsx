@@ -3,7 +3,7 @@ import { ArrowRight, AlertCircle } from "lucide-react";
 import { submitHealthTakafulForm } from "../../../apis/healthTakafulApi";
 import { healthTakafulFormFields } from "../../../config/formFields";
 import toast from "react-hot-toast"; // ✅ Toaster added
-import micro from "../../../assets/micro.png"
+import micro from "../../../assets/micro.webp"
 const validateEmail = (email: string): boolean => {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);

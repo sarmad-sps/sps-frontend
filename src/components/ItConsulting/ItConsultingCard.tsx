@@ -1,10 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import web from "../../assets/it-consulting-web.png";
-import devops from "../../assets/it-consulting-dev.png";
-import mobile from "../../assets/it-consulting.png";
-
+import web from "../../assets/it-consulting-web.webp";
+import devops from "../../assets/it-consulting-dev.webp";
+import mobile from "../../assets/it-consulting.webp";
 interface Service {
   title: string;
   desc: string;

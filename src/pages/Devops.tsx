@@ -3,7 +3,7 @@ import Navbar from "../components/common/Navbar";
 import MobileHero from "../mobiledevelop/MobileHero";
 import Platfrom from "../mobiledevelop/Platfrom";
 import Project from "../mobiledevelop/Project";
-import devops from "../assets/it-consulting-dev.png"
+import devops from "../assets/it-consulting-dev.webp"
 import { SiDocker, SiJenkins, SiGithubactions, SiTerraform, SiKubernetes} from "react-icons/si";
 import azureLogo from "../assets/azure-original.svg";
 import gcpLogo from "../assets/googlecloud-original.svg"

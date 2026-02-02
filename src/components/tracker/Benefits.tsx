@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import benefitImg from "../../assets/benefit.png";
+import benefitImg from "../../assets/benefit.webp";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import icon1 from "../../assets/realtime.svg"
 import icon2 from "../../assets/geo.svg"
 import icon3 from "../../assets/driving.svg"
-import splogo from "../../assets/splogo.png"
-import pta from "../../assets/pta.png"
-import secp from "../../assets/SECP logo.png"
-import pcsir from "../../assets/pcs.png"
+import splogo from "../../assets/splogo.webp"
+import pta from "../../assets/pta.webp"
+import secp from "../../assets/SECP logo.webp"
+import pcsir from "../../assets/pcs.webp"
 const VehicleTrackingHero: React.FC = () => {
   const features = [
     { icon: icon1, title: "Real-Time Tracking", desc: "Live vehicle location updates with precision" },

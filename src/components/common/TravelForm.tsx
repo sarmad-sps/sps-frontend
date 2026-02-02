@@ -5,8 +5,8 @@ import {
   ChevronUp,
   ChevronDown,
 } from "lucide-react";
-import globePlane from "../../../public/traveltakaful.png";
-import globePlaneIcon from "../../../public/globe-plane.png";
+import globePlane from "../../../public/traveltakaful.webp";
+import globePlaneIcon from "../../../public/globe-plane.webp";
 import TravelTakafulQuote from "../TravelTakafulQuote";
 
 interface InsuranceQuote {

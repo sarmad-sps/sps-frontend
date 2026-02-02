@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Shield, Users, Truck, Activity, Radio } from "lucide-react";
-import map from "../../assets/map5.png"
+import map from "../../assets/map5.webp"
 /* ---------------- Types ---------------- */
 interface StatCardProps {
   icon: React.ElementType;

@@ -1,8 +1,8 @@
 import React from "react";
 import { Car, Gauge, Tag, MapPin } from "lucide-react";
-import carroad from '../../assets/carroad.jpg'
-import driver from "../../assets/driver.jpg"
-import spslogo from "../../assets/splogo.png"
+import carroad from '../../assets/carroad.webp'
+import driver from "../../assets/driver.webp"
+import spslogo from "../../assets/splogo.webp"
 const TrackingServiceSection: React.FC = () => {
   return (
     <section className="w-full bg-[#1C4D8D] py-16 px-4 md:px-10 lg:px-14  2xl:px-18 overflow-hidden">

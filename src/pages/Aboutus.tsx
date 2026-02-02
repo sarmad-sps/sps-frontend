@@ -7,7 +7,7 @@ import Navbar from "../components/common/Navbar";
 import TeamSection from "../components/common/Teammembers";
 import WhyUsSection from "../components/common/Whyussection";
 import CustomHero from "../components/common/CustomHero";
-import about from "../assets/aboutus.jpeg"
+import about from "../assets/aboutus.webp"
 
 const Aboutus = () => {
   return (

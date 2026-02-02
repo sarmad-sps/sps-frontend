@@ -7,8 +7,8 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import splogo from "../../assets/splogo.png";
-import spstext from "../../assets/securpathsolution.png";
+import splogo from "../../assets/splogo.webp";
+import spstext from "../../assets/securpathsolution.webp";
 const Footer = () => {
   const services = [
     { name: "Car Insurance", route: "/car" },

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, AlertCircle } from "lucide-react";
 import toast from "react-hot-toast";
-import fire from "../../../assets/firetakaful.png"
+import fire from "../../../assets/firetakaful.webp"
 import { fireTakafulFormFields } from "../../../config/formFields";
 import { submitFireTakafulForm } from "../../../apis/fireTakafulApi";
 
