@@ -7,7 +7,7 @@ import TeamSection from "../components/common/Teammembers";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
 import CustomHero from "../components/common/CustomHero";
-import contact from "../assets/contact2.jpeg"
+import contact from "../assets/contact2.webp"
 const Contactus = () => {
   return (
     <>

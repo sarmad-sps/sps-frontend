@@ -8,7 +8,7 @@ interface Testimonial {
   rating: number;
   // imageSrc: string;
 }
-
+import logo from "../../assets/splogo.webp"
 const testimonialsData: Testimonial[] = [
   {
     id: 1,
@@ -193,7 +193,7 @@ const TestimonialsSection: React.FC = () => {
       <div className="max-w-8xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="flex items-center gap-4 mb-14">
-          <img src="/splogo.png" className="w-14 h-14" alt="Logo" />
+          <img src={logo} className="w-14 h-14" alt="Logo" />
           <h2 className="text-[black] font-bold uppercase tracking-widest text-2xl">
             What Our Clients Say
           </h2>

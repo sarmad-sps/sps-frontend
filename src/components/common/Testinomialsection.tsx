@@ -1,6 +1,6 @@
 import { Star } from 'lucide-react';
-import testinomial from "../../assets/testimonial.png"
-import testmonial from "../../assets/Testinomialimage2.png"
+import testinomial from "../../assets/testimonial.webp"
+import testmonial from "../../assets/Testinomialimage2.webp"
 const TestimonialsSection = () => {
   return (
     <section className="w-full  bg-[#1C4D8D] py-16 md:py-20 ">

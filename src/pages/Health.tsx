@@ -13,7 +13,7 @@ import Claimprocess from "../components/car/Claimprocess";
 // import Partner from "../components/car/Partner"
 import BrandsSection from "../components/Home/Brandsection";
 import health from "../assets/Health Insurance.mp4"
-import grouphealth from "../assets/grouphealth.png"
+import grouphealth from "../assets/grouphealth.webp"
 const Health = () => {
 const healthClaimPlans = [
   {

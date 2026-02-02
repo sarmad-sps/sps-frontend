@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
 import { ArrowRight, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
-import boy from "../../assets/boy.jpg"
-import women from "../../assets/womencar.jpg"
-import car from "../../assets/car.png"
-import spslogo from "../../assets/splogo.png"
+import boy from "../../assets/boy.webp"
+import women from "../../assets/womencar.webp"
+import car from "../../assets/car.webp"
+import spslogo from "../../assets/splogo.webp"
 const ProgressBar: React.FC<{
   label: string;
   percentage: number;

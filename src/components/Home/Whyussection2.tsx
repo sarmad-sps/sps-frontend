@@ -1,8 +1,8 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Growth from "../../assets/growth.png"
-import icon from "../../assets/Servicesection2Icon1.png"
+import Growth from "../../assets/growth.webp"
+import icon from "../../assets/Servicesection2Icon1.webp"
 
 export default function WhyUsSection2() {
   const features = [

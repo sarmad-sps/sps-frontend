@@ -12,8 +12,8 @@ import {
   Mail,
   Clock,
 } from "lucide-react";
-import logo from "../../assets/splogo.png";
-import sptext from "../../assets/securpathsolution.png"
+import logo from "../../assets/splogo.webp";
+import sptext from "../../assets/securpathsolution.webp"
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();

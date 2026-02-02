@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react"; // Lucide icons
-import car from "../../assets/carinsurance.png"
-import health from "../../assets/health-screening.png"
-import bike from "../../assets/bikeinsurance.png"
-import travel from "../../assets/travelinsurance.png"
-import takaful from "../../assets/takaful.png"
-import itservices from "../../assets/itservices.png"
+import car from "../../assets/carinsurance.webp"
+import health from "../../assets/health-screening.webp"
+import bike from "../../assets/bikeinsurance.webp"
+import travel from "../../assets/travelinsurance.webp"
+import takaful from "../../assets/takaful.webp"
+import itservices from "../../assets/itservices.webp"
 // Service type
 interface Service {
   id: string;

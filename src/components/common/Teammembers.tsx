@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import CEO from "../../assets/CEO.jpg"
-import COO from "../../assets/COO.jpg"
-import Director from "../../assets/director.jpg"
-import spslogo from "../../assets/splogo.png"
+import CEO from "../../assets/CEO.webp"
+import COO from "../../assets/COO.webp"
+import Director from "../../assets/director.webp"
+import spslogo from "../../assets/splogo.webp"
 interface TeamMember {
   id: number;
   name: string;

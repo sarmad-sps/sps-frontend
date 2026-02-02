@@ -17,7 +17,7 @@ import TeckStack from "../mobiledevelop/TeckStack";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
 import FadeUp from "../components/common/FadeUp";
-import website from "../assets/webdev.jpg"
+import website from "../assets/webdev.webp"
 import { SiNextdotjs, SiReact, SiNodedotjs, SiExpress, SiMongodb,SiTailwindcss, SiTypescript } from "react-icons/si";
 const WebDevelopment = () => {
 const webFeatures = [

@@ -3,14 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import hero from "../../assets/Hero.jpg"
-import car from "../../assets/car123.png"
-import health from "../../assets/Health Desktop.png"
-import travel from "../../assets/Travel Insurance.png"
-import tracker from "../../assets/Tracking desktop.png"
-import fire from "../../assets/Fire Desktop.png"
-import bike from "../../assets/bike desktop.png"
-import it from "../../assets/it.png"
+import hero from "../../assets/Hero.webp"
+import car from "../../assets/car3.webp"
+import health from "../../assets/Health Desktop.webp"
+import travel from "../../assets/Travel Insurance.webp"
+import tracker from "../../assets/Tracking desktop.webp"
+import fire from "../../assets/Fire Desktop.webp"
+import bike from "../../assets/bike desktop.webp"
+import it from "../../assets/it.webp"
 interface HeroProps {
   isCarPage?: boolean;
   isBikePage?: boolean;
