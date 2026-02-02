@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react"; // Lucide icons
-
+import car from "../../assets/carinsurance.png"
+import health from "../../assets/health-screening.png"
+import bike from "../../assets/bikeinsurance.png"
+import travel from "../../assets/travelinsurance.png"
+import takaful from "../../assets/takaful.png"
+import itservices from "../../assets/itservices.png"
 // Service type
 interface Service {
   id: string;
@@ -14,7 +19,7 @@ interface Service {
 const services: Service[] = [
   {
     id: "01",
-    iconSrc: "/carinsurance.png",
+    iconSrc: car,
     title: "Car Insurance",
     features: [
       "Full Safety For Your Cars",
@@ -25,7 +30,7 @@ const services: Service[] = [
   },
   {
     id: "02",
-    iconSrc: "/health-screening.png",
+    iconSrc: health,
     title: "Health Insurance",
     features: [
       "Covers Hospital Expense",
@@ -36,7 +41,7 @@ const services: Service[] = [
   },
   {
     id: "03",
-    iconSrc: "/bikeinsurance.png",
+    iconSrc: bike,
     title: "Bike Insurance",
     features: [
       "Easy And Low Cost Plans",
@@ -47,7 +52,7 @@ const services: Service[] = [
   },
   {
     id: "04",
-    iconSrc: "/travelinsurance.png",
+    iconSrc: travel,
     title: "Travel Insurance",
     features: [
       "Medical Emergency Coverage",
@@ -58,7 +63,7 @@ const services: Service[] = [
   },
    {
     id: "05",
-    iconSrc: "/takaful.png",
+    iconSrc: takaful,
     title: "Takaful",
     features: [
       "Shariah-Compliant Coverage",
@@ -69,7 +74,7 @@ const services: Service[] = [
   },
   {
     id: "06",
-    iconSrc: "/itservices.png",
+    iconSrc: itservices,
     title: "IT Services",
     features: [
       "Network Security Solutions",

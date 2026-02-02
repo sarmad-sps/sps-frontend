@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import hero from "../../assets/Hero.jpg"
 import car from "../../assets/car123.png"
 import health from "../../assets/Health Desktop.png"
-import travel from "../../assets/travelinsurance.png"
+import travel from "../../assets/Travel Insurance.png"
 import tracker from "../../assets/Tracking desktop.png"
 import fire from "../../assets/Fire Desktop.png"
 import bike from "../../assets/bike desktop.png"

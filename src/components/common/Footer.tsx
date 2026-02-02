@@ -7,7 +7,8 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
+import splogo from "../../assets/splogo.png";
+import spstext from "../../assets/securpathsolution.png";
 const Footer = () => {
   const services = [
     { name: "Car Insurance", route: "/car" },
@@ -186,12 +187,12 @@ const Footer = () => {
               <Link to="/">
                 <div className="flex items-center w-[200px] h-[70px] mx-auto pr-16  sm:mx-0 ">
                   <img
-                    src="/splogo.png"
+                    src={splogo}
                     alt="Logo"
                     className="w-[118.7px] h-[70px] filter brightness-0 invert "
                   />
                   <img
-                    src="/securpathsolution.png"
+                    src={spstext}
                     alt="Logo Text"
                     className=" filter brightness-0 invert"
                   />
