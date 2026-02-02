@@ -66,7 +66,7 @@ const HeroSection = ({
     {
       image: car,
       mobileImage: "/car-insurance-mobile.png",
-      title: "Complete Car Insurance",
+      title: "Complete vehicle Insurance",
       heading: "Reliable coverage that keeps you and your car protected.",
       link: "/car",
     },
