@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from "react";
-import benefitImg from "/benefit.png";
+import benefitImg from "../../assets/benefit.png";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-
+import icon1 from "../../assets/realtime.svg"
+import icon2 from "../../assets/geo.svg"
+import icon3 from "../../assets/driving.svg"
+import splogo from "../../assets/splogo.png"
+import pta from "../../assets/pta.png"
+import secp from "../../assets/SECP logo.png"
+import pcsir from "../../assets/pcs.png"
 const VehicleTrackingHero: React.FC = () => {
   const features = [
-    { icon: "/realtime.svg", title: "Real-Time Tracking", desc: "Live vehicle location updates with precision" },
-    { icon: "/geo.svg", title: "Geo-Fencing Alerts", desc: "Instant alerts for route deviations" },
-    { icon: "/driving.svg", title: "Driver Monitoring", desc: "Track speed, braking & fuel efficiency" },
+    { icon: icon1, title: "Real-Time Tracking", desc: "Live vehicle location updates with precision" },
+    { icon: icon2, title: "Geo-Fencing Alerts", desc: "Instant alerts for route deviations" },
+    { icon: icon3, title: "Driver Monitoring", desc: "Track speed, braking & fuel efficiency" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -35,7 +41,7 @@ const VehicleTrackingHero: React.FC = () => {
             >
               <div className="space-y-5">
                 <div className="flex items-center gap-3 justify-center lg:justify-start">
-                  <img src="/splogo.png" className="w-9 h-9 sm:w-11" alt="Logo" />
+                  <img src={splogo} className="w-9 h-9 sm:w-11" alt="Logo" />
                   <p className="text-cyan-400 font-bold text-sm uppercase tracking-[0.2em]">BENEFITS</p>
                 </div>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
@@ -61,9 +67,9 @@ const VehicleTrackingHero: React.FC = () => {
               {/* Certifications - White Circles */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-6 pt-8">
                 {[ 
-                  { src: "/pta.png", label: "PTA Approved" },
-                  { src: "/SECP logo.png", label: "ISO Certified" },
-                  { src: "/pcs.png", label: "PCSIR Certified", long: true }
+                  { src: pta, label: "PTA Approved" },
+                  { src: secp, label: "ISO Certified" },
+                  { src: pcsir, label: "PCSIR Certified", long: true }
                 ].map((cert, i) => (
                   <div key={i} className="flex flex-col items-center space-y-3">
                     <div className="bg-white w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center shadow-lg p-4 transition-transform hover:scale-110 border-4 border-white/10">

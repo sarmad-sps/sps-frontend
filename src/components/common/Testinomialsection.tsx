@@ -1,5 +1,6 @@
 import { Star } from 'lucide-react';
 import testinomial from "../../assets/testimonial.png"
+import testmonial from "../../assets/Testinomialimage2.png"
 const TestimonialsSection = () => {
   return (
     <section className="w-full  bg-[#1C4D8D] py-16 md:py-20 ">
@@ -24,7 +25,7 @@ const TestimonialsSection = () => {
             <div className="bg-gray-50 rounded-2xl p-8 shadow-lg">
               {/* Quote Icon */}
               <div className="mb-6">
-                <img src="/Testinomialimage2.png" alt="Quote Icon" className="w-10 h-10 text-gray-300" />
+                <img src={testmonial} alt="Quote Icon" className="w-10 h-10 text-gray-300" />
               </div>
 
               {/* Testimonial Text */}
