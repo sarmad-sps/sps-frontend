@@ -3,6 +3,10 @@ import { ArrowRight } from "lucide-react";
 import { submitHealthForm } from "../../apis/healthApi";
 //import toast from "react-hot-toast";
 import toast from "react-hot-toast";
+import icon1 from "../../assets/Personicon.webp"
+import icon2 from "../../assets/Familyiconimage.webp"
+import icon3 from "../../assets/Coupleiconimage.webp"
+import icon4 from "../../assets/Stafficonimage.webp"
 interface FormDataType {
   name: string;
   phone: string;
@@ -41,10 +45,10 @@ const HealthFormCard = () => {
   const [formErrors, setFormErrors] = useState<FormErrorsType>({});
 
   const personTypes = [
-    { id: "myself", label: "Myself", icon: "/Personicon.png" },
-    { id: "family", label: "Family", icon: "/Familyiconimage.jpg" },
-    { id: "parents", label: "Parents", icon: "/Coupleiconimage.png" },
-    { id: "staff", label: "Staff", icon: "/Stafficonimage.png" },
+    { id: "myself", label: "Myself", icon: icon1 },
+    { id: "family", label: "Family", icon: icon2 },
+    { id: "parents", label: "Parents", icon: icon3 },
+    { id: "staff", label: "Staff", icon: icon4 },
   ] as const;
 
   const treatmentLimits = [

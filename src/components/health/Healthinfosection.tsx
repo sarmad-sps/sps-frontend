@@ -1,11 +1,11 @@
 import InsuranceSection from "../common/InsuranceSection";
 import HealthFormCard from "./HealthFormCard";
-
+import health from "../../assets/Health Insurance.mp4"
 const HealthInfoSection = () => {
   return (
     <InsuranceSection
       FormCard={<HealthFormCard />}
-      image="/Health insurance1.mp4"
+      image={health}
       imageAlt="Health Insurance"
       tagText="≫≫ FREE QUOTE ≪≪"
       title="Find Best Health Insurance in Pakistan"
