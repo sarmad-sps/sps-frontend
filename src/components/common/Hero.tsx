@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import hero from "../../assets/Hero.webp"
+import hero from "../../assets/Hero1.jpeg"
 import car from "../../assets/car3.webp"
 import health from "../../assets/Health Desktop.webp"
 import travel from "../../assets/Travel Insurance.webp"
